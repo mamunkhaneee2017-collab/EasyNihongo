@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ef4444">
+
+<meta name="description" content="Take a free JLPT practice test on Easy Nihongo - N5 to N1 multiple-choice questions with instant scoring.">
+<meta name="author" content="Md Mamun Khan">
+
+<title>JLPT Test | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/pages/quiz.css">
+        <!-- Always Last -->
+<link rel="stylesheet" href="../css/dark.css">
+
+
+</head>
+
+<body data-page="quiz">
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div id="site-header"></div>
+    <script src="../components/header.js"></script>
+
+    <main id="main-content">
+
+
+<!-- ==========================================
+            HERO SECTION
+========================================== -->
+<section class="quiz-hero">
+    <div class="container hero-container">
+
+        <span class="hero-eyebrow reveal" data-anim="fade-up">試験 &nbsp;·&nbsp; JLPT Practice Test</span>
+
+        <h1 class="reveal" data-anim="fade-up" data-delay="80">
+            Test Your Japanese, Level by Level
+        </h1>
+
+        <p class="reveal" data-anim="fade-up" data-delay="160">
+            Free multiple-choice practice tests for JLPT N5 to N1 —
+            instant scoring, so you always know exactly where you stand.
+        </p>
+
+        <div class="quiz-stats">
+            <div class="stat-card reveal" data-anim="scale" data-delay="0">
+                <h2><span class="counter" data-target="5">0</span></h2>
+                <span>JLPT Levels</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="80">
+                <h2><span class="counter" data-target="500">0</span><span class="plus">+</span></h2>
+                <span>Practice Questions</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="160">
+                <h2><span class="counter" data-target="95">0</span><span class="plus">%</span></h2>
+                <span>JLPT Success Rate</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="240">
+                <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
+                <span>Students</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ==========================================
+            HERO SECTION END
+========================================== -->
+
+
+<!-- ==========================================
+            LEVEL SELECT
+========================================== -->
+<section class="level-select" id="levelSelect">
+
+    <div class="container">
+
+        <div class="section-title reveal" data-anim="fade-up">
+            <span class="section-eyebrow">Choose Your Level</span>
+            <h2>Pick a JLPT Test to Begin</h2>
+            <p>Each test is timed only by you — take as long as you need, and get your score at the end.</p>
+        </div>
+
+        <div class="level-grid">
+
+            <!-- N5 -->
+            <div class="level-card n5 reveal" data-anim="fade-up" data-delay="0">
+                <div class="level-top">
+                    <h2>JLPT N5</h2>
+                    <span class="badge badge-n5">Beginner</span>
+                </div>
+                <p>Basic vocabulary, particles, and everyday grammar.</p>
+                <div class="level-info">
+                    <span><i class="fa-solid fa-list-check"></i> 8 Questions</span>
+                    <span><i class="fa-regular fa-clock"></i> ~5 Min</span>
+                </div>
+                <button class="btn-ripple start-test-btn" data-level="n5">Start Test</button>
+            </div>
+
+            <!-- N4 -->
+            <div class="level-card n4 reveal" data-anim="fade-up" data-delay="80">
+                <div class="level-top">
+                    <h2>JLPT N4</h2>
+                    <span class="badge badge-n4">Elementary</span>
+                </div>
+                <p>Conditional forms, obligation, and everyday conversation.</p>
+                <div class="level-info">
+                    <span><i class="fa-solid fa-list-check"></i> 8 Questions</span>
+                    <span><i class="fa-regular fa-clock"></i> ~5 Min</span>
+                </div>
+                <button class="btn-ripple start-test-btn" data-level="n4">Start Test</button>
+            </div>
+
+            <!-- N3 -->
+            <div class="level-card locked n3 reveal" data-anim="fade-up" data-delay="160">
+                <i class="fa-solid fa-lock lock"></i>
+                <h2>JLPT N3</h2>
+                <p>Complete N4 to Unlock</p>
+            </div>
+
+            <!-- N2 -->
+            <div class="level-card locked n2 reveal" data-anim="fade-up" data-delay="240">
+                <i class="fa-solid fa-lock lock"></i>
+                <h2>JLPT N2</h2>
+                <p>Complete N3 to Unlock</p>
+            </div>
+
+            <!-- N1 -->
+            <div class="level-card locked n1 reveal" data-anim="fade-up" data-delay="320">
+                <i class="fa-solid fa-lock lock"></i>
+                <h2>JLPT N1</h2>
+                <p>Complete N2 to Unlock</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+            LEVEL SELECT END
+========================================== -->
+
+
+<!-- ==========================================
+            QUIZ INTERFACE (hidden until started)
+========================================== -->
+<section class="quiz-interface" id="quizInterface" hidden>
+
+    <div class="container quiz-box">
+
+        <div class="quiz-header">
+            <span class="quiz-level-badge" id="quizLevelBadge">N5</span>
+            <span class="quiz-progress-text" id="quizProgressText">Question 1 of 8</span>
+        </div>
+
+        <div class="quiz-bar">
+            <div class="quiz-bar-fill" id="quizBarFill"></div>
+        </div>
+
+        <h3 class="quiz-question" id="quizQuestion">Question text goes here</h3>
+
+        <div class="quiz-options" id="quizOptions">
+            <!-- Options injected by quiz.js -->
+        </div>
+
+        <div class="quiz-actions">
+            <button class="quit-btn" id="quitQuizBtn">
+                <i class="fa-solid fa-arrow-left"></i> Quit Test
+            </button>
+            <button class="btn-ripple primary-btn next-btn" id="nextQuestionBtn" disabled>
+                Next Question <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+            QUIZ INTERFACE END
+========================================== -->
+
+
+<!-- ==========================================
+            RESULTS SCREEN (hidden until finished)
+========================================== -->
+<section class="quiz-results" id="quizResults" hidden>
+
+    <div class="container results-box">
+
+        <div class="score-ring" id="scoreRing">
+            <span class="score-number" id="scoreNumber">0%</span>
+        </div>
+
+        <h2 id="resultTitle">Well done!</h2>
+        <p id="resultMessage">You answered 0 out of 0 questions correctly.</p>
+
+        <div class="result-breakdown">
+            <div class="result-stat">
+                <span class="result-num correct" id="correctCount">0</span>
+                <span>Correct</span>
+            </div>
+            <div class="result-stat">
+                <span class="result-num incorrect" id="incorrectCount">0</span>
+                <span>Incorrect</span>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <button class="btn-ripple secondary-btn" id="retryTestBtn">Retry Test</button>
+            <button class="btn-ripple primary-btn" id="backToLevelsBtn">Back to Levels</button>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+            RESULTS SCREEN END
+========================================== -->
+
+
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../components/footer.js"></script>
+
+    <script src="../data/quiz/quiz-data.js"></script>
+    <script src="../js/pages/quiz.js"></script>
+    <script src="../locales/en.js"></script>
+    <script src="../locales/bn.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/utils.js"></script>
+
+</body>
+
+</html>

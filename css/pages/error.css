@@ -1,0 +1,55 @@
+/* ==========================================
+        ERROR PAGES (404, etc.)
+========================================== */
+
+.error-page{
+    min-height:60vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.error-container{
+    max-width:520px;
+}
+
+.error-code{
+    display:inline-flex;
+    align-items:baseline;
+    gap:10px;
+    font-size:2.4rem;
+    color:var(--brand);
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.error-code small{
+    font-size:1rem;
+    color:var(--text-muted);
+    letter-spacing:.05em;
+}
+
+.error-page h1{
+    font-size:2rem;
+    margin-bottom:16px;
+    color:var(--ink);
+}
+
+.error-page p{
+    color:var(--text-muted);
+    margin-bottom:32px;
+}
+
+.error-actions{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.error-actions .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}

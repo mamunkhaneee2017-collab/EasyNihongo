@@ -1,0 +1,185 @@
+/* Easy Nihongo - register.css */
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#222;
+}
+
+.register{
+    padding:60px 20px;
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+}
+
+.register-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.register-left h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.register-left p{
+    color:#666;
+    line-height:1.8;
+}
+
+.register-left img{
+    width:100%;
+    max-width:500px;
+    margin-top:30px;
+}
+
+.register-right{
+    background:rgba(255,255,255,.92);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.register-right h2{
+    margin-top:0;
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:14px;
+    border:1px solid #d6d6d6;
+    border-radius:10px;
+    font-size:15px;
+    box-sizing:border-box;
+    transition:.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+    outline:none;
+    border-color:#ef4444;
+    box-shadow:0 0 0 4px rgba(239,68,68,.12);
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:48px;
+}
+
+.password-box i{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#666;
+}
+
+.terms-box{
+    margin:18px 0;
+    font-size:14px;
+}
+
+.register-btn,
+.google-btn,
+.github-btn{
+    width:100%;
+    border:none;
+    border-radius:10px;
+    padding:14px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.register-btn{
+    background:#ef4444;
+    color:#fff;
+    margin-bottom:18px;
+}
+
+.register-btn:hover{
+    background:#d93636;
+}
+
+.divider{
+    text-align:center;
+    margin:18px 0;
+    color:#888;
+}
+
+.social-register{
+    display:grid;
+    gap:12px;
+}
+
+.google-btn{
+    background:#fff;
+    border:1px solid #ddd;
+}
+
+.github-btn{
+    background:#24292e;
+    color:#fff;
+}
+
+.security-box{
+    margin-top:22px;
+    padding:15px;
+    border-radius:10px;
+    background:#eefaf1;
+    color:#2f6f45;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+@media (max-width:900px){
+    .register-container{
+        grid-template-columns:1fr;
+    }
+    .register-left{
+        text-align:center;
+    }
+    .register-left h1{
+        font-size:36px;
+    }
+}
+
+.error-message{
+    color:#ef4444;
+    display:block;
+    margin-top:6px;
+    font-size:13px;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ef4444">
+
+<meta name="description" content="Learn Kanji from JLPT N5 to N1 on Easy Nihongo - readings, meanings, and stroke counts.">
+<meta name="author" content="Md Mamun Khan">
+
+<title>Kanji | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/pages/kanji.css">
+        <!-- Always Last -->
+<link rel="stylesheet" href="../css/dark.css">
+
+
+</head>
+
+<body data-page="kanji">
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div id="site-header"></div>
+    <script src="../components/header.js"></script>
+
+    <main id="main-content">
+
+
+<!-- ==========================================
+            HERO SECTION
+========================================== -->
+<section class="kanji-hero">
+    <div class="container hero-container">
+
+        <span class="hero-eyebrow reveal" data-anim="fade-up">漢字 &nbsp;·&nbsp; Kanji Library</span>
+
+        <h1 class="reveal" data-anim="fade-up" data-delay="80">
+            Learn Kanji from N5 to N1
+        </h1>
+
+        <p class="reveal" data-anim="fade-up" data-delay="160">
+            Every Kanji with On'yomi and Kun'yomi readings, meanings, and stroke
+            counts — built to grow with you from your first character to N1 mastery.
+        </p>
+
+        <div class="kanji-search reveal" data-anim="fade-up" data-delay="240">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="kanjiSearch" placeholder="Search a Kanji or meaning...">
+            <span class="search-count" id="searchCount"></span>
+        </div>
+
+        <div class="kanji-stats">
+            <div class="stat-card reveal" data-anim="scale" data-delay="0">
+                <h2><span class="counter" data-target="1200">0</span><span class="plus">+</span></h2>
+                <span>Kanji Characters</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="80">
+                <h2><span class="counter" data-target="5">0</span></h2>
+                <span>JLPT Levels</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="160">
+                <h2><span class="counter" data-target="2500">0</span><span class="plus">+</span></h2>
+                <span>Example Words</span>
+            </div>
+            <div class="stat-card reveal" data-anim="scale" data-delay="240">
+                <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
+                <span>Students</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ==========================================
+            HERO SECTION END
+========================================== -->
+
+
+<!-- ==========================================
+            KANJI OF THE DAY
+========================================== -->
+<section class="featured reveal" data-anim="fade-up">
+    <div class="container featured-box">
+
+        <div class="featured-visual" aria-hidden="true">
+            <div class="featured-kanji">水</div>
+            <div class="featured-ring"></div>
+        </div>
+
+        <div class="featured-text">
+            <span class="featured-tag"><i class="fa-solid fa-star"></i> Kanji of the Day</span>
+            <h2>水 &nbsp;<span class="reading">みず / スイ</span></h2>
+            <p>
+                Meaning <strong>"water."</strong> One of the first Kanji most
+                learners encounter — appears in everyday words like 水曜日
+                (Wednesday) and 水泳 (swimming).
+            </p>
+
+            <ul class="kanji-facts">
+                <li><i class="fa-solid fa-circle-check"></i> On'yomi: スイ (sui)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Kun'yomi: みず (mizu)</li>
+                <li><i class="fa-solid fa-circle-check"></i> 4 strokes · JLPT N5</li>
+            </ul>
+
+            <a href="lesson.html" class="btn-ripple primary-btn">Practice This Kanji</a>
+        </div>
+
+    </div>
+</section>
+<!-- ==========================================
+            KANJI OF THE DAY END
+========================================== -->
+
+
+<!-- ==========================================
+            FILTER
+========================================== -->
+<section class="kanji-filter">
+    <div class="container">
+        <button class="filter-btn btn-ripple active" data-filter="all">All Levels</button>
+        <button class="filter-btn btn-ripple" data-filter="n5">JLPT N5</button>
+        <button class="filter-btn btn-ripple" data-filter="n4">JLPT N4</button>
+        <button class="filter-btn btn-ripple" data-filter="n3">JLPT N3</button>
+        <button class="filter-btn btn-ripple" data-filter="n2">JLPT N2</button>
+        <button class="filter-btn btn-ripple" data-filter="n1">JLPT N1</button>
+    </div>
+</section>
+<!-- ==========================================
+            FILTER END
+========================================== -->
+
+
+<!-- ==========================================
+            KANJI GRID
+========================================== -->
+<section class="kanji-grid" id="kanjiGrid">
+
+    <p class="no-results" id="noResults">No Kanji match your search 🔍</p>
+
+</section>
+<!-- ==========================================
+            KANJI GRID END
+========================================== -->
+
+
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="../components/footer.js"></script>
+
+    <script src="../data/kanji/kanji-data.js"></script>
+    <script src="../js/pages/kanji.js"></script>
+    <script src="../locales/en.js"></script>
+    <script src="../locales/bn.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/utils.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+/* ==========================
+        NAVBAR
+========================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:var(--surface);
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.navbar{
+    height:80px;
+}
+
+.nav-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:100%;
+}
+
+/* Menu */
+
+.nav-menu{
+    display:flex;
+    gap:35px;
+}
+
+.nav-menu a{
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-menu a:hover{
+    color:var(--brand);
+}
+
+/* Buttons */
+
+.nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#darkModeBtn{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--surface-2);
+    transition:.3s;
+}
+
+#darkModeBtn:hover{
+    background:var(--brand);
+    color:white;
+}
+
+.login-btn{
+    background:var(--brand);
+    color:white;
+    padding:12px 24px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:var(--brand-dark);
+}
+
+/* Language switcher */
+
+.lang-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:var(--surface-2);
+    color:var(--text);
+    padding:0 14px;
+    height:42px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    background:var(--brand);
+    color:#fff;
+}
+
+.lang-menu{
+    position:absolute;
+    top:64px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    box-shadow:var(--shadow-md);
+    display:flex;
+    flex-direction:column;
+    min-width:140px;
+    overflow:hidden;
+    z-index:1001;
+}
+
+/* [hidden] and .lang-menu{display:flex} both have specificity (0,1,0);
+   without this rule the later one (ours) would win the cascade and the
+   panel would stay visible even with the hidden attribute set. */
+.lang-menu[hidden]{
+    display:none;
+}
+
+.lang-menu button{
+    background:none;
+    color:var(--text);
+    text-align:left;
+    padding:10px 16px;
+    font-size:14px;
+}
+
+.lang-menu button:hover{
+    background:var(--surface-2);
+    color:var(--brand);
+}
+
+/* Nav "Courses" dropdown (Courses / Vocabulary / Grammar / Kanji) */
+
+.nav-item-dropdown{
+    position:relative;
+}
+
+.nav-dropdown-btn{
+    background:none;
+    color:inherit;
+    font-family:inherit;
+    font-weight:500;
+    font-size:inherit;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:.3s;
+}
+
+.nav-dropdown-btn:hover,
+.nav-dropdown-btn.active{
+    color:var(--brand);
+}
+
+.nav-dropdown-btn .caret{
+    font-size:11px;
+    transition:transform .25s;
+}
+
+.nav-dropdown-btn[aria-expanded="true"] .caret{
+    transform:rotate(180deg);
+}
+
+.nav-dropdown-menu{
+    position:absolute;
+    top:44px;
+    left:0;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    box-shadow:var(--shadow-md);
+    display:flex;
+    flex-direction:column;
+    min-width:170px;
+    overflow:hidden;
+    z-index:1001;
+}
+
+.nav-dropdown-menu[hidden]{
+    display:none;
+}
+
+.nav-dropdown-menu a{
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active{
+    background:var(--surface-2);
+    color:var(--brand);
+}
+
+.nav-dropdown-menu a::after{
+    content:none;
+}
+
+/* Mobile */
+
+.menu-toggle{
+    display:none;
+    background:none;
+    color:inherit;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+/* ==========================
+        ACTIVE MENU
+========================== */
+
+.nav-menu a.active{
+
+    color:var(--brand);
+
+    font-weight:700;
+
+    position:relative;
+
+}
+
+.nav-menu a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--brand);
+
+    border-radius:10px;
+
+}
+
+/* ==========================
+        LOGO
+========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    text-decoration:none;
+
+}
+.logo img{
+
+    width:120px;
+
+    height:90px;
+
+    object-fit:contain;
+
+}
+.logo-text{
+
+    font-size:28px;
+    font-weight:700;
+    color:var(--ink);   /* Easy */
+
+}
+
+.logo-text span{
+
+    color:var(--brand);   /* Nihongo */
+
+}
+/* ==========================
+        SMOOTH HOVER
+========================== */
+
+.nav-menu a{
+
+    position:relative;
+
+}
+
+.nav-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--brand);
+
+    transition:.35s;
+
+    border-radius:10px;
+
+}
+
+.nav-menu a:hover::after{
+
+    width:100%;
+
+}
+
+/* ==========================
+        MOBILE MENU
+========================== */
+
+@media(max-width:992px){
+
+.menu-toggle{
+
+display:block;
+
+}
+
+.nav-menu{
+
+position:fixed;
+
+top:80px;
+
+right:-100%;
+
+width:280px;
+
+height:calc(100vh - 80px);
+
+background:var(--surface);
+
+flex-direction:column;
+
+padding:40px 25px;
+
+gap:25px;
+
+transition:.35s;
+
+box-shadow:-10px 0 20px rgba(0,0,0,.08);
+
+}
+
+.nav-menu.active{
+
+right:0;
+
+}
+
+.nav-buttons{
+
+display:none;
+
+}
+
+/* Dropdown expands inline within the mobile drawer instead of floating */
+
+.nav-dropdown-menu{
+
+position:static;
+
+border:none;
+
+box-shadow:none;
+
+margin-top:8px;
+
+padding-left:14px;
+
+}
+
+}
+

@@ -1,0 +1,628 @@
+/* ==========================================
+            KANJI PAGE
+   Extends style.css + navbar.css + footer.css.
+   Does NOT redeclare *, body, .container,
+   section, .reveal, or .btn-ripple —
+   those live in style.css (shared sitewide).
+========================================== */
+
+:root{
+
+    --surface:#ffffff;
+    --surface-2:#f1f5f9;
+    --text:#1e293b;
+    --text-muted:#64748b;
+    --border:#e2e8f0;
+
+    --primary:#ef4444;
+    --primary-dark:#dc2626;
+    --primary-light:#fee2e2;
+
+    --shadow-sm:0 4px 15px rgba(0,0,0,.05);
+    --shadow-md:0 10px 25px rgba(0,0,0,.08);
+    --shadow-lg:0 20px 40px rgba(0,0,0,.12);
+
+    --transition:.3s cubic-bezier(.4,0,.2,1);
+
+}
+
+/* ==========================================
+            DARK MODE
+========================================== */
+
+body.dark{
+
+    background:#0f1115;
+    color:#f3f4f6;
+
+    --surface:#1a1d24;
+    --surface-2:#20242c;
+    --text:#f3f4f6;
+    --text-muted:#9ca3af;
+    --border:#2d3138;
+    --primary-light:#3f1d1d;
+
+}
+
+body.dark header{
+    background:#1a1d24;
+    box-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+
+body.dark .logo{
+    color:#f3f4f6;
+}
+
+body.dark .nav-menu a{
+    color:#f3f4f6;
+}
+
+body.dark #darkModeBtn{
+    background:#20242c;
+    color:#f3f4f6;
+}
+
+/* ==========================================
+            HERO SECTION
+========================================== */
+
+.kanji-hero{
+
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    text-align:center;
+    padding:100px 20px 90px;
+
+}
+
+.hero-container{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+.hero-eyebrow{
+
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:22px;
+
+}
+
+.kanji-hero h1{
+
+    font-size:48px;
+    margin-bottom:20px;
+    font-weight:700;
+    line-height:1.15;
+    color:white;
+
+}
+
+.kanji-hero p{
+
+    max-width:750px;
+    margin:0 auto 40px;
+    font-size:18px;
+    line-height:1.8;
+    color:rgba(255,255,255,.92);
+
+}
+
+/* Search */
+
+.kanji-search{
+
+    max-width:550px;
+    height:60px;
+    margin:0 auto 50px;
+    background:var(--surface);
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    padding:0 25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    transition:box-shadow var(--transition);
+
+}
+
+.kanji-search:focus-within{
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.kanji-search i{
+
+    color:var(--text-muted);
+
+}
+
+.kanji-search input{
+
+    flex:1;
+    border:none;
+    outline:none;
+    margin-left:15px;
+    font-size:16px;
+    background:transparent;
+    color:var(--text);
+    font-family:inherit;
+
+}
+
+.search-count{
+
+    font-size:13px;
+    color:var(--text-muted);
+    font-weight:600;
+    white-space:nowrap;
+
+}
+
+/* Statistics */
+
+.kanji-stats{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:18px;
+    transition:transform var(--transition);
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.stat-card h2{
+
+    font-size:36px;
+    margin-bottom:10px;
+    font-variant-numeric:tabular-nums;
+    color:white;
+
+}
+
+.stat-card .plus{
+
+    font-size:26px;
+
+}
+
+.stat-card span{
+
+    font-size:16px;
+
+}
+
+@media(max-width:768px){
+
+    .kanji-hero h1{
+        font-size:34px;
+    }
+
+    .kanji-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:576px){
+
+    .kanji-stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ==========================================
+            KANJI OF THE DAY
+========================================== */
+
+.featured{
+
+    padding:70px 0;
+
+}
+
+.featured-box{
+
+    background:var(--surface);
+    border-radius:24px;
+    padding:60px;
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:40px;
+    align-items:center;
+    box-shadow:var(--shadow-md);
+
+}
+
+.featured-tag{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary-light);
+    color:var(--primary-dark);
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:18px;
+
+}
+
+.featured-text h2{
+
+    font-size:36px;
+    margin-bottom:16px;
+    color:var(--text);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+
+}
+
+.featured-text h2 .reading{
+
+    font-size:16px;
+    font-weight:600;
+    color:var(--primary);
+
+}
+
+.featured-text p{
+
+    color:var(--text-muted);
+    line-height:1.8;
+    margin-bottom:22px;
+
+}
+
+.kanji-facts{
+
+    margin-bottom:28px;
+
+}
+
+.kanji-facts li{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    font-size:15px;
+    color:var(--text);
+
+}
+
+.kanji-facts i{
+
+    color:#10b981;
+
+}
+
+.featured-visual{
+
+    position:relative;
+    height:280px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.featured-kanji{
+
+    font-size:80px;
+    font-weight:700;
+    color:var(--primary);
+    z-index:2;
+
+}
+
+.featured-ring{
+
+    position:absolute;
+    width:220px;
+    height:220px;
+    border:2px dashed var(--primary-light);
+    border-radius:50%;
+    animation:spin 30s linear infinite;
+
+}
+
+.featured-ring::before{
+
+    content:"";
+    position:absolute;
+    inset:30px;
+    border:2px solid var(--primary-light);
+    border-radius:50%;
+
+}
+
+@keyframes spin{
+
+    to{ transform:rotate(360deg); }
+
+}
+
+@media(max-width:900px){
+
+    .featured-box{
+        grid-template-columns:1fr;
+        padding:40px 28px;
+        text-align:center;
+    }
+
+    .featured-text h2{
+        justify-content:center;
+    }
+
+    .kanji-facts li{
+        justify-content:center;
+    }
+
+    .featured-visual{
+        height:180px;
+    }
+
+    .featured-kanji{
+        font-size:60px;
+    }
+
+}
+
+/* ==========================================
+            FILTER
+========================================== */
+
+.kanji-filter{
+
+    padding:35px 0;
+    background:var(--surface);
+    position:sticky;
+    top:80px;
+    z-index:50;
+    border-bottom:1px solid var(--border);
+
+}
+
+.kanji-filter .container{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.filter-btn{
+
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:var(--surface-2);
+    color:var(--text);
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    font-family:inherit;
+    transition:background var(--transition),color var(--transition),transform var(--transition);
+
+}
+
+.filter-btn:hover{
+
+    background:var(--primary);
+    color:white;
+    transform:translateY(-2px);
+
+}
+
+.filter-btn.active{
+
+    background:var(--primary);
+    color:white;
+
+}
+
+/* ==========================================
+            KANJI GRID
+========================================== */
+
+.kanji-grid{
+
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:24px;
+    position:relative;
+    padding:0;
+
+}
+
+/* ==========================================
+            KANJI CARD
+========================================== */
+
+.kanji-card{
+
+    background:var(--surface);
+    border-radius:18px;
+    padding:26px 22px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:var(--shadow-sm);
+    transition:transform var(--transition),box-shadow var(--transition);
+    border:1px solid var(--border);
+    text-align:center;
+
+}
+
+.kanji-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+
+}
+
+.kanji-top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:14px;
+
+}
+
+.kanji-char{
+
+    font-size:44px;
+    font-weight:700;
+    color:var(--text);
+    line-height:1;
+
+}
+
+.kanji-readings{
+
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:12px;
+    text-align:left;
+
+}
+
+.kanji-meaning{
+
+    color:var(--text);
+    font-weight:600;
+    margin-bottom:14px;
+    text-transform:capitalize;
+
+}
+
+.kanji-info{
+
+    font-size:13px;
+    color:var(--text-muted);
+    margin-top:auto;
+
+}
+
+.kanji-info i{
+
+    margin-right:6px;
+    color:var(--primary);
+
+}
+
+/* ==========================================
+            BADGES (per JLPT level)
+========================================== */
+
+.badge{
+
+    padding:5px 12px;
+    border-radius:30px;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+    flex-shrink:0;
+
+}
+
+.badge-n5{ background:#10b981; }
+.badge-n4{ background:#3b82f6; }
+.badge-n3{ background:#f59e0b; }
+.badge-n2{ background:#8b5cf6; }
+.badge-n1{ background:#ef4444; }
+
+/* ==========================================
+            LOCKED
+========================================== */
+
+.locked{
+
+    align-items:center;
+    justify-content:center;
+    opacity:.7;
+    grid-column:span 1;
+
+}
+
+.lock{
+
+    font-size:44px;
+    color:#9ca3af;
+    margin-bottom:18px;
+
+}
+
+.locked h2{
+
+    font-size:20px;
+    margin-bottom:6px;
+
+}
+
+.no-results{
+
+    display:none;
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px 20px;
+    color:var(--text-muted);
+    font-size:17px;
+
+}
+
+.no-results.show{
+
+    display:block;
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .kanji-search{
+        width:100%;
+    }
+
+    .kanji-filter{
+        top:0;
+    }
+
+}

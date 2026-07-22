@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vocabulary | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/pages/vocabulary.css">
+<link rel="stylesheet" href="../css/footer.css">
+        <!-- Always Last -->
+<link rel="stylesheet" href="../css/dark.css">
+
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body data-page="vocabulary">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div id="site-header"></div>
+<script src="../components/header.js"></script>
+
+<main id="main-content">
+<!-- ==========================================
+                HERO
+========================================== -->
+
+<section class="vocabulary-hero">
+
+<div class="container">
+
+<h1>
+
+Master Japanese Vocabulary 🇯🇵
+
+</h1>
+
+<p>
+
+Build your Japanese vocabulary from JLPT N5 to N1 with thousands of carefully organized words.
+
+</p>
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Vocabulary Level...">
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h2>5</h2>
+
+<p>JLPT Levels</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>6200+</h2>
+
+<p>Words</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>250+</h2>
+
+<p>Chapters</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Native</h2>
+
+<p>Audio</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            FILTER
+========================================== -->
+
+<section class="filter-section">
+
+<div class="container">
+
+<button class="filter-btn active" data-filter="all">All</button>
+
+<button class="filter-btn" data-filter="n5">N5</button>
+
+<button class="filter-btn" data-filter="n4">N4</button>
+
+<button class="filter-btn" data-filter="n3">N3</button>
+
+<button class="filter-btn" data-filter="n2">N2</button>
+
+<button class="filter-btn" data-filter="n1">N1</button>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            VOCABULARY GRID
+========================================== -->
+
+<section class="vocabulary-section">
+
+<div class="container">
+
+<div class="vocabulary-grid" id="vocabularyGrid"></div>
+
+</div>
+
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="../components/footer.js"></script>
+
+<script src="../data/vocabulary/vocabulary-data.js"></script>
+<script src="../js/pages/vocabulary.js"></script>
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/utils.js"></script>
+
+</body>
+
+</html>

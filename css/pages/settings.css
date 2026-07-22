@@ -1,0 +1,183 @@
+/* ==========================================
+        SETTINGS PAGE
+========================================== */
+
+.settings-section{
+    padding:0 35px 60px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    max-width:1100px;
+}
+
+.settings-card{
+    background:var(--surface);
+    border-radius:var(--radius-md);
+    padding:26px 28px;
+    box-shadow:var(--shadow-sm);
+}
+
+.settings-card h2{
+    font-size:1.15rem;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+    color:var(--ink);
+}
+
+.settings-card h2 i{
+    color:var(--brand);
+}
+
+.settings-hint{
+    font-size:13.5px;
+    color:var(--text-muted);
+    margin-bottom:18px;
+}
+
+.settings-field{
+    margin-bottom:14px;
+}
+
+.settings-field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--text);
+}
+
+.settings-field select,
+.settings-field input[type="number"]{
+    width:100%;
+    padding:10px 14px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    background:var(--bg);
+    color:var(--text);
+    font-family:inherit;
+    font-size:14px;
+}
+
+.settings-toggle-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+    font-size:14px;
+}
+
+.settings-toggle-row:last-child{
+    border-bottom:none;
+}
+
+/* Toggle switch */
+
+.switch{
+    position:relative;
+    display:inline-block;
+    width:44px;
+    height:24px;
+    flex:none;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.switch .slider{
+    position:absolute;
+    inset:0;
+    background:var(--border);
+    border-radius:24px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.switch .slider::before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.switch input:checked + .slider{
+    background:var(--brand);
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(20px);
+}
+
+/* Font size picker */
+
+.font-size-options{
+    display:flex;
+    gap:10px;
+}
+
+.font-size-btn{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    padding:14px 10px;
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    background:var(--bg);
+    color:var(--text);
+    font-weight:700;
+    cursor:pointer;
+}
+
+.font-size-btn[data-size="small"]{ font-size:14px; }
+.font-size-btn[data-size="normal"]{ font-size:18px; }
+.font-size-btn[data-size="large"]{ font-size:22px; }
+
+.font-size-btn span{
+    font-size:11px;
+    font-weight:500;
+    color:var(--text-muted);
+}
+
+.font-size-btn.active{
+    border-color:var(--brand);
+    color:var(--brand);
+}
+
+.font-size-btn.active span{
+    color:var(--brand);
+}
+
+.save-settings-btn{
+    grid-column:1 / -1;
+    justify-self:start;
+}
+
+.form-status{
+    grid-column:1 / -1;
+    font-size:14px;
+    font-weight:500;
+    min-height:20px;
+}
+
+.form-status.success{
+    color:#15803d;
+}
+
+@media (max-width:768px){
+    .settings-section{
+        grid-template-columns:1fr;
+        padding:0 20px 50px;
+    }
+}

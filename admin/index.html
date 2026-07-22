@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Easy Nihongo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="admin-sidebar" id="adminSidebar">
+
+            <div class="admin-sidebar-brand">
+                <h2 class="footer-logo">Easy<span>Nihongo</span></h2>
+                <span class="admin-sidebar-tag">Admin Panel</span>
+            </div>
+
+            <nav class="admin-nav">
+
+                <a href="#dashboard" class="admin-nav-link active" data-view="dashboard">
+                    <i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span>
+                </a>
+
+                <a href="#courses" class="admin-nav-link" data-view="courses">
+                    <i class="fa-solid fa-folder-open"></i> <span>Courses &amp; Files</span>
+                </a>
+
+                <a href="#messages" class="admin-nav-link" data-view="messages">
+                    <i class="fa-solid fa-envelope"></i> <span>Messages</span>
+                    <span class="nav-badge" id="messagesBadge">3</span>
+                </a>
+
+                <a href="#visitors" class="admin-nav-link" data-view="visitors">
+                    <i class="fa-solid fa-chart-line"></i> <span>Visitors</span>
+                </a>
+
+                <a href="#students" class="admin-nav-link" data-view="students">
+                    <i class="fa-solid fa-user-graduate"></i> <span>Students</span>
+                </a>
+
+                <a href="#settings" class="admin-nav-link" data-view="settings">
+                    <i class="fa-solid fa-gear"></i> <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <a href="login.html" class="admin-logout" id="adminLogoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span>
+            </a>
+
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+
+        <div class="admin-main">
+
+            <!-- Topbar -->
+
+            <header class="admin-topbar">
+
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="admin-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search students, messages, files...">
+                </div>
+
+                <div class="admin-topbar-right">
+
+                    <button id="adminDarkModeBtn" title="Dark Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+
+                    <div class="admin-notification" id="notifBtn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notif-dot"></span>
+
+                        <div class="notif-dropdown" id="notifDropdown">
+                            <h4>Notifications</h4>
+                            <div class="notif-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <p><strong>Sara Kim</strong> sent a new message</p>
+                                    <span>5 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-item">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <div>
+                                    <p><strong>Ahmed Rahman</strong> joined as a student</p>
+                                    <span>2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notif-item">
+                                <i class="fa-solid fa-globe"></i>
+                                <div>
+                                    <p>12 new visitors from Bangladesh today</p>
+                                    <span>Today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-profile">
+                        <div class="admin-avatar">MK</div>
+                        <div class="admin-profile-info">
+                            <strong>Md Mamun Khan</strong>
+                            <span>Super Admin</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Content -->
+
+            <main class="admin-content">
+
+                <!-- ============ DASHBOARD VIEW ============ -->
+
+                <section class="admin-view active" id="view-dashboard">
+
+                    <div class="view-header">
+                        <h1>Dashboard Overview</h1>
+                        <p>Welcome back, here's what's happening on Easy Nihongo today.</p>
+                    </div>
+
+                    <div class="stat-grid">
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-blue"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div>
+                                <h3>2,480</h3>
+                                <p>Total Students</p>
+                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 8.2% this month</span>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-red"><i class="fa-solid fa-folder-open"></i></div>
+                            <div>
+                                <h3>316</h3>
+                                <p>Course Files</p>
+                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 12 added this week</span>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-yellow"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h3>3</h3>
+                                <p>Unread Messages</p>
+                                <span class="stat-trend">Awaiting reply</span>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-green"><i class="fa-solid fa-globe"></i></div>
+                            <div>
+                                <h3>184</h3>
+                                <p>Visitors Today</p>
+                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 5.4% vs yesterday</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <div class="admin-card chart-card">
+                            <div class="admin-card-header">
+                                <h3>Visitors — Last 7 Days</h3>
+                            </div>
+                            <div class="bar-chart" id="visitorChart">
+                                <div class="bar-col"><div class="bar" style="--h:45%"></div><span>Mon</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:60%"></div><span>Tue</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:38%"></div><span>Wed</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:72%"></div><span>Thu</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:55%"></div><span>Fri</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:80%"></div><span>Sat</span></div>
+                                <div class="bar-col"><div class="bar" style="--h:65%"></div><span>Sun</span></div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3>Top Countries</h3>
+                            </div>
+                            <div class="country-list">
+                                <div class="country-row"><span>🇧🇩 Bangladesh</span><div class="country-bar"><div style="width:78%"></div></div><b>78%</b></div>
+                                <div class="country-row"><span>🇯🇵 Japan</span><div class="country-bar"><div style="width:52%"></div></div><b>52%</b></div>
+                                <div class="country-row"><span>🇮🇳 India</span><div class="country-bar"><div style="width:31%"></div></div><b>31%</b></div>
+                                <div class="country-row"><span>🇳🇵 Nepal</span><div class="country-bar"><div style="width:18%"></div></div><b>18%</b></div>
+                                <div class="country-row"><span>🇺🇸 USA</span><div class="country-bar"><div style="width:9%"></div></div><b>9%</b></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3>Recent Messages</h3>
+                                <a href="#messages" class="view-all-link" data-view="messages">View all</a>
+                            </div>
+                            <ul class="recent-list">
+                                <li>
+                                    <div class="recent-avatar">SK</div>
+                                    <div class="recent-info">
+                                        <strong>Sara Kim</strong>
+                                        <p>Question about JLPT N3 listening files...</p>
+                                    </div>
+                                    <span class="recent-time">5m ago</span>
+                                </li>
+                                <li>
+                                    <div class="recent-avatar">AR</div>
+                                    <div class="recent-info">
+                                        <strong>Ahmed Rahman</strong>
+                                        <p>Can't download the N4 grammar PDF...</p>
+                                    </div>
+                                    <span class="recent-time">2h ago</span>
+                                </li>
+                                <li>
+                                    <div class="recent-avatar">JL</div>
+                                    <div class="recent-info">
+                                        <strong>John Lee</strong>
+                                        <p>Feedback on the new kanji audio lessons...</p>
+                                    </div>
+                                    <span class="recent-time">1d ago</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3>Recent Visitors</h3>
+                                <a href="#visitors" class="view-all-link" data-view="visitors">View all</a>
+                            </div>
+                            <ul class="recent-list">
+                                <li>
+                                    <div class="recent-avatar flag">🇧🇩</div>
+                                    <div class="recent-info">
+                                        <strong>Dhaka, Bangladesh</strong>
+                                        <p>Viewed /courses.html · Mobile</p>
+                                    </div>
+                                    <span class="recent-time">2m ago</span>
+                                </li>
+                                <li>
+                                    <div class="recent-avatar flag">🇯🇵</div>
+                                    <div class="recent-info">
+                                        <strong>Tokyo, Japan</strong>
+                                        <p>Viewed /index.html · Desktop</p>
+                                    </div>
+                                    <span class="recent-time">11m ago</span>
+                                </li>
+                                <li>
+                                    <div class="recent-avatar flag">🇮🇳</div>
+                                    <div class="recent-info">
+                                        <strong>Mumbai, India</strong>
+                                        <p>Viewed /contact.html · Mobile</p>
+                                    </div>
+                                    <span class="recent-time">40m ago</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ============ COURSES & FILES VIEW ============ -->
+
+                <section class="admin-view" id="view-courses">
+
+                    <div class="view-header">
+                        <h1>Courses &amp; Files</h1>
+                        <p>Upload and manage PDFs, Word docs, slides, text notes, audio and video lessons.</p>
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="upload-zone" id="uploadZone">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <h3>Drag &amp; drop files here, or click to browse</h3>
+                            <p>Supported: PDF, DOC/DOCX, PPT/PPTX, TXT, MP3/WAV (audio), MP4 (video) — up to 200MB</p>
+                            <input type="file" id="fileInput" multiple hidden
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.mp3,.wav,.mp4">
+                            <button type="button" class="btn btn-primary" id="browseBtn">Choose Files</button>
+                        </div>
+
+                        <div class="upload-meta-form">
+                            <div class="form-group">
+                                <label>JLPT Level</label>
+                                <select id="uploadLevel">
+                                    <option>N5</option>
+                                    <option>N4</option>
+                                    <option>N3</option>
+                                    <option>N2</option>
+                                    <option>N1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select id="uploadCategory">
+                                    <option>Vocabulary</option>
+                                    <option>Grammar</option>
+                                    <option>Kanji</option>
+                                    <option>Listening</option>
+                                    <option>Reading</option>
+                                    <option>Speaking</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="uploadPreviewList" class="upload-preview-list"></div>
+
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+                            <h3>All Course Materials</h3>
+                            <div class="table-filters">
+                                <select id="filterType">
+                                    <option value="all">All Types</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="doc">Word</option>
+                                    <option value="ppt">Slides</option>
+                                    <option value="audio">Audio</option>
+                                    <option value="video">Video</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="filesTable">
+                                <thead>
+                                    <tr>
+                                        <th>File</th>
+                                        <th>Level</th>
+                                        <th>Category</th>
+                                        <th>Type</th>
+                                        <th>Size</th>
+                                        <th>Uploaded</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="filesTableBody">
+                                    <!-- Rows injected by admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ============ MESSAGES VIEW ============ -->
+
+                <section class="admin-view" id="view-messages">
+
+                    <div class="view-header">
+                        <h1>Messages</h1>
+                        <p>Questions and comments submitted through the Contact page.</p>
+                    </div>
+
+                    <div class="messages-layout">
+
+                        <div class="admin-card messages-list-card">
+                            <div class="admin-card-header">
+                                <h3>Inbox</h3>
+                            </div>
+                            <ul class="messages-list" id="messagesList">
+                                <!-- Rows injected by admin.js -->
+                            </ul>
+                        </div>
+
+                        <div class="admin-card message-detail-card" id="messageDetail">
+                            <p class="empty-state">Select a message from the inbox to read and reply.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ============ VISITORS VIEW ============ -->
+
+                <section class="admin-view" id="view-visitors">
+
+                    <div class="view-header">
+                        <h1>Visitor Analytics</h1>
+                        <p>See who is visiting Easy Nihongo, when, and from which country.</p>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-blue"><i class="fa-solid fa-eye"></i></div>
+                            <div><h3>48,920</h3><p>Total Visits</p></div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-green"><i class="fa-solid fa-calendar-day"></i></div>
+                            <div><h3>184</h3><p>Today</p></div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-yellow"><i class="fa-solid fa-calendar-week"></i></div>
+                            <div><h3>1,206</h3><p>This Week</p></div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon icon-red"><i class="fa-solid fa-earth-asia"></i></div>
+                            <div><h3>🇧🇩 Bangladesh</h3><p>Top Country</p></div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3>Recent Visitor Log</h3>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Country</th>
+                                        <th>City</th>
+                                        <th>Page Visited</th>
+                                        <th>Device</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="visitorsTableBody">
+                                    <!-- Rows injected by admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============ STUDENTS VIEW ============ -->
+
+                <section class="admin-view" id="view-students">
+
+                    <div class="view-header">
+                        <h1>Students</h1>
+                        <p>Everyone who has registered an account on Easy Nihongo.</p>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3>All Students</h3>
+                            <div class="table-filters">
+                                <select id="filterLevel">
+                                    <option value="all">All Levels</option>
+                                    <option value="N5">N5</option>
+                                    <option value="N4">N4</option>
+                                    <option value="N3">N3</option>
+                                    <option value="N2">N2</option>
+                                    <option value="N1">N1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="studentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Country</th>
+                                        <th>Level</th>
+                                        <th>Joined</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="studentsTableBody">
+                                    <!-- Rows injected by admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============ SETTINGS VIEW ============ -->
+
+                <section class="admin-view" id="view-settings">
+
+                    <div class="view-header">
+                        <h1>Settings</h1>
+                        <p>Manage site information and your admin account.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <div class="admin-card">
+                            <div class="admin-card-header"><h3>Site Information</h3></div>
+                            <div class="settings-form">
+                                <div class="form-group">
+                                    <label>Site Name</label>
+                                    <input type="text" value="Easy Nihongo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contact Email</label>
+                                    <input type="email" value="info@easynihongo.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Support Phone</label>
+                                    <input type="text" placeholder="e.g. 080-1234-5678">
+                                </div>
+                                <button class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header"><h3>Admin Account</h3></div>
+                            <div class="settings-form">
+                                <div class="form-group">
+                                    <label>Admin Name</label>
+                                    <input type="text" value="Md Mamun Khan">
+                                </div>
+                                <div class="form-group">
+                                    <label>New Password</label>
+                                    <input type="password" placeholder="Leave blank to keep current password">
+                                </div>
+                                <div class="form-group toggle-row">
+                                    <label>Email me a copy of every new contact message</label>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="form-group toggle-row">
+                                    <label>Maintenance mode</label>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary">Update Account</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

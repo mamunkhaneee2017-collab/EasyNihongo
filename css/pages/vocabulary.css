@@ -1,0 +1,446 @@
+/* ==========================================
+                HERO
+========================================== */
+
+.vocabulary-hero{
+
+    padding:80px 0;
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+    color:white;
+    text-align:center;
+
+}
+
+.vocabulary-hero h1{
+
+    font-size:52px;
+    margin-bottom:20px;
+
+}
+
+.vocabulary-hero p{
+
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:18px;
+
+}
+
+/* ==========================================
+                SEARCH
+========================================== */
+
+.search-box{
+
+    width:600px;
+    max-width:100%;
+    height:60px;
+    background:white;
+    margin:40px auto;
+
+    display:flex;
+    align-items:center;
+
+    border-radius:50px;
+
+    padding:0 25px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+.search-box i{
+
+    color:#6b7280;
+    font-size:18px;
+
+}
+
+.search-box input{
+
+    flex:1;
+    border:none;
+    outline:none;
+    margin-left:15px;
+    font-size:16px;
+
+}
+
+/* ==========================================
+                STATS
+========================================== */
+
+.stats{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:50px;
+
+}
+
+.stat-card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.stat-card h2{
+
+    font-size:40px;
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    color:white;
+
+}
+
+/* ==========================================
+                FILTER
+========================================== */
+
+.filter-section{
+
+    padding:40px 0;
+    text-align:center;
+
+}
+
+.filter-btn{
+
+    padding:14px 28px;
+    margin:8px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.filter-btn:hover,
+
+.filter-btn.active{
+
+    background:#ef4444;
+    color:white;
+
+}
+
+/* ==========================================
+            VOCABULARY GRID
+========================================== */
+
+.vocabulary-section{
+
+    padding-bottom:80px;
+
+}
+
+.vocabulary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/* ==========================================
+                CARD
+========================================== */
+
+.vocabulary-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.vocabulary-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.12);
+
+}
+
+.vocabulary-card h2{
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+.vocabulary-card p{
+
+    color:#6b7280;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================
+                BADGE
+========================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+
+}
+
+.beginner{
+
+    background:#10b981;
+
+}
+
+.elementary{
+
+    background:#3b82f6;
+
+}
+
+/* ==========================================
+            PROGRESS BAR
+========================================== */
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin:25px 0;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+}
+
+.n5-progress{
+
+    width:65%;
+
+    background:#ef4444;
+
+}
+
+.n4-progress{
+
+    width:35%;
+
+    background:#3b82f6;
+
+}
+
+/* ==========================================
+                BUTTON
+========================================== */
+
+.vocabulary-card button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.vocabulary-card button:hover{
+
+    background:#dc2626;
+
+}
+
+/* ==========================================
+                LOCKED
+========================================== */
+
+.locked{
+
+    text-align:center;
+
+    opacity:.75;
+
+}
+
+.locked i{
+
+    font-size:60px;
+
+    color:#9ca3af;
+
+    margin-bottom:25px;
+
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.vocabulary-hero h1{
+
+font-size:38px;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.search-box{
+
+height:55px;
+
+}
+
+.filter-btn{
+
+display:block;
+
+width:100%;
+
+}
+
+}
+/* ==========================================
+        CARD ANIMATION
+========================================== */
+
+.vocabulary-card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.6s;
+
+}
+
+.vocabulary-card.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==========================================
+        DARK MODE
+========================================== */
+
+body.dark{
+
+background:#111827;
+
+color:white;
+
+}
+
+body.dark .vocabulary-card,
+
+body.dark .filter-btn,
+
+body.dark .search-box{
+
+background:#1f2937;
+
+color:white;
+
+}
+
+body.dark input{
+
+background:transparent;
+
+color:white;
+
+}
+
+body.dark .filter-btn.active{
+
+background:#ef4444;
+
+}
+
+body.dark .search-box i{
+
+color:#d1d5db;
+
+}

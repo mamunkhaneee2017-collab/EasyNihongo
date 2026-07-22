@@ -1,0 +1,71 @@
+/* ==========================================
+   EASY NIHONGO — DESIGN TOKENS
+   Single source of truth for color, radius,
+   shadow and font values. Load this file
+   FIRST, before every other stylesheet.
+
+   Dark mode works by redefining these same
+   tokens under body.dark — components should
+   read colors from var(--token) instead of
+   hardcoding hex values, so they get dark mode
+   for free instead of needing a rule in dark.css.
+========================================== */
+
+:root{
+
+    /* Brand */
+    --brand:#ef4444;
+    --brand-dark:#dc2626;
+    --brand-light:#fee2e2;
+    --brand-light-text:#dc2626;
+
+    /* Neutrals */
+    --ink:#111827;
+    --text:#1e293b;
+    --text-muted:#64748b;
+    --bg:#f8fafc;
+    --surface:#ffffff;
+    --surface-2:#f1f5f9;
+    --border:#e2e8f0;
+
+    /* Shadows */
+    --shadow-sm:0 4px 15px rgba(0,0,0,.05);
+    --shadow-md:0 10px 25px rgba(0,0,0,.08);
+    --shadow-lg:0 20px 40px rgba(0,0,0,.12);
+
+    /* Radius */
+    --radius-sm:8px;
+    --radius-md:15px;
+    --radius-lg:20px;
+
+    /* Type */
+    --font-body:'Poppins',sans-serif;
+
+    --transition:.3s cubic-bezier(.4,0,.2,1);
+
+}
+
+/* ==========================================
+   DARK MODE — same tokens, dark values.
+   Toggled by adding class "dark" to <body>
+   (see js/utils.js).
+========================================== */
+
+body.dark{
+
+    --ink:#ffffff;
+    --text:#f9fafb;
+    --text-muted:#d1d5db;
+    --bg:#111827;
+    --surface:#374151;
+    --surface-2:#1f2937;
+    --border:#4b5563;
+
+    --brand-light:#7f1d1d;
+    --brand-light-text:#fecaca;
+
+    --shadow-sm:none;
+    --shadow-md:none;
+    --shadow-lg:none;
+
+}

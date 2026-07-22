@@ -1,0 +1,443 @@
+﻿/*====================================
+        HIRAGANA
+=====================================*/
+
+body{
+
+font-family:Poppins,sans-serif;
+
+background:#f3f4f6;
+
+}
+
+.lesson-header{
+
+background:white;
+
+padding:50px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.lesson-header h1{
+
+font-size:42px;
+
+margin-bottom:10px;
+
+}
+
+.lesson-progress{
+
+width:90%;
+
+max-width:1100px;
+
+margin:40px auto;
+
+}
+
+.progress-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:12px;
+
+font-weight:600;
+
+}
+
+.progress{
+
+height:14px;
+
+background:#ddd;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+width:0%;
+
+height:100%;
+
+background:#ef4444;
+
+transition:1s;
+
+}
+
+.hiragana-grid{
+
+width:90%;
+
+max-width:1200px;
+
+margin:50px auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h2{
+
+font-size:60px;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+font-size:24px;
+
+margin-bottom:25px;
+
+color:#6b7280;
+
+}
+
+.play-btn{
+
+background:#ef4444;
+
+color:white;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+.lesson-navigation{
+
+width:90%;
+
+max-width:1100px;
+
+margin:50px auto;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.back-btn,
+
+.next-btn{
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:10px;
+
+font-size:16px;
+
+cursor:pointer;
+
+color:white;
+
+}
+
+.back-btn{
+
+background:#6b7280;
+
+}
+
+.next-btn{
+
+background:#ef4444;
+
+}
+/*====================================
+        SEARCH
+=====================================*/
+
+.search-section{
+
+width:90%;
+
+max-width:1200px;
+
+margin:40px auto;
+
+}
+
+.search-box{
+
+background:white;
+
+height:60px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 20px;
+
+border-radius:50px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.search-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+margin-left:15px;
+
+font-size:16px;
+
+}
+
+/*====================================
+        ACTIONS
+=====================================*/
+
+.actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.actions button{
+
+width:45px;
+
+height:45px;
+
+border:none;
+
+border-radius:50%;
+
+background:#ef4444;
+
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.actions button:hover{
+
+transform:scale(1.1);
+
+}
+
+.favorite.active{
+
+background:#f59e0b;
+
+}
+/*==============================
+        CARD HEADER
+===============================*/
+
+.card-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.jlpt{
+
+background:#3b82f6;
+
+color:white;
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:bold;
+
+}
+
+.favorite{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#f3f4f6;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.favorite.active{
+
+background:#fbbf24;
+
+color:white;
+
+}
+
+/*==============================
+        EXAMPLE
+===============================*/
+
+.example{
+
+    margin:20px 0;
+
+    padding:15px;
+
+    background:#f9fafb;
+
+    border-radius:10px;
+
+}
+
+.example h4{
+
+    font-size:24px;
+
+    margin-bottom:5px;
+
+}
+
+.example small{
+
+    color:#6b7280;
+
+}
+
+.example p{
+
+    margin-top:10px;
+
+    font-weight:600;
+
+}
+
+/*==============================
+        SENTENCE
+===============================*/
+
+.sentence{
+
+    padding:15px;
+
+    background:#eef2ff;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+}
+
+.sentence p{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+
+}
+
+    .sentence small{
+
+    color:#6b7280;
+
+}
+
+/*==============================
+        FOOTER
+===============================*/
+
+.bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+.difficulty{
+
+    background:#10b981;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}

@@ -1,0 +1,322 @@
+/* ==========================================
+   CONTACT PAGE STYLES
+   Scoped so it layers safely on top of
+   style.css / navbar.css / home.css
+========================================== */
+
+:root {
+    --contact-primary: #e63950;
+    --contact-primary-dark: #c72e42;
+    --contact-bg-soft: #fff5f2;
+    --contact-text: #1f2937;
+    --contact-muted: #6b7280;
+    --contact-border: #e5e7eb;
+    --contact-radius: 14px;
+}
+
+/* ---------- Contact Hero ---------- */
+
+.contact-hero {
+    padding: 110px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--contact-bg-soft) 0%, #ffffff 100%);
+}
+
+.contact-hero-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-hero .hero-tag {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(230, 57, 80, 0.1);
+    color: var(--contact-primary);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contact-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--contact-text);
+}
+
+.contact-hero p {
+    color: var(--contact-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ---------- Contact Section Layout ---------- */
+
+.contact-section {
+    padding: 70px 0 100px;
+    background: #ffffff;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ---------- Form Card ---------- */
+
+.contact-form-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--contact-border);
+    border-radius: var(--contact-radius);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+}
+
+.contact-form-wrapper h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--contact-text);
+    margin-bottom: 8px;
+}
+
+.contact-form-subtitle {
+    color: var(--contact-muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--contact-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 13px 16px;
+    border: 1px solid var(--contact-border);
+    border-radius: 10px;
+    color: var(--contact-text);
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--contact-primary);
+    background: #ffffff;
+}
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #dc2626;
+    min-height: 14px;
+}
+
+.contact-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    background: var(--contact-primary);
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.contact-submit-btn:hover {
+    background: var(--contact-primary-dark);
+    transform: translateY(-2px);
+}
+
+.contact-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-status {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 20px;
+}
+
+.form-status.success {
+    color: #15803d;
+}
+
+.form-status.error {
+    color: #dc2626;
+}
+
+/* ---------- Info Sidebar ---------- */
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-info-card {
+    background: var(--contact-bg-soft);
+    border-radius: var(--contact-radius);
+    padding: 26px;
+    text-align: left;
+}
+
+.contact-info-card i {
+    font-size: 22px;
+    color: var(--contact-primary);
+    margin-bottom: 12px;
+}
+
+.contact-info-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--contact-text);
+    margin-bottom: 4px;
+}
+
+.contact-info-card p {
+    font-size: 14px;
+    color: var(--contact-muted);
+}
+
+.contact-social-card .social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.contact-social-card .social-icons a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: var(--contact-primary);
+    border-radius: 50%;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-social-card .social-icons a:hover {
+    background: var(--contact-primary);
+    color: #ffffff;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-form-wrapper {
+        padding: 26px;
+    }
+
+    .contact-hero {
+        padding: 90px 0 50px;
+    }
+}
+
+/* ==========================================
+            DARK MODE
+   Toggled via body.dark (js/utils.js).
+   Only overrides page backgrounds/text —
+   navbar.css colors stay as authored.
+========================================== */
+
+body.dark{
+
+    background:#0f1115;
+    color:#f3f4f6;
+
+    --surface:#1a1d24;
+    --surface-2:#20242c;
+    --text:#f3f4f6;
+    --text-muted:#9ca3af;
+    --border:#2d3138;
+    --primary-light:#3f1d1d;
+
+}
+
+body.dark header{
+    background:#1a1d24;
+    box-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+
+body.dark .logo{
+    color:#f3f4f6;
+}
+
+body.dark .nav-menu a{
+    color:#f3f4f6;
+}
+
+body.dark #darkModeBtn{
+    background:#20242c;
+    color:#f3f4f6;
+}
+
+body.dark .footer,
+body.dark .footer-bottom{
+    background:#141620;
+    border-color:#2d3138;
+}
+
+body.dark .footer-column p,
+body.dark .footer-column ul li a{
+    color:#9ca3af;
+}

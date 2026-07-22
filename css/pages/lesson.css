@@ -1,0 +1,147 @@
+﻿/* ===================================
+        LESSON PAGE
+=================================== */
+
+body{
+
+font-family:Poppins,sans-serif;
+
+background:#f4f6f9;
+
+}
+
+.lesson-header{
+
+text-align:center;
+
+padding:60px 20px;
+
+background:white;
+
+box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+.lesson-header h1{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.lesson-header p{
+
+color:#6b7280;
+
+}
+
+.lesson-container{
+
+width:90%;
+
+max-width:1100px;
+
+margin:50px auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.lesson-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+transition:.3s;
+
+}
+
+.lesson-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.lesson-number{
+
+width:70px;
+
+height:70px;
+
+background:#ef4444;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+font-weight:bold;
+
+border-radius:15px;
+
+}
+
+.lesson-info{
+
+flex:1;
+
+margin-left:25px;
+
+}
+
+.lesson-info h2{
+
+margin-bottom:10px;
+
+}
+
+.lesson-info p{
+
+color:#6b7280;
+
+}
+
+.lesson-card button{
+
+padding:14px 28px;
+
+background:#ef4444;
+
+border:none;
+
+color:white;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.lesson-card button:hover{
+
+background:#dc2626;
+
+}

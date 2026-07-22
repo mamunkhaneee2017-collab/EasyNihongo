@@ -1,0 +1,191 @@
+/* ==========================================
+        EASY NIHONGO
+            DARK MODE
+
+   Body background/text, navbar, headings and
+   paragraph color now come from css/variables.css
+   automatically (components read var(--bg),
+   var(--text), var(--surface), etc). This file
+   only holds overrides for components that
+   still use hardcoded colors in their own
+   page-specific stylesheet.
+========================================== */
+
+
+/* ==========================================
+        HERO
+========================================== */
+
+body.dark .hero{
+
+    background:#111827;
+
+}
+
+body.dark .hero-tag{
+
+    background:#7f1d1d;
+
+    color:#fecaca;
+
+}
+
+
+
+/* ==========================================
+        FEATURES
+========================================== */
+
+body.dark .features{
+
+    background:#1f2937;
+
+}
+
+body.dark .feature-card{
+
+    background:#374151;
+
+    color:#ffffff;
+
+    box-shadow:none;
+
+}
+
+
+
+/* ==========================================
+        COURSES
+========================================== */
+
+body.dark .courses{
+
+    background:#111827;
+
+}
+
+body.dark .course-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .course-info{
+
+    color:#d1d5db;
+
+}
+
+
+
+/* ==========================================
+        STATISTICS
+========================================== */
+
+body.dark .statistics{
+
+    background:#dc2626;
+
+}
+
+
+
+/* ==========================================
+        TESTIMONIALS
+========================================== */
+
+body.dark .testimonials{
+
+    background:#1f2937;
+
+}
+
+body.dark .testimonial-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+
+
+/* ==========================================
+        FAQ
+========================================== */
+
+body.dark .faq{
+
+    background:#111827;
+
+}
+
+body.dark .faq-item{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .faq-question span{
+
+    color:#ef4444;
+
+}
+
+
+
+/* ==========================================
+        FOOTER
+========================================== */
+
+body.dark .footer{
+
+    background:#030712;
+
+}
+
+body.dark .footer a{
+
+    color:#d1d5db;
+
+}
+
+body.dark .footer a:hover{
+
+    color:#ef4444;
+
+}
+
+
+
+/* ==========================================
+        DASHBOARD
+========================================== */
+
+body.dark .sidebar{
+
+    background:#111827;
+
+}
+
+body.dark .dashboard-card{
+
+    background:#374151;
+
+}
+
+body.dark .profile-card{
+
+    background:#374151;
+
+}
+
+
+
+/* .btn-secondary / .secondary-btn now read colors from
+   css/variables.css (border/color: var(--brand)), so no
+   dark-mode override is needed here anymore. */

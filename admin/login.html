@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Easy Nihongo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-login-body">
+
+    <div class="admin-login-wrapper">
+
+        <div class="admin-login-brand">
+            <h2 class="footer-logo">Easy<span>Nihongo</span></h2>
+            <p>Admin Control Panel</p>
+
+            <ul class="admin-login-points">
+                <li><i class="fa-solid fa-check"></i> Upload &amp; manage course files</li>
+                <li><i class="fa-solid fa-check"></i> View site visitors &amp; messages</li>
+                <li><i class="fa-solid fa-check"></i> Manage students &amp; courses</li>
+            </ul>
+        </div>
+
+        <div class="admin-login-card">
+
+            <h1>Admin Login</h1>
+            <p class="admin-login-subtitle">Sign in to access the dashboard</p>
+
+            <form id="adminLoginForm" class="admin-login-form" novalidate>
+
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" placeholder="admin@easynihongo.com" required>
+                    <span class="error-message" id="adminEmailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="adminPassword" placeholder="Enter your password" required>
+                        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                    <span class="error-message" id="adminPasswordError"></span>
+                </div>
+
+                <div class="admin-login-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe"> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary admin-login-btn">
+                    <span>Login to Dashboard</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <p class="admin-login-note">
+                    <i class="fa-solid fa-circle-info"></i>
+                    This is a UI preview — demo login: <strong>admin@easynihongo.com</strong> /
+                    <strong>admin123</strong>
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/admin-login.js"></script>
+
+</body>
+
+</html>

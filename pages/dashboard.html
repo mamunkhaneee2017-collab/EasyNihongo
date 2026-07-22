@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/pages/dashboard.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <a href="../index.html">Easy<span>Nihongo</span></a>
+    </div>
+
+    <ul>
+        <li class="active">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="courses.html">
+                <i class="fa-solid fa-book"></i>
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="vocabulary.html">
+                <i class="fa-solid fa-language"></i>
+                Vocabulary
+            </a>
+        </li>
+
+        <li>
+            <a href="grammar.html">
+                <i class="fa-solid fa-pen"></i>
+                Grammar
+            </a>
+        </li>
+
+        <li>
+            <a href="kanji.html">
+                <i class="fa-solid fa-torii-gate"></i>
+                Kanji
+            </a>
+        </li>
+
+        <li>
+            <a href="quiz.html">
+                <i class="fa-solid fa-circle-question"></i>
+                Quiz
+            </a>
+        </li>
+
+        <li>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html" id="logoutLink">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+
+    <div class="sidebar-user">
+        <img id="sidebarAvatar" src="../assets/images/avatar/avatar.png" alt="User">
+        <h4 id="sidebarUserName">Mamun</h4>
+        <p id="userLevel"></p>
+    </div>
+
+</aside>
+
+<!-- Main -->
+<main class="main-content">
+
+<header class="dashboard-header">
+
+    <div class="header-left">
+        <button id="menuToggle" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div>
+            <h1 id="userName">Welcome Back, Mamun 👋</h1>
+            <p>Keep learning. You're making great progress today.</p>
+        </div>
+    </div>
+
+    <div class="header-right">
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search lessons...">
+        </div>
+
+        <button id="darkModeBtn" class="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="notification">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge" id="notificationCount">3</span>
+        </div>
+
+        <div class="profile">
+            <img id="profileAvatar" src="../assets/images/profile/mamun.jpeg" alt="Profile">
+            <div>
+                <h4 id="profileName">Mamun</h4>
+                <small>Student</small>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<!-- Progress Cards -->
+<section class="progress-section">
+    <div class="progress-card">
+        <h2>Continue Learning</h2>
+
+        <div class="lesson">
+            <span>Japanese Grammar</span>
+            <div class="progress">
+                <div class="progress-bar grammar" id="grammarBar"></div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <span>Kanji</span>
+            <div class="progress">
+                <div class="progress-bar kanji" id="kanjiBar"></div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <span>Vocabulary</span>
+            <div class="progress">
+                <div class="progress-bar vocab" id="vocabBar"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+            DASHBOARD BOTTOM
+========================================== -->
+<section class="dashboard-bottom">
+
+    <!-- Weekly Activity -->
+    <div class="chart-card">
+        <h2>Weekly Study Activity</h2>
+        <div class="chart" id="weeklyChart">
+            <!-- bars injected by JS -->
+        </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-panel">
+
+        <div class="goal-card">
+            <h2>Today's Goal</h2>
+            <p>Study 60 Minutes</p>
+            <div class="goal-progress">
+                <div class="goal-fill" id="goalFill"></div>
+            </div>
+            <small id="goalText">48 / 60 Minutes</small>
+        </div>
+
+        <div class="achievement-card">
+            <h2>Achievements</h2>
+            <div class="badges">
+                <div>🏆</div>
+                <div>🔥</div>
+                <div>⭐</div>
+                <div>🎖️</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==========================================
+        LEARNING & NOTIFICATION SECTION
+========================================== -->
+<section class="dashboard-extra">
+
+    <!-- Continue Learning -->
+    <div class="continue-card">
+        <h2>Continue Learning</h2>
+
+        <div class="lesson-item">
+            <div>
+                <h3>Grammar Lesson 12</h3>
+                <p>Particles 「は」「が」「を」</p>
+            </div>
+            <button>Continue</button>
+        </div>
+
+        <div class="lesson-item">
+            <div>
+                <h3>Kanji Lesson 08</h3>
+                <p>Daily Life Kanji</p>
+            </div>
+            <button>Continue</button>
+        </div>
+
+        <div class="lesson-item">
+            <div>
+                <h3>Vocabulary Lesson 20</h3>
+                <p>Restaurant Vocabulary</p>
+            </div>
+            <button>Continue</button>
+        </div>
+    </div>
+
+    <!-- Right Side -->
+    <div>
+
+        <!-- Notification -->
+        <div class="notification-card">
+            <h2>Notifications</h2>
+            <ul id="notificationList">
+                <!-- injected by JS -->
+            </ul>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar-card">
+            <h2>Study Calendar</h2>
+            <table>
+                <tr>
+                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                </tr>
+                <tr>
+                    <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td><td class="active-day">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+            LEARNING PROGRESS
+========================================== -->
+<section class="learning-progress">
+
+    <div class="progress-circle-card">
+        <h2>Overall Progress</h2>
+        <div class="progress-ring">
+            <svg width="180" height="180">
+                <circle class="bg" cx="90" cy="90" r="75"></circle>
+                <circle class="progress-ring-circle" cx="90" cy="90" r="75"></circle>
+            </svg>
+            <div class="progress-text">
+                <h2 id="overallProgress">72%</h2>
+                <p>Completed</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="study-info">
+        <div class="info-box">
+            <i class="fa-solid fa-star"></i>
+            <h3 id="totalXP">1,250 XP</h3>
+            <p>Total Experience</p>
+        </div>
+        <div class="info-box">
+            <i class="fa-solid fa-clock"></i>
+            <h3 id="studyTime">68 Hours</h3>
+            <p>Study Time</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+            DAILY MISSION
+========================================== -->
+<section class="daily-section">
+
+    <div class="mission-card">
+        <h2>🎯 Daily Mission</h2>
+        <ul>
+            <li><input type="checkbox"> Learn 15 Vocabulary</li>
+            <li><input type="checkbox"> Complete 1 Grammar Lesson</li>
+            <li><input type="checkbox"> Practice Listening 20 Minutes</li>
+            <li><input type="checkbox"> Take Today's Quiz</li>
+        </ul>
+    </div>
+
+    <div class="xp-card">
+        <h2>Current Level</h2>
+        <h1 id="xpLevel">Level 12</h1>
+        <p>XP Progress</p>
+        <div class="xp-progress">
+            <div class="xp-fill" id="xpFill"></div>
+        </div>
+        <small id="xpText">1250 / 1500 XP</small>
+    </div>
+</section>
+
+<!-- Top Stat Cards -->
+<section class="cards">
+
+    <div class="card">
+        <h3>Today's Goal</h3>
+        <h2 id="cardTodayGoal">80%</h2>
+    </div>
+
+    <div class="card">
+        <h3>Current JLPT</h3>
+        <h2 id="cardJlptLevel">N3</h2>
+    </div>
+
+    <div class="card">
+        <h3>Streak</h3>
+        <h2 id="cardStreak">🔥15 Days</h2>
+    </div>
+
+    <div class="card">
+        <h3>Total Lessons</h3>
+        <h2 id="cardLessons">285</h2>
+    </div>
+
+</section>
+
+</main>
+</div>
+
+<script src="../data/dashboard-data.js"></script>
+<script src="../js/pages/dashboard.js"></script>
+</body>
+</html>
