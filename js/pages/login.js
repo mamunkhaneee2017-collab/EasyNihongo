@@ -126,3 +126,22 @@ if(savedEmail){
     rememberMe.checked = true;
 
 }
+
+/* ==========================
+    SOCIAL LOGIN
+========================== */
+
+document.querySelector(".google-btn")?.addEventListener("click", () => {
+    window.location.href = "/api/auth/google";
+});
+
+document.querySelector(".github-btn")?.addEventListener("click", () => {
+    window.location.href = "/api/auth/github";
+});
+
+const oauthError = new URLSearchParams(window.location.search).get("error");
+if (oauthError === "oauth_not_configured") {
+    alert("Social login isn't set up on this server yet — please log in with email and password.");
+} else if (oauthError === "oauth") {
+    alert("Social login failed. Please try again or use email and password.");
+}

@@ -328,3 +328,15 @@ else if(!isStrongPassword(password.value)){
     }
 
 });
+
+// ==========================================
+// SOCIAL LOGIN (also creates an account on first use)
+// ==========================================
+
+document.querySelector(".google-btn")?.addEventListener("click", () => {
+    window.location.href = "/api/auth/google";
+});
+
+document.querySelector(".github-btn")?.addEventListener("click", () => {
+    window.location.href = "/api/auth/github";
+});

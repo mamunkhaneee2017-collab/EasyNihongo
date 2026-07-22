@@ -11,6 +11,7 @@ seedDefaultAd();
 
 const logVisit = require("./middleware/logVisit");
 const authRoutes = require("./routes/auth");
+const oauthRoutes = require("./routes/oauth");
 const usersRoutes = require("./routes/users");
 const dashboardRoutes = require("./routes/dashboard");
 const progressRoutes = require("./routes/progress");
@@ -55,6 +56,7 @@ app.use(logVisit);
 app.use("/uploads", express.static(UPLOADS_DIR));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/auth", oauthRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/progress", progressRoutes);
