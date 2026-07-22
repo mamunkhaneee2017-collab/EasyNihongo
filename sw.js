@@ -14,7 +14,7 @@
    registration call.
 ========================================== */
 
-const CACHE_NAME = "easynihongo-shell-v2";
+const CACHE_NAME = "easynihongo-shell-v4";
 
 const APP_SHELL = [
     "index.html",
@@ -65,20 +65,28 @@ self.addEventListener("activate", (event) => {
     self.clients.claim();
 });
 
-// Cache-first for same-origin GET requests, falling back to network.
+// Network-first for same-origin GET requests, falling back to the cache
+// only when the network is unavailable. This is deliberately NOT
+// cache-first: this site's app-shell files (header.js, CSS, etc.) change
+// often during active development, and cache-first previously caused
+// real bugs where already-cached pages kept serving stale JS/CSS for
+// days after a fix shipped, because the browser only re-checks sw.js's
+// own bytes for updates — not the files it precached. Network-first
+// keeps every visit fresh while still giving the offline fallback this
+// worker exists for.
 self.addEventListener("fetch", (event) => {
 
     if (event.request.method !== "GET") return;
     if (new URL(event.request.url).origin !== self.location.origin) return;
 
     event.respondWith(
-        caches.match(event.request).then((cached) => {
-            return cached || fetch(event.request).then((response) => {
+        fetch(event.request)
+            .then((response) => {
                 const clone = response.clone();
                 caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
                 return response;
-            }).catch(() => cached);
-        })
+            })
+            .catch(() => caches.match(event.request))
     );
 
 });

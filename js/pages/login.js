@@ -90,11 +90,26 @@ loginBtn.innerHTML = `
 Logging in...
 `;
 
-   setTimeout(()=>{
+/* ==========================
+        REAL LOGIN
+========================== */
 
-    window.location.href="dashboard.html";
-
-},1500);
+fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "same-origin",
+    body: JSON.stringify({ email: emailValue, password: passwordValue })
+})
+    .then(async (res) => {
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Login failed.");
+        window.location.href = "dashboard.html";
+    })
+    .catch((err) => {
+        alert(err.message);
+        loginBtn.disabled = false;
+        loginBtn.innerHTML = "Login";
+    });
 
 });
 

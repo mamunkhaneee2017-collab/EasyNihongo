@@ -1,9 +1,10 @@
 /* ==========================================
         SETTINGS PAGE
-   No backend exists yet, so every preference
-   here is saved to localStorage on this device
-   only. Dark mode and font size already apply
-   site-wide (read by js/utils.js on every page).
+   Theme, language and font size stay pure
+   client-side localStorage preferences (already
+   applied site-wide by js/utils.js). Target JLPT
+   level and daily study goal are real per-user
+   settings, persisted via PATCH /api/users/me.
 ========================================== */
 
 /* ---------------- Mobile sidebar ---------------- */
@@ -71,25 +72,122 @@ fontSizeButtons.forEach((btn) => {
     });
 });
 
-/* ---------------- Save ---------------- */
+/* ---------------- Learning preferences (real, server-backed) ---------------- */
 
 const saveSettingsBtn = document.getElementById("saveSettingsBtn");
 const settingsStatus = document.getElementById("settingsStatus");
 const targetLevel = document.getElementById("targetLevel");
 const dailyGoal = document.getElementById("dailyGoal");
 
+fetch("/api/users/me", { credentials: "same-origin" })
+    .then((res) => res.json())
+    .then((data) => {
+        if (targetLevel && data.user.targetLevel) targetLevel.value = data.user.targetLevel;
+        if (dailyGoal && data.user.dailyGoalMinutes) dailyGoal.value = data.user.dailyGoalMinutes;
+    });
+
 saveSettingsBtn.addEventListener("click", () => {
 
     if (languageSelect) localStorage.setItem("lang", languageSelect.value);
     localStorage.setItem("fontSize", selectedFontSize);
-    if (targetLevel) localStorage.setItem("targetLevel", targetLevel.value);
-    if (dailyGoal) localStorage.setItem("dailyGoal", dailyGoal.value);
 
     if (window.EasyNihongoI18n && languageSelect) {
         window.EasyNihongoI18n.setLanguage(languageSelect.value);
     }
 
-    settingsStatus.textContent = "Settings saved on this device.";
-    settingsStatus.className = "form-status success";
+    const formData = new FormData();
+    if (targetLevel) formData.append("targetLevel", targetLevel.value);
+    if (dailyGoal) formData.append("dailyGoalMinutes", dailyGoal.value);
+
+    saveSettingsBtn.disabled = true;
+
+    fetch("/api/users/me", {
+        method: "PATCH",
+        credentials: "same-origin",
+        body: formData
+    })
+        .then(async (res) => {
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || "Could not save settings.");
+            settingsStatus.textContent = "Settings saved.";
+            settingsStatus.className = "form-status success";
+        })
+        .catch((err) => {
+            settingsStatus.textContent = err.message;
+            settingsStatus.className = "form-status error";
+        })
+        .finally(() => {
+            saveSettingsBtn.disabled = false;
+        });
 
 });
+
+/* ---------------- Change Password (real, server-backed) ---------------- */
+
+const changePasswordBtn = document.getElementById("changePasswordBtn");
+const passwordChangeStatus = document.getElementById("passwordChangeStatus");
+const currentPasswordInput = document.getElementById("currentPassword");
+const newPasswordInput = document.getElementById("newPassword");
+const confirmNewPasswordInput = document.getElementById("confirmNewPassword");
+
+if (changePasswordBtn) {
+
+    changePasswordBtn.addEventListener("click", () => {
+
+        const currentPassword = currentPasswordInput.value;
+        const newPassword = newPasswordInput.value;
+        const confirmNewPassword = confirmNewPasswordInput.value;
+
+        passwordChangeStatus.textContent = "";
+        passwordChangeStatus.className = "form-status";
+
+        if (!currentPassword || !newPassword || !confirmNewPassword) {
+            passwordChangeStatus.textContent = "Please fill in all three password fields.";
+            passwordChangeStatus.className = "form-status error";
+            return;
+        }
+
+        if (newPassword.length < 8) {
+            passwordChangeStatus.textContent = "New password must be at least 8 characters.";
+            passwordChangeStatus.className = "form-status error";
+            return;
+        }
+
+        if (newPassword !== confirmNewPassword) {
+            passwordChangeStatus.textContent = "New password and confirmation do not match.";
+            passwordChangeStatus.className = "form-status error";
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("currentPassword", currentPassword);
+        formData.append("newPassword", newPassword);
+
+        changePasswordBtn.disabled = true;
+
+        fetch("/api/users/me", {
+            method: "PATCH",
+            credentials: "same-origin",
+            body: formData
+        })
+            .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || "Could not change password.");
+
+                passwordChangeStatus.textContent = "Password changed.";
+                passwordChangeStatus.className = "form-status success";
+                currentPasswordInput.value = "";
+                newPasswordInput.value = "";
+                confirmNewPasswordInput.value = "";
+            })
+            .catch((err) => {
+                passwordChangeStatus.textContent = err.message;
+                passwordChangeStatus.className = "form-status error";
+            })
+            .finally(() => {
+                changePasswordBtn.disabled = false;
+            });
+
+    });
+
+}

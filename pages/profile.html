@@ -164,7 +164,31 @@
 
         <div class="goal-card">
             <h2>Edit Profile</h2>
-            <p>Name, password, and photo editing are coming in a future update, once accounts are backed by a real login system.</p>
+            <form id="profileEditForm" class="profile-edit-form">
+
+                <div class="form-group">
+                    <label for="editFullName">Name</label>
+                    <input type="text" id="editFullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editAvatar">Profile Photo</label>
+                    <input type="file" id="editAvatar" accept="image/png,image/jpeg,image/webp">
+                </div>
+
+                <div class="form-group">
+                    <label for="editCurrentPassword">Current Password</label>
+                    <input type="password" id="editCurrentPassword" placeholder="Required only if changing password">
+                </div>
+
+                <div class="form-group">
+                    <label for="editNewPassword">New Password</label>
+                    <input type="password" id="editNewPassword" placeholder="Leave blank to keep current password">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="profileEditBtn">Save Changes</button>
+                <p id="profileEditStatus" class="profile-edit-status"></p>
+            </form>
         </div>
 
     </div>
@@ -173,21 +197,84 @@
 </main>
 </div>
 
-<script src="../data/dashboard-data.js"></script>
+<script src="../js/auth-guard.js"></script>
 <script>
-    if (typeof dashboardData !== "undefined") {
-        const { user } = dashboardData;
-        document.getElementById("sidebarUserName").textContent = user.name;
-        document.getElementById("userLevel").textContent = user.jlptLevel;
-        document.getElementById("profileName").textContent = user.name;
-        document.getElementById("detailName").textContent = user.name;
-        document.getElementById("detailLevel").textContent = user.jlptLevel;
-        document.getElementById("detailStreak").textContent = `${user.streak} Days`;
-        if (user.avatar) {
-            document.getElementById("sidebarAvatar").src = user.avatar;
-            document.getElementById("profileAvatar").src = user.avatar;
-        }
-    }
+    let currentProfileUser = null;
+
+    fetch("/api/dashboard", { credentials: "same-origin" })
+        .then((res) => res.json())
+        .then((data) => {
+            const { user } = data;
+            document.getElementById("sidebarUserName").textContent = user.name;
+            document.getElementById("userLevel").textContent = user.jlptLevel;
+            document.getElementById("profileName").textContent = user.name;
+            document.getElementById("detailName").textContent = user.name;
+            document.getElementById("detailLevel").textContent = user.jlptLevel;
+            document.getElementById("detailStreak").textContent = `${user.streak} Days`;
+            if (user.avatar) {
+                document.getElementById("sidebarAvatar").src = user.avatar;
+                document.getElementById("profileAvatar").src = user.avatar;
+            }
+        });
+
+    fetch("/api/users/me", { credentials: "same-origin" })
+        .then((res) => res.json())
+        .then((data) => {
+            currentProfileUser = data.user;
+            document.getElementById("editFullName").value = data.user.fullName;
+        });
+
+    const profileEditForm = document.getElementById("profileEditForm");
+    const profileEditStatus = document.getElementById("profileEditStatus");
+    const profileEditBtn = document.getElementById("profileEditBtn");
+
+    profileEditForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById("editFullName").value.trim();
+        const avatarFile = document.getElementById("editAvatar").files[0];
+        const currentPassword = document.getElementById("editCurrentPassword").value;
+        const newPassword = document.getElementById("editNewPassword").value;
+
+        const formData = new FormData();
+        formData.append("fullName", fullName);
+        if (avatarFile) formData.append("avatar", avatarFile);
+        if (currentPassword) formData.append("currentPassword", currentPassword);
+        if (newPassword) formData.append("newPassword", newPassword);
+
+        profileEditBtn.disabled = true;
+        profileEditStatus.textContent = "";
+        profileEditStatus.className = "profile-edit-status";
+
+        fetch("/api/users/me", {
+            method: "PATCH",
+            credentials: "same-origin",
+            body: formData
+        })
+            .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || "Could not save changes.");
+
+                profileEditStatus.textContent = "Profile updated.";
+                profileEditStatus.className = "profile-edit-status success";
+                document.getElementById("editCurrentPassword").value = "";
+                document.getElementById("editNewPassword").value = "";
+                document.getElementById("profileName").textContent = data.user.fullName;
+                document.getElementById("detailName").textContent = data.user.fullName;
+                document.getElementById("sidebarUserName").textContent = data.user.fullName;
+                if (data.user.avatar) {
+                    document.getElementById("sidebarAvatar").src = data.user.avatar;
+                    document.getElementById("profileAvatar").src = data.user.avatar;
+                }
+            })
+            .catch((err) => {
+                profileEditStatus.textContent = err.message;
+                profileEditStatus.className = "profile-edit-status error";
+            })
+            .finally(() => {
+                profileEditBtn.disabled = false;
+            });
+    });
 </script>
 <script>
     const themeToggle = document.getElementById("darkModeBtn");

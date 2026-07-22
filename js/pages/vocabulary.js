@@ -37,11 +37,64 @@
     <a href="lesson.html">
         <button>${level.action}</button>
     </a>
+    <button class="mark-complete-btn" data-level="${level.level}">Mark as Complete</button>
 </div>`;
 
     }).join("");
 
+    initMarkComplete();
+
 })();
+
+/* ===============================
+        MARK VOCABULARY LEVEL COMPLETE
+   Persists per-user via
+   POST /api/progress/vocabulary-complete.
+   Anonymous visitors see a login hint instead.
+================================ */
+
+function setMarkCompleteState(button, completed){
+    button.classList.toggle("active", completed);
+    button.textContent = completed ? "Completed ✓" : "Mark as Complete";
+}
+
+function initMarkComplete(){
+
+    document.querySelectorAll(".mark-complete-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            fetch("/api/progress/vocabulary-complete", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({ level: button.dataset.level })
+            })
+                .then(async (res) => {
+                    if(!res.ok) throw new Error("not logged in");
+                    const data = await res.json();
+                    setMarkCompleteState(button, data.completed);
+                })
+                .catch(() => {
+                    alert("Log in to save your vocabulary progress.");
+                });
+
+        });
+
+    });
+
+    fetch("/api/progress/vocabulary-completed", { credentials: "same-origin" })
+        .then(res => res.ok ? res.json() : null)
+        .then(data => {
+            if(!data) return;
+            data.levels.forEach(level => {
+                const button = document.querySelector(`.mark-complete-btn[data-level="${level}"]`);
+                if(button) setMarkCompleteState(button, true);
+            });
+        })
+        .catch(() => {});
+
+}
 
 /* ===============================
         SEARCH

@@ -39,6 +39,10 @@
                     <i class="fa-solid fa-folder-open"></i> <span>Courses &amp; Files</span>
                 </a>
 
+                <a href="#ads" class="admin-nav-link" data-view="ads">
+                    <i class="fa-solid fa-bullhorn"></i> <span>Advertisements</span>
+                </a>
+
                 <a href="#messages" class="admin-nav-link" data-view="messages">
                     <i class="fa-solid fa-envelope"></i> <span>Messages</span>
                     <span class="nav-badge" id="messagesBadge">3</span>
@@ -118,9 +122,9 @@
                     </div>
 
                     <div class="admin-profile">
-                        <div class="admin-avatar">MK</div>
+                        <div class="admin-avatar" id="adminAvatarInitials">MK</div>
                         <div class="admin-profile-info">
-                            <strong>Md Mamun Khan</strong>
+                            <strong id="adminTopbarName">Md Mamun Khan</strong>
                             <span>Super Admin</span>
                         </div>
                     </div>
@@ -147,25 +151,23 @@
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-blue"><i class="fa-solid fa-user-graduate"></i></div>
                             <div>
-                                <h3>2,480</h3>
+                                <h3 id="statStudents">0</h3>
                                 <p>Total Students</p>
-                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 8.2% this month</span>
                             </div>
                         </div>
 
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-red"><i class="fa-solid fa-folder-open"></i></div>
                             <div>
-                                <h3>316</h3>
+                                <h3 id="statMaterials">0</h3>
                                 <p>Course Files</p>
-                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 12 added this week</span>
                             </div>
                         </div>
 
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-yellow"><i class="fa-solid fa-envelope"></i></div>
                             <div>
-                                <h3>3</h3>
+                                <h3 id="statUnread">0</h3>
                                 <p>Unread Messages</p>
                                 <span class="stat-trend">Awaiting reply</span>
                             </div>
@@ -174,9 +176,8 @@
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-green"><i class="fa-solid fa-globe"></i></div>
                             <div>
-                                <h3>184</h3>
+                                <h3 id="statVisitorsToday">0</h3>
                                 <p>Visitors Today</p>
-                                <span class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> 5.4% vs yesterday</span>
                             </div>
                         </div>
 
@@ -201,15 +202,9 @@
 
                         <div class="admin-card">
                             <div class="admin-card-header">
-                                <h3>Top Countries</h3>
+                                <h3>Devices</h3>
                             </div>
-                            <div class="country-list">
-                                <div class="country-row"><span>🇧🇩 Bangladesh</span><div class="country-bar"><div style="width:78%"></div></div><b>78%</b></div>
-                                <div class="country-row"><span>🇯🇵 Japan</span><div class="country-bar"><div style="width:52%"></div></div><b>52%</b></div>
-                                <div class="country-row"><span>🇮🇳 India</span><div class="country-bar"><div style="width:31%"></div></div><b>31%</b></div>
-                                <div class="country-row"><span>🇳🇵 Nepal</span><div class="country-bar"><div style="width:18%"></div></div><b>18%</b></div>
-                                <div class="country-row"><span>🇺🇸 USA</span><div class="country-bar"><div style="width:9%"></div></div><b>9%</b></div>
-                            </div>
+                            <div class="country-list" id="deviceBreakdown"></div>
                         </div>
 
                     </div>
@@ -221,31 +216,8 @@
                                 <h3>Recent Messages</h3>
                                 <a href="#messages" class="view-all-link" data-view="messages">View all</a>
                             </div>
-                            <ul class="recent-list">
-                                <li>
-                                    <div class="recent-avatar">SK</div>
-                                    <div class="recent-info">
-                                        <strong>Sara Kim</strong>
-                                        <p>Question about JLPT N3 listening files...</p>
-                                    </div>
-                                    <span class="recent-time">5m ago</span>
-                                </li>
-                                <li>
-                                    <div class="recent-avatar">AR</div>
-                                    <div class="recent-info">
-                                        <strong>Ahmed Rahman</strong>
-                                        <p>Can't download the N4 grammar PDF...</p>
-                                    </div>
-                                    <span class="recent-time">2h ago</span>
-                                </li>
-                                <li>
-                                    <div class="recent-avatar">JL</div>
-                                    <div class="recent-info">
-                                        <strong>John Lee</strong>
-                                        <p>Feedback on the new kanji audio lessons...</p>
-                                    </div>
-                                    <span class="recent-time">1d ago</span>
-                                </li>
+                            <ul class="recent-list" id="recentMessagesList">
+                                <li class="empty-state">No messages yet.</li>
                             </ul>
                         </div>
 
@@ -254,31 +226,8 @@
                                 <h3>Recent Visitors</h3>
                                 <a href="#visitors" class="view-all-link" data-view="visitors">View all</a>
                             </div>
-                            <ul class="recent-list">
-                                <li>
-                                    <div class="recent-avatar flag">🇧🇩</div>
-                                    <div class="recent-info">
-                                        <strong>Dhaka, Bangladesh</strong>
-                                        <p>Viewed /courses.html · Mobile</p>
-                                    </div>
-                                    <span class="recent-time">2m ago</span>
-                                </li>
-                                <li>
-                                    <div class="recent-avatar flag">🇯🇵</div>
-                                    <div class="recent-info">
-                                        <strong>Tokyo, Japan</strong>
-                                        <p>Viewed /index.html · Desktop</p>
-                                    </div>
-                                    <span class="recent-time">11m ago</span>
-                                </li>
-                                <li>
-                                    <div class="recent-avatar flag">🇮🇳</div>
-                                    <div class="recent-info">
-                                        <strong>Mumbai, India</strong>
-                                        <p>Viewed /contact.html · Mobile</p>
-                                    </div>
-                                    <span class="recent-time">40m ago</span>
-                                </li>
+                            <ul class="recent-list" id="recentVisitorsList">
+                                <li class="empty-state">No visits recorded yet.</li>
                             </ul>
                         </div>
 
@@ -302,7 +251,7 @@
                             <h3>Drag &amp; drop files here, or click to browse</h3>
                             <p>Supported: PDF, DOC/DOCX, PPT/PPTX, TXT, MP3/WAV (audio), MP4 (video) — up to 200MB</p>
                             <input type="file" id="fileInput" multiple hidden
-                                accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.mp3,.wav,.mp4">
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.mp3,.wav,.mp4,.jpg,.jpeg,.png,.webp,.zip">
                             <button type="button" class="btn btn-primary" id="browseBtn">Choose Files</button>
                         </div>
 
@@ -331,6 +280,9 @@
                         </div>
 
                         <div id="uploadPreviewList" class="upload-preview-list"></div>
+
+                        <button type="button" class="btn btn-primary" id="uploadSubmitBtn" disabled>Upload Files</button>
+                        <p id="uploadStatus" class="upload-status"></p>
 
                     </div>
 
@@ -365,6 +317,108 @@
                                     </tr>
                                 </thead>
                                 <tbody id="filesTableBody">
+                                    <!-- Rows injected by admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ============ ADVERTISEMENTS VIEW ============ -->
+
+                <section class="admin-view" id="view-ads">
+
+                    <div class="view-header">
+                        <h1>Advertisements</h1>
+                        <p>Run the scrolling text announcement and an image/video banner below it — schedule each one, set priority when several are running, and switch them on or off with one click.</p>
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+                            <h3>Create Advertisement</h3>
+                        </div>
+
+                        <div class="settings-form">
+
+                            <div class="form-group">
+                                <label for="adTypeInput">Ad Type</label>
+                                <select id="adTypeInput">
+                                    <option value="text">Scrolling Text (below navbar)</option>
+                                    <option value="banner">Image / Video Banner (below the text ad)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="adTitleInput">Title (internal label, not shown publicly for banners)</label>
+                                <input type="text" id="adTitleInput" placeholder="e.g. Summer Sale Announcement">
+                            </div>
+
+                            <div class="form-group" id="adContentGroup">
+                                <label for="adContentInput">Scrolling Text</label>
+                                <textarea id="adContentInput" rows="3" placeholder="e.g. 🎉 50% off all courses this week only!"></textarea>
+                            </div>
+
+                            <div class="form-group" id="adMediaGroup" hidden>
+                                <label for="adMediaInput">Image or Video File (JPG/PNG/WEBP/GIF/MP4/WEBM/MOV/AVI, up to 150MB)</label>
+                                <input type="file" id="adMediaInput" accept=".jpg,.jpeg,.png,.webp,.gif,.mp4,.webm,.mov,.avi">
+                                <small id="adCurrentMediaNote" class="field-hint" hidden></small>
+                            </div>
+
+                            <div class="form-group" id="adLinkGroup" hidden>
+                                <label for="adLinkInput">Click-through URL (optional)</label>
+                                <input type="text" id="adLinkInput" placeholder="https://...">
+                            </div>
+
+                            <div class="upload-meta-form">
+                                <div class="form-group">
+                                    <label for="adStartInput">Start Date (optional — blank = starts immediately)</label>
+                                    <input type="date" id="adStartInput">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adEndInput">End Date (optional — blank = runs indefinitely)</label>
+                                    <input type="date" id="adEndInput">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adPriorityInput">Priority (higher runs first when several are active)</label>
+                                    <input type="number" id="adPriorityInput" value="0" min="0" step="1">
+                                </div>
+                            </div>
+
+                            <div class="ad-form-actions">
+                                <button class="btn btn-primary" id="adCreateBtn">Create Advertisement</button>
+                                <button class="btn btn-outline" id="adCancelEditBtn" type="button" hidden>Cancel Edit</button>
+                            </div>
+                            <p id="adCreateStatus" class="upload-status"></p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+                            <h3>All Advertisements</h3>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="adsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Type</th>
+                                        <th>Preview</th>
+                                        <th>Start</th>
+                                        <th>End</th>
+                                        <th>Priority</th>
+                                        <th>Status</th>
+                                        <th>Active</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adsTableBody">
                                     <!-- Rows injected by admin.js -->
                                 </tbody>
                             </table>
@@ -414,19 +468,19 @@
                     <div class="stat-grid">
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-blue"><i class="fa-solid fa-eye"></i></div>
-                            <div><h3>48,920</h3><p>Total Visits</p></div>
+                            <div><h3 id="statTotalVisits">0</h3><p>Total Visits</p></div>
                         </div>
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-green"><i class="fa-solid fa-calendar-day"></i></div>
-                            <div><h3>184</h3><p>Today</p></div>
+                            <div><h3 id="statVisitsToday">0</h3><p>Today</p></div>
                         </div>
                         <div class="admin-stat-card">
                             <div class="admin-stat-icon icon-yellow"><i class="fa-solid fa-calendar-week"></i></div>
-                            <div><h3>1,206</h3><p>This Week</p></div>
+                            <div><h3 id="statVisitsWeek">0</h3><p>This Week</p></div>
                         </div>
                         <div class="admin-stat-card">
-                            <div class="admin-stat-icon icon-red"><i class="fa-solid fa-earth-asia"></i></div>
-                            <div><h3>🇧🇩 Bangladesh</h3><p>Top Country</p></div>
+                            <div class="admin-stat-icon icon-red"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div><h3 id="statTopDevice">—</h3><p>Top Device</p></div>
                         </div>
                     </div>
 
@@ -438,8 +492,6 @@
                             <table class="admin-table">
                                 <thead>
                                     <tr>
-                                        <th>Country</th>
-                                        <th>City</th>
                                         <th>Page Visited</th>
                                         <th>Device</th>
                                         <th>Time</th>
@@ -514,18 +566,26 @@
                             <div class="admin-card-header"><h3>Site Information</h3></div>
                             <div class="settings-form">
                                 <div class="form-group">
-                                    <label>Site Name</label>
-                                    <input type="text" value="Easy Nihongo">
+                                    <label for="siteNameInput">Site Name</label>
+                                    <input type="text" id="siteNameInput">
                                 </div>
                                 <div class="form-group">
-                                    <label>Contact Email</label>
-                                    <input type="email" value="info@easynihongo.com">
+                                    <label for="contactEmailInput">Contact Email</label>
+                                    <input type="email" id="contactEmailInput">
                                 </div>
                                 <div class="form-group">
-                                    <label>Support Phone</label>
-                                    <input type="text" placeholder="e.g. 080-1234-5678">
+                                    <label for="supportPhoneInput">Support Phone</label>
+                                    <input type="text" id="supportPhoneInput" placeholder="e.g. 080-1234-5678">
                                 </div>
-                                <button class="btn btn-primary">Save Changes</button>
+                                <div class="form-group toggle-row">
+                                    <label>Maintenance mode</label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="maintenanceToggle">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary" id="saveSiteInfoBtn">Save Changes</button>
+                                <p id="siteSettingsStatus" class="settings-save-status"></p>
                             </div>
                         </div>
 
@@ -533,28 +593,26 @@
                             <div class="admin-card-header"><h3>Admin Account</h3></div>
                             <div class="settings-form">
                                 <div class="form-group">
-                                    <label>Admin Name</label>
-                                    <input type="text" value="Md Mamun Khan">
+                                    <label for="adminNameInput">Admin Name</label>
+                                    <input type="text" id="adminNameInput">
                                 </div>
                                 <div class="form-group">
-                                    <label>New Password</label>
-                                    <input type="password" placeholder="Leave blank to keep current password">
+                                    <label for="adminCurrentPasswordInput">Current Password</label>
+                                    <input type="password" id="adminCurrentPasswordInput" placeholder="Required only if changing password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminNewPasswordInput">New Password</label>
+                                    <input type="password" id="adminNewPasswordInput" placeholder="Leave blank to keep current password">
                                 </div>
                                 <div class="form-group toggle-row">
                                     <label>Email me a copy of every new contact message</label>
                                     <label class="switch">
-                                        <input type="checkbox" checked>
+                                        <input type="checkbox" id="notifyToggle" checked>
                                         <span class="slider"></span>
                                     </label>
                                 </div>
-                                <div class="form-group toggle-row">
-                                    <label>Maintenance mode</label>
-                                    <label class="switch">
-                                        <input type="checkbox">
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
-                                <button class="btn btn-primary">Update Account</button>
+                                <button class="btn btn-primary" id="updateAccountBtn">Update Account</button>
+                                <p id="accountSettingsStatus" class="settings-save-status"></p>
                             </div>
                         </div>
 

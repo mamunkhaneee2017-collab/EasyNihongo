@@ -57,7 +57,7 @@ if(!grid || typeof hiraganaData==="undefined") return;
 
 grid.innerHTML="";
 
-hiraganaData.forEach(item=>{
+hiraganaData.forEach((item, index)=>{
 
 grid.innerHTML += `
 
@@ -67,7 +67,7 @@ grid.innerHTML += `
 
         <span class="jlpt">${item.level}</span>
 
-        <button class="favorite">
+        <button class="favorite" data-index="${index}">
 
             <i class="fa-regular fa-star"></i>
 
@@ -120,6 +120,7 @@ grid.innerHTML += `
 });
 
 initializeButtons();
+loadFavorites();
 
 })();
 
@@ -154,10 +155,50 @@ favorites.forEach(button=>{
 
 button.addEventListener("click",()=>{
 
-button.classList.toggle("active");
+const itemIndex = button.dataset.index;
+
+fetch("/api/progress/favorite", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "same-origin",
+    body: JSON.stringify({ contentType: "hiragana", itemIndex })
+})
+    .then(async (res) => {
+        if (!res.ok) throw new Error("not logged in");
+        const data = await res.json();
+        button.classList.toggle("active", data.favorited);
+    })
+    .catch(() => {
+        button.classList.toggle("active");
+        button.title = "Log in to save favorites across visits";
+    });
 
 });
 
 });
+
+}
+
+/*==========================
+    LOAD SAVED FAVORITES
+    (only marks stars for logged-in users;
+    anonymous visitors just get the local-only
+    toggle above)
+==========================*/
+
+function loadFavorites(){
+
+    fetch("/api/progress/favorites?contentType=hiragana", { credentials: "same-origin" })
+        .then((res) => {
+            if (!res.ok) throw new Error("not logged in");
+            return res.json();
+        })
+        .then((data) => {
+            data.itemIndexes.forEach((index) => {
+                const button = document.querySelector(`.favorite[data-index="${index}"]`);
+                if (button) button.classList.add("active");
+            });
+        })
+        .catch(() => {});
 
 }

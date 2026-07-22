@@ -13,3 +13,5 @@ const vocabularyData = [
     { level: "n2", locked: true, unlockAfter: "N3" },
     { level: "n1", locked: true, unlockAfter: "N2" }
 ];
+
+if (typeof module !== "undefined" && module.exports) { module.exports = vocabularyData; }

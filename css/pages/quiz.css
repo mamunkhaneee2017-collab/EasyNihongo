@@ -621,6 +621,19 @@ body.dark #darkModeBtn{
 
 }
 
+.quiz-save-status{
+
+    margin-top:-20px;
+    font-size:13.5px;
+
+}
+
+.quiz-save-status.error{
+
+    color:#ef4444;
+
+}
+
 .result-breakdown{
 
     display:flex;

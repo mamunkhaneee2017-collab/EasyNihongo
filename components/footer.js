@@ -27,7 +27,7 @@
     <div class="container footer-container">
 
         <div class="footer-column">
-            <h2 class="footer-logo">Easy<span>Nihongo</span></h2>
+            <h2 class="footer-logo" id="footerLogoText">Easy<span>Nihongo</span></h2>
             <p data-i18n="footer.tagline">
                 Structured Japanese learning from N5 to N1 —
                 lessons, vocabulary, grammar, Kanji and JLPT
@@ -63,16 +63,16 @@
             </a>
 
             <p>Email:</p>
-            <p>info@easynihongo.com</p>
+            <p id="footerEmail">info@easynihongo.com</p>
 
             <br>
             <h4 data-i18n="footer.followUs">Follow us for more updates</h4>
 
             <div class="social-icons">
-                <a href="https://facebook.com/mamun.999.690" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/mamun.999.690" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/channel/UCQnO_ceT5HFF9UtRC266Ykg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                <a href="https://github.com/mamunkhaneee2017-collab" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a id="socialFacebook" href="https://facebook.com/mamun.999.690" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a id="socialInstagram" href="https://instagram.com/mamun.999.690" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a id="socialYoutube" href="https://www.youtube.com/channel/UCQnO_ceT5HFF9UtRC266Ykg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a id="socialGithub" href="https://github.com/mamunkhaneee2017-collab" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
             </div>
         </div>
 
@@ -86,5 +86,35 @@
 <button id="topBtn" title="Back to top" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
 </button>`;
+
+    // Reflects the admin panel's Site Info / social link settings (falls
+    // back to the hardcoded markup above if the API isn't reachable, e.g.
+    // a page opened via file:// without the server running).
+    fetch("/api/settings")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((settings) => {
+            if (!settings) return;
+
+            if (settings.siteName) {
+                const logoText = document.getElementById("footerLogoText");
+                if (logoText) {
+                    const words = settings.siteName.trim().split(" ");
+                    const lastWord = words.pop();
+                    logoText.innerHTML = `${words.join(" ")}<span>${lastWord}</span>`;
+                }
+            }
+
+            if (settings.contactEmail) {
+                const emailEl = document.getElementById("footerEmail");
+                if (emailEl) emailEl.textContent = settings.contactEmail;
+            }
+
+            const social = settings.social || {};
+            if (social.facebook) document.getElementById("socialFacebook")?.setAttribute("href", social.facebook);
+            if (social.instagram) document.getElementById("socialInstagram")?.setAttribute("href", social.instagram);
+            if (social.youtube) document.getElementById("socialYoutube")?.setAttribute("href", social.youtube);
+            if (social.github) document.getElementById("socialGithub")?.setAttribute("href", social.github);
+        })
+        .catch(() => {});
 
 })();

@@ -64,3 +64,5 @@ const hiraganaData = [
     { id: 45, character: "を", romaji: "wo", word: "を", reading: "wo", meaning: "Object particle (marks the direct object)", sentence: "ほんを よみます。", translation: "I read a book (book = object).", level: "N5", difficulty: "Easy", audio: "audio/hiragana/wo.mp3" },
     { id: 46, character: "ん", romaji: "n", word: "ほん", reading: "hon", meaning: "N sound (never starts a word)", sentence: "ほんが すきです。", translation: "I like books.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/n.mp3" }
 ];
+
+if (typeof module !== "undefined" && module.exports) { module.exports = hiraganaData; }

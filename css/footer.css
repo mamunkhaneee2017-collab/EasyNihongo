@@ -22,6 +22,26 @@
 
 }
 
+@media (max-width:992px){
+
+    .footer-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
 .footer-column h3{
 
     margin-bottom:20px;

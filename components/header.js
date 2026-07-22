@@ -65,7 +65,7 @@
 
             <a href="${toRoot}index.html" class="logo">
                 <img src="${toRoot}assets/icons/logo.jpeg" alt="Easy Nihongo Logo">
-                <span class="logo-text">Easy<span>Nihongo</span></span>
+                <span class="logo-text" id="siteLogoText">Easy<span>Nihongo</span></span>
             </a>
 
             <ul class="nav-menu" id="navMenu">
@@ -105,6 +105,68 @@
 
         </div>
     </nav>
-</header>`;
+</header>
+
+<div class="ad-banner" id="adTextBanner" role="note" aria-label="Announcement" hidden></div>
+<div class="ad-media-banner" id="adMediaBanner" hidden></div>`;
+
+    // Both ad slots are fully controlled from the admin panel's
+    // Advertisements section (scheduling, priority, on/off). Only the
+    // single highest-priority, currently-active, in-date-range ad per
+    // slot is ever returned here — see backend/routes/advertisements.js.
+    fetch("/api/advertisements")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((ads) => {
+            if (!ads) return;
+
+            const textBanner = document.getElementById("adTextBanner");
+            if (ads.text && ads.text.content) {
+                textBanner.innerHTML = `
+                    <div class="ad-banner-track">
+                        <span class="ad-banner-item">${ads.text.content}</span>
+                        <span class="ad-banner-item" aria-hidden="true">${ads.text.content}</span>
+                    </div>`;
+                textBanner.hidden = false;
+            }
+
+            const mediaBanner = document.getElementById("adMediaBanner");
+            if (ads.banner && sessionStorage.getItem(`adDismissed_${ads.banner.id}`) !== "1") {
+                const mediaTag =
+                    ads.banner.mediaType === "video"
+                        ? `<video src="${ads.banner.mediaPath}" autoplay muted loop playsinline></video>`
+                        : `<img src="${ads.banner.mediaPath}" alt="${ads.banner.title || "Advertisement"}">`;
+
+                const inner = ads.banner.linkUrl
+                    ? `<a href="${ads.banner.linkUrl}" target="_blank" rel="noopener noreferrer" class="ad-media-link">${mediaTag}</a>`
+                    : `<div class="ad-media-link">${mediaTag}</div>`;
+
+                mediaBanner.innerHTML = `
+                    ${inner}
+                    <button class="ad-media-close" aria-label="Close advertisement" type="button"><i class="fa-solid fa-xmark"></i></button>`;
+                mediaBanner.hidden = false;
+
+                mediaBanner.querySelector(".ad-media-close").addEventListener("click", () => {
+                    sessionStorage.setItem(`adDismissed_${ads.banner.id}`, "1");
+                    mediaBanner.hidden = true;
+                });
+            }
+        })
+        .catch(() => {});
+
+    // Reflects the admin panel's Site Name setting (falls back to the
+    // hardcoded markup above if the API isn't reachable, e.g. a page
+    // opened via file:// without the server running).
+    fetch("/api/settings")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((settings) => {
+            if (!settings || !settings.siteName) return;
+            const logoText = document.getElementById("siteLogoText");
+            if (!logoText) return;
+
+            const words = settings.siteName.trim().split(" ");
+            const lastWord = words.pop();
+            logoText.innerHTML = `${words.join(" ")}<span>${lastWord}</span>`;
+        })
+        .catch(() => {});
 
 })();

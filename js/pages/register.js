@@ -17,7 +17,13 @@ const confirmPassword = document.getElementById("confirmPassword");
 
 const country = document.getElementById("country");
 
+const currentLevel = document.getElementById("currentLevel");
+
+const goalLevel = document.getElementById("goalLevel");
+
 const terms = document.getElementById("terms");
+
+const registerBtn = registerForm.querySelector('button[type="submit"]');
 
 
 // ==========================================
@@ -285,14 +291,39 @@ else if(!isStrongPassword(password.value)){
     }
 
     // ==========================
-    // Success
+    // Submit to server
     // ==========================
 
     if(isValid){
 
-        alert("🎉 Registration Successful!");
+        registerBtn.disabled = true;
+        const originalBtnHtml = registerBtn.innerHTML;
+        registerBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating account...';
 
-        registerForm.reset();
+        fetch("/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                fullName: fullName.value.trim(),
+                email: email.value.trim(),
+                password: password.value,
+                country: country.value,
+                currentLevel: currentLevel ? currentLevel.value : "",
+                goalLevel: goalLevel ? goalLevel.value : ""
+            })
+        })
+            .then(async (res) => {
+                const data = await res.json();
+                if(!res.ok) throw new Error(data.error || "Registration failed.");
+                alert("🎉 Registration Successful! Please log in.");
+                window.location.href = "login.html";
+            })
+            .catch((err) => {
+                alert(err.message);
+                registerBtn.disabled = false;
+                registerBtn.innerHTML = originalBtnHtml;
+            });
 
     }
 

@@ -42,6 +42,9 @@
             <p class="jp">${point.jp}</p>
             <p class="en">${point.en}</p>
         </div>
+        <button class="learned-btn" data-level="${level}" data-index="${i}">
+            <i class="fa-regular fa-circle-check"></i> Mark as Learned
+        </button>
     </div>`;
             });
 
@@ -61,7 +64,69 @@
 
     grid.insertAdjacentHTML("afterbegin", html);
 
+    initLearnedButtons();
+
 })();
+
+
+// ==========================================
+// MARK AS LEARNED
+// Persists per-user via POST /api/progress/complete.
+// Anonymous visitors see a login hint instead.
+// ==========================================
+
+function setLearnedButtonState(button, learned){
+    button.classList.toggle("active", learned);
+    button.innerHTML = learned
+        ? '<i class="fa-solid fa-circle-check"></i> Learned'
+        : '<i class="fa-regular fa-circle-check"></i> Mark as Learned';
+}
+
+function initLearnedButtons(){
+
+    const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
+
+    document.querySelectorAll(".learned-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            fetch("/api/progress/complete", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({
+                    contentType: "grammar",
+                    level: button.dataset.level,
+                    itemIndex: button.dataset.index
+                })
+            })
+                .then(async (res) => {
+                    if(!res.ok) throw new Error("not logged in");
+                    const data = await res.json();
+                    setLearnedButtonState(button, data.completed);
+                })
+                .catch(() => {
+                    alert("Log in to save your learned grammar points.");
+                });
+
+        });
+
+    });
+
+    LEVELS.forEach(level => {
+        fetch(`/api/progress/completed?contentType=grammar&level=${level}`, { credentials: "same-origin" })
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if(!data) return;
+                data.itemIndexes.forEach(index => {
+                    const button = document.querySelector(`.learned-btn[data-level="${level}"][data-index="${index}"]`);
+                    if(button) setLearnedButtonState(button, true);
+                });
+            })
+            .catch(() => {});
+    });
+
+}
 
 
 // ==========================================

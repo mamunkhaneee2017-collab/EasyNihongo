@@ -50,6 +50,7 @@ const correctCountEl = document.getElementById("correctCount");
 const incorrectCountEl = document.getElementById("incorrectCount");
 const retryTestBtn = document.getElementById("retryTestBtn");
 const backToLevelsBtn = document.getElementById("backToLevelsBtn");
+const quizSaveStatus = document.getElementById("quizSaveStatus");
 
 
 // ==========================================
@@ -211,6 +212,39 @@ function finishQuiz(){
     incorrectCountEl.textContent = incorrect;
 
     quizResults.scrollIntoView({ behavior:"smooth", block:"start" });
+
+    saveQuizAttempt(currentLevel, correctAnswers, total);
+
+}
+
+
+// ==========================================
+// SAVE ATTEMPT (XP + streak + dashboard stats)
+// ==========================================
+
+function saveQuizAttempt(level, correct, total){
+
+    if(quizSaveStatus){
+        quizSaveStatus.textContent = "";
+        quizSaveStatus.className = "quiz-save-status";
+    }
+
+    fetch("/api/quiz/attempts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ level, correct, total })
+    })
+        .then(async (res) => {
+            if(!res.ok) throw new Error("not logged in");
+            if(quizSaveStatus) quizSaveStatus.textContent = "✓ Saved to your dashboard.";
+        })
+        .catch(() => {
+            if(quizSaveStatus){
+                quizSaveStatus.textContent = "Log in to save this result to your dashboard.";
+                quizSaveStatus.className = "quiz-save-status error";
+            }
+        });
 
 }
 

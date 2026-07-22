@@ -23,12 +23,17 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body.admin-body,
 body.admin-login-body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--admin-bg);
     color: var(--admin-text);
+    overflow-x: hidden;
 }
 
 .footer-logo {
@@ -911,6 +916,54 @@ button {
 .badge-replied { background: #e9f9ef; color: var(--admin-green); }
 .badge-active { background: #e9f9ef; color: var(--admin-green); }
 .badge-inactive { background: #f1f1f1; color: var(--admin-muted); }
+.badge-scheduled { background: #fef6e7; color: var(--admin-yellow); }
+.badge-expired { background: #fdeaec; color: var(--admin-primary); }
+
+/* ================= ADVERTISEMENTS VIEW ================= */
+
+.ad-preview-cell {
+    width: 70px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--admin-muted);
+    font-size: 18px;
+}
+
+.ad-preview-cell img,
+.ad-preview-cell video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inline-table-input {
+    width: 120px;
+    padding: 6px 8px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+.inline-table-input[type="number"] {
+    width: 70px;
+}
+
+.field-hint {
+    color: var(--admin-muted);
+    font-size: 12px;
+}
+
+.ad-form-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
 
 .row-actions {
     display: flex;
@@ -1075,6 +1128,22 @@ button {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.settings-save-status,
+.upload-status {
+    font-size: 13px;
+    margin-top: -6px;
+}
+
+.settings-save-status.success,
+.upload-status.success {
+    color: var(--admin-green);
+}
+
+.settings-save-status.error,
+.upload-status.error {
+    color: var(--admin-primary);
 }
 
 .toggle-row {

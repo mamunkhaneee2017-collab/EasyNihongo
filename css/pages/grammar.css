@@ -525,6 +525,37 @@ body.dark #darkModeBtn{
 
 }
 
+.learned-btn{
+
+    margin-top:14px;
+    padding:8px 14px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text-muted);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
+    align-self:flex-start;
+
+}
+
+.learned-btn:hover{
+
+    border-color:var(--primary);
+    color:var(--primary);
+
+}
+
+.learned-btn.active{
+
+    background:#10b981;
+    border-color:#10b981;
+    color:white;
+
+}
+
 /* ==========================================
             BADGES (per JLPT level)
 ========================================== */

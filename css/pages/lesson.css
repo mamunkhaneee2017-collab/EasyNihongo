@@ -145,3 +145,23 @@ transition:.3s;
 background:#dc2626;
 
 }
+
+@media(max-width:640px){
+
+.lesson-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+.lesson-info{
+
+margin-left:0;
+
+}
+
+}

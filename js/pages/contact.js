@@ -1,30 +1,35 @@
 /* ==========================================
    CONTACT FORM — validation + submission
    ==========================================
-   This form sends messages using Formspree
-   (a free service that emails form submissions
-   straight to your inbox, so you can reply to
-   the person directly from Gmail).
-
-   SETUP (one-time, takes 2 minutes):
-   1. Go to https://formspree.io and sign up free.
-   2. Create a new form, it will give you an endpoint
-      like: https://formspree.io/f/abcdwxyz
-   3. Replace FORM_ENDPOINT below with your real link.
-   4. Every submission will land in your email inbox
-      with the sender's name, Gmail, phone number and
-      message — just hit "Reply" to answer them.
-
-   Later, when your Spring Boot backend is ready, you
-   can simply change FORM_ENDPOINT to your own API
-   route (e.g. "/api/contact") and store messages in
-   MySQL instead — the validation code below does not
-   need to change.
+   Submissions are stored for real in the
+   messages table (via POST /api/contact) and
+   show up in the admin panel's Messages inbox.
 ========================================== */
 
-const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORM_ENDPOINT = "/api/contact";
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Reflects the admin panel's Site Info / social link settings (falls
+    // back to the hardcoded markup already on the page if the API isn't
+    // reachable, e.g. this page opened via file:// without the server).
+    fetch("/api/settings")
+        .then((res) => (res.ok ? res.json() : null))
+        .then((settings) => {
+            if (!settings) return;
+
+            if (settings.contactEmail) {
+                const emailEl = document.getElementById("contactEmailDisplay");
+                if (emailEl) emailEl.textContent = settings.contactEmail;
+            }
+
+            const social = settings.social || {};
+            if (social.facebook) document.getElementById("contactSocialFacebook")?.setAttribute("href", social.facebook);
+            if (social.instagram) document.getElementById("contactSocialInstagram")?.setAttribute("href", social.instagram);
+            if (social.youtube) document.getElementById("contactSocialYoutube")?.setAttribute("href", social.youtube);
+            if (social.github) document.getElementById("contactSocialGithub")?.setAttribute("href", social.github);
+        })
+        .catch(() => {});
 
     const form = document.getElementById("contactForm");
     if (!form) return;
@@ -145,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
+                credentials: "same-origin",
                 body: JSON.stringify(payload)
             });
 

@@ -64,3 +64,5 @@ const katakanaData = [
     { id: 45, character: "ヲ", romaji: "wo", word: "ヲ", reading: "wo", meaning: "Object particle (katakana form, rarely used)", sentence: "ホンヲ ヨム。", translation: "Read a book (formal/old writing style).", level: "N5", difficulty: "Easy", audio: "audio/katakana/wo.mp3" },
     { id: 46, character: "ン", romaji: "n", word: "パン", reading: "pan", meaning: "Bread", sentence: "パンを たべます。", translation: "I eat bread.", level: "N5", difficulty: "Easy", audio: "audio/katakana/n.mp3" }
 ];
+
+if (typeof module !== "undefined" && module.exports) { module.exports = katakanaData; }

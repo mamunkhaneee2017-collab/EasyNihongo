@@ -1,6 +1,24 @@
 # EasyNihongo
 
-A static web app for learning Japanese — hiragana, katakana, kanji, vocabulary, grammar, and quizzes — built with plain HTML, CSS, and JavaScript (no build tools required).
+A web app for learning Japanese — hiragana, katakana, kanji, vocabulary, grammar, and quizzes — built with plain HTML, CSS, and JavaScript on the frontend, backed by a real Node.js + Express + SQLite server.
+
+## Running it
+
+```bash
+npm install
+npm start
+```
+
+Then visit **http://localhost:3000**. The server serves the whole site and the `/api/*` routes from one process — opening pages directly via `file://` still renders the static shell, but login, the dashboard, quiz saving, favorites, and the admin panel all require the server running.
+
+On first start, an admin account is seeded automatically:
+
+- Email: `admin@easynihongo.com`
+- Password: `admin123`
+
+(Override with the `ADMIN_SEED_EMAIL` / `ADMIN_SEED_PASSWORD` env vars before the first run.) Admin panel: `/admin/login.html`.
+
+Data lives in `database/easynihongo.sqlite` (created automatically); uploaded files live in `uploads/` — both gitignored.
 
 ## Pages
 
@@ -25,9 +43,10 @@ An admin panel lives under [`admin/`](admin/).
 
 ```
 EasyNihongo/
-├── index.html, 404.html        — must stay at the site root
+├── package.json                 — npm start runs backend/server.js
+├── index.html, 404.html         — must stay at the site root
 ├── pages/                       — every other page
-├── admin/                       — admin panel (self-contained)
+├── admin/                       — admin panel (real, backed by /api/admin/*)
 ├── components/                  — shared header/footer, injected via JS (not fetch —
 │                                   see note below) so pages still work opened via file://
 ├── css/
@@ -38,13 +57,19 @@ EasyNihongo/
 ├── js/
 │   ├── utils.js                 — shared dark mode, mobile menu, counters, reveal, ripple
 │   ├── i18n.js                  — translation engine
+│   ├── auth-guard.js            — redirects to login.html if /api/auth/me isn't authenticated
 │   └── pages/                   — one script per page
-├── data/                        — per-subject data files (vocabulary/, grammar/, kanji/,
-│                                   quiz/, courses/, plus hiragana/katakana/dashboard data)
+├── data/                        — per-subject content (vocabulary/, grammar/, kanji/,
+│                                   quiz/, courses/, plus hiragana/katakana). Each file is
+│                                   loaded as a browser <script> AND required() by the
+│                                   backend (backend/lib/contentData.js) — single source
+│                                   of truth for "how many items exist per level".
 ├── locales/                     — en.js / bn.js translation strings
 ├── assets/                      — icons/, images/, audio/, videos/
 ├── manifest.json, sw.js         — PWA manifest + offline service worker (root-only)
-├── backend/, database/          — reserved for future server-side work (currently empty)
+├── backend/                     — Express app: routes/, middleware/, db/, lib/
+├── database/                    — easynihongo.sqlite + session store (gitignored)
+├── uploads/                     — admin-uploaded course materials + avatars (gitignored)
 └── docs/                        — reserved for project documentation
 ```
 
@@ -58,7 +83,18 @@ silently break that. The JS-injection approach works either way.
 
 ## Status
 
-Front-end pages are built out; `backend/` and `database/` are placeholders for future server-side work.
+Full-stack: real registration/login (bcrypt + sessions), a real per-user dashboard
+(XP, streak, weekly activity, kanji/grammar/vocabulary progress, quiz history), and a
+real admin panel (course material uploads that publish to the public Courses page,
+contact-form messages, student management, visitor logging, site settings that drive
+the navbar/footer).
+
+Known limitations (by design, not oversights):
+- No real email sending (forgot-password links, admin message replies) — no SMTP
+  configured. Replies are saved but not emailed.
+- Visitor analytics has no geo-IP (country/city) — device type and page path only.
+- Grammar/Kanji/Quiz content only has real entries for N5/N4; N3–N1 are intentionally
+  empty pending content authoring, independent of the backend.
 
 ## License
 

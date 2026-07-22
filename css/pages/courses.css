@@ -768,6 +768,88 @@ body.dark #darkModeBtn{
 }
 
 /* ==========================================
+            COURSE MATERIALS
+========================================== */
+
+.course-materials{
+
+    padding:20px 0 80px;
+
+}
+
+.materials-grid{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+
+}
+
+.material-card{
+
+    background:var(--surface);
+    border-radius:16px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    box-shadow:var(--shadow-sm);
+    border:1px solid var(--border);
+    transition:transform var(--transition),box-shadow var(--transition);
+
+}
+
+.material-card:hover{
+
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+
+}
+
+.material-icon{
+
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--primary-light);
+    color:var(--primary);
+    font-size:20px;
+    flex-shrink:0;
+
+}
+
+.material-info h3{
+
+    font-size:16px;
+    color:var(--text);
+    margin-bottom:4px;
+
+}
+
+.material-info p{
+
+    font-size:13px;
+    color:var(--text-muted);
+    margin:0;
+
+}
+
+.material-download{
+
+    margin-left:auto;
+    color:var(--primary);
+    font-size:18px;
+    flex-shrink:0;
+
+}
+
+/* ==========================================
             LEARNING PATH
 ========================================== */
 

@@ -206,3 +206,68 @@ if(searchInput){
     });
 
 }
+
+
+// ==========================================
+// COURSE MATERIALS
+// Published from the admin panel's Courses &
+// Files view (GET /api/materials — public,
+// published files only).
+// ==========================================
+
+(function loadCourseMaterials(){
+
+    const grid = document.getElementById("materialsGrid");
+    if(!grid) return;
+
+    const TYPE_ICON = {
+        pdf: "fa-file-pdf",
+        doc: "fa-file-word",
+        ppt: "fa-file-powerpoint",
+        txt: "fa-file-lines",
+        audio: "fa-file-audio",
+        video: "fa-file-video"
+    };
+
+    function mimeToType(mime){
+        if(mime === "application/pdf") return "pdf";
+        if(mime === "application/msword" || mime.includes("wordprocessingml")) return "doc";
+        if(mime === "application/vnd.ms-powerpoint" || mime.includes("presentationml")) return "ppt";
+        if(mime === "text/plain") return "txt";
+        if(mime.startsWith("audio/")) return "audio";
+        if(mime.startsWith("video/")) return "video";
+        return "txt";
+    }
+
+    function formatSize(bytes){
+        if(bytes < 1024) return bytes + " B";
+        if(bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+    }
+
+    fetch("/api/materials")
+        .then(res => res.json())
+        .then(data => {
+
+            if(!data.materials.length) return;
+
+            grid.innerHTML = data.materials.map(m => {
+                const type = mimeToType(m.mime_type);
+                const icon = TYPE_ICON[type] || "fa-file";
+
+                return `
+    <a class="material-card" href="/api/materials/${m.id}/download" download>
+        <div class="material-icon"><i class="fa-solid ${icon}"></i></div>
+        <div class="material-info">
+            <h3>${m.original_name}</h3>
+            <p>JLPT ${m.level} &middot; ${m.category} &middot; ${formatSize(m.size_bytes)}</p>
+        </div>
+        <i class="fa-solid fa-download material-download"></i>
+    </a>`;
+
+            }).join("");
+
+        })
+        .catch(() => {});
+
+})();

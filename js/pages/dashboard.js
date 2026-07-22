@@ -191,18 +191,19 @@ function showLoadError() {
 
 /*==========================
         LOAD DATA
-    dashboardData comes from data/dashboard-data.js
-    (loaded as a <script> tag in dashboard.html, before this file).
-    This works even when the page is opened directly via file://,
-    unlike fetch(), which browsers block for local files.
+    js/auth-guard.js (loaded before this file) already
+    confirmed the user is logged in and redirects to
+    login.html otherwise. Real per-user stats come from
+    GET /api/dashboard, backed by the SQLite database.
 ==========================*/
 
-try {
-    if (typeof dashboardData === "undefined") {
-        throw new Error("dashboardData is not defined. Check that data/dashboard-data.js is loaded before dashboard.js.");
-    }
-    populateDashboard(dashboardData);
-} catch (error) {
-    console.error("Dashboard load error:", error);
-    showLoadError();
-}
+fetch("/api/dashboard", { credentials: "same-origin" })
+    .then((res) => {
+        if (!res.ok) throw new Error("Failed to load dashboard data.");
+        return res.json();
+    })
+    .then((data) => populateDashboard(data))
+    .catch((error) => {
+        console.error("Dashboard load error:", error);
+        showLoadError();
+    });

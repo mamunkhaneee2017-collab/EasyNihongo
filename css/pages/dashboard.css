@@ -109,6 +109,7 @@ body{
 
 .main-content{
     flex:1;
+    min-width:0;
     padding:40px;
 }
 
@@ -301,6 +302,45 @@ body{
     background:#ddd;
     border-radius:20px;
     margin:20px 0;
+}
+
+/* Profile Edit Form */
+
+.profile-edit-form{
+    margin-top:15px;
+}
+
+.profile-edit-form .form-group{
+    margin-bottom:18px;
+}
+
+.profile-edit-form label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#374151;
+}
+
+.profile-edit-form input{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    font-size:14px;
+    font-family:inherit;
+}
+
+.profile-edit-status{
+    margin-top:12px;
+    font-size:14px;
+}
+
+.profile-edit-status.success{
+    color:#10b981;
+}
+
+.profile-edit-status.error{
+    color:#ef4444;
 }
 
 .goal-fill{
@@ -696,6 +736,46 @@ body{
     }
 }
 
+@media(max-width:576px){
+
+    .search-box{
+        display:none;
+    }
+
+    .dashboard-header{
+        padding:14px 18px;
+    }
+
+    .profile{
+        padding:6px;
+    }
+
+    .profile h4,
+    .profile small{
+        display:none;
+    }
+
+    .header-left{
+        align-items:flex-start;
+    }
+
+    .dashboard-header h1{
+        font-size:19px;
+    }
+
+    .main-content{
+        padding:20px;
+    }
+
+    .chart-card{
+        padding:20px 15px;
+    }
+
+    .bar{
+        width:22px;
+    }
+}
+
 /*====================================
         THEME BUTTON
 =====================================*/
@@ -725,6 +805,12 @@ body{
     grid-template-columns:2fr 1fr;
     gap:30px;
     margin-top:40px;
+}
+
+@media(max-width:992px){
+    .daily-section{
+        grid-template-columns:1fr;
+    }
 }
 
 .mission-card,

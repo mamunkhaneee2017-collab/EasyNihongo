@@ -1,9 +1,9 @@
 /* ==========================================
         ADMIN LOGIN
-   UI preview only — no real backend exists yet,
-   so this checks against the demo credentials
-   shown on the page itself and redirects to the
-   admin dashboard on match.
+   Verifies against the real /api/auth/login
+   endpoint (same one the student login page
+   uses) and requires the account's role to be
+   "admin" before granting access to index.html.
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.getElementById("adminPasswordError");
     const togglePassword = document.getElementById("togglePassword");
     const rememberMe = document.getElementById("rememberMe");
-
-    const DEMO_EMAIL = "admin@easynihongo.com";
-    const DEMO_PASSWORD = "admin123";
 
     togglePassword.addEventListener("click", () => {
         const isPassword = password.type === "password";
@@ -47,19 +44,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!isValid) return;
 
-        if (email.value.trim() === DEMO_EMAIL && password.value === DEMO_PASSWORD) {
+        fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify({ email: email.value.trim(), password: password.value })
+        })
+            .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || "Incorrect email or password.");
+                if (data.user.role !== "admin") throw new Error("This account does not have admin access.");
 
-            if (rememberMe.checked) {
-                localStorage.setItem("adminRememberEmail", email.value.trim());
-            } else {
-                localStorage.removeItem("adminRememberEmail");
-            }
+                if (rememberMe.checked) {
+                    localStorage.setItem("adminRememberEmail", email.value.trim());
+                } else {
+                    localStorage.removeItem("adminRememberEmail");
+                }
 
-            sessionStorage.setItem("adminLoggedIn", "true");
-            window.location.href = "index.html";
-        } else {
-            passwordError.textContent = "Incorrect email or password.";
-        }
+                window.location.href = "index.html";
+            })
+            .catch((err) => {
+                passwordError.textContent = err.message;
+            });
 
     });
 
