@@ -113,6 +113,16 @@ CREATE TABLE IF NOT EXISTS advertisements (
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS hero_photos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_path TEXT NOT NULL,
+    shape TEXT NOT NULL DEFAULT 'circle' CHECK(shape IN ('circle','rounded-square','blob','hexagon')),
+    display_order INTEGER NOT NULL DEFAULT 0,
+    is_active INTEGER NOT NULL DEFAULT 1,
+    uploaded_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS site_settings (
     id INTEGER PRIMARY KEY CHECK (id = 1),
     site_name TEXT NOT NULL DEFAULT 'Easy Nihongo',

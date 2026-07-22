@@ -660,6 +660,140 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ==========================================
+       HERO PHOTOS
+    ========================================== */
+
+    const heroPhotosTableBody = document.getElementById("heroPhotosTableBody");
+    let allHeroPhotos = [];
+
+    function renderHeroPhotos() {
+        if (!heroPhotosTableBody) return;
+
+        heroPhotosTableBody.innerHTML =
+            allHeroPhotos
+                .map(
+                    (p) => `
+                <tr>
+                    <td><div class="ad-preview-cell"><img src="${p.imagePath}" alt=""></div></td>
+                    <td>
+                        <select class="inline-table-input" data-id="${p.id}" data-field="shape">
+                            <option value="circle" ${p.shape === "circle" ? "selected" : ""}>Circle</option>
+                            <option value="rounded-square" ${p.shape === "rounded-square" ? "selected" : ""}>Rounded Square</option>
+                            <option value="blob" ${p.shape === "blob" ? "selected" : ""}>Blob</option>
+                            <option value="hexagon" ${p.shape === "hexagon" ? "selected" : ""}>Hexagon</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="inline-table-input" data-id="${p.id}" data-field="displayOrder" value="${p.displayOrder}" min="0" step="1"></td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="hero-active-toggle" data-id="${p.id}" ${p.isActive ? "checked" : ""}>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <div class="row-actions">
+                            <i class="fa-solid fa-trash" title="Delete" data-action="delete-hero" data-id="${p.id}"></i>
+                        </div>
+                    </td>
+                </tr>
+            `
+                )
+                .join("") || `<tr><td colspan="5" class="empty-state">No hero photos yet — upload one above.</td></tr>`;
+    }
+
+    function loadHeroPhotos() {
+        fetch("/api/admin/hero-photos", { credentials: "same-origin" })
+            .then((res) => res.json())
+            .then((data) => {
+                allHeroPhotos = data.photos;
+                renderHeroPhotos();
+            });
+    }
+
+    function patchHeroPhoto(id, formData) {
+        return fetch(`/api/admin/hero-photos/${id}`, {
+            method: "PATCH",
+            credentials: "same-origin",
+            body: formData
+        });
+    }
+
+    if (heroPhotosTableBody) {
+        heroPhotosTableBody.addEventListener("change", (e) => {
+            const target = e.target;
+            const id = target.dataset.id;
+            if (!id) return;
+
+            if (target.classList.contains("hero-active-toggle")) {
+                const fd = new FormData();
+                fd.append("isActive", target.checked ? "true" : "false");
+                patchHeroPhoto(id, fd).then(loadHeroPhotos);
+                return;
+            }
+
+            if (target.dataset.field) {
+                const fd = new FormData();
+                fd.append(target.dataset.field, target.value);
+                patchHeroPhoto(id, fd).then(loadHeroPhotos);
+            }
+        });
+
+        heroPhotosTableBody.addEventListener("click", (e) => {
+            const target = e.target.closest("[data-action]");
+            if (!target) return;
+
+            if (target.dataset.action === "delete-hero") {
+                if (!confirm("Delete this hero photo?")) return;
+                fetch(`/api/admin/hero-photos/${target.dataset.id}`, { method: "DELETE", credentials: "same-origin" })
+                    .then(loadHeroPhotos);
+            }
+        });
+    }
+
+    const heroPhotoCreateBtn = document.getElementById("heroPhotoCreateBtn");
+    if (heroPhotoCreateBtn) {
+        heroPhotoCreateBtn.addEventListener("click", () => {
+            const status = document.getElementById("heroPhotoStatus");
+            const file = document.getElementById("heroPhotoInput").files[0];
+
+            if (!file) {
+                status.textContent = "Please choose a photo file.";
+                status.className = "upload-status error";
+                return;
+            }
+
+            const fd = new FormData();
+            fd.append("photo", file);
+            fd.append("shape", document.getElementById("heroShapeInput").value);
+            fd.append("displayOrder", document.getElementById("heroOrderInput").value || "0");
+
+            heroPhotoCreateBtn.disabled = true;
+            status.textContent = "Uploading…";
+            status.className = "upload-status";
+
+            fetch("/api/admin/hero-photos", { method: "POST", credentials: "same-origin", body: fd })
+                .then(async (res) => {
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.error || "Could not upload photo.");
+
+                    status.textContent = "Photo uploaded.";
+                    status.className = "upload-status success";
+                    document.getElementById("heroPhotoInput").value = "";
+                    document.getElementById("heroOrderInput").value = "0";
+
+                    loadHeroPhotos();
+                })
+                .catch((err) => {
+                    status.textContent = err.message;
+                    status.className = "upload-status error";
+                })
+                .finally(() => {
+                    heroPhotoCreateBtn.disabled = false;
+                });
+        });
+    }
+
+    /* ==========================================
        MESSAGES INBOX
     ========================================== */
 
@@ -989,6 +1123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadOverview();
     loadRecentOverviewLists();
     loadAdvertisements();
+    loadHeroPhotos();
     loadMaterials();
     loadMessages();
     loadStudents();

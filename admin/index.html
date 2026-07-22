@@ -43,6 +43,10 @@
                     <i class="fa-solid fa-bullhorn"></i> <span>Advertisements</span>
                 </a>
 
+                <a href="#hero-photos" class="admin-nav-link" data-view="hero-photos">
+                    <i class="fa-solid fa-images"></i> <span>Hero Photos</span>
+                </a>
+
                 <a href="#messages" class="admin-nav-link" data-view="messages">
                     <i class="fa-solid fa-envelope"></i> <span>Messages</span>
                     <span class="nav-badge" id="messagesBadge">3</span>
@@ -419,6 +423,78 @@
                                     </tr>
                                 </thead>
                                 <tbody id="adsTableBody">
+                                    <!-- Rows injected by admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ============ HERO PHOTOS VIEW ============ -->
+
+                <section class="admin-view" id="view-hero-photos">
+
+                    <div class="view-header">
+                        <h1>Hero Photos</h1>
+                        <p>Upload student photos to auto-rotate on the homepage hero section. Each photo can have its own shape/style. If none are active, the default illustration is shown instead.</p>
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+                            <h3>Add Photo</h3>
+                        </div>
+
+                        <div class="settings-form">
+
+                            <div class="form-group">
+                                <label for="heroPhotoInput">Photo (JPG/PNG/WEBP, up to 10MB)</label>
+                                <input type="file" id="heroPhotoInput" accept=".jpg,.jpeg,.png,.webp">
+                            </div>
+
+                            <div class="upload-meta-form">
+                                <div class="form-group">
+                                    <label for="heroShapeInput">Shape / Style</label>
+                                    <select id="heroShapeInput">
+                                        <option value="circle">Circle</option>
+                                        <option value="rounded-square">Rounded Square</option>
+                                        <option value="blob">Blob</option>
+                                        <option value="hexagon">Hexagon</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="heroOrderInput">Display Order (lower shows first)</label>
+                                    <input type="number" id="heroOrderInput" value="0" min="0" step="1">
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary" id="heroPhotoCreateBtn">Upload Photo</button>
+                            <p id="heroPhotoStatus" class="upload-status"></p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+                            <h3>All Hero Photos</h3>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="admin-table" id="heroPhotosTable">
+                                <thead>
+                                    <tr>
+                                        <th>Preview</th>
+                                        <th>Shape</th>
+                                        <th>Order</th>
+                                        <th>Active</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="heroPhotosTableBody">
                                     <!-- Rows injected by admin.js -->
                                 </tbody>
                             </table>
