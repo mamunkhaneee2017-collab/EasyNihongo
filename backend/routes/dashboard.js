@@ -25,9 +25,9 @@ router.get("/", requireAuth, (req, res) => {
     const grammarTotal = content.totalItemCount("grammar");
 
     const vocabCompleted = db
-        .prepare(`SELECT COUNT(*) as c FROM vocabulary_progress WHERE user_id = ? AND completed = 1`)
+        .prepare(`SELECT COUNT(*) as c FROM progress_items WHERE user_id = ? AND content_type = 'vocabulary'`)
         .get(userId).c;
-    const vocabTotal = content.vocabularyData.length;
+    const vocabTotal = content.totalItemCount("vocabulary");
 
     const quizAttemptCount = db
         .prepare(`SELECT COUNT(*) as c FROM quiz_attempts WHERE user_id = ?`)

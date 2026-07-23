@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS quiz_attempts (
 CREATE TABLE IF NOT EXISTS progress_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    content_type TEXT NOT NULL CHECK(content_type IN ('kanji','grammar','hiragana','katakana')),
+    content_type TEXT NOT NULL CHECK(content_type IN ('kanji','grammar','hiragana','katakana','vocabulary')),
     level TEXT NOT NULL,
     item_index INTEGER NOT NULL,
     completed_at TEXT NOT NULL DEFAULT (datetime('now')),
@@ -53,6 +53,10 @@ CREATE TABLE IF NOT EXISTS favorites (
     UNIQUE(user_id, content_type, item_index)
 );
 
+-- Legacy/superseded: vocabulary now has real per-word chapters and tracks
+-- progress the same way as kanji/grammar, via progress_items with
+-- content_type='vocabulary'. This table is kept only so any pre-existing
+-- rows aren't lost; nothing reads or writes it anymore.
 CREATE TABLE IF NOT EXISTS vocabulary_progress (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,

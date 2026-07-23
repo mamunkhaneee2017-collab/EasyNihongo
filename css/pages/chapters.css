@@ -1,0 +1,124 @@
+/* ===================================
+        CHAPTERS PAGE
+=================================== */
+
+.chapters-hero{
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.chapters-hero .hero-eyebrow{
+    display:inline-block;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.chapters-hero h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.chapters-hero p{
+    color:#6b7280;
+}
+
+.chapters-grid-section{
+    padding:60px 0 100px;
+}
+
+.chapters-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.chapter-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    transition:.3s;
+    color:inherit;
+    text-decoration:none;
+}
+
+.chapter-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 30px rgba(0,0,0,.1);
+}
+
+.chapter-card-number{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:10px;
+    background:#ef4444;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.chapter-card-body{
+    flex:1;
+}
+
+.chapter-card-body h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.chapter-card-body p{
+    color:#6b7280;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.chapter-progress-bar{
+    background:#f1f5f9;
+    border-radius:10px;
+    height:6px;
+    overflow:hidden;
+    margin-bottom:6px;
+}
+
+.chapter-progress-fill{
+    background:#ef4444;
+    height:100%;
+    border-radius:10px;
+    transition:width .4s ease;
+}
+
+.chapter-progress-label{
+    font-size:12px;
+    color:#9ca3af;
+}
+
+.no-results{
+    text-align:center;
+    color:#6b7280;
+    grid-column:1 / -1;
+    padding:40px 0;
+}
+
+@media(max-width:900px){
+.chapters-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:560px){
+.chapters-grid{
+    grid-template-columns:1fr;
+}
+}

@@ -10,9 +10,12 @@
 
 
 // ==========================================
-// RENDER GRAMMAR GRID
-// grammarData comes from data/grammar-data.js
-// (loaded as a <script> tag before this file).
+// RENDER LEVEL CARDS
+// grammarData comes from data/grammar/grammar-data.js
+// (now { chapters: [...] } per level) — flattened
+// via data/content-helpers.js's flattenLevel(),
+// the same normalizer the backend uses. Each
+// card links into chapters.html for that level.
 // ==========================================
 
 (function renderGrammarGrid(){
@@ -21,160 +24,35 @@
     if(!grid || typeof grammarData === "undefined") return;
 
     const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
-    let html = "";
 
-    LEVELS.forEach((level, levelIndex) => {
+    grid.innerHTML = LEVELS.map((level, levelIndex) => {
 
-        const points = grammarData[level] || [];
+        const flat = flattenLevel(grammarData[level]);
 
-        if(points.length){
-
-            points.forEach((point, i) => {
-                html += `
-    <div class="grammar-card ${level} reveal" data-anim="fade-up" data-delay="${i * 60}">
-        <div class="grammar-top">
-            <span class="jp-pattern">${point.pattern}</span>
-            <span class="badge badge-${level}">${level.toUpperCase()}</span>
-        </div>
-        <p class="reading">${point.reading}</p>
-        <p class="meaning">${point.meaning}</p>
-        <div class="example">
-            <p class="jp">${point.jp}</p>
-            <p class="en">${point.en}</p>
-        </div>
-        <button class="learned-btn" data-level="${level}" data-index="${i}">
-            <i class="fa-regular fa-circle-check"></i> Mark as Learned
-        </button>
-    </div>`;
-            });
-
-        } else {
-
+        if(!flat.chapters.length){
             const prevLevel = LEVELS[levelIndex - 1];
-            html += `
-    <div class="grammar-card locked ${level} reveal" data-anim="fade-up" data-delay="${levelIndex * 80}">
-        <i class="fa-solid fa-lock lock"></i>
-        <h2>JLPT ${level.toUpperCase()}</h2>
+            return `
+    <div class="level-hub-card locked ${level}">
+        <i class="fa-solid fa-lock"></i>
+        <h3>JLPT ${level.toUpperCase()}</h3>
         <p>${prevLevel ? `Complete ${prevLevel.toUpperCase()} to Unlock` : "Coming soon"}</p>
     </div>`;
-
         }
 
-    });
+        return `
+    <a href="chapters.html?level=${level}&type=grammar" class="level-hub-card ${level}">
+        <i class="fa-solid fa-pen"></i>
+        <h3>JLPT ${level.toUpperCase()}</h3>
+        <p>${flat.chapters.length} chapters &middot; ${flat.items.length} patterns</p>
+    </a>`;
 
-    grid.insertAdjacentHTML("afterbegin", html);
-
-    initLearnedButtons();
+    }).join("");
 
 })();
 
 
 // ==========================================
-// MARK AS LEARNED
-// Persists per-user via POST /api/progress/complete.
-// Anonymous visitors see a login hint instead.
-// ==========================================
-
-function setLearnedButtonState(button, learned){
-    button.classList.toggle("active", learned);
-    button.innerHTML = learned
-        ? '<i class="fa-solid fa-circle-check"></i> Learned'
-        : '<i class="fa-regular fa-circle-check"></i> Mark as Learned';
-}
-
-function initLearnedButtons(){
-
-    const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
-
-    document.querySelectorAll(".learned-btn").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            fetch("/api/progress/complete", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "same-origin",
-                body: JSON.stringify({
-                    contentType: "grammar",
-                    level: button.dataset.level,
-                    itemIndex: button.dataset.index
-                })
-            })
-                .then(async (res) => {
-                    if(!res.ok) throw new Error("not logged in");
-                    const data = await res.json();
-                    setLearnedButtonState(button, data.completed);
-                })
-                .catch(() => {
-                    alert("Log in to save your learned grammar points.");
-                });
-
-        });
-
-    });
-
-    LEVELS.forEach(level => {
-        fetch(`/api/progress/completed?contentType=grammar&level=${level}`, { credentials: "same-origin" })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if(!data) return;
-                data.itemIndexes.forEach(index => {
-                    const button = document.querySelector(`.learned-btn[data-level="${level}"][data-index="${index}"]`);
-                    if(button) setLearnedButtonState(button, true);
-                });
-            })
-            .catch(() => {});
-    });
-
-}
-
-
-// ==========================================
-// FILTER
-// ==========================================
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const grammarCards = document.querySelectorAll(".grammar-card");
-const noResults = document.getElementById("noResults");
-
-function updateNoResults(){
-
-    if(!noResults) return;
-
-    const visible = Array.from(grammarCards).some(card => card.style.display !== "none");
-    noResults.classList.toggle("show", !visible);
-
-}
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        const filter = button.dataset.filter;
-
-        grammarCards.forEach(card => {
-
-            if(filter === "all" || card.classList.contains(filter)){
-                card.style.display = "flex";
-            }
-            else{
-                card.style.display = "none";
-            }
-
-        });
-
-        updateNoResults();
-
-    });
-
-});
-
-
-// ==========================================
-// SEARCH (matches pattern or meaning text)
+// SEARCH (filters the level cards by text)
 // ==========================================
 
 const searchInput = document.getElementById("grammarSearch");
@@ -191,33 +69,22 @@ if(searchInput){
         debounceTimer = setTimeout(() => {
 
             const searchValue = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll("#grammarGrid .level-hub-card");
             let matches = 0;
 
-            if(searchValue && filterButtons.length){
-                filterButtons.forEach(btn => btn.classList.remove("active"));
-                document.querySelector('.filter-btn[data-filter="all"]')?.classList.add("active");
-            }
-
-            grammarCards.forEach(card => {
-
-                const pattern = card.querySelector(".jp-pattern")?.textContent.toLowerCase() || "";
-                const meaning = card.querySelector(".meaning")?.textContent.toLowerCase() || "";
-
-                if(pattern.includes(searchValue) || meaning.includes(searchValue)){
-                    card.style.display = "flex";
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if(!searchValue || text.includes(searchValue)){
+                    card.style.display = "";
                     matches++;
-                }
-                else{
+                } else {
                     card.style.display = "none";
                 }
-
             });
 
             if(searchCount){
                 searchCount.textContent = searchValue ? `${matches} found` : "";
             }
-
-            updateNoResults();
 
         }, 200);
 

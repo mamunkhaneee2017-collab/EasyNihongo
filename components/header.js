@@ -37,20 +37,45 @@
     // Courses, Vocabulary, Grammar and Kanji are grouped under one
     // "Courses" dropdown instead of 4 separate top-level nav items —
     // keeps the navbar from wrapping on smaller desktop widths.
-    const COURSES_GROUP = [
-        { key: "courses", href: `${toPages}courses.html`, label: "Course Overview" },
-        { key: "vocabulary", href: `${toPages}vocabulary.html`, label: "Vocabulary" },
-        { key: "grammar", href: `${toPages}grammar.html`, label: "Grammar" },
-        { key: "kanji", href: `${toPages}kanji.html`, label: "Kanji" }
+    // Vocabulary/Grammar/Kanji each additionally get a nested level
+    // flyout (N5-N1) so picking a level jumps straight into chapter 1 —
+    // only N5 is a real link; N4-N1 are shown locked, matching the same
+    // "coming soon" convention used everywhere else on the site. This is
+    // a fixed, numeric-position link (not a data lookup) deliberately:
+    // header.js loads on every page site-wide and must not be forced to
+    // load the (large) content data files just to resolve "first chapter."
+    const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
+    const COURSE_TYPES = [
+        { key: "vocabulary", label: "Vocabulary" },
+        { key: "grammar", label: "Grammar" },
+        { key: "kanji", label: "Kanji" }
     ];
 
-    const groupIsActive = COURSES_GROUP.some((item) => item.key === currentPage);
+    const groupIsActive = ["courses", "vocabulary", "grammar", "kanji"].includes(currentPage);
 
-    const dropdownItemsHtml = COURSES_GROUP.map((item) => {
-        const active = item.key === currentPage ? ' class="active"' : "";
-        const i18nAttr = item.key === "courses" ? "" : ` data-i18n="nav.${item.key}"`;
-        return `<a href="${item.href}"${active} role="menuitem"${i18nAttr}>${item.label}</a>`;
+    const courseOverviewHtml = `<a href="${toPages}courses.html"${currentPage === "courses" ? ' class="active"' : ""} role="menuitem">Course Overview</a>`;
+
+    const courseTypeFlyoutsHtml = COURSE_TYPES.map((type) => {
+        const levelLinksHtml = LEVELS.map((level) => {
+            const isUnlocked = level === "n5";
+            return isUnlocked
+                ? `<a href="${toPages}chapter.html?level=${level}&type=${type.key}&chapter=1" role="menuitem">${level.toUpperCase()}</a>`
+                : `<span class="locked" aria-disabled="true" title="Coming soon">${level.toUpperCase()}</span>`;
+        }).join("");
+
+        return `
+            <div class="nav-flyout-item">
+                <a href="${toPages}${type.key}.html"${currentPage === type.key ? ' class="active"' : ""} role="menuitem" data-i18n="nav.${type.key}">${type.label}</a>
+                <button type="button" class="nav-flyout-caret" aria-label="Choose a ${type.label} level" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret">&#9662;</span>
+                </button>
+                <div class="nav-flyout-submenu" role="menu" hidden>
+                    ${levelLinksHtml}
+                </div>
+            </div>`;
     }).join("");
+
+    const dropdownItemsHtml = courseOverviewHtml + courseTypeFlyoutsHtml;
 
     const otherLinksHtml = `<li><a href="${toPages}quiz.html"${currentPage === "quiz" ? ' class="active"' : ""} data-i18n="nav.quiz">JLPT Test</a></li>
                 <li><a href="${toPages}contact.html"${currentPage === "contact" ? ' class="active"' : ""} data-i18n="nav.contact">Contact</a></li>`;

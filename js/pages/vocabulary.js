@@ -4,8 +4,13 @@
 
 /* ===============================
         RENDER LEVEL CARDS
-   vocabularyData comes from data/vocabulary-data.js
-   (loaded as a <script> tag before this file).
+   vocabularyData comes from
+   data/vocabulary/vocabulary-data.js (now
+   { chapters: [...] } per level) — flattened
+   via data/content-helpers.js's flattenLevel(),
+   the same normalizer the backend uses, so
+   chapter/word counts here always match what's
+   actually reachable in chapters.html.
 ================================ */
 
 (function renderVocabularyGrid(){
@@ -13,88 +18,35 @@
     const grid = document.getElementById("vocabularyGrid");
     if(!grid || typeof vocabularyData === "undefined") return;
 
-    grid.innerHTML = vocabularyData.map(level => {
+    const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
 
-        if(level.locked){
+    grid.innerHTML = LEVELS.map((level, levelIndex) => {
+
+        const flat = flattenLevel(vocabularyData[level]);
+
+        if(!flat.chapters.length){
+            const prevLevel = LEVELS[levelIndex - 1];
             return `
-<div class="vocabulary-card locked ${level.level}">
+<div class="vocabulary-card locked ${level}">
     <i class="fa-solid fa-lock"></i>
-    <h2>JLPT ${level.level.toUpperCase()}</h2>
-    <p>Complete ${level.unlockAfter} to Unlock</p>
+    <h2>JLPT ${level.toUpperCase()}</h2>
+    <p>${prevLevel ? `Complete ${prevLevel.toUpperCase()} to Unlock` : "Coming soon"}</p>
 </div>`;
         }
 
         return `
-<div class="vocabulary-card ${level.level}">
-    <h2>JLPT ${level.level.toUpperCase()}</h2>
-    <span class="badge ${level.badge}">${level.badgeLabel}</span>
-    <p>${level.words}</p>
-    <p>${level.chapters}</p>
-    <p>${level.hours}</p>
-    <div class="progress">
-        <div class="progress-fill" style="width:${level.progress}%"></div>
-    </div>
-    <a href="lesson.html">
-        <button>${level.action}</button>
+<div class="vocabulary-card ${level}">
+    <h2>JLPT ${level.toUpperCase()}</h2>
+    <p>${flat.items.length} Words</p>
+    <p>${flat.chapters.length} Chapters</p>
+    <a href="chapters.html?level=${level}&type=vocabulary">
+        <button>Start Learning</button>
     </a>
-    <button class="mark-complete-btn" data-level="${level.level}">Mark as Complete</button>
 </div>`;
 
     }).join("");
 
-    initMarkComplete();
-
 })();
-
-/* ===============================
-        MARK VOCABULARY LEVEL COMPLETE
-   Persists per-user via
-   POST /api/progress/vocabulary-complete.
-   Anonymous visitors see a login hint instead.
-================================ */
-
-function setMarkCompleteState(button, completed){
-    button.classList.toggle("active", completed);
-    button.textContent = completed ? "Completed ✓" : "Mark as Complete";
-}
-
-function initMarkComplete(){
-
-    document.querySelectorAll(".mark-complete-btn").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            fetch("/api/progress/vocabulary-complete", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "same-origin",
-                body: JSON.stringify({ level: button.dataset.level })
-            })
-                .then(async (res) => {
-                    if(!res.ok) throw new Error("not logged in");
-                    const data = await res.json();
-                    setMarkCompleteState(button, data.completed);
-                })
-                .catch(() => {
-                    alert("Log in to save your vocabulary progress.");
-                });
-
-        });
-
-    });
-
-    fetch("/api/progress/vocabulary-completed", { credentials: "same-origin" })
-        .then(res => res.ok ? res.json() : null)
-        .then(data => {
-            if(!data) return;
-            data.levels.forEach(level => {
-                const button = document.querySelector(`.mark-complete-btn[data-level="${level}"]`);
-                if(button) setMarkCompleteState(button, true);
-            });
-        })
-        .catch(() => {});
-
-}
 
 /* ===============================
         SEARCH

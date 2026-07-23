@@ -30,7 +30,10 @@ Data lives in `database/easynihongo.sqlite` (created automatically); uploaded fi
 | `pages/kanji.html` | Kanji lessons |
 | `pages/vocabulary.html` | Vocabulary lessons |
 | `pages/grammar.html` | Grammar lessons |
-| `pages/lesson.html` | Individual lesson view |
+| `pages/level-hub.html` | Vocabulary/Grammar/Kanji picker for one JLPT level |
+| `pages/chapters.html` | Chapter grid for one level+type |
+| `pages/chapter.html` | The actual lesson — words/patterns/kanji for one chapter |
+| `pages/vocabulary-topics.html` / `pages/vocabulary-topic.html` | Subject-based vocabulary (Kitchen, IT, Hospital, etc.) |
 | `pages/quiz.html` | JLPT practice quizzes |
 | `pages/dashboard.html` / `pages/profile.html` / `pages/settings.html` | Logged-in user area |
 | `pages/login.html` / `pages/register.html` / `pages/forgot-password.html` | Auth pages |

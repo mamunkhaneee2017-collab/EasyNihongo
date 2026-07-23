@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="../css/navbar.css">
 <link rel="stylesheet" href="../css/footer.css">
 <link rel="stylesheet" href="../css/pages/grammar.css">
+<link rel="stylesheet" href="../css/pages/level-hub.css">
         <!-- Always Last -->
 <link rel="stylesheet" href="../css/dark.css">
 
@@ -111,7 +112,7 @@
                 <p class="en">If it rains, I won't go.</p>
             </div>
 
-            <a href="lesson.html" class="btn-ripple primary-btn">Practice This Pattern</a>
+            <a href="chapter.html?level=n4&type=grammar&chapter=1" class="btn-ripple primary-btn">Practice This Pattern</a>
         </div>
 
         <div class="featured-visual" aria-hidden="true">
@@ -127,34 +128,18 @@
 
 
 <!-- ==========================================
-            FILTER
+            LEVEL GRID
+   Rendered from data/grammar/grammar-data.js by
+   js/pages/grammar.js — each card links into
+   chapters.html for that level.
 ========================================== -->
-<section class="grammar-filter">
+<section class="level-hub-grid-section">
     <div class="container">
-        <button class="filter-btn btn-ripple active" data-filter="all">All Levels</button>
-        <button class="filter-btn btn-ripple" data-filter="n5">JLPT N5</button>
-        <button class="filter-btn btn-ripple" data-filter="n4">JLPT N4</button>
-        <button class="filter-btn btn-ripple" data-filter="n3">JLPT N3</button>
-        <button class="filter-btn btn-ripple" data-filter="n2">JLPT N2</button>
-        <button class="filter-btn btn-ripple" data-filter="n1">JLPT N1</button>
+        <div class="level-hub-grid" id="grammarGrid"></div>
     </div>
 </section>
 <!-- ==========================================
-            FILTER END
-========================================== -->
-
-
-<!-- ==========================================
-            GRAMMAR GRID
-   Rendered from data/grammar-data.js by js/grammar.js
-========================================== -->
-<section class="grammar-grid" id="grammarGrid">
-
-    <p class="no-results" id="noResults">No grammar points match your search 🔍</p>
-
-</section>
-<!-- ==========================================
-            GRAMMAR GRID END
+            LEVEL GRID END
 ========================================== -->
 
 
@@ -163,6 +148,7 @@
     <div id="site-footer"></div>
     <script src="../components/footer.js"></script>
 
+    <script src="../data/content-helpers.js"></script>
     <script src="../data/grammar/grammar-data.js"></script>
     <script src="../js/pages/grammar.js"></script>
     <script src="../locales/en.js"></script>

@@ -7,7 +7,7 @@ const activity = require("../lib/activity");
 const router = express.Router();
 
 const FLAT_TYPES = ["hiragana", "katakana"];
-const LEVEL_TYPES = ["kanji", "grammar"];
+const LEVEL_TYPES = ["kanji", "grammar", "vocabulary"];
 
 /* ---------------- FAVORITES (hiragana/katakana) ---------------- */
 
@@ -97,50 +97,6 @@ router.post("/complete", requireAuth, (req, res) => {
     activity.addXp(userId, 5);
 
     res.json({ completed: true });
-});
-
-/* ---------------- VOCABULARY LEVEL COMPLETE ---------------- */
-
-router.get("/vocabulary-completed", requireAuth, (req, res) => {
-    const rows = db
-        .prepare(`SELECT level FROM vocabulary_progress WHERE user_id = ? AND completed = 1`)
-        .all(req.session.user.id);
-    res.json({ levels: rows.map((r) => r.level) });
-});
-
-router.post("/vocabulary-complete", requireAuth, (req, res) => {
-    const { level } = req.body || {};
-    const validLevel = content.vocabularyData.some((entry) => entry.level === level);
-    if (!validLevel) {
-        return res.status(400).json({ error: "That vocabulary level does not exist." });
-    }
-
-    const userId = req.session.user.id;
-    const existing = db
-        .prepare(`SELECT * FROM vocabulary_progress WHERE user_id = ? AND level = ?`)
-        .get(userId, level);
-
-    let completed;
-    if (existing) {
-        completed = existing.completed ? 0 : 1;
-        db.prepare(`UPDATE vocabulary_progress SET completed = ?, completed_at = ? WHERE id = ?`).run(
-            completed,
-            completed ? new Date().toISOString() : null,
-            existing.id
-        );
-    } else {
-        completed = 1;
-        db.prepare(
-            `INSERT INTO vocabulary_progress (user_id, level, completed, completed_at) VALUES (?, ?, 1, ?)`
-        ).run(userId, level, new Date().toISOString());
-    }
-
-    if (completed) {
-        activity.logActivity(userId, 15);
-        activity.addXp(userId, 20);
-    }
-
-    res.json({ completed: !!completed });
 });
 
 module.exports = router;

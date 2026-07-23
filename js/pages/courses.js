@@ -52,7 +52,7 @@
         </div>
         <span class="progress-label"><span class="counter" data-target="${c.progress}">0</span>% complete</span>
 
-        <a href="lesson.html" class="card-btn">
+        <a href="level-hub.html?level=${c.level}" class="card-btn">
             <button class="btn-ripple">${c.action}</button>
         </a>
     </div>`;

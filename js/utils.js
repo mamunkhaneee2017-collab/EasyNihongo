@@ -65,6 +65,44 @@
     }
 
     /* ==========================================
+       DROPDOWN / FLYOUT HELPER
+       Shared open/close/outside-click behavior
+       for every show-hide menu on the site (lang
+       switcher, courses menu, and the nested
+       vocabulary/grammar/kanji level flyouts
+       added in components/header.js) — one
+       implementation instead of a copy per menu.
+       Pass every closer that should mutually
+       close when another opens (the array is
+       shared/mutable, so callers can register in
+       one shot: create the array, push each
+       result into it as it's created).
+    ========================================== */
+
+    function registerDropdown(btn, menu, mutuallyExclusiveClosers) {
+        if (!btn || !menu) return () => {};
+
+        function close() {
+            menu.hidden = true;
+            btn.setAttribute("aria-expanded", "false");
+        }
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = !menu.hidden;
+            mutuallyExclusiveClosers.forEach((fn) => fn());
+            menu.hidden = isOpen;
+            btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+        document.addEventListener("click", close);
+
+        return close;
+    }
+
+    window.registerDropdown = registerDropdown;
+
+    /* ==========================================
        LANGUAGE SWITCHER
        Persists the choice and applies translations
        via js/i18n.js if it's loaded on the page.
@@ -84,37 +122,6 @@
         }
     }
 
-    function closeLangMenu() {
-        if (!langMenu) return;
-        langMenu.hidden = true;
-        if (langBtn) langBtn.setAttribute("aria-expanded", "false");
-    }
-
-    if (langBtn && langMenu) {
-
-        langBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const isOpen = !langMenu.hidden;
-            closeCoursesDropdown();
-            langMenu.hidden = isOpen;
-            langBtn.setAttribute("aria-expanded", String(!isOpen));
-        });
-
-        langMenu.querySelectorAll("button[data-lang]").forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const lang = btn.dataset.lang;
-                localStorage.setItem("lang", lang);
-                if (langLabel) langLabel.textContent = LANG_LABELS[lang] || lang.toUpperCase();
-                if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(lang);
-                closeLangMenu();
-            });
-        });
-
-        document.addEventListener("click", closeLangMenu);
-
-        applyStoredLanguage();
-    }
-
     /* ==========================================
        NAV "COURSES" DROPDOWN
        (Courses / Vocabulary / Grammar / Kanji)
@@ -123,24 +130,38 @@
     const coursesDropdownBtn = document.getElementById("coursesDropdownBtn");
     const coursesDropdownMenu = document.getElementById("coursesDropdownMenu");
 
-    function closeCoursesDropdown() {
-        if (!coursesDropdownMenu) return;
-        coursesDropdownMenu.hidden = true;
-        if (coursesDropdownBtn) coursesDropdownBtn.setAttribute("aria-expanded", "false");
-    }
+    const topNavClosers = [];
+    topNavClosers.push(registerDropdown(langBtn, langMenu, topNavClosers));
+    topNavClosers.push(registerDropdown(coursesDropdownBtn, coursesDropdownMenu, topNavClosers));
 
-    if (coursesDropdownBtn && coursesDropdownMenu) {
-
-        coursesDropdownBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const isOpen = !coursesDropdownMenu.hidden;
-            closeLangMenu();
-            coursesDropdownMenu.hidden = isOpen;
-            coursesDropdownBtn.setAttribute("aria-expanded", String(!isOpen));
+    if (langBtn && langMenu) {
+        langMenu.querySelectorAll("button[data-lang]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const lang = btn.dataset.lang;
+                localStorage.setItem("lang", lang);
+                if (langLabel) langLabel.textContent = LANG_LABELS[lang] || lang.toUpperCase();
+                if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(lang);
+                langMenu.hidden = true;
+                langBtn.setAttribute("aria-expanded", "false");
+            });
         });
 
-        document.addEventListener("click", closeCoursesDropdown);
+        applyStoredLanguage();
     }
+
+    /* ==========================================
+       COURSES DROPDOWN — NESTED LEVEL FLYOUTS
+       (Vocabulary/Grammar/Kanji rows each reveal
+       an N5-N1 level submenu — see components/
+       header.js for the markup this wires up.)
+    ========================================== */
+
+    const flyoutClosers = [];
+    document.querySelectorAll(".nav-flyout-item").forEach((item) => {
+        const caret = item.querySelector(".nav-flyout-caret");
+        const submenu = item.querySelector(".nav-flyout-submenu");
+        flyoutClosers.push(registerDropdown(caret, submenu, flyoutClosers));
+    });
 
     /* ==========================================
        BACK TO TOP

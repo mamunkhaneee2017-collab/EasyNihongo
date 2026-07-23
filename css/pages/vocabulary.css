@@ -474,3 +474,37 @@ body.dark .search-box i{
 color:#d1d5db;
 
 }
+
+/* ==========================================
+            BROWSE BY TOPIC
+========================================== */
+
+.topic-browse-section{
+
+    padding:60px 0 100px;
+    text-align:center;
+
+}
+
+.topic-browse-header h2{
+
+    font-size:28px;
+    margin-bottom:10px;
+
+}
+
+.topic-browse-header p{
+
+    color:#6b7280;
+    margin-bottom:25px;
+
+}
+
+.topic-browse-btn{
+
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+}

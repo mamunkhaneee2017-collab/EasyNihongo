@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ef4444">
+
+<meta name="description" content="Study a chapter of Vocabulary, Grammar, or Kanji on Easy Nihongo.">
+<meta name="author" content="Md Mamun Khan">
+
+<title>Chapter | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/pages/chapter.css">
+<link rel="stylesheet" href="../css/dark.css">
+
+</head>
+
+<body data-page="courses">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div id="site-header"></div>
+<script src="../components/header.js"></script>
+
+<main id="main-content">
+
+<section class="chapter-hero">
+    <div class="container chapter-hero-top">
+        <div>
+            <span class="hero-eyebrow" id="chapterBadge">N5 &middot; Vocabulary</span>
+            <h1 id="chapterTitle">Chapter</h1>
+        </div>
+        <button type="button" id="langToggleBtn" class="lang-toggle-btn" hidden>
+            <i class="fa-solid fa-language"></i> <span id="langToggleLabel">EN</span>
+        </button>
+    </div>
+    <div class="container">
+        <a href="chapters.html" id="backToChaptersLink" class="back-to-chapters"><i class="fa-solid fa-arrow-left"></i> Back to chapters</a>
+    </div>
+</section>
+
+<section class="chapter-content-section">
+    <div class="container">
+        <div class="lesson-items-grid" id="lessonItemsGrid">
+            <!-- Item cards injected by js/pages/chapter.js -->
+        </div>
+
+        <div class="chapter-nav">
+            <a href="#" id="prevChapterBtn" class="btn btn-outline chapter-nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous Chapter</a>
+            <a href="#" id="nextChapterBtn" class="btn btn-primary chapter-nav-btn">Next Chapter <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="../components/footer.js"></script>
+
+<script src="../data/content-helpers.js"></script>
+<script src="../data/vocabulary/vocabulary-data.js"></script>
+<script src="../data/grammar/grammar-data.js"></script>
+<script src="../data/kanji/kanji-data.js"></script>
+<script src="../js/pages/chapter.js"></script>
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/utils.js"></script>
+
+</body>
+
+</html>

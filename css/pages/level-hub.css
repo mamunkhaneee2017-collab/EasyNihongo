@@ -1,0 +1,95 @@
+/* ===================================
+        LEVEL HUB PAGE
+=================================== */
+
+.level-hub-hero{
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.level-hub-hero .hero-eyebrow{
+    display:inline-block;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.level-hub-hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.level-hub-hero p{
+    color:#6b7280;
+}
+
+.level-hub-grid-section{
+    padding:60px 0 100px;
+}
+
+.level-hub-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.level-hub-card{
+    background:white;
+    border-radius:18px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.3s;
+    color:inherit;
+    text-decoration:none;
+    display:block;
+}
+
+.level-hub-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+
+.level-hub-card i{
+    font-size:34px;
+    color:#ef4444;
+    margin-bottom:15px;
+}
+
+.level-hub-card h3{
+    margin-bottom:8px;
+}
+
+.level-hub-card p{
+    color:#6b7280;
+    font-size:14px;
+}
+
+.level-hub-card.locked{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.level-hub-card.locked i{
+    color:#9ca3af;
+}
+
+@media(max-width:900px){
+.level-hub-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:560px){
+.level-hub-grid{
+    grid-template-columns:1fr;
+}
+.level-hub-hero h1{
+    font-size:28px;
+}
+}

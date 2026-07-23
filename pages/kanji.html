@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="../css/navbar.css">
 <link rel="stylesheet" href="../css/footer.css">
 <link rel="stylesheet" href="../css/pages/kanji.css">
+<link rel="stylesheet" href="../css/pages/level-hub.css">
         <!-- Always Last -->
 <link rel="stylesheet" href="../css/dark.css">
 
@@ -117,7 +118,7 @@
                 <li><i class="fa-solid fa-circle-check"></i> 4 strokes · JLPT N5</li>
             </ul>
 
-            <a href="lesson.html" class="btn-ripple primary-btn">Practice This Kanji</a>
+            <a href="chapter.html?level=n5&type=kanji&chapter=2" class="btn-ripple primary-btn">Practice This Kanji</a>
         </div>
 
     </div>
@@ -128,33 +129,18 @@
 
 
 <!-- ==========================================
-            FILTER
+            LEVEL GRID
+   Rendered from data/kanji/kanji-data.js by
+   js/pages/kanji.js — each card links into
+   chapters.html for that level.
 ========================================== -->
-<section class="kanji-filter">
+<section class="level-hub-grid-section">
     <div class="container">
-        <button class="filter-btn btn-ripple active" data-filter="all">All Levels</button>
-        <button class="filter-btn btn-ripple" data-filter="n5">JLPT N5</button>
-        <button class="filter-btn btn-ripple" data-filter="n4">JLPT N4</button>
-        <button class="filter-btn btn-ripple" data-filter="n3">JLPT N3</button>
-        <button class="filter-btn btn-ripple" data-filter="n2">JLPT N2</button>
-        <button class="filter-btn btn-ripple" data-filter="n1">JLPT N1</button>
+        <div class="level-hub-grid" id="kanjiGrid"></div>
     </div>
 </section>
 <!-- ==========================================
-            FILTER END
-========================================== -->
-
-
-<!-- ==========================================
-            KANJI GRID
-========================================== -->
-<section class="kanji-grid" id="kanjiGrid">
-
-    <p class="no-results" id="noResults">No Kanji match your search 🔍</p>
-
-</section>
-<!-- ==========================================
-            KANJI GRID END
+            LEVEL GRID END
 ========================================== -->
 
 
@@ -163,6 +149,7 @@
     <div id="site-footer"></div>
     <script src="../components/footer.js"></script>
 
+    <script src="../data/content-helpers.js"></script>
     <script src="../data/kanji/kanji-data.js"></script>
     <script src="../js/pages/kanji.js"></script>
     <script src="../locales/en.js"></script>
