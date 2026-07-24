@@ -88,6 +88,68 @@ const vocabularyData = {
                     { word: "夫", reading: "otto", meanings: { en: "Husband", bn: "স্বামী" }, example: { jp: "夫は会社員です。", reading: "Otto wa kaishain desu.", meanings: { en: "My husband is an office worker.", bn: "আমার স্বামী একজন অফিস কর্মী।" } } },
                     { word: "妻", reading: "tsuma", meanings: { en: "Wife", bn: "স্ত্রী" }, example: { jp: "妻と一緒に映画を見ます。", reading: "Tsuma to issho ni eiga wo mimasu.", meanings: { en: "I watch movies together with my wife.", bn: "আমি স্ত্রীর সাথে সিনেমা দেখি।" } } }
                 ]
+            },
+            {
+                id: "days-weeks-months",
+                title: "Days, Weeks & Months",
+                items: [
+                    { word: "今日", reading: "kyou", meanings: { en: "Today", bn: "আজ" }, example: { jp: "今日は晴れです。", reading: "Kyou wa hare desu.", meanings: { en: "Today is sunny.", bn: "আজ রোদ উঠেছে।" } } },
+                    { word: "明日", reading: "ashita", meanings: { en: "Tomorrow", bn: "আগামীকাল" }, example: { jp: "明日、テストがあります。", reading: "Ashita, tesuto ga arimasu.", meanings: { en: "There is a test tomorrow.", bn: "আগামীকাল একটা পরীক্ষা আছে।" } } },
+                    { word: "昨日", reading: "kinou", meanings: { en: "Yesterday", bn: "গতকাল" }, example: { jp: "昨日、映画を見ました。", reading: "Kinou, eiga wo mimashita.", meanings: { en: "I watched a movie yesterday.", bn: "গতকাল একটা সিনেমা দেখেছি।" } } },
+                    { word: "今週", reading: "konshuu", meanings: { en: "This week", bn: "এই সপ্তাহ" }, example: { jp: "今週は忙しいです。", reading: "Konshuu wa isogashii desu.", meanings: { en: "This week is busy.", bn: "এই সপ্তাহ ব্যস্ত।" } } },
+                    { word: "来週", reading: "raishuu", meanings: { en: "Next week", bn: "আগামী সপ্তাহ" }, example: { jp: "来週、旅行します。", reading: "Raishuu, ryokou shimasu.", meanings: { en: "I will travel next week.", bn: "আগামী সপ্তাহ ভ্রমণ করব।" } } },
+                    { word: "先週", reading: "senshuu", meanings: { en: "Last week", bn: "গত সপ্তাহ" }, example: { jp: "先週、日本に行きました。", reading: "Senshuu, Nihon ni ikimashita.", meanings: { en: "I went to Japan last week.", bn: "গত সপ্তাহ জাপান গিয়েছিলাম।" } } },
+                    { word: "毎週", reading: "maishuu", meanings: { en: "Every week", bn: "প্রতি সপ্তাহ" }, example: { jp: "毎週、日本語を勉強します。", reading: "Maishuu, nihongo wo benkyou shimasu.", meanings: { en: "I study Japanese every week.", bn: "প্রতি সপ্তাহ জাপানি ভাষা শিখি।" } } },
+                    { word: "月曜日", reading: "getsuyoubi", meanings: { en: "Monday", bn: "সোমবার" }, example: { jp: "月曜日から始まります。", reading: "Getsuyoubi kara hajimarimasu.", meanings: { en: "It starts from Monday.", bn: "সোমবার থেকে শুরু হয়।" } } },
+                    { word: "火曜日", reading: "kayoubi", meanings: { en: "Tuesday", bn: "মঙ্গলবার" }, example: { jp: "火曜日に会議があります。", reading: "Kayoubi ni kaigi ga arimasu.", meanings: { en: "There is a meeting on Tuesday.", bn: "মঙ্গলবার একটা মিটিং আছে।" } } },
+                    { word: "水曜日", reading: "suiyoubi", meanings: { en: "Wednesday", bn: "বুধবার" }, example: { jp: "水曜日は休みです。", reading: "Suiyoubi wa yasumi desu.", meanings: { en: "Wednesday is a day off.", bn: "বুধবার ছুটির দিন।" } } },
+                    { word: "木曜日", reading: "mokuyoubi", meanings: { en: "Thursday", bn: "বৃহস্পতিবার" }, example: { jp: "木曜日に病院へ行きます。", reading: "Mokuyoubi ni byouin e ikimasu.", meanings: { en: "I go to the hospital on Thursday.", bn: "বৃহস্পতিবার হাসপাতালে যাই।" } } },
+                    { word: "金曜日", reading: "kinyoubi", meanings: { en: "Friday", bn: "শুক্রবার" }, example: { jp: "金曜日の夜は自由です。", reading: "Kinyoubi no yoru wa jiyuu desu.", meanings: { en: "Friday night is free.", bn: "শুক্রবার রাত মুক্ত থাকে।" } } },
+                    { word: "土曜日", reading: "doyoubi", meanings: { en: "Saturday", bn: "শনিবার" }, example: { jp: "土曜日に買い物します。", reading: "Doyoubi ni kaimono shimasu.", meanings: { en: "I go shopping on Saturday.", bn: "শনিবার কেনাকাটা করি।" } } },
+                    { word: "日曜日", reading: "nichiyoubi", meanings: { en: "Sunday", bn: "রবিবার" }, example: { jp: "日曜日はゆっくり休みます。", reading: "Nichiyoubi wa yukkuri yasumimasu.", meanings: { en: "I rest slowly on Sunday.", bn: "রবিবার আরাম করে বিশ্রাম নিই।" } } },
+                    { word: "今月", reading: "kongetsu", meanings: { en: "This month", bn: "এই মাস" }, example: { jp: "今月は忙しいです。", reading: "Kongetsu wa isogashii desu.", meanings: { en: "This month is busy.", bn: "এই মাস ব্যস্ত।" } } },
+                    { word: "来月", reading: "raigetsu", meanings: { en: "Next month", bn: "আগামী মাস" }, example: { jp: "来月、結婚します。", reading: "Raigetsu, kekkon shimasu.", meanings: { en: "I will get married next month.", bn: "আগামী মাস বিয়ে করব।" } } },
+                    { word: "誕生日", reading: "tanjoubi", meanings: { en: "Birthday", bn: "জন্মদিন" }, example: { jp: "誕生日おめでとうございます。", reading: "Tanjoubi omedetou gozaimasu.", meanings: { en: "Happy birthday.", bn: "জন্মদিনের শুভেচ্ছা।" } } }
+                ]
+            },
+            {
+                id: "time-clock",
+                title: "Time & Clock",
+                items: [
+                    { word: "時間", reading: "jikan", meanings: { en: "Time / hours", bn: "সময়" }, example: { jp: "時間がありません。", reading: "Jikan ga arimasen.", meanings: { en: "I don't have time.", bn: "সময় নেই।" } } },
+                    { word: "何時", reading: "nanji", meanings: { en: "What time", bn: "কয়টা বাজে" }, example: { jp: "今、何時ですか。", reading: "Ima, nanji desu ka.", meanings: { en: "What time is it now?", bn: "এখন কয়টা বাজে?" } } },
+                    { word: "分", reading: "fun / pun", meanings: { en: "Minute", bn: "মিনিট" }, example: { jp: "十分待ってください。", reading: "Juppun matte kudasai.", meanings: { en: "Please wait ten minutes.", bn: "দশ মিনিট অপেক্ষা করুন।" } } },
+                    { word: "半", reading: "han", meanings: { en: "Half (past the hour)", bn: "সাড়ে (আধা)" }, example: { jp: "三時半に会いましょう。", reading: "San-ji han ni aimashou.", meanings: { en: "Let's meet at half past three.", bn: "সাড়ে তিনটার সময় দেখা করি।" } } },
+                    { word: "朝", reading: "asa", meanings: { en: "Morning", bn: "সকাল" }, example: { jp: "朝、コーヒーを飲みます。", reading: "Asa, koohii wo nomimasu.", meanings: { en: "I drink coffee in the morning.", bn: "সকালে কফি খাই।" } } },
+                    { word: "昼", reading: "hiru", meanings: { en: "Noon / daytime", bn: "দুপুর" }, example: { jp: "昼ご飯を食べました。", reading: "Hirugohan wo tabemashita.", meanings: { en: "I ate lunch.", bn: "দুপুরের খাবার খেয়েছি।" } } },
+                    { word: "夜", reading: "yoru", meanings: { en: "Night", bn: "রাত" }, example: { jp: "夜は静かです。", reading: "Yoru wa shizuka desu.", meanings: { en: "The night is quiet.", bn: "রাত শান্ত থাকে।" } } },
+                    { word: "午前", reading: "gozen", meanings: { en: "A.M.", bn: "সকালবেলা (এএম)" }, example: { jp: "午前九時に始まります。", reading: "Gozen kuji ni hajimarimasu.", meanings: { en: "It starts at 9 a.m.", bn: "সকাল ৯টায় শুরু হয়।" } } },
+                    { word: "午後", reading: "gogo", meanings: { en: "P.M.", bn: "বিকেলবেলা (পিএম)" }, example: { jp: "午後三時に会いましょう。", reading: "Gogo san-ji ni aimashou.", meanings: { en: "Let's meet at 3 p.m.", bn: "বিকেল ৩টায় দেখা করি।" } } },
+                    { word: "早い", reading: "hayai", meanings: { en: "Early / fast", bn: "তাড়াতাড়ি / দ্রুত" }, example: { jp: "今日は早く起きました。", reading: "Kyou wa hayaku okimashita.", meanings: { en: "I woke up early today.", bn: "আজ তাড়াতাড়ি ঘুম থেকে উঠেছি।" } } },
+                    { word: "遅い", reading: "osoi", meanings: { en: "Late / slow", bn: "দেরি / ধীর" }, example: { jp: "バスが遅いです。", reading: "Basu ga osoi desu.", meanings: { en: "The bus is late.", bn: "বাস দেরি করছে।" } } },
+                    { word: "今", reading: "ima", meanings: { en: "Now", bn: "এখন" }, example: { jp: "今、忙しいです。", reading: "Ima, isogashii desu.", meanings: { en: "I'm busy right now.", bn: "এখন ব্যস্ত আছি।" } } },
+                    { word: "前", reading: "mae", meanings: { en: "Before / in front of", bn: "আগে / সামনে" }, example: { jp: "駅の前で待っています。", reading: "Eki no mae de matte imasu.", meanings: { en: "I'm waiting in front of the station.", bn: "স্টেশনের সামনে অপেক্ষা করছি।" } } },
+                    { word: "後", reading: "ato", meanings: { en: "After", bn: "পরে" }, example: { jp: "仕事の後で食事します。", reading: "Shigoto no ato de shokuji shimasu.", meanings: { en: "I will eat after work.", bn: "কাজের পরে খাবো।" } } },
+                    { word: "時計", reading: "tokei", meanings: { en: "Clock / watch", bn: "ঘড়ি" }, example: { jp: "新しい時計を買いました。", reading: "Atarashii tokei wo kaimashita.", meanings: { en: "I bought a new watch.", bn: "নতুন একটা ঘড়ি কিনেছি।" } } }
+                ]
+            },
+            {
+                id: "daily-routine",
+                title: "Daily Routine (Verbs)",
+                items: [
+                    { word: "顔を洗う", reading: "kao wo arau", meanings: { en: "To wash one's face", bn: "মুখ ধোয়া" }, example: { jp: "毎朝、顔を洗います。", reading: "Maiasa, kao wo araimasu.", meanings: { en: "I wash my face every morning.", bn: "প্রতিদিন সকালে মুখ ধুই।" } } },
+                    { word: "歯を磨く", reading: "ha wo migaku", meanings: { en: "To brush teeth", bn: "দাঁত মাজা" }, example: { jp: "寝る前に歯を磨きます。", reading: "Neru mae ni ha wo migakimasu.", meanings: { en: "I brush my teeth before sleeping.", bn: "ঘুমানোর আগে দাঁত মাজি।" } } },
+                    { word: "シャワーを浴びる", reading: "shawaa wo abiru", meanings: { en: "To take a shower", bn: "শাওয়ার নেওয়া" }, example: { jp: "朝、シャワーを浴びます。", reading: "Asa, shawaa wo abimasu.", meanings: { en: "I take a shower in the morning.", bn: "সকালে শাওয়ার নিই।" } } },
+                    { word: "着替える", reading: "kigaeru", meanings: { en: "To change clothes", bn: "কাপড় বদলানো" }, example: { jp: "早く着替えてください。", reading: "Hayaku kigaete kudasai.", meanings: { en: "Please change your clothes quickly.", bn: "তাড়াতাড়ি কাপড় বদলান।" } } },
+                    { word: "出かける", reading: "dekakeru", meanings: { en: "To go out", bn: "বাইরে যাওয়া" }, example: { jp: "今から出かけます。", reading: "Ima kara dekakemasu.", meanings: { en: "I'm going out now.", bn: "এখন থেকে বাইরে যাচ্ছি।" } } },
+                    { word: "帰る", reading: "kaeru", meanings: { en: "To return / go home", bn: "বাড়ি ফেরা" }, example: { jp: "六時に家に帰ります。", reading: "Roku-ji ni ie ni kaerimasu.", meanings: { en: "I go home at six o'clock.", bn: "ছয়টায় বাড়ি ফিরি।" } } },
+                    { word: "休む", reading: "yasumu", meanings: { en: "To rest / take a day off", bn: "বিশ্রাম নেওয়া / ছুটি নেওয়া" }, example: { jp: "今日は家で休みます。", reading: "Kyou wa ie de yasumimasu.", meanings: { en: "I will rest at home today.", bn: "আজ বাসায় বিশ্রাম নেব।" } } },
+                    { word: "掃除する", reading: "souji suru", meanings: { en: "To clean", bn: "পরিষ্কার করা" }, example: { jp: "週末に部屋を掃除します。", reading: "Shuumatsu ni heya wo souji shimasu.", meanings: { en: "I clean my room on weekends.", bn: "সপ্তাহান্তে ঘর পরিষ্কার করি।" } } },
+                    { word: "洗濯する", reading: "sentaku suru", meanings: { en: "To do laundry", bn: "কাপড় ধোয়া" }, example: { jp: "毎日、洗濯します。", reading: "Mainichi, sentaku shimasu.", meanings: { en: "I do laundry every day.", bn: "প্রতিদিন কাপড় ধুই।" } } },
+                    { word: "準備する", reading: "junbi suru", meanings: { en: "To prepare", bn: "প্রস্তুতি নেওয়া" }, example: { jp: "テストの準備をしています。", reading: "Tesuto no junbi wo shite imasu.", meanings: { en: "I am preparing for the test.", bn: "পরীক্ষার প্রস্তুতি নিচ্ছি।" } } },
+                    { word: "忙しい", reading: "isogashii", meanings: { en: "Busy", bn: "ব্যস্ত" }, example: { jp: "今週はとても忙しいです。", reading: "Konshuu wa totemo isogashii desu.", meanings: { en: "This week is very busy.", bn: "এই সপ্তাহ খুব ব্যস্ত।" } } },
+                    { word: "暇", reading: "hima", meanings: { en: "Free time / not busy", bn: "অবসর সময়" }, example: { jp: "週末は暇です。", reading: "Shuumatsu wa hima desu.", meanings: { en: "I am free on the weekend.", bn: "সপ্তাহান্তে অবসর থাকি।" } } }
+                ]
             }
         ]
     },

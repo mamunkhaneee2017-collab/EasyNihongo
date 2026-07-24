@@ -49,6 +49,36 @@ const grammarData = {
                     { pattern: "〜たいです", reading: "~tai desu", meaning: "Expresses wanting to do something.", jp: "日本に行きたいです。", en: "I want to go to Japan." },
                     { pattern: "〜ましょう", reading: "~mashou", meaning: "A gentle suggestion — \"let's do\" something together.", jp: "一緒に食べましょう。", en: "Let's eat together." }
                 ]
+            },
+            {
+                id: "adjective-past-comparison",
+                title: "Adjectives: Past & Comparison",
+                items: [
+                    { pattern: "〜かったです", reading: "~ katta desu", meaning: "The past tense of an i-adjective — \"was\" (i-adjective).", jp: "昨日は寒かったです。", en: "It was cold yesterday." },
+                    { pattern: "〜くなかったです", reading: "~ kunakatta desu", meaning: "The past negative of an i-adjective — \"was not\" (i-adjective).", jp: "テストは難しくなかったです。", en: "The test was not difficult." },
+                    { pattern: "〜より〜のほうが〜です", reading: "~ yori ~ no hou ga ~ desu", meaning: "Compares two things — \"B is more [adjective] than A.\"", jp: "電車よりバスのほうが安いです。", en: "The bus is cheaper than the train." },
+                    { pattern: "〜が一番〜です", reading: "~ ga ichiban ~ desu", meaning: "The superlative — \"is the most [adjective]\" among a group.", jp: "これが一番いいです。", en: "This is the best." }
+                ]
+            },
+            {
+                id: "requests-prohibition",
+                title: "Requests & Prohibition",
+                items: [
+                    { pattern: "〜てください", reading: "~ te kudasai", meaning: "A polite request — \"please do\" something.", jp: "ここに名前を書いてください。", en: "Please write your name here." },
+                    { pattern: "〜ないでください", reading: "~ naide kudasai", meaning: "A polite negative request — \"please don't do\" something.", jp: "写真を撮らないでください。", en: "Please don't take photos." },
+                    { pattern: "〜てはいけません", reading: "~ te wa ikemasen", meaning: "Expresses prohibition — \"must not\" do something.", jp: "ここでたばこを吸ってはいけません。", en: "You must not smoke here." },
+                    { pattern: "〜ましょうか", reading: "~ mashou ka", meaning: "Offers to do something for someone — \"shall I/we...?\"", jp: "荷物を持ちましょうか。", en: "Shall I carry your luggage?" }
+                ]
+            },
+            {
+                id: "ability-manner",
+                title: "Ability & Manner",
+                items: [
+                    { pattern: "〜ことができます", reading: "~ koto ga dekimasu", meaning: "Expresses ability — \"can do\" something.", jp: "私はピアノを弾くことができます。", en: "I can play the piano." },
+                    { pattern: "〜がわかります", reading: "~ ga wakarimasu", meaning: "Expresses understanding — \"understand\" something.", jp: "日本語が少しわかります。", en: "I understand a little Japanese." },
+                    { pattern: "〜すぎます", reading: "~ sugimasu", meaning: "Expresses excess — \"too much\" (verb/adjective).", jp: "このコーヒーは熱すぎます。", en: "This coffee is too hot." },
+                    { pattern: "〜ながら", reading: "~ nagara", meaning: "Describes two actions done at the same time — \"while doing.\"", jp: "音楽を聞きながら勉強します。", en: "I study while listening to music." }
+                ]
             }
         ]
     },
