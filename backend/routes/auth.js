@@ -1,10 +1,30 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const rateLimit = require("express-rate-limit");
 const db = require("../db");
 
 const router = express.Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Brute-force guards. Keyed by IP (trust proxy is already set in
+// server.js so this reads the real client IP behind Render's proxy,
+// not the proxy's own address for every request).
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: "Too many login attempts. Please try again in a few minutes." }
+});
+
+const registerLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    limit: 5,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: "Too many accounts created from this network. Please try again later." }
+});
 
 function toPublicUser(user) {
     return {
@@ -21,7 +41,7 @@ function toPublicUser(user) {
     };
 }
 
-router.post("/register", (req, res) => {
+router.post("/register", registerLimiter, (req, res) => {
     const { fullName, email, password, country, currentLevel, goalLevel } = req.body || {};
 
     if (!fullName || !email || !password) {
@@ -53,7 +73,7 @@ router.post("/register", (req, res) => {
     res.status(201).json({ user: toPublicUser(user) });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", loginLimiter, (req, res) => {
     const { email, password } = req.body || {};
 
     if (!email || !password) {

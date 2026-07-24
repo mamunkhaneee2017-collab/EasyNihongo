@@ -246,10 +246,10 @@ if(searchInput){
     }
 
     fetch("/api/materials")
-        .then(res => res.json())
+        .then(res => (res.ok ? res.json() : null))
         .then(data => {
 
-            if(!data.materials.length) return;
+            if(!data || !data.materials.length) return;
 
             grid.innerHTML = data.materials.map(m => {
                 const type = mimeToType(m.mime_type);

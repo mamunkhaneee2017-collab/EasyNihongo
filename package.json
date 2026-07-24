@@ -6,13 +6,18 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "node --watch backend/server.js"
+    "dev": "node --watch backend/server.js",
+    "test:smoke": "node tests/smoke.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "express-rate-limit": "^8.6.0",
     "express-session": "^1.18.0",
     "multer": "^2.0.1",
     "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
   }
 }
