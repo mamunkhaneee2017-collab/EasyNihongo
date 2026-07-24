@@ -49,39 +49,39 @@
 <section class="kanji-hero">
     <div class="container hero-container">
 
-        <span class="hero-eyebrow reveal" data-anim="fade-up">漢字 &nbsp;·&nbsp; Kanji Library</span>
+        <span class="hero-eyebrow reveal" data-anim="fade-up">漢字 &nbsp;·&nbsp; <span data-i18n="kanjiPage.hero.eyebrow">Kanji Library</span></span>
 
-        <h1 class="reveal" data-anim="fade-up" data-delay="80">
+        <h1 class="reveal" data-anim="fade-up" data-delay="80" data-i18n="kanjiPage.hero.title">
             Learn Kanji from N5 to N1
         </h1>
 
-        <p class="reveal" data-anim="fade-up" data-delay="160">
+        <p class="reveal" data-anim="fade-up" data-delay="160" data-i18n="kanjiPage.hero.subtitle">
             Every Kanji with On'yomi and Kun'yomi readings, meanings, and stroke
             counts — built to grow with you from your first character to N1 mastery.
         </p>
 
         <div class="kanji-search reveal" data-anim="fade-up" data-delay="240">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="kanjiSearch" placeholder="Search a Kanji or meaning...">
+            <input type="text" id="kanjiSearch" placeholder="Search a Kanji or meaning..." data-i18n-placeholder="kanjiPage.searchPlaceholder">
             <span class="search-count" id="searchCount"></span>
         </div>
 
         <div class="kanji-stats">
             <div class="stat-card reveal" data-anim="scale" data-delay="0">
                 <h2><span class="counter" data-target="1200">0</span><span class="plus">+</span></h2>
-                <span>Kanji Characters</span>
+                <span data-i18n="kanjiPage.stat.characters">Kanji Characters</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="80">
                 <h2><span class="counter" data-target="5">0</span></h2>
-                <span>JLPT Levels</span>
+                <span data-i18n="courses.stat.levels">JLPT Levels</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="160">
                 <h2><span class="counter" data-target="2500">0</span><span class="plus">+</span></h2>
-                <span>Example Words</span>
+                <span data-i18n="kanjiPage.stat.words">Example Words</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="240">
                 <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
-                <span>Students</span>
+                <span data-i18n="courses.stat.students">Students</span>
             </div>
         </div>
 
@@ -104,9 +104,9 @@
         </div>
 
         <div class="featured-text">
-            <span class="featured-tag"><i class="fa-solid fa-star"></i> Kanji of the Day</span>
+            <span class="featured-tag"><i class="fa-solid fa-star"></i> <span data-i18n="kanjiPage.kotd.tag">Kanji of the Day</span></span>
             <h2>水 &nbsp;<span class="reading">みず / スイ</span></h2>
-            <p>
+            <p data-i18n="kanjiPage.kotd.desc">
                 Meaning <strong>"water."</strong> One of the first Kanji most
                 learners encounter — appears in everyday words like 水曜日
                 (Wednesday) and 水泳 (swimming).
@@ -115,10 +115,10 @@
             <ul class="kanji-facts">
                 <li><i class="fa-solid fa-circle-check"></i> On'yomi: スイ (sui)</li>
                 <li><i class="fa-solid fa-circle-check"></i> Kun'yomi: みず (mizu)</li>
-                <li><i class="fa-solid fa-circle-check"></i> 4 strokes · JLPT N5</li>
+                <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="kanjiPage.kotd.strokes">4 strokes · JLPT N5</span></li>
             </ul>
 
-            <a href="chapter.html?level=n5&type=kanji&chapter=2" class="btn-ripple primary-btn">Practice This Kanji</a>
+            <a href="chapter.html?level=n5&type=kanji&chapter=2" class="btn-ripple primary-btn" data-i18n="kanjiPage.kotd.btn">Practice This Kanji</a>
         </div>
 
     </div>
@@ -154,6 +154,7 @@
     <script src="../js/pages/kanji.js"></script>
     <script src="../locales/en.js"></script>
     <script src="../locales/bn.js"></script>
+    <script src="../locales/ja.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/utils.js"></script>
 

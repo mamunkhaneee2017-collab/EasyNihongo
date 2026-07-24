@@ -64,9 +64,9 @@
 <div class="login-container">
 
 <div class="login-left">
-<h1>Welcome Back 👋</h1>
+<h1 data-i18n="login.welcome">Welcome Back 👋</h1>
 
-<p>
+<p data-i18n="login.subtitle">
 
 Login to continue your Japanese learning journey.
 
@@ -80,23 +80,24 @@ Login to continue your Japanese learning journey.
 <div class="login-right">
 <form id="loginForm">
 
-<h2>Login</h2>
+<h2 data-i18n="login.formTitle">Login</h2>
 
 <div class="input-group">
 
-<label>Email</label>
+<label data-i18n="login.label.email">Email</label>
 
 <input
 type="email"
 id="email"
 placeholder="Enter your email"
+data-i18n-placeholder="login.placeholder.email"
 required>
 
 </div>
 
 <div class="input-group">
 
-<label>Password</label>
+<label data-i18n="login.label.password">Password</label>
 
 <div class="password-box">
 
@@ -104,6 +105,7 @@ required>
 type="password"
 id="password"
 placeholder="Password"
+data-i18n-placeholder="login.label.password"
 required>
 
 <i
@@ -124,12 +126,12 @@ id="togglePassword">
 type="checkbox"
 id="rememberMe">
 
-Remember Me
+<span data-i18n="login.rememberMe">Remember Me</span>
 
 </label>
 
 <a href="forgot-password.html"
-class="forgot-link">
+class="forgot-link" data-i18n="login.forgotPassword">
 
 Forgot Password?
 
@@ -144,7 +146,7 @@ Forgot Password?
 
     <i class="fa-solid fa-right-to-bracket"></i>
 
-    Login
+    <span data-i18n="login.submitBtn">Login</span>
 
 </button>
 
@@ -152,7 +154,7 @@ Forgot Password?
 
 <div class="divider">
 
-    <span>OR</span>
+    <span data-i18n="register.or">OR</span>
 
 </div>
 
@@ -166,7 +168,7 @@ Forgot Password?
 
         <i class="fa-brands fa-google"></i>
 
-        Continue with Google
+        <span data-i18n="register.google">Continue with Google</span>
 
     </button>
 
@@ -176,7 +178,7 @@ Forgot Password?
 
         <i class="fa-brands fa-github"></i>
 
-        Continue with GitHub
+        <span data-i18n="register.github">Continue with GitHub</span>
 
     </button>
 
@@ -184,9 +186,9 @@ Forgot Password?
 
 <p class="register-link">
 
-Don't have an account?
+<span data-i18n="login.noAccount">Don't have an account?</span>
 
-<a href="register.html">
+<a href="register.html" data-i18n="login.registerHere">
 
 Register
 
@@ -211,6 +213,7 @@ Register
 
 <script src="../locales/en.js"></script>
 <script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/utils.js"></script>
 

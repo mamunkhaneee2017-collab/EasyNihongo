@@ -81,3 +81,20 @@
     grid-template-columns:1fr;
 }
 }
+
+.topic-chapter-ref{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+    padding:10px 16px;
+    background:#fef2f2;
+    color:#dc2626;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic-chapter-ref:hover{
+    background:#fee2e2;
+}

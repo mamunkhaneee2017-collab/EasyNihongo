@@ -106,6 +106,15 @@
                 </li>
 
                 ${otherLinksHtml}
+
+                <li class="nav-lang-mobile">
+                    <span class="nav-lang-mobile-label"><i class="fa-solid fa-globe"></i> Language</span>
+                    <div class="nav-lang-mobile-options">
+                        <button type="button" data-lang="en">English</button>
+                        <button type="button" data-lang="bn">বাংলা</button>
+                        <button type="button" data-lang="ja">日本語</button>
+                    </div>
+                </li>
             </ul>
 
             <div class="nav-buttons">
@@ -115,6 +124,7 @@
                 <div class="lang-menu" id="langMenu" role="listbox" hidden>
                     <button type="button" data-lang="en" role="option">English</button>
                     <button type="button" data-lang="bn" role="option">বাংলা</button>
+                    <button type="button" data-lang="ja" role="option">日本語</button>
                 </div>
 
                 <button id="darkModeBtn" title="Toggle dark mode">

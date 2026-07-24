@@ -92,7 +92,7 @@
 
 <i class="fa-solid fa-graduation-cap"></i>
 
-<span>
+<span data-i18n="register.badge">
 
 Join 10,000+ Students
 
@@ -100,13 +100,13 @@ Join 10,000+ Students
 
 </div>
 
-<h1>
+<h1 data-i18n="register.heading">
 
 Start Your Japanese Journey Today 🇯🇵
 
 </h1>
 
-<p>
+<p data-i18n="register.subheading">
 
 Create your free Easy Nihongo account and
 learn Japanese from JLPT N5 to N1 with
@@ -121,7 +121,7 @@ Kanji practice and vocabulary tracking.
 
 <i class="fa-solid fa-check"></i>
 
-<span>
+<span data-i18n="register.feature.lessons">
 
 1000+ Lessons
 
@@ -133,7 +133,7 @@ Kanji practice and vocabulary tracking.
 
 <i class="fa-solid fa-check"></i>
 
-<span>
+<span data-i18n="register.feature.vocab">
 
 Vocabulary Builder
 
@@ -145,7 +145,7 @@ Vocabulary Builder
 
 <i class="fa-solid fa-check"></i>
 
-<span>
+<span data-i18n="register.feature.mockTest">
 
 JLPT Mock Test
 
@@ -157,7 +157,7 @@ JLPT Mock Test
 
 <i class="fa-solid fa-check"></i>
 
-<span>
+<span data-i18n="register.feature.aiTutor">
 
 AI Japanese Tutor
 
@@ -185,13 +185,13 @@ alt="Register">
 
 <form id="registerForm">
 
-<h2>
+<h2 data-i18n="register.formTitle">
 
 Create Your Account
 
 </h2>
 
-<p class="subtitle">
+<p class="subtitle" data-i18n="register.formSubtitle">
 
 It's free and only takes a minute.
 
@@ -201,7 +201,7 @@ It's free and only takes a minute.
 
 <div class="input-group">
 
-<label for="fullName">
+<label for="fullName" data-i18n="register.label.fullName">
 
 Full Name
 
@@ -211,6 +211,7 @@ Full Name
 type="text"
 id="fullName"
 placeholder="Enter your full name"
+data-i18n-placeholder="register.placeholder.fullName"
 required>
 
 </div>
@@ -219,7 +220,7 @@ required>
 
 <div class="input-group">
 
-<label for="email">
+<label for="email" data-i18n="register.label.email">
 
 Email Address
 
@@ -236,7 +237,7 @@ required>
 
 <div class="input-group">
 
-    <label for="password">
+    <label for="password" data-i18n="register.label.password">
 
         Password
 
@@ -248,6 +249,7 @@ required>
             type="password"
             id="password"
             placeholder="Create a strong password"
+            data-i18n-placeholder="register.placeholder.password"
             required>
 
         <i class="fa-solid fa-eye"
@@ -261,7 +263,7 @@ required>
 
 <div class="input-group">
 
-    <label for="confirmPassword">
+    <label for="confirmPassword" data-i18n="register.label.confirmPassword">
 
         Confirm Password
 
@@ -273,6 +275,7 @@ required>
             type="password"
             id="confirmPassword"
             placeholder="Confirm your password"
+            data-i18n-placeholder="register.placeholder.confirmPassword"
             required>
 
         <i class="fa-solid fa-eye"
@@ -286,7 +289,7 @@ required>
 
 <div class="input-group">
 
-    <label for="country">
+    <label for="country" data-i18n="register.label.country">
 
         Country
 
@@ -294,7 +297,7 @@ required>
 
     <select id="country" required>
 
-        <option value="">Select Country</option>
+        <option value="" data-i18n="register.option.selectCountry">Select Country</option>
 
         <option>Bangladesh</option>
 
@@ -326,7 +329,7 @@ required>
 
 <div class="input-group">
 
-    <label for="currentLevel">
+    <label for="currentLevel" data-i18n="register.label.currentLevel">
 
         Current JLPT Level
 
@@ -354,7 +357,7 @@ required>
 
 <div class="input-group">
 
-    <label for="goalLevel">
+    <label for="goalLevel" data-i18n="register.label.goalLevel">
 
         Target JLPT Level
 
@@ -387,17 +390,17 @@ required>
             id="terms"
             required>
 
-        I agree to the
+        <span data-i18n="register.terms.agree">I agree to the</span>
 
-        <a href="#">
+        <a href="#" data-i18n="register.terms.termsLink">
 
             Terms & Conditions
 
         </a>
 
-        and
+        <span data-i18n="register.terms.and">and</span>
 
-        <a href="#">
+        <a href="#" data-i18n="register.terms.privacyLink">
 
             Privacy Policy
 
@@ -415,7 +418,7 @@ required>
 
     <i class="fa-solid fa-user-plus"></i>
 
-    Create Account
+    <span data-i18n="register.submitBtn">Create Account</span>
 
 </button>
 
@@ -423,7 +426,7 @@ required>
 
 <div class="divider">
 
-    <span>OR</span>
+    <span data-i18n="register.or">OR</span>
 
 </div>
 
@@ -437,7 +440,7 @@ required>
 
         <i class="fa-brands fa-google"></i>
 
-        Continue with Google
+        <span data-i18n="register.google">Continue with Google</span>
 
     </button>
 
@@ -447,7 +450,7 @@ required>
 
         <i class="fa-brands fa-github"></i>
 
-        Continue with GitHub
+        <span data-i18n="register.github">Continue with GitHub</span>
 
     </button>
 
@@ -457,9 +460,9 @@ required>
 
 <p class="login-link">
 
-    Already have an account?
+    <span data-i18n="register.haveAccount">Already have an account?</span>
 
-    <a href="login.html">
+    <a href="login.html" data-i18n="register.loginHere">
 
         Login Here
 
@@ -480,6 +483,7 @@ required>
 <script src="../js/pages/register.js"></script>
 <script src="../locales/en.js"></script>
 <script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/utils.js"></script>
 

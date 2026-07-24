@@ -47,10 +47,11 @@ CREATE TABLE IF NOT EXISTS progress_items (
 CREATE TABLE IF NOT EXISTS favorites (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    content_type TEXT NOT NULL CHECK(content_type IN ('hiragana','katakana')),
+    content_type TEXT NOT NULL CHECK(content_type IN ('hiragana','katakana','vocabulary','grammar','kanji')),
+    level TEXT NOT NULL DEFAULT '',
     item_index INTEGER NOT NULL,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    UNIQUE(user_id, content_type, item_index)
+    UNIQUE(user_id, content_type, level, item_index)
 );
 
 -- Legacy/superseded: vocabulary now has real per-word chapters and tracks

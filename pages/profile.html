@@ -34,63 +34,63 @@
         <li>
             <a href="dashboard.html">
                 <i class="fa-solid fa-house"></i>
-                Dashboard
+                <span data-i18n="sidebar.dashboard">Dashboard</span>
             </a>
         </li>
 
         <li>
             <a href="courses.html">
                 <i class="fa-solid fa-book"></i>
-                Courses
+                <span data-i18n="nav.courses">Courses</span>
             </a>
         </li>
 
         <li>
             <a href="vocabulary.html">
                 <i class="fa-solid fa-language"></i>
-                Vocabulary
+                <span data-i18n="nav.vocabulary">Vocabulary</span>
             </a>
         </li>
 
         <li>
             <a href="grammar.html">
                 <i class="fa-solid fa-pen"></i>
-                Grammar
+                <span data-i18n="nav.grammar">Grammar</span>
             </a>
         </li>
 
         <li>
             <a href="kanji.html">
                 <i class="fa-solid fa-torii-gate"></i>
-                Kanji
+                <span data-i18n="nav.kanji">Kanji</span>
             </a>
         </li>
 
         <li>
             <a href="quiz.html">
                 <i class="fa-solid fa-circle-question"></i>
-                Quiz
+                <span data-i18n="sidebar.quiz">Quiz</span>
             </a>
         </li>
 
         <li class="active">
             <a href="profile.html">
                 <i class="fa-solid fa-user"></i>
-                Profile
+                <span data-i18n="sidebar.profile">Profile</span>
             </a>
         </li>
 
         <li>
             <a href="settings.html">
                 <i class="fa-solid fa-gear"></i>
-                Settings
+                <span data-i18n="sidebar.settings">Settings</span>
             </a>
         </li>
 
         <li>
             <a href="../index.html" id="logoutLink">
                 <i class="fa-solid fa-right-from-bracket"></i>
-                Logout
+                <span data-i18n="sidebar.logout">Logout</span>
             </a>
         </li>
     </ul>
@@ -114,8 +114,8 @@
         </button>
 
         <div>
-            <h1>Your Profile</h1>
-            <p>Manage your account details and learning preferences.</p>
+            <h1 data-i18n="profile.title">Your Profile</h1>
+            <p data-i18n="profile.subtitle">Manage your account details and learning preferences.</p>
         </div>
     </div>
 
@@ -129,7 +129,7 @@
             <img id="profileAvatar" src="../assets/images/profile/mamun.jpeg" alt="Profile">
             <div>
                 <h4 id="profileName">Mamun</h4>
-                <small>Student</small>
+                <small data-i18n="profile.student">Student</small>
             </div>
         </div>
 
@@ -139,20 +139,20 @@
 <!-- Profile Details -->
 <section class="progress-section">
     <div class="progress-card">
-        <h2>Account Details</h2>
+        <h2 data-i18n="profile.accountDetails">Account Details</h2>
 
         <div class="lesson">
-            <span>Name</span>
+            <span data-i18n="profile.name">Name</span>
             <p id="detailName">Mamun</p>
         </div>
 
         <div class="lesson">
-            <span>JLPT Level</span>
+            <span data-i18n="profile.jlptLevel">JLPT Level</span>
             <p id="detailLevel">N3 Student</p>
         </div>
 
         <div class="lesson">
-            <span>Study Streak</span>
+            <span data-i18n="profile.studyStreak">Study Streak</span>
             <p id="detailStreak">15 Days</p>
         </div>
     </div>
@@ -163,30 +163,30 @@
     <div class="right-panel" style="grid-column: 1 / -1;">
 
         <div class="goal-card">
-            <h2>Edit Profile</h2>
+            <h2 data-i18n="profile.editProfile">Edit Profile</h2>
             <form id="profileEditForm" class="profile-edit-form">
 
                 <div class="form-group">
-                    <label for="editFullName">Name</label>
+                    <label for="editFullName" data-i18n="profile.name">Name</label>
                     <input type="text" id="editFullName" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="editAvatar">Profile Photo</label>
+                    <label for="editAvatar" data-i18n="profile.photo">Profile Photo</label>
                     <input type="file" id="editAvatar" accept="image/png,image/jpeg,image/webp">
                 </div>
 
                 <div class="form-group">
-                    <label for="editCurrentPassword">Current Password</label>
-                    <input type="password" id="editCurrentPassword" placeholder="Required only if changing password">
+                    <label for="editCurrentPassword" data-i18n="profile.currentPassword">Current Password</label>
+                    <input type="password" id="editCurrentPassword" placeholder="Required only if changing password" data-i18n-placeholder="profile.currentPasswordHint">
                 </div>
 
                 <div class="form-group">
-                    <label for="editNewPassword">New Password</label>
-                    <input type="password" id="editNewPassword" placeholder="Leave blank to keep current password">
+                    <label for="editNewPassword" data-i18n="profile.newPassword">New Password</label>
+                    <input type="password" id="editNewPassword" placeholder="Leave blank to keep current password" data-i18n-placeholder="profile.newPasswordHint">
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="profileEditBtn">Save Changes</button>
+                <button type="submit" class="btn btn-primary" id="profileEditBtn" data-i18n="profile.saveChanges">Save Changes</button>
                 <p id="profileEditStatus" class="profile-edit-status"></p>
             </form>
         </div>
@@ -197,6 +197,10 @@
 </main>
 </div>
 
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
+<script src="../js/i18n.js"></script>
 <script src="../js/auth-guard.js"></script>
 <script>
     let currentProfileUser = null;

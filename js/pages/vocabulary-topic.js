@@ -31,6 +31,22 @@
         return String(str || "").replace(/"/g, "&quot;");
     }
 
+    // Side note pointing at the N5 chapter (and its conversation/story)
+    // that reinforces this topic's words — curated per-topic via the
+    // `chapterRef` field, not auto-detected. Silently omitted if the
+    // topic has no chapterRef or vocabulary-data.js isn't loaded.
+    const refNote = document.getElementById("topicChapterRef");
+    if (refNote && topic.chapterRef && typeof vocabularyData !== "undefined") {
+        const n5Chapters = (vocabularyData.n5 && vocabularyData.n5.chapters) || [];
+        const chapterIndex = n5Chapters.findIndex((c) => c.id === topic.chapterRef);
+        if (chapterIndex !== -1) {
+            const refChapter = n5Chapters[chapterIndex];
+            refNote.href = `chapter.html?level=n5&type=vocabulary&chapter=${chapterIndex + 1}`;
+            refNote.innerHTML = `<i class="fa-solid fa-diagram-project"></i> এই শব্দগুলো Chapter ${chapterIndex + 1}: ${refChapter.title}-এর কথোপকথন ও গল্পেও ব্যবহৃত হয়েছে`;
+            refNote.hidden = false;
+        }
+    }
+
     if (grid) {
         grid.innerHTML = topic.items
             .map(
@@ -57,17 +73,17 @@
         });
     }
 
-    let currentLang = localStorage.getItem("lang") || "en";
+    // Own storage key ("contentLang"), separate from the site-wide "lang"
+    // key the navbar switcher uses — this toggle only swaps this page's
+    // word-meaning content between EN/BN, independent of UI language.
+    let currentLang = localStorage.getItem("contentLang") || "en";
     applyLang(currentLang);
 
     if (langToggleBtn) {
         langToggleBtn.addEventListener("click", () => {
             currentLang = currentLang === "bn" ? "en" : "bn";
-            localStorage.setItem("lang", currentLang);
+            localStorage.setItem("contentLang", currentLang);
             applyLang(currentLang);
-            if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(currentLang);
-            const navLangLabel = document.getElementById("langLabel");
-            if (navLangLabel) navLangLabel.textContent = LABELS[currentLang] || "EN";
         });
     }
 

@@ -60,13 +60,13 @@
 
     <div class="container contact-hero-container">
 
-        <span class="hero-tag">
+        <span class="hero-tag" data-i18n="contact.hero.tag">
             We'd love to hear from you
         </span>
 
-        <h1>Get in Touch</h1>
+        <h1 data-i18n="contact.hero.title">Get in Touch</h1>
 
-        <p>
+        <p data-i18n="contact.hero.subtitle">
             Have a question about a lesson, JLPT level, or your account?
             Send us a message and our team will reply directly to your Gmail.
         </p>
@@ -89,53 +89,53 @@
 
         <div class="contact-form-wrapper">
 
-            <h2>Send Us a Message</h2>
-            <p class="contact-form-subtitle">
+            <h2 data-i18n="contact.form.title">Send Us a Message</h2>
+            <p class="contact-form-subtitle" data-i18n="contact.form.subtitle">
                 Fill in the form below and we'll get back to you as soon as possible.
             </p>
 
             <form id="contactForm" class="contact-form" novalidate>
 
                 <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Md Mamun Khan" required>
+                    <label for="fullName" data-i18n="register.label.fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Md Mamun Khan" data-i18n-placeholder="contact.placeholder.fullName" required>
                     <span class="error-message" id="fullNameError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Gmail Address</label>
-                    <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+                    <label for="email" data-i18n="contact.label.email">Gmail Address</label>
+                    <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" data-i18n-placeholder="contact.placeholder.email" required>
                     <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="e.g. 080-1234-5678" required>
+                    <label for="phone" data-i18n="contact.label.phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g. 080-1234-5678" data-i18n-placeholder="contact.placeholder.phone" required>
                     <span class="error-message" id="phoneError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="subject">Subject</label>
+                    <label for="subject" data-i18n="contact.label.subject">Subject</label>
                     <select id="subject" name="subject" required>
-                        <option value="" disabled selected>Choose a topic</option>
-                        <option value="Question">General Question</option>
-                        <option value="Course">Course / Lesson Help</option>
-                        <option value="Account">Account / Login Issue</option>
-                        <option value="Feedback">Feedback / Suggestion</option>
-                        <option value="Other">Other</option>
+                        <option value="" disabled selected data-i18n="contact.option.choose">Choose a topic</option>
+                        <option value="Question" data-i18n="contact.option.question">General Question</option>
+                        <option value="Course" data-i18n="contact.option.course">Course / Lesson Help</option>
+                        <option value="Account" data-i18n="contact.option.account">Account / Login Issue</option>
+                        <option value="Feedback" data-i18n="contact.option.feedback">Feedback / Suggestion</option>
+                        <option value="Other" data-i18n="contact.option.other">Other</option>
                     </select>
                     <span class="error-message" id="subjectError"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Your Question or Comment</label>
+                    <label for="message" data-i18n="contact.label.message">Your Question or Comment</label>
                     <textarea id="message" name="message" rows="6"
-                        placeholder="Write your question or comment here..." required></textarea>
+                        placeholder="Write your question or comment here..." data-i18n-placeholder="contact.placeholder.message" required></textarea>
                     <span class="error-message" id="messageError"></span>
                 </div>
 
                 <button type="submit" class="btn btn-primary contact-submit-btn" id="submitBtn">
-                    <span class="btn-text">Send Message</span>
+                    <span class="btn-text" data-i18n="contact.submitBtn">Send Message</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
 
@@ -152,7 +152,7 @@
             <div class="contact-info-card">
 
                 <i class="fa-solid fa-envelope"></i>
-                <h3>Email</h3>
+                <h3 data-i18n="contact.info.email">Email</h3>
                 <p id="contactEmailDisplay">info@easynihongo.com</p>
 
             </div>
@@ -160,23 +160,23 @@
             <div class="contact-info-card">
 
                 <i class="fa-solid fa-clock"></i>
-                <h3>Response Time</h3>
-                <p>We usually reply within 24–48 hours.</p>
+                <h3 data-i18n="contact.info.responseTime">Response Time</h3>
+                <p data-i18n="contact.info.responseTimeDesc">We usually reply within 24–48 hours.</p>
 
             </div>
 
             <div class="contact-info-card">
 
                 <i class="fa-solid fa-location-dot"></i>
-                <h3>Based In</h3>
-                <p>Japan</p>
+                <h3 data-i18n="contact.info.basedIn">Based In</h3>
+                <p data-i18n="contact.info.japan">Japan</p>
 
             </div>
 
             <div class="contact-info-card contact-social-card">
 
                 <i class="fa-solid fa-share-nodes"></i>
-                <h3>Follow Us</h3>
+                <h3 data-i18n="footer.followUs">Follow Us</h3>
 
                 <div class="social-icons">
 
@@ -218,6 +218,7 @@
     <script src="../js/pages/contact.js"></script>
     <script src="../locales/en.js"></script>
     <script src="../locales/bn.js"></script>
+    <script src="../locales/ja.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/utils.js"></script>
 

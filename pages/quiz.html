@@ -48,13 +48,13 @@
 <section class="quiz-hero">
     <div class="container hero-container">
 
-        <span class="hero-eyebrow reveal" data-anim="fade-up">試験 &nbsp;·&nbsp; JLPT Practice Test</span>
+        <span class="hero-eyebrow reveal" data-anim="fade-up">試験 &nbsp;·&nbsp; <span data-i18n="quiz.hero.eyebrow">JLPT Practice Test</span></span>
 
-        <h1 class="reveal" data-anim="fade-up" data-delay="80">
+        <h1 class="reveal" data-anim="fade-up" data-delay="80" data-i18n="quiz.hero.title">
             Test Your Japanese, Level by Level
         </h1>
 
-        <p class="reveal" data-anim="fade-up" data-delay="160">
+        <p class="reveal" data-anim="fade-up" data-delay="160" data-i18n="quiz.hero.subtitle">
             Free multiple-choice practice tests for JLPT N5 to N1 —
             instant scoring, so you always know exactly where you stand.
         </p>
@@ -62,19 +62,19 @@
         <div class="quiz-stats">
             <div class="stat-card reveal" data-anim="scale" data-delay="0">
                 <h2><span class="counter" data-target="5">0</span></h2>
-                <span>JLPT Levels</span>
+                <span data-i18n="courses.stat.levels">JLPT Levels</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="80">
                 <h2><span class="counter" data-target="500">0</span><span class="plus">+</span></h2>
-                <span>Practice Questions</span>
+                <span data-i18n="quiz.stat.questions">Practice Questions</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="160">
                 <h2><span class="counter" data-target="95">0</span><span class="plus">%</span></h2>
-                <span>JLPT Success Rate</span>
+                <span data-i18n="quiz.stat.successRate">JLPT Success Rate</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="240">
                 <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
-                <span>Students</span>
+                <span data-i18n="courses.stat.students">Students</span>
             </div>
         </div>
 
@@ -93,9 +93,9 @@
     <div class="container">
 
         <div class="section-title reveal" data-anim="fade-up">
-            <span class="section-eyebrow">Choose Your Level</span>
-            <h2>Pick a JLPT Test to Begin</h2>
-            <p>Each test is timed only by you — take as long as you need, and get your score at the end.</p>
+            <span class="section-eyebrow" data-i18n="quiz.level.eyebrow">Choose Your Level</span>
+            <h2 data-i18n="quiz.level.title">Pick a JLPT Test to Begin</h2>
+            <p data-i18n="quiz.level.desc">Each test is timed only by you — take as long as you need, and get your score at the end.</p>
         </div>
 
         <div class="level-grid">
@@ -104,49 +104,49 @@
             <div class="level-card n5 reveal" data-anim="fade-up" data-delay="0">
                 <div class="level-top">
                     <h2>JLPT N5</h2>
-                    <span class="badge badge-n5">Beginner</span>
+                    <span class="badge badge-n5" data-i18n="quiz.badge.beginner">Beginner</span>
                 </div>
-                <p>Basic vocabulary, particles, and everyday grammar.</p>
+                <p data-i18n="quiz.desc.n5">Basic vocabulary, particles, and everyday grammar.</p>
                 <div class="level-info">
-                    <span><i class="fa-solid fa-list-check"></i> 8 Questions</span>
-                    <span><i class="fa-regular fa-clock"></i> ~5 Min</span>
+                    <span><i class="fa-solid fa-list-check"></i> <span data-i18n="quiz.questions8">8 Questions</span></span>
+                    <span><i class="fa-regular fa-clock"></i> <span data-i18n="quiz.min5">~5 Min</span></span>
                 </div>
-                <button class="btn-ripple start-test-btn" data-level="n5">Start Test</button>
+                <button class="btn-ripple start-test-btn" data-level="n5" data-i18n="quiz.startTest">Start Test</button>
             </div>
 
             <!-- N4 -->
             <div class="level-card n4 reveal" data-anim="fade-up" data-delay="80">
                 <div class="level-top">
                     <h2>JLPT N4</h2>
-                    <span class="badge badge-n4">Elementary</span>
+                    <span class="badge badge-n4" data-i18n="quiz.badge.elementary">Elementary</span>
                 </div>
-                <p>Conditional forms, obligation, and everyday conversation.</p>
+                <p data-i18n="quiz.desc.n4">Conditional forms, obligation, and everyday conversation.</p>
                 <div class="level-info">
-                    <span><i class="fa-solid fa-list-check"></i> 8 Questions</span>
-                    <span><i class="fa-regular fa-clock"></i> ~5 Min</span>
+                    <span><i class="fa-solid fa-list-check"></i> <span data-i18n="quiz.questions8">8 Questions</span></span>
+                    <span><i class="fa-regular fa-clock"></i> <span data-i18n="quiz.min5">~5 Min</span></span>
                 </div>
-                <button class="btn-ripple start-test-btn" data-level="n4">Start Test</button>
+                <button class="btn-ripple start-test-btn" data-level="n4" data-i18n="quiz.startTest">Start Test</button>
             </div>
 
             <!-- N3 -->
             <div class="level-card locked n3 reveal" data-anim="fade-up" data-delay="160">
                 <i class="fa-solid fa-lock lock"></i>
                 <h2>JLPT N3</h2>
-                <p>Complete N4 to Unlock</p>
+                <p data-i18n="quiz.unlock.n3">Complete N4 to Unlock</p>
             </div>
 
             <!-- N2 -->
             <div class="level-card locked n2 reveal" data-anim="fade-up" data-delay="240">
                 <i class="fa-solid fa-lock lock"></i>
                 <h2>JLPT N2</h2>
-                <p>Complete N3 to Unlock</p>
+                <p data-i18n="quiz.unlock.n2">Complete N3 to Unlock</p>
             </div>
 
             <!-- N1 -->
             <div class="level-card locked n1 reveal" data-anim="fade-up" data-delay="320">
                 <i class="fa-solid fa-lock lock"></i>
                 <h2>JLPT N1</h2>
-                <p>Complete N2 to Unlock</p>
+                <p data-i18n="quiz.unlock.n1">Complete N2 to Unlock</p>
             </div>
 
         </div>
@@ -183,10 +183,10 @@
 
         <div class="quiz-actions">
             <button class="quit-btn" id="quitQuizBtn">
-                <i class="fa-solid fa-arrow-left"></i> Quit Test
+                <i class="fa-solid fa-arrow-left"></i> <span data-i18n="quiz.quitTest">Quit Test</span>
             </button>
             <button class="btn-ripple primary-btn next-btn" id="nextQuestionBtn" disabled>
-                Next Question <i class="fa-solid fa-arrow-right"></i>
+                <span data-i18n="quiz.nextQuestion">Next Question</span> <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
 
@@ -216,17 +216,17 @@
         <div class="result-breakdown">
             <div class="result-stat">
                 <span class="result-num correct" id="correctCount">0</span>
-                <span>Correct</span>
+                <span data-i18n="quiz.correct">Correct</span>
             </div>
             <div class="result-stat">
                 <span class="result-num incorrect" id="incorrectCount">0</span>
-                <span>Incorrect</span>
+                <span data-i18n="quiz.incorrect">Incorrect</span>
             </div>
         </div>
 
         <div class="result-actions">
-            <button class="btn-ripple secondary-btn" id="retryTestBtn">Retry Test</button>
-            <button class="btn-ripple primary-btn" id="backToLevelsBtn">Back to Levels</button>
+            <button class="btn-ripple secondary-btn" id="retryTestBtn" data-i18n="quiz.retryTest">Retry Test</button>
+            <button class="btn-ripple primary-btn" id="backToLevelsBtn" data-i18n="quiz.backToLevels">Back to Levels</button>
         </div>
 
     </div>
@@ -246,6 +246,7 @@
     <script src="../js/pages/quiz.js"></script>
     <script src="../locales/en.js"></script>
     <script src="../locales/bn.js"></script>
+    <script src="../locales/ja.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/utils.js"></script>
 

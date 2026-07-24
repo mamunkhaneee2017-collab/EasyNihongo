@@ -50,7 +50,7 @@
         </button>
     </div>
     <div class="container">
-        <a href="chapters.html" id="backToChaptersLink" class="back-to-chapters"><i class="fa-solid fa-arrow-left"></i> Back to chapters</a>
+        <a href="chapters.html" id="backToChaptersLink" class="back-to-chapters"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="chapter.backToChapters">Back to chapters</span></a>
     </div>
 </section>
 
@@ -60,9 +60,13 @@
             <!-- Item cards injected by js/pages/chapter.js -->
         </div>
 
+        <div class="conversation-story-section" id="conversationStorySection" hidden>
+            <!-- Conversation + short stories injected by js/pages/chapter.js -->
+        </div>
+
         <div class="chapter-nav">
-            <a href="#" id="prevChapterBtn" class="btn btn-outline chapter-nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous Chapter</a>
-            <a href="#" id="nextChapterBtn" class="btn btn-primary chapter-nav-btn">Next Chapter <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" id="prevChapterBtn" class="btn btn-outline chapter-nav-btn"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="chapter.prevChapter">Previous Chapter</span></a>
+            <a href="#" id="nextChapterBtn" class="btn btn-primary chapter-nav-btn"><span data-i18n="chapter.nextChapter">Next Chapter</span> <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -76,9 +80,12 @@
 <script src="../data/vocabulary/vocabulary-data.js"></script>
 <script src="../data/grammar/grammar-data.js"></script>
 <script src="../data/kanji/kanji-data.js"></script>
+<script src="../data/conversations/conversations-data.js"></script>
+<script src="../data/stories/stories-data.js"></script>
 <script src="../js/pages/chapter.js"></script>
 <script src="../locales/en.js"></script>
 <script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/utils.js"></script>
 

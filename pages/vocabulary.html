@@ -43,13 +43,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <div class="container">
 
-<h1>
+<h1 data-i18n="vocabPage.title">
 
 Master Japanese Vocabulary 🇯🇵
 
 </h1>
 
-<p>
+<p data-i18n="vocabPage.subtitle">
 
 Build your Japanese vocabulary from JLPT N5 to N1 with thousands of carefully organized words.
 
@@ -62,7 +62,8 @@ Build your Japanese vocabulary from JLPT N5 to N1 with thousands of carefully or
 <input
 type="text"
 id="searchInput"
-placeholder="Search Vocabulary Level...">
+placeholder="Search Vocabulary Level..."
+data-i18n-placeholder="vocabPage.searchPlaceholder">
 
 </div>
 
@@ -72,7 +73,7 @@ placeholder="Search Vocabulary Level...">
 
 <h2>5</h2>
 
-<p>JLPT Levels</p>
+<p data-i18n="courses.stat.levels">JLPT Levels</p>
 
 </div>
 
@@ -80,7 +81,7 @@ placeholder="Search Vocabulary Level...">
 
 <h2>6200+</h2>
 
-<p>Words</p>
+<p data-i18n="vocabPage.stat.words">Words</p>
 
 </div>
 
@@ -88,15 +89,15 @@ placeholder="Search Vocabulary Level...">
 
 <h2>250+</h2>
 
-<p>Chapters</p>
+<p data-i18n="vocabPage.stat.chapters">Chapters</p>
 
 </div>
 
 <div class="stat-card">
 
-<h2>Native</h2>
+<h2 data-i18n="vocabPage.stat.native">Native</h2>
 
-<p>Audio</p>
+<p data-i18n="vocabPage.stat.audio">Audio</p>
 
 </div>
 
@@ -114,7 +115,7 @@ placeholder="Search Vocabulary Level...">
 
 <div class="container">
 
-<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn active" data-filter="all" data-i18n="vocabPage.filterAll">All</button>
 
 <button class="filter-btn" data-filter="n5">N5</button>
 
@@ -153,12 +154,12 @@ placeholder="Search Vocabulary Level...">
 <div class="container">
 
 <div class="topic-browse-header">
-    <h2>Browse Vocabulary by Topic</h2>
-    <p>Not JLPT-level specific — practical words for everyday situations.</p>
+    <h2 data-i18n="vocabPage.topicBrowse.title">Browse Vocabulary by Topic</h2>
+    <p data-i18n="vocabPage.topicBrowse.desc">Not JLPT-level specific — practical words for everyday situations.</p>
 </div>
 
 <a href="vocabulary-topics.html" class="btn btn-primary topic-browse-btn">
-    Explore Topics <i class="fa-solid fa-arrow-right"></i>
+    <span data-i18n="vocabPage.topicBrowse.btn">Explore Topics</span> <i class="fa-solid fa-arrow-right"></i>
 </a>
 
 </div>
@@ -175,6 +176,7 @@ placeholder="Search Vocabulary Level...">
 <script src="../js/pages/vocabulary.js"></script>
 <script src="../locales/en.js"></script>
 <script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/utils.js"></script>
 

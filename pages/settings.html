@@ -35,35 +35,35 @@
         <li>
             <a href="dashboard.html">
                 <i class="fa-solid fa-house"></i>
-                Dashboard
+                <span data-i18n="sidebar.dashboard">Dashboard</span>
             </a>
         </li>
 
         <li>
             <a href="courses.html">
                 <i class="fa-solid fa-book"></i>
-                Courses
+                <span data-i18n="nav.courses">Courses</span>
             </a>
         </li>
 
         <li>
             <a href="profile.html">
                 <i class="fa-solid fa-user"></i>
-                Profile
+                <span data-i18n="sidebar.profile">Profile</span>
             </a>
         </li>
 
         <li class="active">
             <a href="settings.html">
                 <i class="fa-solid fa-gear"></i>
-                Settings
+                <span data-i18n="sidebar.settings">Settings</span>
             </a>
         </li>
 
         <li>
             <a href="../index.html" id="logoutLink">
                 <i class="fa-solid fa-right-from-bracket"></i>
-                Logout
+                <span data-i18n="sidebar.logout">Logout</span>
             </a>
         </li>
     </ul>
@@ -87,8 +87,8 @@
         </button>
 
         <div>
-            <h1>Settings</h1>
-            <p>Manage your language, appearance and notification preferences.</p>
+            <h1 data-i18n="settings.title">Settings</h1>
+            <p data-i18n="settings.subtitle">Manage your language, appearance and notification preferences.</p>
         </div>
     </div>
 
@@ -102,24 +102,25 @@
 <section class="settings-section">
 
     <div class="settings-card">
-        <h2><i class="fa-solid fa-globe"></i> Language</h2>
-        <p class="settings-hint">Choose the language used across Easy Nihongo. More languages are being added over time.</p>
+        <h2><i class="fa-solid fa-globe"></i> <span data-i18n="settings.language">Language</span></h2>
+        <p class="settings-hint" data-i18n="settings.languageHint">Choose the language used across Easy Nihongo. More languages are being added over time.</p>
 
         <div class="settings-field">
-            <label for="languageSelect">Display language</label>
+            <label for="languageSelect" data-i18n="settings.displayLanguage">Display language</label>
             <select id="languageSelect">
                 <option value="en">English</option>
                 <option value="bn">বাংলা (Bangla)</option>
+                <option value="ja">日本語 (Japanese)</option>
             </select>
         </div>
     </div>
 
     <div class="settings-card">
-        <h2><i class="fa-solid fa-moon"></i> Theme</h2>
-        <p class="settings-hint">Switch between light and dark mode. Your choice is saved on this device.</p>
+        <h2><i class="fa-solid fa-moon"></i> <span data-i18n="settings.theme">Theme</span></h2>
+        <p class="settings-hint" data-i18n="settings.themeHint">Switch between light and dark mode. Your choice is saved on this device.</p>
 
         <div class="settings-toggle-row">
-            <span>Dark mode</span>
+            <span data-i18n="settings.darkMode">Dark mode</span>
             <label class="switch">
                 <input type="checkbox" id="themeToggle">
                 <span class="slider"></span>
@@ -128,24 +129,24 @@
     </div>
 
     <div class="settings-card">
-        <h2><i class="fa-solid fa-text-height"></i> Font Size</h2>
-        <p class="settings-hint">Make lesson text easier to read.</p>
+        <h2><i class="fa-solid fa-text-height"></i> <span data-i18n="settings.fontSize">Font Size</span></h2>
+        <p class="settings-hint" data-i18n="settings.fontSizeHint">Make lesson text easier to read.</p>
 
         <div class="settings-field">
             <div class="font-size-options" id="fontSizeOptions">
-                <button type="button" class="font-size-btn" data-size="small">A<span>Small</span></button>
-                <button type="button" class="font-size-btn active" data-size="normal">A<span>Normal</span></button>
-                <button type="button" class="font-size-btn" data-size="large">A<span>Large</span></button>
+                <button type="button" class="font-size-btn" data-size="small">A<span data-i18n="settings.small">Small</span></button>
+                <button type="button" class="font-size-btn active" data-size="normal">A<span data-i18n="settings.normal">Normal</span></button>
+                <button type="button" class="font-size-btn" data-size="large">A<span data-i18n="settings.large">Large</span></button>
             </div>
         </div>
     </div>
 
     <div class="settings-card">
-        <h2><i class="fa-regular fa-bell"></i> Notifications</h2>
-        <p class="settings-hint">Choose what Easy Nihongo can notify you about.</p>
+        <h2><i class="fa-regular fa-bell"></i> <span data-i18n="settings.notifications">Notifications</span></h2>
+        <p class="settings-hint" data-i18n="settings.notificationsHint">Choose what Easy Nihongo can notify you about.</p>
 
         <div class="settings-toggle-row">
-            <span>Daily study reminder</span>
+            <span data-i18n="settings.dailyReminder">Daily study reminder</span>
             <label class="switch">
                 <input type="checkbox" checked>
                 <span class="slider"></span>
@@ -153,7 +154,7 @@
         </div>
 
         <div class="settings-toggle-row">
-            <span>New course announcements</span>
+            <span data-i18n="settings.courseAnnouncements">New course announcements</span>
             <label class="switch">
                 <input type="checkbox" checked>
                 <span class="slider"></span>
@@ -161,7 +162,7 @@
         </div>
 
         <div class="settings-toggle-row">
-            <span>Achievement &amp; streak alerts</span>
+            <span data-i18n="settings.achievementAlerts">Achievement &amp; streak alerts</span>
             <label class="switch">
                 <input type="checkbox" checked>
                 <span class="slider"></span>
@@ -170,11 +171,11 @@
     </div>
 
     <div class="settings-card">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Learning Preferences</h2>
-        <p class="settings-hint">These help personalize your dashboard and recommendations.</p>
+        <h2><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="settings.learningPreferences">Learning Preferences</span></h2>
+        <p class="settings-hint" data-i18n="settings.learningPreferencesHint">These help personalize your dashboard and recommendations.</p>
 
         <div class="settings-field">
-            <label for="targetLevel">Target JLPT level</label>
+            <label for="targetLevel" data-i18n="register.label.goalLevel">Target JLPT level</label>
             <select id="targetLevel">
                 <option>N5</option>
                 <option>N4</option>
@@ -185,35 +186,35 @@
         </div>
 
         <div class="settings-field">
-            <label for="dailyGoal">Daily study goal (minutes)</label>
+            <label for="dailyGoal" data-i18n="settings.dailyGoal">Daily study goal (minutes)</label>
             <input type="number" id="dailyGoal" min="10" step="5" value="60">
         </div>
     </div>
 
     <div class="settings-card">
-        <h2><i class="fa-solid fa-lock"></i> Change Password</h2>
-        <p class="settings-hint">Update the password used to log in to your account.</p>
+        <h2><i class="fa-solid fa-lock"></i> <span data-i18n="settings.changePassword">Change Password</span></h2>
+        <p class="settings-hint" data-i18n="settings.changePasswordHint">Update the password used to log in to your account.</p>
 
         <div class="settings-field">
-            <label for="currentPassword">Current password</label>
-            <input type="password" id="currentPassword" placeholder="Enter your current password">
+            <label for="currentPassword" data-i18n="profile.currentPassword">Current password</label>
+            <input type="password" id="currentPassword" placeholder="Enter your current password" data-i18n-placeholder="settings.currentPasswordPlaceholder">
         </div>
 
         <div class="settings-field">
-            <label for="newPassword">New password</label>
-            <input type="password" id="newPassword" placeholder="At least 8 characters">
+            <label for="newPassword" data-i18n="profile.newPassword">New password</label>
+            <input type="password" id="newPassword" placeholder="At least 8 characters" data-i18n-placeholder="settings.newPasswordPlaceholder">
         </div>
 
         <div class="settings-field">
-            <label for="confirmNewPassword">Confirm new password</label>
-            <input type="password" id="confirmNewPassword" placeholder="Re-enter the new password">
+            <label for="confirmNewPassword" data-i18n="settings.confirmNewPassword">Confirm new password</label>
+            <input type="password" id="confirmNewPassword" placeholder="Re-enter the new password" data-i18n-placeholder="settings.confirmNewPasswordPlaceholder">
         </div>
 
-        <button class="btn btn-primary" id="changePasswordBtn">Change Password</button>
+        <button class="btn btn-primary" id="changePasswordBtn" data-i18n="settings.changePassword">Change Password</button>
         <p class="form-status" id="passwordChangeStatus" role="status"></p>
     </div>
 
-    <button class="btn btn-primary save-settings-btn" id="saveSettingsBtn">Save Settings</button>
+    <button class="btn btn-primary save-settings-btn" id="saveSettingsBtn" data-i18n="settings.saveSettings">Save Settings</button>
     <p class="form-status" id="settingsStatus" role="status"></p>
 
 </section>
@@ -221,6 +222,10 @@
 </main>
 </div>
 
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
+<script src="../js/i18n.js"></script>
 <script src="../js/auth-guard.js"></script>
 <script src="../js/pages/settings.js"></script>
 

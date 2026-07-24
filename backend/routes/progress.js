@@ -9,43 +9,64 @@ const router = express.Router();
 const FLAT_TYPES = ["hiragana", "katakana"];
 const LEVEL_TYPES = ["kanji", "grammar", "vocabulary"];
 
-/* ---------------- FAVORITES (hiragana/katakana) ---------------- */
+/* ---------------- FAVORITES (hiragana/katakana + vocabulary/grammar/kanji) ---------------- */
 
+// Flat types (hiragana/katakana) are addressed by a global item_index
+// alone; level types (vocabulary/grammar/kanji) also need a `level`
+// since the same item_index repeats per level. `level` is stored as ''
+// for flat-type rows to keep the (content_type, level, item_index)
+// unique constraint meaningful for both shapes in one table.
 router.get("/favorites", requireAuth, (req, res) => {
-    const { contentType } = req.query;
-    if (!FLAT_TYPES.includes(contentType)) {
-        return res.status(400).json({ error: "contentType must be hiragana or katakana." });
+    const { contentType, level } = req.query;
+
+    if (FLAT_TYPES.includes(contentType)) {
+        const rows = db
+            .prepare(`SELECT item_index FROM favorites WHERE user_id = ? AND content_type = ? AND level = ''`)
+            .all(req.session.user.id, contentType);
+        return res.json({ itemIndexes: rows.map((r) => r.item_index) });
     }
-    const rows = db
-        .prepare(`SELECT item_index FROM favorites WHERE user_id = ? AND content_type = ?`)
-        .all(req.session.user.id, contentType);
-    res.json({ itemIndexes: rows.map((r) => r.item_index) });
+
+    if (LEVEL_TYPES.includes(contentType) && level) {
+        const rows = db
+            .prepare(`SELECT item_index FROM favorites WHERE user_id = ? AND content_type = ? AND level = ?`)
+            .all(req.session.user.id, contentType, level);
+        return res.json({ itemIndexes: rows.map((r) => r.item_index) });
+    }
+
+    res.status(400).json({ error: "contentType must be hiragana/katakana, or kanji/grammar/vocabulary with a level." });
 });
 
 router.post("/favorite", requireAuth, (req, res) => {
-    const { contentType, itemIndex } = req.body || {};
+    const { contentType, level, itemIndex } = req.body || {};
     const index = parseInt(itemIndex, 10);
+    const userId = req.session.user.id;
 
-    if (!FLAT_TYPES.includes(contentType)) {
-        return res.status(400).json({ error: "contentType must be hiragana or katakana." });
+    const isFlat = FLAT_TYPES.includes(contentType);
+    const isLevel = LEVEL_TYPES.includes(contentType) && !!level;
+
+    if (!isFlat && !isLevel) {
+        return res.status(400).json({ error: "contentType must be hiragana/katakana, or kanji/grammar/vocabulary with a level." });
     }
-    if (!content.flatItemExists(contentType, index)) {
+
+    const exists = isFlat ? content.flatItemExists(contentType, index) : content.levelItemExists(contentType, level, index);
+    if (!exists) {
         return res.status(400).json({ error: "That item does not exist." });
     }
 
-    const userId = req.session.user.id;
+    const levelKey = isFlat ? "" : level;
     const existing = db
-        .prepare(`SELECT id FROM favorites WHERE user_id = ? AND content_type = ? AND item_index = ?`)
-        .get(userId, contentType, index);
+        .prepare(`SELECT id FROM favorites WHERE user_id = ? AND content_type = ? AND level = ? AND item_index = ?`)
+        .get(userId, contentType, levelKey, index);
 
     if (existing) {
         db.prepare(`DELETE FROM favorites WHERE id = ?`).run(existing.id);
         return res.json({ favorited: false });
     }
 
-    db.prepare(`INSERT INTO favorites (user_id, content_type, item_index) VALUES (?, ?, ?)`).run(
+    db.prepare(`INSERT INTO favorites (user_id, content_type, level, item_index) VALUES (?, ?, ?, ?)`).run(
         userId,
         contentType,
+        levelKey,
         index
     );
     res.json({ favorited: true });

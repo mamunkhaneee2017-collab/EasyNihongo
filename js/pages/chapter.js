@@ -131,6 +131,9 @@
                 const globalIndex = chapter.startIndex + i;
                 return `
                     <div class="lesson-item-card">
+                        <button class="favorite-btn" data-index="${globalIndex}" title="Favorite">
+                            <i class="fa-regular fa-star"></i>
+                        </button>
                         ${renderItem(item)}
                         <button class="learned-btn" data-index="${globalIndex}">
                             <i class="fa-regular fa-circle-check"></i> Mark as Learned
@@ -139,6 +142,90 @@
             })
             .join("");
     }
+
+    /* ---------------- FAVORITE (STAR) ---------------- */
+
+    document.querySelectorAll(".favorite-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            fetch("/api/progress/favorite", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({ contentType: type, level, itemIndex: button.dataset.index })
+            })
+                .then(async (res) => {
+                    if (!res.ok) throw new Error("not logged in");
+                    const data = await res.json();
+                    button.classList.toggle("active", data.favorited);
+                })
+                .catch(() => {
+                    alert(`Log in to save your favorite ${label.toLowerCase()}.`);
+                });
+        });
+    });
+
+    fetch(`/api/progress/favorites?contentType=${type}&level=${level}`, { credentials: "same-origin" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+            if (!data) return;
+            data.itemIndexes.forEach((index) => {
+                const button = document.querySelector(`.favorite-btn[data-index="${index}"]`);
+                if (button) button.classList.add("active");
+            });
+        })
+        .catch(() => {});
+
+    /* ---------------- CONVERSATION & SHORT STORIES ---------------- */
+
+    // Shown on both the vocabulary and grammar page for a chapter (not
+    // kanji) — same underlying data, looked up by the stable chapter
+    // `id` slug (shared across vocabulary-data.js, grammar-data.js,
+    // conversations-data.js and stories-data.js) rather than position,
+    // so it keeps working if chapters are ever reordered.
+    function renderConversationAndStories() {
+        const section = document.getElementById("conversationStorySection");
+        if (!section || (type !== "vocabulary" && type !== "grammar")) return;
+
+        const convChapter = (typeof conversationsData !== "undefined" && conversationsData[level])
+            ? conversationsData[level].chapters.find((c) => c.id === chapter.id) : null;
+        const storyChapter = (typeof storiesData !== "undefined" && storiesData[level])
+            ? storiesData[level].chapters.find((c) => c.id === chapter.id) : null;
+
+        if (!convChapter && !storyChapter) return;
+
+        const conversationHtml = convChapter ? `
+            <div class="conversation-block">
+                <h3 class="conversation-title">${convChapter.conversation.title}</h3>
+                <div class="conversation-lines">
+                    ${convChapter.conversation.lines.map((line) => `
+                        <div class="conversation-line">
+                            <span class="conversation-speaker">${line.speaker}</span>
+                            <p class="conversation-jp">${line.jp}</p>
+                            ${line.reading ? `<p class="conversation-reading">${line.reading}</p>` : ""}
+                            <p class="conversation-translation" data-i18n-en="${escapeAttr(line.en)}" data-i18n-bn="${escapeAttr(line.bn)}">${line.en}</p>
+                        </div>`).join("")}
+                </div>
+            </div>` : "";
+
+        const storiesHtml = storyChapter ? storyChapter.stories.map((story) => `
+            <div class="story-block">
+                <h3 class="story-title">${story.title}</h3>
+                ${story.paragraphs.map((p) => `
+                    <div class="story-paragraph">
+                        <p class="story-jp">${p.jp}</p>
+                        ${p.reading ? `<p class="story-reading">${p.reading}</p>` : ""}
+                        <p class="story-translation" data-i18n-en="${escapeAttr(p.en)}" data-i18n-bn="${escapeAttr(p.bn)}">${p.en}</p>
+                    </div>`).join("")}
+            </div>`).join("") : "";
+
+        section.innerHTML = `
+            <h2 class="section-title">Conversation &amp; Short Stories</h2>
+            ${conversationHtml}
+            ${storiesHtml}`;
+        section.hidden = false;
+    }
+
+    renderConversationAndStories();
 
     /* ---------------- MARK AS LEARNED ---------------- */
 
@@ -184,28 +271,35 @@
     const langToggleBtn = document.getElementById("langToggleBtn");
     const langToggleLabel = document.getElementById("langToggleLabel");
 
-    if (type === "vocabulary" && langToggleBtn) {
+    // Vocabulary chapters always have EN/BN toggleable content; grammar
+    // chapters only do once a conversation/story section is present for
+    // that chapter (grammar patterns themselves have no `bn` field).
+    const hasToggleableContent = type === "vocabulary" || (type === "grammar" && !document.getElementById("conversationStorySection")?.hidden);
+
+    if (hasToggleableContent && langToggleBtn) {
         langToggleBtn.hidden = false;
 
         const LABELS = { en: "EN", bn: "বাং" };
+        const TOGGLE_SELECTOR = ".meaning[data-i18n-en], .example-translation[data-i18n-en], .conversation-translation[data-i18n-en], .story-translation[data-i18n-en]";
 
+        // Deliberately its own storage key, not the site-wide "lang" key —
+        // this toggle only swaps this page's EN/BN *content* (word
+        // meanings, example/conversation/story translations), independent
+        // of which UI language (en/bn/ja) the navbar switcher has picked.
         function applyLang(lang) {
             if (langToggleLabel) langToggleLabel.textContent = LABELS[lang] || "EN";
-            document.querySelectorAll(".meaning[data-i18n-en], .example-translation[data-i18n-en]").forEach((el) => {
+            document.querySelectorAll(TOGGLE_SELECTOR).forEach((el) => {
                 el.textContent = lang === "bn" ? el.dataset.i18nBn : el.dataset.i18nEn;
             });
         }
 
-        let currentLang = localStorage.getItem("lang") || "en";
+        let currentLang = localStorage.getItem("contentLang") || "en";
         applyLang(currentLang);
 
         langToggleBtn.addEventListener("click", () => {
             currentLang = currentLang === "bn" ? "en" : "bn";
-            localStorage.setItem("lang", currentLang);
+            localStorage.setItem("contentLang", currentLang);
             applyLang(currentLang);
-            if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(currentLang);
-            const navLangLabel = document.getElementById("langLabel");
-            if (navLangLabel) navLangLabel.textContent = LABELS[currentLang] || "EN";
         });
     }
 

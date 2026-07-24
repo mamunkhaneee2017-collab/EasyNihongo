@@ -1,24 +1,26 @@
 /* ==========================================
    EASY NIHONGO — TRANSLATION ENGINE
-   Applies strings from locales/en.js / bn.js
-   to any element carrying data-i18n="key".
-   Both locale files must be loaded as <script>
-   tags before this file (see index.html).
+   Applies strings from locales/*.js to any
+   element carrying data-i18n="key". Every
+   locale file must be loaded as a <script> tag
+   before this file (see index.html) — they set
+   window.XX_STRINGS globals, read here.
 
-   This is a starter implementation covering the
-   shared navbar/footer and the homepage hero —
-   proving the pattern, not translating the whole
-   site yet. To extend: add data-i18n attributes
-   to more elements and more keys to each locale
-   file (see locales/en.js for the key list).
+   Adding a language later is a two-step, no-
+   code-change process: drop in locales/xx.js
+   (window.XX_STRINGS = {...}), add "xx" to the
+   LANGUAGES list below, and add its option to
+   components/header.js's #langMenu.
 ========================================== */
 
 window.EasyNihongoI18n = (function () {
 
-    const STRINGS = {
-        en: window.EN_STRINGS || {},
-        bn: window.BN_STRINGS || {}
-    };
+    const LANGUAGES = ["en", "bn", "ja"];
+
+    const STRINGS = {};
+    LANGUAGES.forEach((code) => {
+        STRINGS[code] = window[code.toUpperCase() + "_STRINGS"] || {};
+    });
 
     function apply(lang) {
 
@@ -31,7 +33,16 @@ window.EasyNihongoI18n = (function () {
             }
         });
 
-        document.documentElement.lang = lang === "bn" ? "bn" : "en";
+        // Placeholders/titles can't take translated HTML via [data-i18n]
+        // (that sets innerHTML) — a separate attribute pair covers them.
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+            const key = el.dataset.i18nPlaceholder;
+            if (dict[key] !== undefined) {
+                el.setAttribute("placeholder", dict[key]);
+            }
+        });
+
+        document.documentElement.lang = STRINGS[lang] ? lang : "en";
 
     }
 
@@ -46,6 +57,6 @@ window.EasyNihongoI18n = (function () {
         setLanguage(localStorage.getItem("lang") || "en");
     });
 
-    return { setLanguage };
+    return { setLanguage, LANGUAGES };
 
 })();

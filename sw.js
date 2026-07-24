@@ -14,7 +14,7 @@
    registration call.
 ========================================== */
 
-const CACHE_NAME = "easynihongo-shell-v5";
+const CACHE_NAME = "easynihongo-shell-v6";
 
 const APP_SHELL = [
     "index.html",
@@ -45,6 +45,7 @@ const APP_SHELL = [
     "js/i18n.js",
     "locales/en.js",
     "locales/bn.js",
+    "locales/ja.js",
     "assets/icons/logo.jpeg",
     "manifest.json"
 ];

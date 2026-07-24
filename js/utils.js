@@ -112,7 +112,7 @@
     const langMenu = document.getElementById("langMenu");
     const langLabel = document.getElementById("langLabel");
 
-    const LANG_LABELS = { en: "EN", bn: "বাং" };
+    const LANG_LABELS = { en: "EN", bn: "বাং", ja: "日本語" };
 
     function applyStoredLanguage() {
         const saved = localStorage.getItem("lang") || "en";
@@ -148,6 +148,25 @@
 
         applyStoredLanguage();
     }
+
+    // Mobile-drawer copy of the language switcher — the desktop
+    // #langBtn/#langMenu pair lives in .nav-buttons, which is hidden
+    // below 992px (see css/navbar.css), so this separate set of plain
+    // buttons inside the #navMenu drawer (components/header.js) is what
+    // mobile visitors actually use. Same effect, just also closes the
+    // drawer afterward since picking a language is a "done" action here.
+    const navMenuEl = document.getElementById("navMenu");
+    document.querySelectorAll(".nav-lang-mobile-options button[data-lang]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const lang = btn.dataset.lang;
+            localStorage.setItem("lang", lang);
+            if (langLabel) langLabel.textContent = LANG_LABELS[lang] || lang.toUpperCase();
+            if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(lang);
+            if (navMenuEl) navMenuEl.classList.remove("active");
+            const toggle = document.getElementById("menuToggle");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+        });
+    });
 
     /* ==========================================
        COURSES DROPDOWN — NESTED LEVEL FLYOUTS

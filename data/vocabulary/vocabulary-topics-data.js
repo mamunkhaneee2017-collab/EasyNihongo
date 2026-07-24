@@ -21,6 +21,7 @@ const vocabularyTopicsData = [
         id: "everyday",
         title: "Everyday Life",
         icon: "fa-solid fa-house",
+        chapterRef: "everyday-actions-howto",
         items: [
             { word: "起きる", reading: "おきる", meanings: { en: "To wake up", bn: "ঘুম থেকে ওঠা" } },
             { word: "寝る", reading: "ねる", meanings: { en: "To sleep", bn: "ঘুমানো" } },
@@ -40,6 +41,7 @@ const vocabularyTopicsData = [
         id: "kitchen",
         title: "Kitchen",
         icon: "fa-solid fa-kitchen-set",
+        chapterRef: "home-furniture-existence",
         items: [
             { word: "台所", reading: "だいどころ", meanings: { en: "Kitchen", bn: "রান্নাঘর" } },
             { word: "冷蔵庫", reading: "れいぞうこ", meanings: { en: "Refrigerator", bn: "ফ্রিজ" } },
@@ -59,6 +61,7 @@ const vocabularyTopicsData = [
         id: "games",
         title: "Games & Hobbies",
         icon: "fa-solid fa-gamepad",
+        chapterRef: "hobbies-skills-ability",
         items: [
             { word: "ゲーム", meanings: { en: "Game", bn: "খেলা (গেম)" } },
             { word: "遊ぶ", reading: "あそぶ", meanings: { en: "To play", bn: "খেলা করা" } },
@@ -78,6 +81,7 @@ const vocabularyTopicsData = [
         id: "farm",
         title: "Farm & Nature",
         icon: "fa-solid fa-tractor",
+        chapterRef: "weather-seasons-reasons",
         items: [
             { word: "農場", reading: "のうじょう", meanings: { en: "Farm", bn: "খামার" } },
             { word: "野菜", reading: "やさい", meanings: { en: "Vegetable", bn: "সবজি" } },
@@ -97,6 +101,7 @@ const vocabularyTopicsData = [
         id: "it",
         title: "IT & Technology",
         icon: "fa-solid fa-laptop",
+        chapterRef: "home-furniture-existence",
         items: [
             { word: "コンピューター", meanings: { en: "Computer", bn: "কম্পিউটার" } },
             { word: "パソコン", meanings: { en: "Personal computer", bn: "পিসি" } },
@@ -116,6 +121,7 @@ const vocabularyTopicsData = [
         id: "hospital",
         title: "Hospital & Health",
         icon: "fa-solid fa-hospital",
+        chapterRef: "body-health-resultant-states",
         items: [
             { word: "病院", reading: "びょういん", meanings: { en: "Hospital", bn: "হাসপাতাল" } },
             { word: "医者", reading: "いしゃ", meanings: { en: "Doctor", bn: "ডাক্তার" } },
@@ -135,6 +141,7 @@ const vocabularyTopicsData = [
         id: "hotel",
         title: "Hotel & Travel",
         icon: "fa-solid fa-hotel",
+        chapterRef: "travel-life-events-experience",
         items: [
             { word: "ホテル", meanings: { en: "Hotel", bn: "হোটেল" } },
             { word: "予約", reading: "よやく", meanings: { en: "Reservation", bn: "বুকিং" } },
@@ -154,6 +161,7 @@ const vocabularyTopicsData = [
         id: "convenience-store",
         title: "Convenience Store",
         icon: "fa-solid fa-store",
+        chapterRef: "shopping-money-clothing",
         items: [
             { word: "コンビニ", meanings: { en: "Convenience store", bn: "কনভিনিয়েন্স স্টোর" } },
             { word: "レジ", meanings: { en: "Cash register / checkout", bn: "ক্যাশ কাউন্টার" } },
@@ -173,6 +181,7 @@ const vocabularyTopicsData = [
         id: "supermarket",
         title: "Supermarket",
         icon: "fa-solid fa-cart-shopping",
+        chapterRef: "food-drink-frequency",
         items: [
             { word: "スーパー", meanings: { en: "Supermarket", bn: "সুপারমার্কেট" } },
             { word: "買い物", reading: "かいもの", meanings: { en: "Shopping", bn: "কেনাকাটা" } },
@@ -192,6 +201,7 @@ const vocabularyTopicsData = [
         id: "countries-languages",
         title: "Countries & Languages",
         icon: "fa-solid fa-earth-asia",
+        chapterRef: "everyday-actions-howto",
         items: [
             { word: "アメリカ", meanings: { en: "U.S.A.", bn: "যুক্তরাষ্ট্র" } },
             { word: "イギリス", meanings: { en: "U.K.", bn: "যুক্তরাজ্য" } },
@@ -215,6 +225,7 @@ const vocabularyTopicsData = [
         id: "department-store",
         title: "Department Store",
         icon: "fa-solid fa-building",
+        chapterRef: "shopping-money-clothing",
         items: [
             { word: "屋上", reading: "おくじょう", meanings: { en: "Rooftop", bn: "ছাদ" } },
             { word: "時計", reading: "とけい", meanings: { en: "Watch / clock", bn: "ঘড়ি" } },
@@ -238,6 +249,7 @@ const vocabularyTopicsData = [
         id: "vegetables-fruits",
         title: "Vegetables & Fruits",
         icon: "fa-solid fa-carrot",
+        chapterRef: "food-drink-frequency",
         items: [
             { word: "きゅうり", meanings: { en: "Cucumber", bn: "শসা" } },
             { word: "トマト", meanings: { en: "Tomato", bn: "টমেটো" } },
@@ -259,6 +271,7 @@ const vocabularyTopicsData = [
         id: "meat-fish",
         title: "Meat & Fish",
         icon: "fa-solid fa-drumstick-bite",
+        chapterRef: "food-drink-frequency",
         items: [
             { word: "牛肉", reading: "ぎゅうにく", meanings: { en: "Beef", bn: "গরুর মাংস" } },
             { word: "鶏肉", reading: "とりにく", meanings: { en: "Chicken", bn: "মুরগির মাংস" } },
@@ -276,6 +289,7 @@ const vocabularyTopicsData = [
         id: "color-taste",
         title: "Color & Taste",
         icon: "fa-solid fa-palette",
+        chapterRef: "adjectives-comparison",
         items: [
             { word: "白", reading: "しろ", meanings: { en: "White", bn: "সাদা" } },
             { word: "黒", reading: "くろ", meanings: { en: "Black", bn: "কালো" } },
@@ -296,6 +310,7 @@ const vocabularyTopicsData = [
         id: "music-sports-movies",
         title: "Music, Sports & Movies",
         icon: "fa-solid fa-music",
+        chapterRef: "hobbies-skills-ability",
         items: [
             { word: "ポップス", meanings: { en: "Pop (music)", bn: "পপ সঙ্গীত" } },
             { word: "ロック", meanings: { en: "Rock (music)", bn: "রক সঙ্গীত" } },
@@ -315,6 +330,7 @@ const vocabularyTopicsData = [
         id: "inside-house",
         title: "Inside the House",
         icon: "fa-solid fa-door-open",
+        chapterRef: "home-furniture-existence",
         items: [
             { word: "玄関", reading: "げんかん", meanings: { en: "Entrance hall", bn: "প্রবেশপথ" } },
             { word: "居間", reading: "いま", meanings: { en: "Living room", bn: "বসার ঘর" } },
@@ -334,6 +350,7 @@ const vocabularyTopicsData = [
         id: "restaurant-menu",
         title: "Restaurant Menu",
         icon: "fa-solid fa-utensils",
+        chapterRef: "food-drink-frequency",
         items: [
             { word: "定食", reading: "ていしょく", meanings: { en: "Set meal", bn: "সেট মিল" } },
             { word: "カレーライス", meanings: { en: "Curry and rice", bn: "কারি রাইস" } },
@@ -354,6 +371,7 @@ const vocabularyTopicsData = [
         id: "town-places",
         title: "Places in Town",
         icon: "fa-solid fa-city",
+        chapterRef: "getting-around-time-sequencing",
         items: [
             { word: "博物館", reading: "はくぶつかん", meanings: { en: "Museum", bn: "জাদুঘর" } },
             { word: "美術館", reading: "びじゅつかん", meanings: { en: "Art museum", bn: "আর্ট মিউজিয়াম" } },
@@ -373,6 +391,7 @@ const vocabularyTopicsData = [
         id: "occupations",
         title: "Occupations",
         icon: "fa-solid fa-briefcase",
+        chapterRef: "errands-verbs-connecting",
         items: [
             { word: "公務員", reading: "こうむいん", meanings: { en: "Civil servant", bn: "সরকারি কর্মচারী" } },
             { word: "店員", reading: "てんいん", meanings: { en: "Shop clerk", bn: "দোকান কর্মী" } },
@@ -394,6 +413,7 @@ const vocabularyTopicsData = [
         id: "body-symptoms",
         title: "Body & Symptoms",
         icon: "fa-solid fa-user-injured",
+        chapterRef: "body-health-resultant-states",
         items: [
             { word: "頭", reading: "あたま", meanings: { en: "Head", bn: "মাথা" } },
             { word: "髪", reading: "かみ", meanings: { en: "Hair", bn: "চুল" } },
@@ -414,6 +434,7 @@ const vocabularyTopicsData = [
         id: "physical-actions",
         title: "Physical Actions",
         icon: "fa-solid fa-person-running",
+        chapterRef: "everyday-actions-howto",
         items: [
             { word: "飛ぶ", reading: "とぶ", meanings: { en: "To fly", bn: "ওড়া" } },
             { word: "跳ぶ", reading: "とぶ", meanings: { en: "To jump", bn: "লাফানো" } },
@@ -432,6 +453,7 @@ const vocabularyTopicsData = [
         id: "traditional-culture",
         title: "Traditional Culture",
         icon: "fa-solid fa-torii-gate",
+        chapterRef: "travel-life-events-experience",
         items: [
             { word: "茶道", reading: "さどう", meanings: { en: "Tea ceremony", bn: "চা অনুষ্ঠান" } },
             { word: "華道", reading: "かどう", meanings: { en: "Flower arrangement", bn: "ফুল সাজানোর শিল্প" } },
@@ -450,6 +472,7 @@ const vocabularyTopicsData = [
         id: "clothes",
         title: "Clothes",
         icon: "fa-solid fa-shirt",
+        chapterRef: "shopping-money-clothing",
         items: [
             { word: "スーツ", meanings: { en: "Suit", bn: "স্যুট" } },
             { word: "ワンピース", meanings: { en: "One-piece dress", bn: "ওয়ানপিস" } },
@@ -470,6 +493,7 @@ const vocabularyTopicsData = [
         id: "road-traffic",
         title: "Road & Traffic",
         icon: "fa-solid fa-road",
+        chapterRef: "transportation-directions-movement",
         items: [
             { word: "歩道", reading: "ほどう", meanings: { en: "Sidewalk", bn: "ফুটপাত" } },
             { word: "車道", reading: "しゃどう", meanings: { en: "Road (for vehicles)", bn: "গাড়ির রাস্তা" } },

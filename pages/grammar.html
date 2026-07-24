@@ -48,39 +48,39 @@
 <section class="grammar-hero">
     <div class="container hero-container">
 
-        <span class="hero-eyebrow reveal" data-anim="fade-up">文法 &nbsp;·&nbsp; Grammar Patterns</span>
+        <span class="hero-eyebrow reveal" data-anim="fade-up">文法 &nbsp;·&nbsp; <span data-i18n="grammarPage.hero.eyebrow">Grammar Patterns</span></span>
 
-        <h1 class="reveal" data-anim="fade-up" data-delay="80">
+        <h1 class="reveal" data-anim="fade-up" data-delay="80" data-i18n="grammarPage.hero.title">
             Master Japanese Grammar from N5 to N1
         </h1>
 
-        <p class="reveal" data-anim="fade-up" data-delay="160">
+        <p class="reveal" data-anim="fade-up" data-delay="160" data-i18n="grammarPage.hero.subtitle">
             Every pattern explained simply, with real example sentences —
             so you understand not just the rule, but how it's actually used.
         </p>
 
         <div class="grammar-search reveal" data-anim="fade-up" data-delay="240">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="grammarSearch" placeholder="Search a pattern or meaning...">
+            <input type="text" id="grammarSearch" placeholder="Search a pattern or meaning..." data-i18n-placeholder="grammarPage.searchPlaceholder">
             <span class="search-count" id="searchCount"></span>
         </div>
 
         <div class="grammar-stats">
             <div class="stat-card reveal" data-anim="scale" data-delay="0">
                 <h2><span class="counter" data-target="150">0</span><span class="plus">+</span></h2>
-                <span>Grammar Points</span>
+                <span data-i18n="grammarPage.stat.points">Grammar Points</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="80">
                 <h2><span class="counter" data-target="5">0</span></h2>
-                <span>JLPT Levels</span>
+                <span data-i18n="courses.stat.levels">JLPT Levels</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="160">
                 <h2><span class="counter" data-target="300">0</span><span class="plus">+</span></h2>
-                <span>Example Sentences</span>
+                <span data-i18n="grammarPage.stat.examples">Example Sentences</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="240">
                 <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
-                <span>Students</span>
+                <span data-i18n="courses.stat.students">Students</span>
             </div>
         </div>
 
@@ -98,10 +98,10 @@
     <div class="container featured-box">
 
         <div class="featured-text">
-            <span class="featured-tag"><i class="fa-solid fa-star"></i> Grammar Point of the Day</span>
+            <span class="featured-tag"><i class="fa-solid fa-star"></i> <span data-i18n="grammarPage.gotd.tag">Grammar Point of the Day</span></span>
             <h2 class="jp-pattern-lg">〜たら</h2>
             <p class="reading">~tara</p>
-            <p>
+            <p data-i18n="grammarPage.gotd.desc">
                 Used to describe a condition — "if" or "when" something happens,
                 the result follows. One of the most common conditional forms in
                 everyday Japanese.
@@ -112,7 +112,7 @@
                 <p class="en">If it rains, I won't go.</p>
             </div>
 
-            <a href="chapter.html?level=n4&type=grammar&chapter=1" class="btn-ripple primary-btn">Practice This Pattern</a>
+            <a href="chapter.html?level=n4&type=grammar&chapter=1" class="btn-ripple primary-btn" data-i18n="grammarPage.gotd.btn">Practice This Pattern</a>
         </div>
 
         <div class="featured-visual" aria-hidden="true">
@@ -153,6 +153,7 @@
     <script src="../js/pages/grammar.js"></script>
     <script src="../locales/en.js"></script>
     <script src="../locales/bn.js"></script>
+    <script src="../locales/ja.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/utils.js"></script>
 
