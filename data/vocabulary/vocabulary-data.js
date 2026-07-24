@@ -179,6 +179,134 @@ const vocabularyData = {
                     { word: "難しい", reading: "むずかしい", meanings: { en: "Difficult", bn: "কঠিন" }, example: { jp: "この問題は難しいです。", reading: "このもんだいはむずかしいです。", meanings: { en: "This problem is difficult.", bn: "এই সমস্যাটা কঠিন।" } } },
                     { word: "簡単", reading: "かんたん", meanings: { en: "Easy / simple", bn: "সহজ" }, example: { jp: "この漢字は簡単です。", reading: "このかんじはかんたんです。", meanings: { en: "This kanji is easy.", bn: "এই কাঞ্জিটা সহজ।" } } }
                 ]
+            },
+            {
+                id: "classroom-stationery",
+                title: "Classroom & Stationery",
+                items: [
+                    { word: "雑誌", reading: "ざっし", meanings: { en: "Magazine", bn: "ম্যাগাজিন" }, example: { jp: "雑誌を読みます。", reading: "ざっしをよみます。", meanings: { en: "I read a magazine.", bn: "আমি ম্যাগাজিন পড়ি।" } } },
+                    { word: "新聞", reading: "しんぶん", meanings: { en: "Newspaper", bn: "সংবাদপত্র" }, example: { jp: "毎朝、新聞を読みます。", reading: "まいあさ、しんぶんをよみます。", meanings: { en: "I read the newspaper every morning.", bn: "আমি প্রতিদিন সকালে সংবাদপত্র পড়ি।" } } },
+                    { word: "手帳", reading: "てちょう", meanings: { en: "Pocket notebook", bn: "পকেট নোটবুক" }, example: { jp: "手帳に予定を書きます。", reading: "てちょうによていをかきます。", meanings: { en: "I write my schedule in a pocket notebook.", bn: "আমি পকেট নোটবুকে সময়সূচি লিখি।" } } },
+                    { word: "名刺", reading: "めいし", meanings: { en: "Business card", bn: "ভিজিটিং কার্ড" }, example: { jp: "名刺をください。", reading: "めいしをください。", meanings: { en: "Please give me your business card.", bn: "আপনার ভিজিটিং কার্ডটা দিন।" } } },
+                    { word: "テレホンカード", meanings: { en: "Telephone card", bn: "টেলিফোন কার্ড" }, example: { jp: "テレホンカードで電話をかけます。", reading: "テレホンカードででんわをかけます。", meanings: { en: "I make a phone call with a telephone card.", bn: "আমি টেলিফোন কার্ড দিয়ে ফোন করি।" } } },
+                    { word: "ボールペン", meanings: { en: "Ballpoint pen", bn: "বলপেন" }, example: { jp: "ボールペンで書いてください。", reading: "ボールペンでかいてください。", meanings: { en: "Please write with a ballpoint pen.", bn: "বলপেন দিয়ে লিখুন।" } } },
+                    { word: "シャープペンシル", meanings: { en: "Mechanical pencil", bn: "মেকানিক্যাল পেন্সিল" }, example: { jp: "シャープペンシルを使います。", reading: "シャープペンシルをつかいます。", meanings: { en: "I use a mechanical pencil.", bn: "আমি মেকানিক্যাল পেন্সিল ব্যবহার করি।" } } },
+                    { word: "かぎ", meanings: { en: "Key", bn: "চাবি" }, example: { jp: "かぎをなくしました。", meanings: { en: "I lost my key.", bn: "আমি চাবি হারিয়ে ফেলেছি।" } } },
+                    { word: "傘", reading: "かさ", meanings: { en: "Umbrella", bn: "ছাতা" }, example: { jp: "傘を持っていますか。", reading: "かさをもっていますか。", meanings: { en: "Do you have an umbrella?", bn: "আপনার কাছে ছাতা আছে?" } } },
+                    { word: "かばん", meanings: { en: "Bag", bn: "ব্যাগ" }, example: { jp: "かばんの中に本があります。", reading: "かばんのなかにほんがあります。", meanings: { en: "There is a book in my bag.", bn: "ব্যাগের ভেতরে একটা বই আছে।" } } },
+                    { word: "はさみ", meanings: { en: "Scissors", bn: "কাঁচি" }, example: { jp: "はさみで紙を切ります。", reading: "はさみでかみをきります。", meanings: { en: "I cut paper with scissors.", bn: "আমি কাঁচি দিয়ে কাগজ কাটি।" } } },
+                    { word: "ホッチキス", meanings: { en: "Stapler", bn: "স্টেপলার" }, example: { jp: "ホッチキスを貸してください。", reading: "ホッチキスをかしてください。", meanings: { en: "Please lend me a stapler.", bn: "স্টেপলারটা ধার দিন।" } } },
+                    { word: "セロテープ", meanings: { en: "Scotch tape", bn: "টেপ" }, example: { jp: "セロテープで紙を貼ります。", reading: "セロテープでかみをはります。", meanings: { en: "I stick paper with tape.", bn: "আমি টেপ দিয়ে কাগজ আটকাই।" } } },
+                    { word: "消しゴム", reading: "けしゴム", meanings: { en: "Eraser", bn: "রাবার" }, example: { jp: "消しゴムを忘れました。", reading: "けしゴムをわすれました。", meanings: { en: "I forgot my eraser.", bn: "আমি রাবার ভুলে গেছি।" } } },
+                    { word: "紙", reading: "かみ", meanings: { en: "Paper", bn: "কাগজ" }, example: { jp: "紙に名前を書きます。", reading: "かみになまえをかきます。", meanings: { en: "I write my name on paper.", bn: "আমি কাগজে নাম লিখি।" } } },
+                    { word: "パンチ", meanings: { en: "Hole punch", bn: "পাঞ্চার" }, example: { jp: "パンチで穴を開けます。", reading: "パンチであなをあけます。", meanings: { en: "I make a hole with a punch.", bn: "আমি পাঞ্চার দিয়ে ছিদ্র করি।" } } }
+                ]
+            },
+            {
+                id: "electronics-furniture",
+                title: "Electronics & Furniture",
+                items: [
+                    { word: "カセットテープ", meanings: { en: "Cassette tape", bn: "ক্যাসেট টেপ" }, example: { jp: "カセットテープを聞きます。", reading: "カセットテープをききます。", meanings: { en: "I listen to a cassette tape.", bn: "আমি ক্যাসেট টেপ শুনি।" } } },
+                    { word: "テープレコーダー", meanings: { en: "Tape recorder", bn: "টেপ রেকর্ডার" }, example: { jp: "テープレコーダーを使います。", reading: "テープレコーダーをつかいます。", meanings: { en: "I use a tape recorder.", bn: "আমি টেপ রেকর্ডার ব্যবহার করি।" } } },
+                    { word: "テレビ", meanings: { en: "Television", bn: "টেলিভিশন" }, example: { jp: "テレビを見ます。", reading: "テレビをみます。", meanings: { en: "I watch TV.", bn: "আমি টিভি দেখি।" } } },
+                    { word: "ラジオ", meanings: { en: "Radio", bn: "রেডিও" }, example: { jp: "ラジオを聞きます。", reading: "ラジオをききます。", meanings: { en: "I listen to the radio.", bn: "আমি রেডিও শুনি।" } } },
+                    { word: "カメラ", meanings: { en: "Camera", bn: "ক্যামেরা" }, example: { jp: "カメラで写真を撮ります。", reading: "カメラでしゃしんをとります。", meanings: { en: "I take photos with a camera.", bn: "আমি ক্যামেরা দিয়ে ছবি তুলি।" } } },
+                    { word: "コンピューター", meanings: { en: "Computer", bn: "কম্পিউটার" }, example: { jp: "コンピューターを使います。", reading: "コンピューターをつかいます。", meanings: { en: "I use a computer.", bn: "আমি কম্পিউটার ব্যবহার করি।" } } },
+                    { word: "パソコン", meanings: { en: "Personal computer", bn: "পিসি" }, example: { jp: "パソコンでレポートを書きます。", reading: "パソコンでレポートをかきます。", meanings: { en: "I write a report on a personal computer.", bn: "আমি পিসিতে রিপোর্ট লিখি।" } } },
+                    { word: "ファクス", meanings: { en: "Fax", bn: "ফ্যাক্স" }, example: { jp: "ファクスを送ります。", reading: "ファクスをおくります。", meanings: { en: "I send a fax.", bn: "আমি ফ্যাক্স পাঠাই।" } } },
+                    { word: "ワープロ", meanings: { en: "Word processor", bn: "ওয়ার্ড প্রসেসর" }, example: { jp: "ワープロで手紙を書きます。", reading: "ワープロでてがみをかきます。", meanings: { en: "I write a letter on a word processor.", bn: "আমি ওয়ার্ড প্রসেসরে চিঠি লিখি।" } } },
+                    { word: "自動車", reading: "じどうしゃ", meanings: { en: "Automobile / car", bn: "গাড়ি" }, example: { jp: "自動車を運転します。", reading: "じどうしゃをうんてんします。", meanings: { en: "I drive a car.", bn: "আমি গাড়ি চালাই।" } } },
+                    { word: "机", reading: "つくえ", meanings: { en: "Desk", bn: "ডেস্ক" }, example: { jp: "机の上に本があります。", reading: "つくえのうえにほんがあります。", meanings: { en: "There is a book on the desk.", bn: "ডেস্কের উপর একটা বই আছে।" } } },
+                    { word: "いす", meanings: { en: "Chair", bn: "চেয়ার" }, example: { jp: "いすに座ります。", reading: "いすにすわります。", meanings: { en: "I sit on a chair.", bn: "আমি চেয়ারে বসি।" } } },
+                    { word: "スイッチ", meanings: { en: "Switch", bn: "সুইচ" }, example: { jp: "スイッチを押します。", reading: "スイッチをおします。", meanings: { en: "I press the switch.", bn: "আমি সুইচ চাপি।" } } },
+                    { word: "冷蔵庫", reading: "れいぞうこ", meanings: { en: "Refrigerator", bn: "ফ্রিজ" }, example: { jp: "冷蔵庫に牛乳があります。", reading: "れいぞうこにぎゅうにゅうがあります。", meanings: { en: "There is milk in the refrigerator.", bn: "ফ্রিজে দুধ আছে।" } } },
+                    { word: "テーブル", meanings: { en: "Table", bn: "টেবিল" }, example: { jp: "テーブルの上に花があります。", reading: "テーブルのうえにはながあります。", meanings: { en: "There are flowers on the table.", bn: "টেবিলের উপর ফুল আছে।" } } },
+                    { word: "ベッド", meanings: { en: "Bed", bn: "বিছানা" }, example: { jp: "ベッドで寝ます。", reading: "ベッドでねます。", meanings: { en: "I sleep on the bed.", bn: "আমি বিছানায় ঘুমাই।" } } },
+                    { word: "棚", reading: "たな", meanings: { en: "Shelf", bn: "তাক" }, example: { jp: "棚に本があります。", reading: "たなにほんがあります。", meanings: { en: "There are books on the shelf.", bn: "তাকে বই আছে।" } } },
+                    { word: "ドア", meanings: { en: "Door", bn: "দরজা" }, example: { jp: "ドアを開けます。", reading: "ドアをあけます。", meanings: { en: "I open the door.", bn: "আমি দরজা খুলি।" } } },
+                    { word: "窓", reading: "まど", meanings: { en: "Window", bn: "জানালা" }, example: { jp: "窓を閉めます。", reading: "まどをしめます。", meanings: { en: "I close the window.", bn: "আমি জানালা বন্ধ করি।" } } }
+                ]
+            },
+            {
+                id: "places-around-town",
+                title: "Places Around Town",
+                items: [
+                    { word: "事務所", reading: "じむしょ", meanings: { en: "Office", bn: "অফিস" }, example: { jp: "事務所で働きます。", reading: "じむしょではたらきます。", meanings: { en: "I work at the office.", bn: "আমি অফিসে কাজ করি।" } } },
+                    { word: "会議室", reading: "かいぎしつ", meanings: { en: "Conference room", bn: "সভাকক্ষ" }, example: { jp: "会議室で会議をします。", reading: "かいぎしつでかいぎをします。", meanings: { en: "I have a meeting in the conference room.", bn: "আমি সভাকক্ষে মিটিং করি।" } } },
+                    { word: "受付", reading: "うけつけ", meanings: { en: "Reception desk", bn: "রিসেপশন ডেস্ক" }, example: { jp: "受付で聞いてください。", reading: "うけつけできいてください。", meanings: { en: "Please ask at the reception desk.", bn: "রিসেপশনে জিজ্ঞেস করুন।" } } },
+                    { word: "ロビー", meanings: { en: "Lobby", bn: "লবি" }, example: { jp: "ロビーで待ちます。", reading: "ロビーでまちます。", meanings: { en: "I wait in the lobby.", bn: "আমি লবিতে অপেক্ষা করি।" } } },
+                    { word: "会社", reading: "かいしゃ", meanings: { en: "Company", bn: "কোম্পানি" }, example: { jp: "会社に行きます。", reading: "かいしゃにいきます。", meanings: { en: "I go to the company.", bn: "আমি কোম্পানিতে যাই।" } } },
+                    { word: "駅", reading: "えき", meanings: { en: "Station", bn: "স্টেশন" }, example: { jp: "駅まで歩きます。", reading: "えきまであるきます。", meanings: { en: "I walk to the station.", bn: "আমি স্টেশন পর্যন্ত হাঁটি।" } } },
+                    { word: "ポスト", meanings: { en: "Mailbox / postbox", bn: "পোস্ট বক্স" }, example: { jp: "ポストに手紙を入れます。", reading: "ポストにてがみをいれます。", meanings: { en: "I put a letter in the mailbox.", bn: "আমি পোস্ট বক্সে চিঠি রাখি।" } } },
+                    { word: "ビル", meanings: { en: "Building", bn: "বিল্ডিং" }, example: { jp: "あのビルは銀行です。", reading: "あのビルはぎんこうです。", meanings: { en: "That building is a bank.", bn: "ঐ বিল্ডিংটা একটা ব্যাংক।" } } },
+                    { word: "公園", reading: "こうえん", meanings: { en: "Park", bn: "পার্ক" }, example: { jp: "公園で遊びます。", reading: "こうえんであそびます。", meanings: { en: "I play in the park.", bn: "আমি পার্কে খেলি।" } } },
+                    { word: "喫茶店", reading: "きっさてん", meanings: { en: "Coffee shop", bn: "কফি শপ" }, example: { jp: "喫茶店でコーヒーを飲みます。", reading: "きっさてんでコーヒーをのみます。", meanings: { en: "I drink coffee at a coffee shop.", bn: "আমি কফি শপে কফি খাই।" } } },
+                    { word: "本屋", reading: "ほんや", meanings: { en: "Bookstore", bn: "বইয়ের দোকান" }, example: { jp: "本屋で本を買います。", reading: "ほんやでほんをかいます。", meanings: { en: "I buy a book at the bookstore.", bn: "আমি বইয়ের দোকানে বই কিনি।" } } },
+                    { word: "乗り場", reading: "のりば", meanings: { en: "Taxi / bus stand", bn: "গাড়ি ধরার স্থান" }, example: { jp: "タクシー乗り場はどこですか。", reading: "タクシーのりばはどこですか。", meanings: { en: "Where is the taxi stand?", bn: "ট্যাক্সি ধরার জায়গা কোথায়?" } } },
+                    { word: "県", reading: "けん", meanings: { en: "Prefecture", bn: "প্রিফেকচার (জাপানি প্রশাসনিক অঞ্চল)" }, example: { jp: "兵庫県に住んでいます。", reading: "ひょうごけんにすんでいます。", meanings: { en: "I live in Hyogo Prefecture.", bn: "আমি হিয়োগো প্রিফেকচারে থাকি।" } } }
+                ]
+            },
+            {
+                id: "money-counters",
+                title: "Money, Counters & Quantity",
+                items: [
+                    { word: "千", reading: "せん", meanings: { en: "Thousand", bn: "হাজার" }, example: { jp: "千円あります。", reading: "せんえんあります。", meanings: { en: "I have a thousand yen.", bn: "আমার কাছে হাজার ইয়েন আছে।" } } },
+                    { word: "万", reading: "まん", meanings: { en: "Ten thousand", bn: "দশ হাজার" }, example: { jp: "一万円札です。", reading: "いちまんえんさつです。", meanings: { en: "It's a ten-thousand-yen bill.", bn: "এটা দশ হাজার ইয়েনের নোট।" } } },
+                    { word: "円", reading: "えん", meanings: { en: "Yen", bn: "ইয়েন" }, example: { jp: "五百円ください。", reading: "ごひゃくえんください。", meanings: { en: "Five hundred yen, please.", bn: "পাঁচশ ইয়েন দিন।" } } },
+                    { word: "いくら", meanings: { en: "How much", bn: "কত (দাম)" }, example: { jp: "これはいくらですか。", meanings: { en: "How much is this?", bn: "এটার দাম কত?" } } },
+                    { word: "お金", reading: "おかね", meanings: { en: "Money", bn: "টাকা" }, example: { jp: "お金がありません。", reading: "おかねがありません。", meanings: { en: "I don't have money.", bn: "আমার কাছে টাকা নেই।" } } },
+                    { word: "切符", reading: "きっぷ", meanings: { en: "Ticket", bn: "টিকিট" }, example: { jp: "切符を買います。", reading: "きっぷをかいます。", meanings: { en: "I buy a ticket.", bn: "আমি টিকিট কিনি।" } } },
+                    { word: "いくつ", meanings: { en: "How many", bn: "কয়টি" }, example: { jp: "りんごがいくつありますか。", meanings: { en: "How many apples are there?", bn: "কয়টা আপেল আছে?" } } },
+                    { word: "〜人", reading: "にん", meanings: { en: "Counter for people", bn: "জনের গণনাসূচক" }, example: { jp: "学生が三人います。", reading: "がくせいがさんにんいます。", meanings: { en: "There are three students.", bn: "তিনজন ছাত্র আছে।" } } },
+                    { word: "〜台", reading: "だい", meanings: { en: "Counter for machines / vehicles", bn: "যন্ত্র/গাড়ির গণনাসূচক" }, example: { jp: "車が二台あります。", reading: "くるまがにだいあります。", meanings: { en: "There are two cars.", bn: "দুটো গাড়ি আছে।" } } },
+                    { word: "〜枚", reading: "まい", meanings: { en: "Counter for flat things", bn: "পাতলা জিনিসের গণনাসূচক" }, example: { jp: "紙が五枚あります。", reading: "かみがごまいあります。", meanings: { en: "There are five sheets of paper.", bn: "পাঁচটা কাগজ আছে।" } } },
+                    { word: "〜回", reading: "かい", meanings: { en: "Counter for times", bn: "বারের গণনাসূচক" }, example: { jp: "一週間に三回泳ぎます。", reading: "いっしゅうかんにさんかいおよぎます。", meanings: { en: "I swim three times a week.", bn: "সপ্তাহে তিনবার সাঁতার কাটি।" } } },
+                    { word: "〜時間", reading: "じかん", meanings: { en: "Counter for hours", bn: "ঘণ্টার গণনাসূচক" }, example: { jp: "三時間勉強しました。", reading: "さんじかんべんきょうしました。", meanings: { en: "I studied for three hours.", bn: "আমি তিন ঘণ্টা পড়াশোনা করেছি।" } } },
+                    { word: "〜週間", reading: "しゅうかん", meanings: { en: "Counter for weeks", bn: "সপ্তাহের গণনাসূচক" }, example: { jp: "二週間休みます。", reading: "にしゅうかんやすみます。", meanings: { en: "I will take two weeks off.", bn: "আমি দুই সপ্তাহ ছুটি নেব।" } } },
+                    { word: "〜か月", reading: "かげつ", meanings: { en: "Counter for months", bn: "মাসের গণনাসূচক" }, example: { jp: "三か月日本語を勉強しました。", reading: "さんかげつにほんごをべんきょうしました。", meanings: { en: "I studied Japanese for three months.", bn: "আমি তিন মাস জাপানি ভাষা শিখেছি।" } } },
+                    { word: "ぐらい", meanings: { en: "About 〜", bn: "প্রায়" }, example: { jp: "十分ぐらいかかります。", reading: "じゅっぷんぐらいかかります。", meanings: { en: "It takes about ten minutes.", bn: "প্রায় দশ মিনিট সময় লাগে।" } } },
+                    { word: "全部で", reading: "ぜんぶで", meanings: { en: "In total", bn: "সর্বমোট" }, example: { jp: "全部で三千円です。", reading: "ぜんぶでさんぜんえんです。", meanings: { en: "It's three thousand yen in total.", bn: "সর্বমোট তিন হাজার ইয়েন।" } } }
+                ]
+            },
+            {
+                id: "basic-verbs-1",
+                title: "Basic Verbs I",
+                items: [
+                    { word: "食べる", reading: "たべる", meanings: { en: "To eat", bn: "খাওয়া" }, example: { jp: "ご飯を食べます。", reading: "ごはんをたべます。", meanings: { en: "I eat a meal.", bn: "আমি ভাত খাই।" } } },
+                    { word: "飲む", reading: "のむ", meanings: { en: "To drink", bn: "পান করা" }, example: { jp: "水を飲みます。", reading: "みずをのみます。", meanings: { en: "I drink water.", bn: "আমি পানি পান করি।" } } },
+                    { word: "たばこを吸う", reading: "たばこをすう", meanings: { en: "To smoke (a cigarette)", bn: "ধূমপান করা" }, example: { jp: "たばこを吸います。", reading: "たばこをすいます。", meanings: { en: "I smoke a cigarette.", bn: "আমি সিগারেট খাই (ধূমপান করি)।" } } },
+                    { word: "見る", reading: "みる", meanings: { en: "To see / watch", bn: "দেখা" }, example: { jp: "映画を見ます。", reading: "えいがをみます。", meanings: { en: "I watch a movie.", bn: "আমি সিনেমা দেখি।" } } },
+                    { word: "聞く", reading: "きく", meanings: { en: "To listen / hear", bn: "শোনা" }, example: { jp: "音楽を聞きます。", reading: "おんがくをききます。", meanings: { en: "I listen to music.", bn: "আমি গান শুনি।" } } },
+                    { word: "読む", reading: "よむ", meanings: { en: "To read", bn: "পড়া" }, example: { jp: "新聞を読みます。", reading: "しんぶんをよみます。", meanings: { en: "I read the newspaper.", bn: "আমি সংবাদপত্র পড়ি।" } } },
+                    { word: "書く", reading: "かく", meanings: { en: "To write", bn: "লেখা" }, example: { jp: "手紙を書きます。", reading: "てがみをかきます。", meanings: { en: "I write a letter.", bn: "আমি চিঠি লিখি।" } } },
+                    { word: "買う", reading: "かう", meanings: { en: "To buy", bn: "কেনা" }, example: { jp: "パンを買います。", reading: "パンをかいます。", meanings: { en: "I buy bread.", bn: "আমি রুটি কিনি।" } } },
+                    { word: "写真を撮る", reading: "しゃしんをとる", meanings: { en: "To take (a photograph)", bn: "ছবি তোলা" }, example: { jp: "写真を撮ります。", reading: "しゃしんをとります。", meanings: { en: "I take a photo.", bn: "আমি ছবি তুলি।" } } },
+                    { word: "する", meanings: { en: "To do", bn: "করা" }, example: { jp: "宿題をします。", reading: "しゅくだいをします。", meanings: { en: "I do my homework.", bn: "আমি বাড়ির কাজ করি।" } } },
+                    { word: "友達に会う", reading: "ともだちにあう", meanings: { en: "To meet (a friend)", bn: "বন্ধুর সাথে দেখা করা" }, example: { jp: "友達に会います。", reading: "ともだちにあいます。", meanings: { en: "I meet a friend.", bn: "আমি বন্ধুর সাথে দেখা করি।" } } }
+                ]
+            },
+            {
+                id: "food-drink",
+                title: "Food & Drink",
+                items: [
+                    { word: "ご飯", reading: "ごはん", meanings: { en: "Meal / cooked rice", bn: "ভাত / খাবার" }, example: { jp: "ご飯を食べましょう。", reading: "ごはんをたべましょう。", meanings: { en: "Let's eat a meal.", bn: "চলুন ভাত খাই।" } } },
+                    { word: "朝ご飯", reading: "あさごはん", meanings: { en: "Breakfast", bn: "সকালের নাস্তা" }, example: { jp: "朝ご飯は何ですか。", reading: "あさごはんはなんですか。", meanings: { en: "What's for breakfast?", bn: "সকালের নাস্তায় কী আছে?" } } },
+                    { word: "昼ご飯", reading: "ひるごはん", meanings: { en: "Lunch", bn: "দুপুরের খাবার" }, example: { jp: "昼ご飯を食べました。", reading: "ひるごはんをたべました。", meanings: { en: "I ate lunch.", bn: "আমি দুপুরের খাবার খেয়েছি।" } } },
+                    { word: "晩ご飯", reading: "ばんごはん", meanings: { en: "Supper", bn: "রাতের খাবার" }, example: { jp: "晩ご飯を作ります。", reading: "ばんごはんをつくります。", meanings: { en: "I cook supper.", bn: "আমি রাতের খাবার রান্না করি।" } } },
+                    { word: "パン", meanings: { en: "Bread", bn: "রুটি" }, example: { jp: "パンを食べて、コーヒーを飲みます。", reading: "パンをたべて、コーヒーをのみます。", meanings: { en: "I eat bread and drink coffee.", bn: "আমি রুটি খাই আর কফি পান করি।" } } },
+                    { word: "卵", reading: "たまご", meanings: { en: "Egg", bn: "ডিম" }, example: { jp: "卵を二つ買います。", reading: "たまごをふたつかいます。", meanings: { en: "I buy two eggs.", bn: "আমি দুটো ডিম কিনি।" } } },
+                    { word: "肉", reading: "にく", meanings: { en: "Meat", bn: "মাংস" }, example: { jp: "肉は食べません。", reading: "にくはたべません。", meanings: { en: "I don't eat meat.", bn: "আমি মাংস খাই না।" } } },
+                    { word: "魚", reading: "さかな", meanings: { en: "Fish", bn: "মাছ" }, example: { jp: "魚が好きです。", reading: "さかながすきです。", meanings: { en: "I like fish.", bn: "আমি মাছ পছন্দ করি।" } } },
+                    { word: "野菜", reading: "やさい", meanings: { en: "Vegetable", bn: "সবজি" }, example: { jp: "野菜を食べてください。", reading: "やさいをたべてください。", meanings: { en: "Please eat vegetables.", bn: "সবজি খান।" } } },
+                    { word: "果物", reading: "くだもの", meanings: { en: "Fruit", bn: "ফল" }, example: { jp: "果物が好きです。", reading: "くだものがすきです。", meanings: { en: "I like fruit.", bn: "আমি ফল পছন্দ করি।" } } },
+                    { word: "水", reading: "みず", meanings: { en: "Water", bn: "পানি" }, example: { jp: "水を一杯ください。", reading: "みずをいっぱいください。", meanings: { en: "Please give me a glass of water.", bn: "এক গ্লাস পানি দিন।" } } },
+                    { word: "お茶", reading: "おちゃ", meanings: { en: "Tea / green tea", bn: "চা" }, example: { jp: "お茶を飲みませんか。", reading: "おちゃをのみませんか。", meanings: { en: "Won't you have some tea?", bn: "একটু চা খাবেন?" } } },
+                    { word: "紅茶", reading: "こうちゃ", meanings: { en: "Black tea", bn: "রঙ চা" }, example: { jp: "紅茶が好きです。", reading: "こうちゃがすきです。", meanings: { en: "I like black tea.", bn: "আমি রঙ চা পছন্দ করি।" } } },
+                    { word: "牛乳", reading: "ぎゅうにゅう", meanings: { en: "Milk", bn: "দুধ" }, example: { jp: "毎朝、牛乳を飲みます。", reading: "まいあさ、ぎゅうにゅうをのみます。", meanings: { en: "I drink milk every morning.", bn: "আমি প্রতিদিন সকালে দুধ খাই।" } } },
+                    { word: "ジュース", meanings: { en: "Juice", bn: "জুস" }, example: { jp: "ジュースをください。", meanings: { en: "Juice, please.", bn: "একটা জুস দিন।" } } },
+                    { word: "ビール", meanings: { en: "Beer", bn: "বিয়ার" }, example: { jp: "ビールを飲みましょう。", reading: "ビールをのみましょう。", meanings: { en: "Let's drink beer.", bn: "চলুন বিয়ার খাই।" } } },
+                    { word: "お酒", reading: "おさけ", meanings: { en: "Alcohol / sake", bn: "মদ" }, example: { jp: "お酒を飲みません。", reading: "おさけをのみません。", meanings: { en: "I don't drink alcohol.", bn: "আমি মদ পান করি না।" } } }
+                ]
             }
         ]
     },

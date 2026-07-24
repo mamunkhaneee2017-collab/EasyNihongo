@@ -187,6 +187,302 @@ const vocabularyTopicsData = [
             { word: "セール", meanings: { en: "Sale", bn: "সেল" } },
             { word: "割引", reading: "わりびき", meanings: { en: "Discount", bn: "ছাড়" } }
         ]
+    },
+    {
+        id: "countries-languages",
+        title: "Countries & Languages",
+        icon: "fa-solid fa-earth-asia",
+        items: [
+            { word: "アメリカ", meanings: { en: "U.S.A.", bn: "যুক্তরাষ্ট্র" } },
+            { word: "イギリス", meanings: { en: "U.K.", bn: "যুক্তরাজ্য" } },
+            { word: "中国", reading: "ちゅうごく", meanings: { en: "China", bn: "চীন" } },
+            { word: "韓国", reading: "かんこく", meanings: { en: "South Korea", bn: "দক্ষিণ কোরিয়া" } },
+            { word: "インド", meanings: { en: "India", bn: "ভারত" } },
+            { word: "インドネシア", meanings: { en: "Indonesia", bn: "ইন্দোনেশিয়া" } },
+            { word: "タイ", meanings: { en: "Thailand", bn: "থাইল্যান্ড" } },
+            { word: "ドイツ", meanings: { en: "Germany", bn: "জার্মানি" } },
+            { word: "フランス", meanings: { en: "France", bn: "ফ্রান্স" } },
+            { word: "ブラジル", meanings: { en: "Brazil", bn: "ব্রাজিল" } },
+            { word: "イタリア", meanings: { en: "Italy", bn: "ইতালি" } },
+            { word: "スペイン", meanings: { en: "Spain", bn: "স্পেন" } },
+            { word: "ロシア", meanings: { en: "Russia", bn: "রাশিয়া" } },
+            { word: "英語", reading: "えいご", meanings: { en: "English (language)", bn: "ইংরেজি ভাষা" } },
+            { word: "日本語", reading: "にほんご", meanings: { en: "Japanese (language)", bn: "জাপানি ভাষা" } },
+            { word: "中国語", reading: "ちゅうごくご", meanings: { en: "Chinese (language)", bn: "চীনা ভাষা" } }
+        ]
+    },
+    {
+        id: "department-store",
+        title: "Department Store",
+        icon: "fa-solid fa-building",
+        items: [
+            { word: "屋上", reading: "おくじょう", meanings: { en: "Rooftop", bn: "ছাদ" } },
+            { word: "時計", reading: "とけい", meanings: { en: "Watch / clock", bn: "ঘড়ি" } },
+            { word: "眼鏡", reading: "めがね", meanings: { en: "Glasses", bn: "চশমা" } },
+            { word: "カメラ", meanings: { en: "Camera", bn: "ক্যামেরা" } },
+            { word: "子供服", reading: "こどもふく", meanings: { en: "Children's clothes", bn: "শিশুদের পোশাক" } },
+            { word: "おもちゃ", meanings: { en: "Toy", bn: "খেলনা" } },
+            { word: "文房具", reading: "ぶんぼうぐ", meanings: { en: "Stationery", bn: "স্টেশনারি" } },
+            { word: "家具", reading: "かぐ", meanings: { en: "Furniture", bn: "আসবাবপত্র" } },
+            { word: "食器", reading: "しょっき", meanings: { en: "Tableware", bn: "বাসনপত্র" } },
+            { word: "電気製品", reading: "でんきせいひん", meanings: { en: "Electrical appliances", bn: "বৈদ্যুতিক সামগ্রী" } },
+            { word: "紳士服", reading: "しんしふく", meanings: { en: "Menswear", bn: "পুরুষদের পোশাক" } },
+            { word: "婦人服", reading: "ふじんふく", meanings: { en: "Ladies' wear", bn: "মহিলাদের পোশাক" } },
+            { word: "靴", reading: "くつ", meanings: { en: "Shoes", bn: "জুতা" } },
+            { word: "化粧品", reading: "けしょうひん", meanings: { en: "Cosmetics", bn: "প্রসাধনী" } },
+            { word: "食料品", reading: "しょくりょうひん", meanings: { en: "Groceries", bn: "মুদি সামগ্রী" } },
+            { word: "駐車場", reading: "ちゅうしゃじょう", meanings: { en: "Parking lot", bn: "পার্কিং লট" } }
+        ]
+    },
+    {
+        id: "vegetables-fruits",
+        title: "Vegetables & Fruits",
+        icon: "fa-solid fa-carrot",
+        items: [
+            { word: "きゅうり", meanings: { en: "Cucumber", bn: "শসা" } },
+            { word: "トマト", meanings: { en: "Tomato", bn: "টমেটো" } },
+            { word: "なす", meanings: { en: "Eggplant", bn: "বেগুন" } },
+            { word: "キャベツ", meanings: { en: "Cabbage", bn: "বাঁধাকপি" } },
+            { word: "たまねぎ", meanings: { en: "Onion", bn: "পেঁয়াজ" } },
+            { word: "にんじん", meanings: { en: "Carrot", bn: "গাজর" } },
+            { word: "じゃがいも", meanings: { en: "Potato", bn: "আলু" } },
+            { word: "レタス", meanings: { en: "Lettuce", bn: "লেটুস" } },
+            { word: "いちご", meanings: { en: "Strawberry", bn: "স্ট্রবেরি" } },
+            { word: "もも", meanings: { en: "Peach", bn: "পীচ" } },
+            { word: "すいか", meanings: { en: "Watermelon", bn: "তরমুজ" } },
+            { word: "ぶどう", meanings: { en: "Grape", bn: "আঙুর" } },
+            { word: "みかん", meanings: { en: "Mandarin orange", bn: "কমলা" } },
+            { word: "バナナ", meanings: { en: "Banana", bn: "কলা" } }
+        ]
+    },
+    {
+        id: "meat-fish",
+        title: "Meat & Fish",
+        icon: "fa-solid fa-drumstick-bite",
+        items: [
+            { word: "牛肉", reading: "ぎゅうにく", meanings: { en: "Beef", bn: "গরুর মাংস" } },
+            { word: "鶏肉", reading: "とりにく", meanings: { en: "Chicken", bn: "মুরগির মাংস" } },
+            { word: "豚肉", reading: "ぶたにく", meanings: { en: "Pork", bn: "শুকরের মাংস" } },
+            { word: "ハム", meanings: { en: "Ham", bn: "হ্যাম" } },
+            { word: "ソーセージ", meanings: { en: "Sausage", bn: "সসেজ" } },
+            { word: "さけ", meanings: { en: "Salmon", bn: "স্যামন মাছ" } },
+            { word: "まぐろ", meanings: { en: "Tuna", bn: "টুনা মাছ" } },
+            { word: "えび", meanings: { en: "Shrimp", bn: "চিংড়ি" } },
+            { word: "かに", meanings: { en: "Crab", bn: "কাঁকড়া" } },
+            { word: "たこ", meanings: { en: "Octopus", bn: "অক্টোপাস" } }
+        ]
+    },
+    {
+        id: "color-taste",
+        title: "Color & Taste",
+        icon: "fa-solid fa-palette",
+        items: [
+            { word: "白", reading: "しろ", meanings: { en: "White", bn: "সাদা" } },
+            { word: "黒", reading: "くろ", meanings: { en: "Black", bn: "কালো" } },
+            { word: "赤", reading: "あか", meanings: { en: "Red", bn: "লাল" } },
+            { word: "青", reading: "あお", meanings: { en: "Blue", bn: "নীল" } },
+            { word: "緑", reading: "みどり", meanings: { en: "Green", bn: "সবুজ" } },
+            { word: "紫", reading: "むらさき", meanings: { en: "Purple", bn: "বেগুনি" } },
+            { word: "黄色", reading: "きいろ", meanings: { en: "Yellow", bn: "হলুদ" } },
+            { word: "茶色", reading: "ちゃいろ", meanings: { en: "Brown", bn: "বাদামি" } },
+            { word: "甘い", reading: "あまい", meanings: { en: "Sweet", bn: "মিষ্টি" } },
+            { word: "辛い", reading: "からい", meanings: { en: "Spicy / hot", bn: "ঝাল" } },
+            { word: "苦い", reading: "にがい", meanings: { en: "Bitter", bn: "তেতো" } },
+            { word: "酸っぱい", reading: "すっぱい", meanings: { en: "Sour", bn: "টক" } },
+            { word: "塩辛い", reading: "しおからい", meanings: { en: "Salty", bn: "নোনতা" } }
+        ]
+    },
+    {
+        id: "music-sports-movies",
+        title: "Music, Sports & Movies",
+        icon: "fa-solid fa-music",
+        items: [
+            { word: "ポップス", meanings: { en: "Pop (music)", bn: "পপ সঙ্গীত" } },
+            { word: "ロック", meanings: { en: "Rock (music)", bn: "রক সঙ্গীত" } },
+            { word: "ジャズ", meanings: { en: "Jazz", bn: "জ্যাজ" } },
+            { word: "クラシック", meanings: { en: "Classical music", bn: "ধ্রুপদী সঙ্গীত" } },
+            { word: "サッカー", meanings: { en: "Soccer", bn: "ফুটবল" } },
+            { word: "野球", reading: "やきゅう", meanings: { en: "Baseball", bn: "বেসবল" } },
+            { word: "テニス", meanings: { en: "Tennis", bn: "টেনিস" } },
+            { word: "バスケットボール", meanings: { en: "Basketball", bn: "বাস্কেটবল" } },
+            { word: "水泳", reading: "すいえい", meanings: { en: "Swimming", bn: "সাঁতার" } },
+            { word: "ホラー", meanings: { en: "Horror (film)", bn: "ভৌতিক সিনেমা" } },
+            { word: "アクション", meanings: { en: "Action (film)", bn: "অ্যাকশন সিনেমা" } },
+            { word: "喜劇", reading: "きげき", meanings: { en: "Comedy (film)", bn: "কমেডি সিনেমা" } }
+        ]
+    },
+    {
+        id: "inside-house",
+        title: "Inside the House",
+        icon: "fa-solid fa-door-open",
+        items: [
+            { word: "玄関", reading: "げんかん", meanings: { en: "Entrance hall", bn: "প্রবেশপথ" } },
+            { word: "居間", reading: "いま", meanings: { en: "Living room", bn: "বসার ঘর" } },
+            { word: "寝室", reading: "しんしつ", meanings: { en: "Bedroom", bn: "শোবার ঘর" } },
+            { word: "台所", reading: "だいどころ", meanings: { en: "Kitchen", bn: "রান্নাঘর" } },
+            { word: "風呂場", reading: "ふろば", meanings: { en: "Bathroom", bn: "গোসলখানা" } },
+            { word: "洗面所", reading: "せんめんじょ", meanings: { en: "Washroom", bn: "হাত-মুখ ধোয়ার ঘর" } },
+            { word: "トイレ", meanings: { en: "Toilet", bn: "টয়লেট" } },
+            { word: "廊下", reading: "ろうか", meanings: { en: "Hallway", bn: "করিডোর" } },
+            { word: "ベランダ", meanings: { en: "Balcony", bn: "বারান্দা" } },
+            { word: "庭", reading: "にわ", meanings: { en: "Garden", bn: "বাগান" } },
+            { word: "押し入れ", reading: "おしいれ", meanings: { en: "Japanese-style closet", bn: "জাপানি স্টাইলের আলমারি" } },
+            { word: "布団", reading: "ふとん", meanings: { en: "Futon (mattress & quilt)", bn: "জাপানি স্টাইলের বিছানা" } }
+        ]
+    },
+    {
+        id: "restaurant-menu",
+        title: "Restaurant Menu",
+        icon: "fa-solid fa-utensils",
+        items: [
+            { word: "定食", reading: "ていしょく", meanings: { en: "Set meal", bn: "সেট মিল" } },
+            { word: "カレーライス", meanings: { en: "Curry and rice", bn: "কারি রাইস" } },
+            { word: "ハンバーグ", meanings: { en: "Hamburg steak", bn: "হ্যামবার্গ স্টিক" } },
+            { word: "サラダ", meanings: { en: "Salad", bn: "সালাদ" } },
+            { word: "スープ", meanings: { en: "Soup", bn: "স্যুপ" } },
+            { word: "スパゲティー", meanings: { en: "Spaghetti", bn: "স্প্যাগেটি" } },
+            { word: "サンドウィッチ", meanings: { en: "Sandwich", bn: "স্যান্ডউইচ" } },
+            { word: "うどん", meanings: { en: "Udon noodles", bn: "উদন নুডলস" } },
+            { word: "そば", meanings: { en: "Soba noodles", bn: "সোবা নুডলস" } },
+            { word: "ラーメン", meanings: { en: "Ramen", bn: "রামেন" } },
+            { word: "すし", meanings: { en: "Sushi", bn: "সুশি" } },
+            { word: "てんぷら", meanings: { en: "Tempura", bn: "টেম্পুরা" } },
+            { word: "みそ汁", reading: "みそしる", meanings: { en: "Miso soup", bn: "মিসো স্যুপ" } }
+        ]
+    },
+    {
+        id: "town-places",
+        title: "Places in Town",
+        icon: "fa-solid fa-city",
+        items: [
+            { word: "博物館", reading: "はくぶつかん", meanings: { en: "Museum", bn: "জাদুঘর" } },
+            { word: "美術館", reading: "びじゅつかん", meanings: { en: "Art museum", bn: "আর্ট মিউজিয়াম" } },
+            { word: "図書館", reading: "としょかん", meanings: { en: "Library", bn: "গ্রন্থাগার" } },
+            { word: "映画館", reading: "えいがかん", meanings: { en: "Movie theater", bn: "সিনেমা হল" } },
+            { word: "動物園", reading: "どうぶつえん", meanings: { en: "Zoo", bn: "চিড়িয়াখানা" } },
+            { word: "遊園地", reading: "ゆうえんち", meanings: { en: "Amusement park", bn: "বিনোদন পার্ক" } },
+            { word: "お寺", reading: "おてら", meanings: { en: "Buddhist temple", bn: "বৌদ্ধ মন্দির" } },
+            { word: "神社", reading: "じんじゃ", meanings: { en: "Shinto shrine", bn: "শিন্তো মন্দির" } },
+            { word: "市役所", reading: "しやくしょ", meanings: { en: "City hall", bn: "পৌরসভা" } },
+            { word: "警察署", reading: "けいさつしょ", meanings: { en: "Police station", bn: "থানা" } },
+            { word: "消防署", reading: "しょうぼうしょ", meanings: { en: "Fire station", bn: "দমকল স্টেশন" } },
+            { word: "大使館", reading: "たいしかん", meanings: { en: "Embassy", bn: "দূতাবাস" } }
+        ]
+    },
+    {
+        id: "occupations",
+        title: "Occupations",
+        icon: "fa-solid fa-briefcase",
+        items: [
+            { word: "公務員", reading: "こうむいん", meanings: { en: "Civil servant", bn: "সরকারি কর্মচারী" } },
+            { word: "店員", reading: "てんいん", meanings: { en: "Shop clerk", bn: "দোকান কর্মী" } },
+            { word: "調理師", reading: "ちょうりし", meanings: { en: "Cook", bn: "রাঁধুনি" } },
+            { word: "理容師", reading: "りようし", meanings: { en: "Barber", bn: "নাপিত" } },
+            { word: "弁護士", reading: "べんごし", meanings: { en: "Lawyer", bn: "আইনজীবী" } },
+            { word: "運転手", reading: "うんてんしゅ", meanings: { en: "Driver", bn: "চালক" } },
+            { word: "警察官", reading: "けいさつかん", meanings: { en: "Police officer", bn: "পুলিশ কর্মকর্তা" } },
+            { word: "外交官", reading: "がいこうかん", meanings: { en: "Diplomat", bn: "কূটনীতিক" } },
+            { word: "政治家", reading: "せいじか", meanings: { en: "Politician", bn: "রাজনীতিবিদ" } },
+            { word: "画家", reading: "がか", meanings: { en: "Painter", bn: "চিত্রশিল্পী" } },
+            { word: "作家", reading: "さっか", meanings: { en: "Author", bn: "লেখক" } },
+            { word: "建築家", reading: "けんちくか", meanings: { en: "Architect", bn: "স্থপতি" } },
+            { word: "デザイナー", meanings: { en: "Designer", bn: "ডিজাইনার" } },
+            { word: "ジャーナリスト", meanings: { en: "Journalist", bn: "সাংবাদিক" } }
+        ]
+    },
+    {
+        id: "body-symptoms",
+        title: "Body & Symptoms",
+        icon: "fa-solid fa-user-injured",
+        items: [
+            { word: "頭", reading: "あたま", meanings: { en: "Head", bn: "মাথা" } },
+            { word: "髪", reading: "かみ", meanings: { en: "Hair", bn: "চুল" } },
+            { word: "顔", reading: "かお", meanings: { en: "Face", bn: "মুখ" } },
+            { word: "目", reading: "め", meanings: { en: "Eye", bn: "চোখ" } },
+            { word: "耳", reading: "みみ", meanings: { en: "Ear", bn: "কান" } },
+            { word: "口", reading: "くち", meanings: { en: "Mouth", bn: "মুখগহ্বর" } },
+            { word: "歯", reading: "は", meanings: { en: "Tooth", bn: "দাঁত" } },
+            { word: "のど", meanings: { en: "Throat", bn: "গলা" } },
+            { word: "手", reading: "て", meanings: { en: "Hand", bn: "হাত" } },
+            { word: "足", reading: "あし", meanings: { en: "Leg / foot", bn: "পা" } },
+            { word: "せきが出る", reading: "せきがでる", meanings: { en: "To have a cough", bn: "কাশি হওয়া" } },
+            { word: "鼻水が出る", reading: "はなみずがでる", meanings: { en: "To have a runny nose", bn: "নাক দিয়ে পানি পড়া" } },
+            { word: "めまいがする", meanings: { en: "To feel dizzy", bn: "মাথা ঘোরা" } }
+        ]
+    },
+    {
+        id: "physical-actions",
+        title: "Physical Actions",
+        icon: "fa-solid fa-person-running",
+        items: [
+            { word: "飛ぶ", reading: "とぶ", meanings: { en: "To fly", bn: "ওড়া" } },
+            { word: "跳ぶ", reading: "とぶ", meanings: { en: "To jump", bn: "লাফানো" } },
+            { word: "登る", reading: "のぼる", meanings: { en: "To climb", bn: "আরোহণ করা" } },
+            { word: "走る", reading: "はしる", meanings: { en: "To run", bn: "দৌড়ানো" } },
+            { word: "泳ぐ", reading: "およぐ", meanings: { en: "To swim", bn: "সাঁতার কাটা" } },
+            { word: "転ぶ", reading: "ころぶ", meanings: { en: "To fall down", bn: "পড়ে যাওয়া" } },
+            { word: "投げる", reading: "なげる", meanings: { en: "To throw", bn: "ছোঁড়া" } },
+            { word: "引く", reading: "ひく", meanings: { en: "To pull", bn: "টানা" } },
+            { word: "押す", reading: "おす", meanings: { en: "To push", bn: "ধাক্কা দেওয়া" } },
+            { word: "曲げる", reading: "まげる", meanings: { en: "To bend", bn: "বাঁকানো" } },
+            { word: "伸ばす", reading: "のばす", meanings: { en: "To extend / stretch", bn: "প্রসারিত করা" } }
+        ]
+    },
+    {
+        id: "traditional-culture",
+        title: "Traditional Culture",
+        icon: "fa-solid fa-torii-gate",
+        items: [
+            { word: "茶道", reading: "さどう", meanings: { en: "Tea ceremony", bn: "চা অনুষ্ঠান" } },
+            { word: "華道", reading: "かどう", meanings: { en: "Flower arrangement", bn: "ফুল সাজানোর শিল্প" } },
+            { word: "書道", reading: "しょどう", meanings: { en: "Calligraphy", bn: "ক্যালিগ্রাফি" } },
+            { word: "歌舞伎", reading: "かぶき", meanings: { en: "Kabuki (theater)", bn: "কাবুকি নাট্যধারা" } },
+            { word: "能", reading: "のう", meanings: { en: "Noh (theater)", bn: "নো নাট্যধারা" } },
+            { word: "相撲", reading: "すもう", meanings: { en: "Sumo wrestling", bn: "সুমো কুস্তি" } },
+            { word: "柔道", reading: "じゅうどう", meanings: { en: "Judo", bn: "জুডো" } },
+            { word: "剣道", reading: "けんどう", meanings: { en: "Kendo", bn: "কেন্ডো" } },
+            { word: "空手", reading: "からて", meanings: { en: "Karate", bn: "কারাতে" } },
+            { word: "カラオケ", meanings: { en: "Karaoke", bn: "ক্যারাওকে" } },
+            { word: "盆踊り", reading: "ぼんおどり", meanings: { en: "Bon dance", bn: "বন নৃত্য" } }
+        ]
+    },
+    {
+        id: "clothes",
+        title: "Clothes",
+        icon: "fa-solid fa-shirt",
+        items: [
+            { word: "スーツ", meanings: { en: "Suit", bn: "স্যুট" } },
+            { word: "ワンピース", meanings: { en: "One-piece dress", bn: "ওয়ানপিস" } },
+            { word: "上着", reading: "うわぎ", meanings: { en: "Jacket", bn: "জ্যাকেট" } },
+            { word: "ズボン", meanings: { en: "Trousers / pants", bn: "প্যান্ট" } },
+            { word: "スカート", meanings: { en: "Skirt", bn: "স্কার্ট" } },
+            { word: "ブラウス", meanings: { en: "Blouse", bn: "ব্লাউজ" } },
+            { word: "セーター", meanings: { en: "Sweater", bn: "সোয়েটার" } },
+            { word: "下着", reading: "したぎ", meanings: { en: "Underwear", bn: "আন্ডারওয়্যার" } },
+            { word: "くつした", meanings: { en: "Socks", bn: "মোজা" } },
+            { word: "着物", reading: "きもの", meanings: { en: "Kimono", bn: "কিমোনো" } },
+            { word: "ネクタイ", meanings: { en: "Necktie", bn: "টাই" } },
+            { word: "ベルト", meanings: { en: "Belt", bn: "বেল্ট" } },
+            { word: "手袋", reading: "てぶくろ", meanings: { en: "Gloves", bn: "দস্তানা" } }
+        ]
+    },
+    {
+        id: "road-traffic",
+        title: "Road & Traffic",
+        icon: "fa-solid fa-road",
+        items: [
+            { word: "歩道", reading: "ほどう", meanings: { en: "Sidewalk", bn: "ফুটপাত" } },
+            { word: "車道", reading: "しゃどう", meanings: { en: "Road (for vehicles)", bn: "গাড়ির রাস্তা" } },
+            { word: "高速道路", reading: "こうそくどうろ", meanings: { en: "Expressway", bn: "এক্সপ্রেসওয়ে" } },
+            { word: "交差点", reading: "こうさてん", meanings: { en: "Intersection", bn: "মোড়" } },
+            { word: "横断歩道", reading: "おうだんほどう", meanings: { en: "Pedestrian crossing", bn: "জেব্রা ক্রসিং" } },
+            { word: "信号", reading: "しんごう", meanings: { en: "Traffic light", bn: "সিগন্যাল" } },
+            { word: "坂", reading: "さか", meanings: { en: "Slope", bn: "ঢাল" } },
+            { word: "踏切", reading: "ふみきり", meanings: { en: "Railroad crossing", bn: "রেলক্রসিং" } },
+            { word: "ガソリンスタンド", meanings: { en: "Gas station", bn: "গ্যাস স্টেশন" } },
+            { word: "駐車禁止", reading: "ちゅうしゃきんし", meanings: { en: "No parking", bn: "পার্কিং নিষেধ" } },
+            { word: "一方通行", reading: "いっぽうつうこう", meanings: { en: "One way", bn: "একমুখী রাস্তা" } }
+        ]
     }
 ];
 
