@@ -14,7 +14,7 @@
    registration call.
 ========================================== */
 
-const CACHE_NAME = "easynihongo-shell-v4";
+const CACHE_NAME = "easynihongo-shell-v5";
 
 const APP_SHELL = [
     "index.html",

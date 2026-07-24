@@ -13,7 +13,7 @@ const HERO_DIR = path.join(BASE_UPLOADS_DIR, "hero");
 fs.mkdirSync(HERO_DIR, { recursive: true });
 
 const ALLOWED_IMAGE = new Set(["image/jpeg", "image/png", "image/webp"]);
-const VALID_SHAPES = new Set(["circle", "rounded-square", "blob", "hexagon"]);
+const VALID_SHAPES = new Set(["normal", "circle", "rounded-square", "blob", "hexagon"]);
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, HERO_DIR),
@@ -64,7 +64,7 @@ router.post("/", upload.single("photo"), (req, res) => {
     }
 
     const { shape, displayOrder } = req.body || {};
-    const shapeValue = VALID_SHAPES.has(shape) ? shape : "circle";
+    const shapeValue = VALID_SHAPES.has(shape) ? shape : "normal";
     const maxOrder = db.prepare(`SELECT MAX(display_order) AS m FROM hero_photos`).get().m;
     const orderValue = Number.isFinite(parseInt(displayOrder, 10))
         ? parseInt(displayOrder, 10)

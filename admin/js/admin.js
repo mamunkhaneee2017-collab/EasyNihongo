@@ -677,6 +677,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td><div class="ad-preview-cell"><img src="${p.imagePath}" alt=""></div></td>
                     <td>
                         <select class="inline-table-input" data-id="${p.id}" data-field="shape">
+                            <option value="normal" ${p.shape === "normal" ? "selected" : ""}>Normal (Rounded Rectangle)</option>
                             <option value="circle" ${p.shape === "circle" ? "selected" : ""}>Circle</option>
                             <option value="rounded-square" ${p.shape === "rounded-square" ? "selected" : ""}>Rounded Square</option>
                             <option value="blob" ${p.shape === "blob" ? "selected" : ""}>Blob</option>
