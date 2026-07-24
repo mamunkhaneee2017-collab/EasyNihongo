@@ -38,7 +38,7 @@
             <div class="lesson-item-card">
                 <div class="lesson-item-main">
                     <span class="lesson-word">${item.word}</span>
-                    <span class="lesson-reading">${item.reading}</span>
+                    ${item.reading ? `<span class="lesson-reading">${item.reading}</span>` : ""}
                 </div>
                 <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
             </div>`

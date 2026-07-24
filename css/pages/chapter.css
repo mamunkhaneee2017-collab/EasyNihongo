@@ -127,6 +127,42 @@
     font-size:14px;
 }
 
+.grammar-connection{
+    background:#fef2f2;
+    border-radius:12px;
+    padding:12px 16px;
+    margin-bottom:14px;
+}
+
+.section-label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:#dc2626;
+    margin-bottom:6px;
+}
+
+.grammar-connection ul{
+    margin:0;
+    padding-left:18px;
+    font-size:14px;
+    color:#374151;
+}
+
+.grammar-connection li{
+    margin-bottom:2px;
+}
+
+.grammar-connection li:last-child{
+    margin-bottom:0;
+}
+
+.lesson-example + .lesson-example{
+    margin-top:-6px;
+}
+
 .kanji-readings{
     color:#374151;
     font-size:14px;

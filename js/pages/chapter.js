@@ -50,37 +50,59 @@
 
     /* ---------------- RENDERERS ---------------- */
 
+    // Furigana convention: "reading" fields hold HIRAGANA, not romaji.
+    // Words/patterns/examples that are already pure kana (hiragana or
+    // katakana) carry no `reading` at all — a furigana gloss over kana
+    // is redundant, exactly as real textbooks never gloss kana with
+    // kana. Renderers below only print a reading span when one exists.
+
+    function readingSpan(reading, className) {
+        return reading ? `<span class="${className}">${reading}</span>` : "";
+    }
+
     function renderVocabularyItem(item) {
         return `
             <div class="lesson-item-main">
                 <span class="lesson-word">${item.word}</span>
-                <span class="lesson-reading">${item.reading}</span>
+                ${readingSpan(item.reading, "lesson-reading")}
             </div>
             <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
             ${item.example ? `
             <div class="lesson-example">
                 <p class="example-jp">${item.example.jp}</p>
-                <p class="example-reading">${item.example.reading}</p>
+                ${item.example.reading ? `<p class="example-reading">${item.example.reading}</p>` : ""}
                 <p class="example-translation" data-i18n-en="${escapeAttr(item.example.meanings.en)}" data-i18n-bn="${escapeAttr(item.example.meanings.bn)}">${item.example.meanings.en}</p>
             </div>` : ""}`;
     }
 
     function renderGrammarItem(item) {
+        const connectionHtml = (item.connection || []).length
+            ? `
+            <div class="grammar-connection">
+                <span class="section-label">接続 &middot; Connection</span>
+                <ul>${item.connection.map((rule) => `<li>${rule}</li>`).join("")}</ul>
+            </div>` : "";
+
+        const examplesHtml = (item.examples || []).map((ex) => `
+            <div class="lesson-example">
+                <p class="example-jp">${ex.jp}</p>
+                ${ex.reading ? `<p class="example-reading">${ex.reading}</p>` : ""}
+                <p class="example-translation">${ex.en}</p>
+            </div>`).join("");
+
         return `
             <div class="lesson-item-main">
                 <span class="lesson-word">${item.pattern}</span>
-                <span class="lesson-reading">${item.reading}</span>
+                ${readingSpan(item.reading, "lesson-reading")}
             </div>
             <p class="meaning">${item.meaning}</p>
-            <div class="lesson-example">
-                <p class="example-jp">${item.jp}</p>
-                <p class="example-translation">${item.en}</p>
-            </div>`;
+            ${connectionHtml}
+            ${examplesHtml}`;
     }
 
     function renderKanjiItem(item) {
         const examplesHtml = (item.examples || [])
-            .map((ex) => `<li><span class="kanji-example-word">${ex.word}</span> <span class="kanji-example-reading">(${ex.reading})</span> — ${ex.meaning}</li>`)
+            .map((ex) => `<li><span class="kanji-example-word">${ex.word}</span> ${ex.reading ? `<span class="kanji-example-reading">(${ex.reading})</span>` : ""} — ${ex.meaning}</li>`)
             .join("");
 
         return `
