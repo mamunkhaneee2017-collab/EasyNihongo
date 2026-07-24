@@ -202,8 +202,9 @@
     let currentProfileUser = null;
 
     fetch("/api/dashboard", { credentials: "same-origin" })
-        .then((res) => res.json())
+        .then((res) => (res.ok ? res.json() : null))
         .then((data) => {
+            if (!data) return;
             const { user } = data;
             document.getElementById("sidebarUserName").textContent = user.name;
             document.getElementById("userLevel").textContent = user.jlptLevel;
@@ -215,14 +216,17 @@
                 document.getElementById("sidebarAvatar").src = user.avatar;
                 document.getElementById("profileAvatar").src = user.avatar;
             }
-        });
+        })
+        .catch(() => {});
 
     fetch("/api/users/me", { credentials: "same-origin" })
-        .then((res) => res.json())
+        .then((res) => (res.ok ? res.json() : null))
         .then((data) => {
+            if (!data) return;
             currentProfileUser = data.user;
             document.getElementById("editFullName").value = data.user.fullName;
-        });
+        })
+        .catch(() => {});
 
     const profileEditForm = document.getElementById("profileEditForm");
     const profileEditStatus = document.getElementById("profileEditStatus");

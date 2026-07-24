@@ -80,11 +80,13 @@ const targetLevel = document.getElementById("targetLevel");
 const dailyGoal = document.getElementById("dailyGoal");
 
 fetch("/api/users/me", { credentials: "same-origin" })
-    .then((res) => res.json())
+    .then((res) => (res.ok ? res.json() : null))
     .then((data) => {
+        if (!data) return;
         if (targetLevel && data.user.targetLevel) targetLevel.value = data.user.targetLevel;
         if (dailyGoal && data.user.dailyGoalMinutes) dailyGoal.value = data.user.dailyGoalMinutes;
-    });
+    })
+    .catch(() => {});
 
 saveSettingsBtn.addEventListener("click", () => {
 
