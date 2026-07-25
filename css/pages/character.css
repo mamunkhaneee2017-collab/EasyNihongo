@@ -1,12 +1,25 @@
 /* ===================================
         CHARACTER DETAIL PAGE
         (Hiragana / Katakana)
+
+   Colors read from css/variables.css tokens
+   (var(--surface), var(--text), etc.) so this
+   page gets dark mode for free — EXCEPT the
+   "paper" surfaces (.stroke-svg-wrap,
+   .practice-canvas-wrap) and the ink drawn on
+   them (.stroke-path, .stroke-guide-line,
+   #ghostCanvas/#practiceCanvas strokes, set in
+   js/pages/character.js), which are deliberately
+   kept always-light: canvas ink color is baked
+   in as plain hex in JS, not CSS-themeable, so
+   the "paper" it's drawn on has to stay light in
+   both themes for the strokes to stay legible.
 =================================== */
 
 .character-hero{
     padding:30px 20px;
-    background:white;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    background:var(--surface);
+    box-shadow:var(--shadow-sm);
 }
 
 .character-hero-top{
@@ -18,8 +31,8 @@
 
 .char-progress-badge{
     display:inline-block;
-    background:#f3f4f6;
-    color:#374151;
+    background:var(--surface-2);
+    color:var(--text);
     padding:8px 16px;
     border-radius:30px;
     font-size:13px;
@@ -45,10 +58,10 @@
 .character-display-card,
 .stroke-animation-card{
     position:relative;
-    background:white;
+    background:var(--surface);
     border-radius:20px;
     padding:28px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-md);
 }
 
 .character-display-card{
@@ -62,7 +75,7 @@
     font-size:130px;
     line-height:1;
     font-weight:600;
-    color:#111827;
+    color:var(--ink);
     margin:20px 0 10px;
 }
 
@@ -77,12 +90,12 @@
 .character-romaji{
     font-size:24px;
     font-weight:700;
-    color:#ef4444;
+    color:var(--brand);
 }
 
 .character-bn{
     font-size:20px;
-    color:#6b7280;
+    color:var(--text-muted);
 }
 
 .character-audio-controls{
@@ -100,16 +113,17 @@
     gap:8px;
     padding:12px;
     border-radius:10px;
-    border:1px solid #e5e7eb;
-    background:white;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
     font-weight:600;
     cursor:pointer;
     transition:.25s;
 }
 
 .audio-control-btn:hover{
-    border-color:#ef4444;
-    color:#ef4444;
+    border-color:var(--brand);
+    color:var(--brand);
 }
 
 .audio-control-btn:disabled{
@@ -129,15 +143,16 @@
     width:44px;
     height:44px;
     border-radius:50%;
-    border:1px solid #e5e7eb;
-    background:white;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
     cursor:pointer;
     transition:.25s;
 }
 
 .char-nav-btn:hover:not(:disabled){
-    background:#ef4444;
-    border-color:#ef4444;
+    background:var(--brand);
+    border-color:var(--brand);
     color:white;
 }
 
@@ -148,7 +163,7 @@
 
 .char-position-label{
     font-size:14px;
-    color:#6b7280;
+    color:var(--text-muted);
     font-weight:600;
 }
 
@@ -160,7 +175,7 @@
     height:42px;
     border:none;
     border-radius:50%;
-    background:#f3f4f6;
+    background:var(--surface-2);
     color:#9ca3af;
     cursor:pointer;
     transition:.25s;
@@ -185,11 +200,11 @@
     gap:10px;
     font-size:19px;
     margin-bottom:20px;
-    color:#111827;
+    color:var(--ink);
 }
 
 .section-title i{
-    color:#ef4444;
+    color:var(--brand);
 }
 
 .stroke-svg-wrap{
@@ -257,15 +272,16 @@
     width:42px;
     height:42px;
     border-radius:50%;
-    border:1px solid #e5e7eb;
-    background:white;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
     cursor:pointer;
     transition:.25s;
 }
 
 .stroke-ctrl-btn:hover{
-    background:#ef4444;
-    border-color:#ef4444;
+    background:var(--brand);
+    border-color:var(--brand);
     color:white;
 }
 
@@ -273,8 +289,9 @@
     height:42px;
     padding:0 10px;
     border-radius:10px;
-    border:1px solid #e5e7eb;
-    background:white;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
     font-weight:600;
     cursor:pointer;
 }
@@ -285,7 +302,7 @@
     gap:8px;
     font-size:14px;
     font-weight:600;
-    color:#374151;
+    color:var(--text);
     cursor:pointer;
 }
 
@@ -304,32 +321,33 @@
 
 .example-word-card{
     position:relative;
-    background:white;
+    background:var(--surface);
     border-radius:14px;
     padding:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-sm);
 }
 
 .example-word-jp{
     font-size:22px;
     font-weight:700;
+    color:var(--ink);
     margin-bottom:2px;
 }
 
 .example-word-reading{
-    color:#94a3b8;
+    color:var(--text-muted);
     font-size:13px;
     margin-bottom:8px;
 }
 
 .example-word-meaning-en{
     font-size:14px;
-    color:#374151;
+    color:var(--text);
 }
 
 .example-word-meaning-bn{
     font-size:13px;
-    color:#6b7280;
+    color:var(--text-muted);
 }
 
 .example-word-card .audio-btn{
@@ -343,26 +361,27 @@
 
 .example-sentence-card{
     position:relative;
-    background:white;
+    background:var(--surface);
     border-radius:16px;
     padding:22px 24px;
-    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-sm);
 }
 
 .example-sentence-card .example-jp{
     font-weight:600;
     font-size:19px;
+    color:var(--ink);
     margin-bottom:6px;
 }
 
 .example-sentence-card .example-reading{
-    color:#94a3b8;
+    color:var(--text-muted);
     font-size:14px;
     margin-bottom:6px;
 }
 
 .example-sentence-card .example-translation{
-    color:#6b7280;
+    color:var(--text-muted);
     font-size:15px;
 }
 
@@ -382,10 +401,10 @@
 }
 
 .practice-card{
-    background:white;
+    background:var(--surface);
     border-radius:20px;
     padding:28px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-md);
     text-align:center;
 }
 
@@ -428,7 +447,7 @@
 .practice-result{
     max-width:420px;
     margin:0 auto;
-    background:#f8fafc;
+    background:var(--surface-2);
     border-radius:14px;
     padding:18px;
 }
@@ -436,13 +455,13 @@
 .practice-result .accuracy-score{
     font-size:32px;
     font-weight:800;
-    color:#ef4444;
+    color:var(--brand);
     margin-bottom:6px;
 }
 
 .practice-result .accuracy-label{
     font-size:14px;
-    color:#6b7280;
+    color:var(--text-muted);
     margin-bottom:10px;
 }
 
@@ -454,12 +473,13 @@
 }
 
 .practice-result .stroke-score-chip{
-    background:white;
+    background:var(--surface);
+    color:var(--text);
     border-radius:20px;
     padding:5px 12px;
     font-size:12px;
     font-weight:700;
-    box-shadow:0 2px 6px rgba(0,0,0,.06);
+    box-shadow:var(--shadow-sm);
 }
 
 @media(max-width:900px){

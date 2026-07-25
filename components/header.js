@@ -120,10 +120,6 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="${toPages}search.html" class="search-btn" title="Search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
-
                 <button id="langBtn" class="lang-btn" title="Change language" aria-haspopup="listbox" aria-expanded="false">
                     <i class="fa-solid fa-globe"></i> <span id="langLabel">EN</span>
                 </button>
