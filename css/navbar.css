@@ -109,7 +109,15 @@
     }
 }
 
-header{
+/* Scoped to the site navbar's own <header> (injected inside #site-header
+   by components/header.js) — NOT a bare `header{}` tag selector, since
+   several pages (hiragana/katakana, dashboard, favorites, settings,
+   profile) use <header class="..."> for their own in-page hero section.
+   A bare tag selector would give those page heroes the same
+   position:sticky + z-index:999 as the real navbar, which — being later
+   in the DOM — would then win z-index ties and render on top of the
+   navbar's mobile drawer instead of behind it. */
+#site-header header{
     position:sticky;
     top:0;
     z-index:999;
