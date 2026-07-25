@@ -1,0 +1,100 @@
+/* ===================================
+        VOCABULARY TOPICS PAGE
+=================================== */
+
+.topics-hero{
+    text-align:center;
+    padding:60px 20px;
+    background:green;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.topics-hero .hero-eyebrow{
+    display:inline-block;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.topics-hero h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.topics-hero p{
+    color:#6b7280;
+}
+
+.topics-grid-section{
+    padding:60px 0 100px;
+}
+
+.topics-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.topic-card{
+    background:green;
+    border-radius:16px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    transition:.3s;
+    color:inherit;
+    text-decoration:none;
+}
+
+.topic-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 30px rgba(0,0,0,.1);
+}
+
+.topic-card i{
+    font-size:30px;
+    color:#ef4444;
+    margin-bottom:12px;
+}
+
+.topic-card h3{
+    font-size:16px;
+    margin-bottom:6px;
+}
+
+.topic-card p{
+    color:#6b7280;
+    font-size:13px;
+}
+
+@media(max-width:900px){
+.topics-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:560px){
+.topics-grid{
+    grid-template-columns:1fr;
+}
+}
+
+.topic-chapter-ref{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+    padding:10px 16px;
+    background:#fef2f2;
+    color:#dc2626;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.topic-chapter-ref:hover{
+    background:#fee2e2;
+}
