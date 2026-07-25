@@ -1,0 +1,31 @@
+# Fly.io deploy config. Uses the existing Dockerfile, which already sets
+# ENV DATA_DIR=/data — that path is only actually persistent once a Fly
+# volume is mounted there (see the [[mounts]] block below). Without a
+# mounted volume /data is just as ephemeral as it was on Render, so the
+# `fly volumes create data ...` step in the deploy runbook is required,
+# not optional, before the first `fly deploy`.
+app = "easynihongo"
+primary_region = "sin"
+
+[build]
+
+[env]
+  NODE_ENV = "production"
+  PORT = "3000"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1

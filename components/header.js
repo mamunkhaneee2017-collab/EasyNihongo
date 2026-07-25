@@ -117,6 +117,8 @@
 
                 <li><a href="${toPages}search.html"${currentPage === "search" ? ' class="active"' : ""}><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="nav.search">Search</span></a></li>
 
+                <li class="nav-mobile-login"><a href="${toPages}login.html" class="login-btn" data-i18n="nav.login">Login</a></li>
+
                 <li class="nav-lang-mobile">
                     <span class="nav-lang-mobile-label"><i class="fa-solid fa-globe"></i> Language</span>
                     <div class="nav-lang-mobile-options">

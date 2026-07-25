@@ -58,9 +58,19 @@
     const navMenu = document.getElementById("navMenu");
 
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
             const isOpen = navMenu.classList.toggle("active");
             menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        // Tapping anywhere else on the page (not just the hamburger button
+        // again) closes the drawer too — same outside-click convention as
+        // registerDropdown below, just for the mobile nav-menu itself.
+        document.addEventListener("click", (e) => {
+            if (!navMenu.classList.contains("active") || navMenu.contains(e.target)) return;
+            navMenu.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
         });
     }
 

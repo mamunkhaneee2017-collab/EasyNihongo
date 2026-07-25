@@ -159,6 +159,14 @@ header{
     display:none;
 }
 
+/* Mobile-drawer copy of the Login button (see components/header.js) —
+   hidden on desktop since .nav-buttons already has its own Login link
+   there; shown instead inside the drawer below the 992px breakpoint,
+   since .nav-buttons itself is hidden at that width. */
+.nav-mobile-login{
+    display:none;
+}
+
 #darkModeBtn{
     width:42px;
     height:42px;
@@ -568,6 +576,20 @@ box-shadow:none;
 margin-top:4px;
 
 padding-left:14px;
+
+}
+
+.nav-mobile-login{
+
+display:block;
+
+}
+
+.nav-mobile-login .login-btn{
+
+display:block;
+
+text-align:center;
 
 }
 
