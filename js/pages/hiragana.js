@@ -78,61 +78,26 @@ hiraganaData.forEach((item, index)=>{
 
 grid.innerHTML += `
 
-<div class="card" data-category="${categoryForIndex(index)}">
+<div class="card" data-category="${categoryForIndex(index)}" data-href="character.html?type=hiragana&char=${encodeURIComponent(item.character)}">
 
-    <div class="card-header">
+    <button class="favorite" data-index="${index}" title="Favorite">
 
-        <span class="jlpt">${item.level}</span>
+        <i class="fa-regular fa-star"></i>
 
-        <button class="favorite" data-index="${index}">
-
-            <i class="fa-regular fa-star"></i>
-
-        </button>
-
-    </div>
+    </button>
 
     <h2>${item.character}</h2>
 
     <h3>${item.romaji}</h3>
 
-    <div class="example">
+    <button
+        class="play-btn"
+        data-speak="${item.character}"
+        title="Listen">
 
-        <h4>${item.word}</h4>
+        <i class="fa-solid fa-volume-high"></i>
 
-        <small>${item.reading}</small>
-
-        <p>${item.meaning}</p>
-
-    </div>
-
-    <div class="sentence">
-
-        <p>${item.sentence}</p>
-
-        <small>${item.translation}</small>
-
-    </div>
-
-    <div class="bottom">
-
-        <span class="difficulty">
-            ${item.difficulty}
-        </span>
-
-        <button
-            class="play-btn"
-            data-speak="${item.character}">
-
-            <i class="fa-solid fa-volume-high"></i>
-
-        </button>
-
-    </div>
-
-    <a class="practice-link" href="character.html?type=hiragana&char=${encodeURIComponent(item.character)}">
-        <i class="fa-solid fa-pen-nib"></i> Stroke Order &amp; Practice
-    </a>
+    </button>
 
 </div>
 
@@ -147,6 +112,19 @@ loadFavorites();
 
 function initializeButtons(){
 
+// Whole card is clickable -> the character's detail page (stroke order,
+// audio, practice writing). The favorite/play buttons inside it stop
+// propagation so clicking them doesn't also navigate.
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+window.location.href = card.dataset.href;
+
+});
+
+});
+
 const playButtons=
 document.querySelectorAll(".play-btn");
 
@@ -160,7 +138,9 @@ if(!speechSupported){
     return;
 }
 
-button.addEventListener("click",()=>{
+button.addEventListener("click",(e)=>{
+
+e.stopPropagation();
 
 window.EasyNihongoSpeech.speak(button.dataset.speak);
 
@@ -174,7 +154,9 @@ document.querySelectorAll(".favorite");
 
 favorites.forEach(button=>{
 
-button.addEventListener("click",()=>{
+button.addEventListener("click",(e)=>{
+
+e.stopPropagation();
 
 const itemIndex = button.dataset.index;
 

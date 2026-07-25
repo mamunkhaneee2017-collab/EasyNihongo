@@ -86,65 +86,97 @@ margin:50px auto;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
 
-gap:25px;
+gap:18px;
 
 }
 
 .card{
 
+position:relative;
+
 background:white;
 
-padding:35px;
+padding:22px 12px 16px;
 
-border-radius:20px;
+border-radius:16px;
 
 text-align:center;
 
-box-shadow:0 10px 25px rgba(0,0,0,.05);
+box-shadow:0 8px 20px rgba(0,0,0,.05);
 
-transition:.3s;
+transition:.25s;
+
+cursor:pointer;
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-6px);
+
+box-shadow:0 14px 28px rgba(0,0,0,.1);
 
 }
 
 .card h2{
 
-font-size:60px;
+font-size:44px;
 
-margin-bottom:10px;
+line-height:1;
+
+margin-bottom:6px;
+
+pointer-events:none;
 
 }
 
-.card p{
+.card h3{
 
-font-size:24px;
+font-size:15px;
 
-margin-bottom:25px;
+font-weight:600;
 
 color:#6b7280;
+
+margin-bottom:14px;
+
+pointer-events:none;
 
 }
 
 .play-btn{
 
-background:#ef4444;
+background:#f3f4f6;
 
-color:white;
+color:#374151;
 
 border:none;
 
-padding:12px 20px;
+width:38px;
 
-border-radius:10px;
+height:38px;
+
+border-radius:50%;
 
 cursor:pointer;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+transition:.25s;
+
+}
+
+.play-btn:hover{
+
+background:#ef4444;
+
+color:white;
 
 }
 
@@ -339,48 +371,24 @@ transform:scale(1.1);
 
 }
 
-.favorite.active{
-
-background:#f59e0b;
-
-}
 /*==============================
-        CARD HEADER
+        CARD (compact — character,
+        romaji, favorite, audio only;
+        the whole card links to
+        character.html for full detail)
 ===============================*/
-
-.card-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:20px;
-
-}
-
-.jlpt{
-
-background:#3b82f6;
-
-color:white;
-
-padding:6px 12px;
-
-border-radius:20px;
-
-font-size:13px;
-
-font-weight:bold;
-
-}
 
 .favorite{
 
-width:42px;
+position:absolute;
 
-height:42px;
+top:8px;
+
+right:8px;
+
+width:30px;
+
+height:30px;
 
 border:none;
 
@@ -388,9 +396,19 @@ border-radius:50%;
 
 background:#f3f4f6;
 
+color:#9ca3af;
+
 cursor:pointer;
 
-transition:.3s;
+transition:.25s;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:13px;
 
 }
 
@@ -399,106 +417,6 @@ transition:.3s;
 background:#fbbf24;
 
 color:white;
-
-}
-
-/*==============================
-        EXAMPLE
-===============================*/
-
-.example{
-
-    margin:20px 0;
-
-    padding:15px;
-
-    background:#f9fafb;
-
-    border-radius:10px;
-
-}
-
-.example h4{
-
-    font-size:24px;
-
-    margin-bottom:5px;
-
-}
-
-.example small{
-
-    color:#6b7280;
-
-}
-
-.example p{
-
-    margin-top:10px;
-
-    font-weight:600;
-
-}
-
-/*==============================
-        SENTENCE
-===============================*/
-
-.sentence{
-
-    padding:15px;
-
-    background:#eef2ff;
-
-    border-radius:10px;
-
-    margin-bottom:20px;
-
-}
-
-.sentence p{
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    margin-bottom:5px;
-
-}
-
-    .sentence small{
-
-    color:#6b7280;
-
-}
-
-/*==============================
-        FOOTER
-===============================*/
-
-.bottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-top:20px;
-
-}
-
-.difficulty{
-
-    background:#10b981;
-
-    color:white;
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-size:13px;
 
 }
 
@@ -511,10 +429,10 @@ color:white;
 }
 
 /*==============================
-        PRACTICE LINK
-        (goes to the stroke-order /
-        practice-writing detail page,
-        character.html)
+        HEADER "TAKE THE QUIZ" CTA
+        (reuses .practice-link's base
+        look, but as a standalone
+        button, not inside a card)
 ===============================*/
 
 .practice-link{
