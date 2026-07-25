@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Favorites | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/pages/dashboard.css">
+<link rel="stylesheet" href="../css/pages/favorites.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        <a href="../index.html">Easy<span>Nihongo</span></a>
+    </div>
+
+    <ul>
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span data-i18n="sidebar.dashboard">Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="courses.html">
+                <i class="fa-solid fa-book"></i>
+                <span data-i18n="nav.courses">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="vocabulary.html">
+                <i class="fa-solid fa-language"></i>
+                <span data-i18n="nav.vocabulary">Vocabulary</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="grammar.html">
+                <i class="fa-solid fa-pen"></i>
+                <span data-i18n="nav.grammar">Grammar</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="kanji.html">
+                <i class="fa-solid fa-torii-gate"></i>
+                <span data-i18n="nav.kanji">Kanji</span>
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="favorites.html">
+                <i class="fa-solid fa-star"></i>
+                <span data-i18n="sidebar.favorites">My Favorites</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="quiz.html">
+                <i class="fa-solid fa-circle-question"></i>
+                <span data-i18n="sidebar.quiz">Quiz</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                <span data-i18n="sidebar.profile">Profile</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                <span data-i18n="sidebar.settings">Settings</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html" id="logoutLink">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span data-i18n="sidebar.logout">Logout</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="sidebar-user">
+        <img id="sidebarAvatar" src="../assets/images/avatar/avatar.png" alt="User">
+        <h4 id="sidebarUserName">Mamun</h4>
+        <p id="userLevel"></p>
+    </div>
+
+</aside>
+
+<!-- Main -->
+<main class="main-content">
+
+<header class="dashboard-header">
+
+    <div class="header-left">
+        <button id="menuToggle" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div>
+            <h1 data-i18n="favorites.title">My Favorites</h1>
+            <p data-i18n="favorites.subtitle">All your saved Hiragana, Katakana, Kanji, Vocabulary, and Grammar in one place.</p>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <button id="darkModeBtn" class="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="profile">
+            <img id="profileAvatar" src="../assets/images/profile/mamun.jpeg" alt="Profile">
+            <div>
+                <h4 id="profileName">Mamun</h4>
+                <small data-i18n="profile.student">Student</small>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="favorites-toolbar">
+    <div class="favorites-search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="favoritesSearchInput" placeholder="Search your favorites..." data-i18n-placeholder="favorites.searchPlaceholder">
+    </div>
+
+    <div class="favorites-filter-group" id="favoritesFilterGroup">
+        <button class="filter-btn active" data-filter="all" data-i18n="favorites.filter.all">All</button>
+        <button class="filter-btn" data-filter="hiragana" data-i18n="favorites.filter.hiragana">Hiragana</button>
+        <button class="filter-btn" data-filter="katakana" data-i18n="favorites.filter.katakana">Katakana</button>
+        <button class="filter-btn" data-filter="kanji" data-i18n="favorites.filter.kanji">Kanji</button>
+        <button class="filter-btn" data-filter="vocabulary" data-i18n="favorites.filter.vocabulary">Vocabulary</button>
+        <button class="filter-btn" data-filter="vocabulary-topic" data-i18n="favorites.filter.topics">Topics</button>
+        <button class="filter-btn" data-filter="grammar" data-i18n="favorites.filter.grammar">Grammar</button>
+    </div>
+
+    <button class="btn btn-primary" id="quickReviewBtn"><i class="fa-solid fa-bolt"></i> <span data-i18n="favorites.quickReview">Quick Review</span></button>
+</section>
+
+<section class="favorites-grid-section">
+    <p class="favorites-count" id="favoritesCount"></p>
+    <div class="favorites-grid" id="favoritesGrid"></div>
+</section>
+
+</main>
+
+</div>
+
+<!-- Quick Review Mode overlay -->
+<div class="quick-review-overlay" id="quickReviewOverlay" hidden>
+    <div class="quick-review-card">
+        <button class="quick-review-close" id="quickReviewCloseBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+        <span class="quick-review-progress" id="quickReviewProgress">1 / 10</span>
+        <span class="quick-review-type" id="quickReviewType">Hiragana</span>
+        <div class="quick-review-jp" id="quickReviewJp"></div>
+        <div class="quick-review-reveal" id="quickReviewReveal" hidden>
+            <p class="quick-review-reading" id="quickReviewReading"></p>
+            <p class="quick-review-meaning" id="quickReviewMeaning"></p>
+        </div>
+        <button class="btn btn-outline" id="quickReviewFlipBtn" data-i18n="favorites.flip">Show Answer</button>
+        <div class="quick-review-nav">
+            <button class="btn btn-outline" id="quickReviewPrevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="btn btn-outline" id="quickReviewNextBtn"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/auth-guard.js"></script>
+<script src="../js/pages/favorites.js"></script>
+
+<script>
+    const themeToggle = document.getElementById("darkModeBtn");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.querySelector(".sidebar");
+    menuToggle.addEventListener("click", () => sidebar.classList.toggle("show"));
+
+    fetch("/api/dashboard", { credentials: "same-origin" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+            if (!data) return;
+            const { user } = data;
+            document.getElementById("sidebarUserName").textContent = user.name;
+            document.getElementById("userLevel").textContent = user.jlptLevel;
+            document.getElementById("profileName").textContent = user.name;
+            if (user.avatar) {
+                document.getElementById("sidebarAvatar").src = user.avatar;
+                document.getElementById("profileAvatar").src = user.avatar;
+            }
+        })
+        .catch(() => {});
+</script>
+
+</body>
+</html>

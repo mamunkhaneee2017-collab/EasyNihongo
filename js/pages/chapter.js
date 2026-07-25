@@ -95,26 +95,50 @@
                 <span class="lesson-word">${item.pattern}</span>
                 ${readingSpan(item.reading, "lesson-reading")}
             </div>
-            <p class="meaning">${item.meaning}</p>
+            <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
             ${connectionHtml}
             ${examplesHtml}`;
     }
 
     function renderKanjiItem(item) {
         const examplesHtml = (item.examples || [])
-            .map((ex) => `<li><span class="kanji-example-word">${ex.word}</span> ${ex.reading ? `<span class="kanji-example-reading">(${ex.reading})</span>` : ""} — ${ex.meaning}</li>`)
+            .map((ex) => `<li><span class="kanji-example-word">${ex.word}</span> ${ex.reading ? `<span class="kanji-example-reading">(${ex.reading})</span>` : ""} — <span class="kanji-example-meaning" data-i18n-en="${escapeAttr(ex.meanings.en)}" data-i18n-bn="${escapeAttr(ex.meanings.bn)}">${ex.meanings.en}</span></li>`)
             .join("");
+
+        const sentence = item.exampleSentence;
+        const sentenceHtml = sentence ? `
+            <div class="lesson-example">
+                <p class="example-jp">${sentence.jp}</p>
+                ${sentence.reading ? `<p class="example-reading">${sentence.reading}</p>` : ""}
+                <p class="example-translation" data-i18n-en="${escapeAttr(sentence.meanings.en)}" data-i18n-bn="${escapeAttr(sentence.meanings.bn)}">${sentence.meanings.en}</p>
+            </div>` : "";
 
         return `
             <div class="lesson-item-main">
                 <span class="lesson-word kanji-char-lg">${item.char}</span>
             </div>
             <div class="kanji-readings"><strong>On:</strong> ${item.on} &nbsp;&nbsp; <strong>Kun:</strong> ${item.kun}</div>
-            <p class="meaning">${item.meaning} &middot; ${item.strokes} strokes</p>
-            ${examplesHtml ? `<ul class="kanji-examples">${examplesHtml}</ul>` : ""}`;
+            <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
+            <p class="kanji-stroke-count">${item.strokes} strokes</p>
+            ${examplesHtml ? `<ul class="kanji-examples">${examplesHtml}</ul>` : ""}
+            ${sentenceHtml}`;
     }
 
     const RENDERERS = { vocabulary: renderVocabularyItem, grammar: renderGrammarItem, kanji: renderKanjiItem };
+
+    // What each card's bottom-right audio button speaks (Web Speech API,
+    // js/speech.js) — the single most useful bit of Japanese on the card.
+    // Grammar patterns contain 〜 placeholders that read oddly aloud, so
+    // prefer the first full example sentence when one exists.
+    function speakTextFor(item) {
+        if (type === "vocabulary") return item.word;
+        if (type === "kanji") return item.char;
+        if (type === "grammar") {
+            const firstExample = (item.examples || [])[0];
+            return firstExample ? firstExample.jp : item.pattern.replace(/〜/g, "");
+        }
+        return "";
+    }
 
     function escapeAttr(str) {
         return String(str || "").replace(/"/g, "&quot;");
@@ -135,13 +159,32 @@
                             <i class="fa-regular fa-star"></i>
                         </button>
                         ${renderItem(item)}
-                        <button class="learned-btn" data-index="${globalIndex}">
-                            <i class="fa-regular fa-circle-check"></i> Mark as Learned
-                        </button>
+                        <div class="card-actions">
+                            <button class="learned-btn" data-index="${globalIndex}">
+                                <i class="fa-regular fa-circle-check"></i> Mark as Learned
+                            </button>
+                            <button class="audio-btn" data-speak="${escapeAttr(speakTextFor(item))}" title="Listen">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
                     </div>`;
             })
             .join("");
     }
+
+    /* ---------------- AUDIO (Web Speech API) ---------------- */
+
+    const speechSupported = window.EasyNihongoSpeech && window.EasyNihongoSpeech.isSupported();
+    document.querySelectorAll(".audio-btn").forEach((button) => {
+        if (!speechSupported) {
+            button.disabled = true;
+            button.title = "Audio not supported in this browser";
+            return;
+        }
+        button.addEventListener("click", () => {
+            window.EasyNihongoSpeech.speak(button.dataset.speak);
+        });
+    });
 
     /* ---------------- FAVORITE (STAR) ---------------- */
 
@@ -271,16 +314,15 @@
     const langToggleBtn = document.getElementById("langToggleBtn");
     const langToggleLabel = document.getElementById("langToggleLabel");
 
-    // Vocabulary chapters always have EN/BN toggleable content; grammar
-    // chapters only do once a conversation/story section is present for
-    // that chapter (grammar patterns themselves have no `bn` field).
-    const hasToggleableContent = type === "vocabulary" || (type === "grammar" && !document.getElementById("conversationStorySection")?.hidden);
+    // Vocabulary, grammar, and kanji all carry bilingual meaning fields
+    // now — the toggle is always available regardless of content type.
+    const hasToggleableContent = type === "vocabulary" || type === "grammar" || type === "kanji";
 
     if (hasToggleableContent && langToggleBtn) {
         langToggleBtn.hidden = false;
 
         const LABELS = { en: "EN", bn: "বাং" };
-        const TOGGLE_SELECTOR = ".meaning[data-i18n-en], .example-translation[data-i18n-en], .conversation-translation[data-i18n-en], .story-translation[data-i18n-en]";
+        const TOGGLE_SELECTOR = ".meaning[data-i18n-en], .example-translation[data-i18n-en], .conversation-translation[data-i18n-en], .story-translation[data-i18n-en], .kanji-example-meaning[data-i18n-en]";
 
         // Deliberately its own storage key, not the site-wide "lang" key —
         // this toggle only swaps this page's EN/BN *content* (word

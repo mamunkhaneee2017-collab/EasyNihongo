@@ -1,0 +1,71 @@
+/* ===================================
+        HIRAGANA/KATAKANA QUIZ PAGE
+        (extends css/pages/quiz.css)
+=================================== */
+
+.kana-type-toggle{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    background:var(--surface-2);
+    width:fit-content;
+    margin:0 auto 30px;
+    padding:5px;
+    border-radius:30px;
+}
+
+.kana-type-btn{
+    border:none;
+    background:transparent;
+    padding:10px 26px;
+    border-radius:24px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--text-muted);
+    cursor:pointer;
+    transition:.25s;
+    font-family:inherit;
+}
+
+.kana-type-btn.active{
+    background:var(--brand);
+    color:white;
+}
+
+.kana-module-preview{
+    font-size:22px;
+    letter-spacing:2px;
+    color:var(--text);
+}
+
+.kana-final-card{
+    border:2px solid var(--brand);
+}
+
+.badge-kana{ background:#a855f7; }
+.badge-kana-final{ background:#ef4444; }
+
+.kana-quiz-replay-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:-10px auto 20px;
+    padding:9px 18px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.kana-quiz-replay-btn:hover{
+    border-color:var(--brand);
+    color:var(--brand);
+}
+
+.kana-quiz-options .quiz-option{
+    font-size:22px;
+}

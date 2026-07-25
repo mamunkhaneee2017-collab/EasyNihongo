@@ -107,6 +107,8 @@
 
                 ${otherLinksHtml}
 
+                <li><a href="${toPages}search.html"${currentPage === "search" ? ' class="active"' : ""}><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="nav.search">Search</span></a></li>
+
                 <li class="nav-lang-mobile">
                     <span class="nav-lang-mobile-label"><i class="fa-solid fa-globe"></i> Language</span>
                     <div class="nav-lang-mobile-options">
@@ -118,6 +120,10 @@
             </ul>
 
             <div class="nav-buttons">
+                <a href="${toPages}search.html" class="search-btn" title="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+
                 <button id="langBtn" class="lang-btn" title="Change language" aria-haspopup="listbox" aria-expanded="false">
                     <i class="fa-solid fa-globe"></i> <span id="langLabel">EN</span>
                 </button>

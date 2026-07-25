@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#ef4444">
 
-<meta name="description" content="Japanese vocabulary for a specific everyday topic on Easy Nihongo.">
+<meta name="description" content="Search Vocabulary, Grammar, Kanji, Hiragana, Katakana, and Courses on Easy Nihongo.">
 <meta name="author" content="Md Mamun Khan">
 
-<title>Topic Vocabulary | Easy Nihongo</title>
+<title>Search | Easy Nihongo</title>
 
 <link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
 <link rel="manifest" href="../manifest.json">
@@ -25,13 +25,12 @@
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/navbar.css">
 <link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" href="../css/pages/chapter.css">
-<link rel="stylesheet" href="../css/pages/vocabulary-topics.css">
+<link rel="stylesheet" href="../css/pages/search.css">
 <link rel="stylesheet" href="../css/dark.css">
 
 </head>
 
-<body data-page="vocabulary">
+<body data-page="search">
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -40,28 +39,22 @@
 
 <main id="main-content">
 
-<section class="chapter-hero">
-    <div class="container chapter-hero-top">
-        <div>
-            <span class="hero-eyebrow" id="topicBadge">Topic</span>
-            <h1 id="topicTitle">Vocabulary</h1>
+<section class="search-hero">
+    <div class="container">
+        <span class="hero-eyebrow">検索 &middot; Search</span>
+        <h1>Search Easy Nihongo</h1>
+        <div class="search-hero-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="siteSearchInput" placeholder="Search a word, kanji, grammar pattern, or hiragana/katakana...">
         </div>
-        <button type="button" id="langToggleBtn" class="lang-toggle-btn">
-            <i class="fa-solid fa-language"></i> <span id="langToggleLabel">EN</span>
-        </button>
-    </div>
-    <div class="container">
-        <a href="vocabulary-topics.html" class="back-to-chapters"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="topics.backToTopics">Back to topics</span></a>
-    </div>
-    <div class="container">
-        <a href="#" id="topicChapterRef" class="topic-chapter-ref" hidden></a>
+        <p class="search-results-summary" id="searchResultsSummary"></p>
     </div>
 </section>
 
-<section class="chapter-content-section">
+<section class="search-results-section">
     <div class="container">
-        <div class="lesson-items-grid" id="topicItemsGrid">
-            <!-- Word cards injected by js/pages/vocabulary-topic.js -->
+        <div id="searchResults">
+            <!-- Result groups injected by js/pages/search.js -->
         </div>
     </div>
 </section>
@@ -71,10 +64,15 @@
 <div id="site-footer"></div>
 <script src="../components/footer.js"></script>
 
-<script src="../data/vocabulary/vocabulary-topics-data.js"></script>
+<script src="../data/content-helpers.js"></script>
+<script src="../data/hiragana-data.js"></script>
+<script src="../data/katakana-data.js"></script>
 <script src="../data/vocabulary/vocabulary-data.js"></script>
-<script src="../js/speech.js"></script>
-<script src="../js/pages/vocabulary-topic.js"></script>
+<script src="../data/vocabulary/vocabulary-topics-data.js"></script>
+<script src="../data/grammar/grammar-data.js"></script>
+<script src="../data/kanji/kanji-data.js"></script>
+<script src="../data/courses/courses-data.js"></script>
+<script src="../js/pages/search.js"></script>
 <script src="../locales/en.js"></script>
 <script src="../locales/bn.js"></script>
 <script src="../locales/ja.js"></script>

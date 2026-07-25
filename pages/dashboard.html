@@ -67,6 +67,13 @@
         </li>
 
         <li>
+            <a href="favorites.html">
+                <i class="fa-solid fa-star"></i>
+                <span data-i18n="sidebar.favorites">My Favorites</span>
+            </a>
+        </li>
+
+        <li>
             <a href="quiz.html">
                 <i class="fa-solid fa-circle-question"></i>
                 <span data-i18n="sidebar.quiz">Quiz</span>
@@ -123,7 +130,7 @@
 
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search lessons..." data-i18n-placeholder="dashboard.searchLessons">
+            <input type="text" id="dashboardSearchInput" placeholder="Search lessons..." data-i18n-placeholder="dashboard.searchLessons">
         </div>
 
         <button id="darkModeBtn" class="theme-btn">
@@ -171,6 +178,13 @@
                 <div class="progress-bar vocab" id="vocabBar"></div>
             </div>
         </div>
+
+        <div class="lesson">
+            <span data-i18n="dashboard.kana">Hiragana &amp; Katakana</span>
+            <div class="progress">
+                <div class="progress-bar kana" id="kanaBar"></div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -179,9 +193,15 @@
 ========================================== -->
 <section class="dashboard-bottom">
 
-    <!-- Weekly Activity -->
+    <!-- Weekly / Monthly Activity -->
     <div class="chart-card">
-        <h2 data-i18n="dashboard.weeklyActivity">Weekly Study Activity</h2>
+        <div class="chart-card-header">
+            <h2 data-i18n="dashboard.weeklyActivity">Weekly Study Activity</h2>
+            <div class="chart-range-toggle" id="chartRangeToggle">
+                <button type="button" class="chart-range-btn active" data-range="weekly" data-i18n="dashboard.weekly">Weekly</button>
+                <button type="button" class="chart-range-btn" data-range="monthly" data-i18n="dashboard.monthly">Monthly</button>
+            </div>
+        </div>
         <div class="chart" id="weeklyChart">
             <!-- bars injected by JS -->
         </div>
@@ -197,6 +217,28 @@
                 <div class="goal-fill" id="goalFill"></div>
             </div>
             <small id="goalText">48 / 60 Minutes</small>
+        </div>
+
+        <div class="goal-card kana-progress-card">
+            <h2 data-i18n="dashboard.kanaProgress">Hiragana &amp; Katakana Progress</h2>
+            <div class="kana-progress-stats">
+                <div>
+                    <span id="kanaCompletedStat">0</span>
+                    <small data-i18n="dashboard.kanaCompleted">Learned</small>
+                </div>
+                <div>
+                    <span id="kanaRemainingStat">92</span>
+                    <small data-i18n="dashboard.kanaRemaining">Remaining</small>
+                </div>
+                <div>
+                    <span id="kanaAccuracyStat">0%</span>
+                    <small data-i18n="dashboard.kanaAccuracy">Accuracy</small>
+                </div>
+            </div>
+            <div class="goal-progress">
+                <div class="goal-fill" id="kanaCompletionFill"></div>
+            </div>
+            <small id="kanaCompletionText">0% complete</small>
         </div>
 
         <div class="achievement-card">

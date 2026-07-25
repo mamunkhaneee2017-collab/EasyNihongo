@@ -201,6 +201,12 @@
     margin-bottom:10px;
 }
 
+.kanji-stroke-count{
+    color:#94a3b8;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
 .kanji-examples{
     list-style:none;
     background:#f8fafc;
@@ -226,8 +232,15 @@
     color:#94a3b8;
 }
 
+.card-actions{
+    display:flex;
+    gap:10px;
+    align-items:stretch;
+}
+
 .learned-btn{
-    width:100%;
+    flex:1;
+    width:auto;
     padding:12px;
     border-radius:10px;
     border:1px solid #e5e7eb;
@@ -251,6 +264,34 @@
     background:#ef4444;
     border-color:#ef4444;
     color:white;
+}
+
+/* Audio button — deliberately placed bottom-right of every content card
+   (favorite-btn is the top-right counterpart), same corner convention on
+   every content type site-wide: vocabulary, grammar, kanji, hiragana,
+   katakana. Speaks via window.EasyNihongoSpeech (js/speech.js). */
+.audio-btn{
+    flex-shrink:0;
+    width:48px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:white;
+    color:#374151;
+    cursor:pointer;
+    transition:.25s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.audio-btn:hover{
+    border-color:#ef4444;
+    color:#ef4444;
+}
+
+.audio-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
 }
 
 .conversation-story-section{

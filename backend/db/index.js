@@ -108,6 +108,39 @@ if (favoritesRow && !favoritesRow.sql.includes("'vocabulary'")) {
     }
 }
 
+// SQLite can't ALTER a CHECK constraint, so a database created before
+// "Vocabulary by Subject" (topic-based vocab) got favorites needs the
+// table rebuilt to allow content_type='vocabulary-topic'. Guarded the
+// same way as the two migrations above — runs once, preserves every
+// existing row.
+const favoritesTopicRow = db
+    .prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'favorites'")
+    .get();
+
+if (favoritesTopicRow && !favoritesTopicRow.sql.includes("'vocabulary-topic'")) {
+    db.exec("BEGIN;");
+    try {
+        db.exec(`
+            CREATE TABLE favorites_new (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+                content_type TEXT NOT NULL CHECK(content_type IN ('hiragana','katakana','vocabulary','vocabulary-topic','grammar','kanji')),
+                level TEXT NOT NULL DEFAULT '',
+                item_index INTEGER NOT NULL,
+                created_at TEXT NOT NULL DEFAULT (datetime('now')),
+                UNIQUE(user_id, content_type, level, item_index)
+            );
+            INSERT INTO favorites_new SELECT * FROM favorites;
+            DROP TABLE favorites;
+            ALTER TABLE favorites_new RENAME TO favorites;
+        `);
+        db.exec("COMMIT;");
+    } catch (err) {
+        db.exec("ROLLBACK;");
+        throw err;
+    }
+}
+
 db.exec(`
     INSERT OR IGNORE INTO site_settings (id, site_name, contact_email, social_facebook, social_instagram, social_youtube, social_github)
     VALUES (1, 'Easy Nihongo', 'info@easynihongo.com',

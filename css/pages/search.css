@@ -1,0 +1,136 @@
+/* ===================================
+        SITE-WIDE SEARCH PAGE
+=================================== */
+
+.search-hero{
+    text-align:center;
+    padding:60px 20px 40px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.search-hero .hero-eyebrow{
+    display:inline-block;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.search-hero h1{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.search-hero-box{
+    max-width:640px;
+    margin:0 auto;
+    background:#f9fafb;
+    height:60px;
+    display:flex;
+    align-items:center;
+    padding:0 22px;
+    border-radius:50px;
+    box-shadow:0 10px 20px rgba(0,0,0,.06);
+}
+
+.search-hero-box i{
+    color:#9ca3af;
+}
+
+.search-hero-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    margin-left:15px;
+    font-size:17px;
+    font-family:inherit;
+}
+
+.search-results-summary{
+    text-align:center;
+    color:#6b7280;
+    margin-top:14px;
+    font-size:14px;
+}
+
+.search-results-section{
+    padding:50px 0 100px;
+}
+
+.search-result-group{
+    margin-bottom:40px;
+}
+
+.search-result-group-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:19px;
+    margin-bottom:18px;
+    color:#111827;
+}
+
+.search-result-count{
+    background:#f3f4f6;
+    color:#6b7280;
+    font-size:12px;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:20px;
+}
+
+.search-result-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:16px;
+}
+
+.search-result-card{
+    display:block;
+    background:white;
+    border-radius:14px;
+    padding:18px 20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    text-decoration:none;
+    color:inherit;
+    transition:.25s;
+}
+
+.search-result-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,.1);
+}
+
+.search-result-jp{
+    font-size:20px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:4px;
+}
+
+.search-result-reading{
+    font-size:13px;
+    color:#94a3b8;
+    margin-bottom:6px;
+}
+
+.search-result-meaning{
+    font-size:14px;
+    color:#6b7280;
+}
+
+.search-results-section .no-results{
+    text-align:center;
+    color:#6b7280;
+    padding:40px 0;
+}
+
+@media(max-width:600px){
+.search-result-grid{
+    grid-template-columns:1fr;
+}
+}

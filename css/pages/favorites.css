@@ -1,0 +1,254 @@
+/* ===================================
+        MY FAVORITES PAGE
+=================================== */
+
+.favorites-toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:14px;
+    padding:0 30px;
+    margin-bottom:24px;
+}
+
+.favorites-search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:0 18px;
+    height:46px;
+    flex:1;
+    min-width:220px;
+}
+
+.favorites-search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:var(--text);
+    font-size:14px;
+    font-family:inherit;
+}
+
+.favorites-filter-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.favorites-filter-group .filter-btn{
+    padding:9px 16px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.favorites-filter-group .filter-btn:hover{
+    border-color:var(--brand);
+    color:var(--brand);
+}
+
+.favorites-filter-group .filter-btn.active{
+    background:var(--brand);
+    border-color:var(--brand);
+    color:white;
+}
+
+.favorites-grid-section{
+    padding:0 30px 60px;
+}
+
+.favorites-count{
+    color:var(--text-muted);
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.favorites-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:16px;
+}
+
+.favorite-card{
+    position:relative;
+    background:var(--surface);
+    border-radius:14px;
+    padding:18px;
+    box-shadow:var(--shadow-sm);
+}
+
+.favorite-type-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--surface-2);
+    color:var(--text-muted);
+    font-size:11px;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:20px;
+    margin-bottom:12px;
+}
+
+.favorite-card-link{
+    display:block;
+    color:inherit;
+    text-decoration:none;
+    padding-right:30px;
+}
+
+.favorite-jp{
+    font-size:22px;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:2px;
+}
+
+.favorite-reading{
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:6px;
+}
+
+.favorite-meaning{
+    font-size:14px;
+    color:var(--text);
+}
+
+.favorite-remove-btn{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:50%;
+    background:#fbbf24;
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.favorite-remove-btn:hover{
+    background:#ef4444;
+}
+
+.favorites-grid-section .no-results{
+    text-align:center;
+    color:var(--text-muted);
+    padding:60px 0;
+    grid-column:1/-1;
+}
+
+/* ---------------- QUICK REVIEW OVERLAY ---------------- */
+
+.quick-review-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(17,24,39,.7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:20px;
+}
+
+/* An author-stylesheet `display` rule beats the UA stylesheet's default
+   [hidden]{display:none}, so without this override the overlay stays
+   laid out (and intercepts clicks) even while hidden. */
+.quick-review-overlay[hidden]{
+    display:none;
+}
+
+.quick-review-card{
+    position:relative;
+    background:var(--surface);
+    border-radius:24px;
+    padding:40px 30px;
+    max-width:420px;
+    width:100%;
+    text-align:center;
+    box-shadow:var(--shadow-lg);
+}
+
+.quick-review-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:var(--surface-2);
+    color:var(--text);
+    cursor:pointer;
+}
+
+.quick-review-progress{
+    display:block;
+    font-size:13px;
+    color:var(--text-muted);
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.quick-review-type{
+    display:inline-block;
+    background:var(--brand-light);
+    color:var(--brand-light-text);
+    font-size:12px;
+    font-weight:700;
+    padding:4px 12px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.quick-review-jp{
+    font-size:56px;
+    font-weight:700;
+    color:var(--ink);
+    margin-bottom:20px;
+    min-height:70px;
+}
+
+.quick-review-reveal{
+    margin-bottom:20px;
+}
+
+.quick-review-reading{
+    color:var(--text-muted);
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.quick-review-meaning{
+    color:var(--text);
+    font-size:17px;
+    font-weight:600;
+}
+
+.quick-review-nav{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:16px;
+}
+
+@media(max-width:600px){
+.favorites-toolbar{
+    padding:0 16px;
+}
+.favorites-grid-section{
+    padding:0 16px 60px;
+}
+}

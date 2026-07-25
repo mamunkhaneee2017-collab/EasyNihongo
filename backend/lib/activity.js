@@ -45,26 +45,34 @@ function computeStreak(userId) {
     return streak;
 }
 
-function computeWeeklyActivity(userId, dailyGoalMinutes) {
+function computeActivityForRange(userId, days, dailyGoalMinutes) {
     const dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const rows = db
         .prepare(
             `SELECT activity_date, SUM(minutes) as minutes FROM activity_log
              WHERE user_id = ? AND activity_date >= ? GROUP BY activity_date`
         )
-        .all(userId, dateStr(6));
+        .all(userId, dateStr(days - 1));
 
     const minutesByDate = {};
     rows.forEach((r) => { minutesByDate[r.activity_date] = r.minutes; });
 
     const result = [];
-    for (let i = 6; i >= 0; i--) {
+    for (let i = days - 1; i >= 0; i--) {
         const day = dateStr(i);
         const minutes = minutesByDate[day] || 0;
         const percent = Math.min(100, Math.round((minutes / Math.max(1, dailyGoalMinutes)) * 100));
-        result.push({ day: dayLabels[new Date(day).getUTCDay()], percent });
+        result.push({ day: dayLabels[new Date(day).getUTCDay()], date: day, percent });
     }
     return result;
+}
+
+function computeWeeklyActivity(userId, dailyGoalMinutes) {
+    return computeActivityForRange(userId, 7, dailyGoalMinutes);
+}
+
+function computeMonthlyActivity(userId, dailyGoalMinutes) {
+    return computeActivityForRange(userId, 30, dailyGoalMinutes);
 }
 
 function todaysMinutes(userId) {
@@ -85,6 +93,7 @@ module.exports = {
     addXp,
     computeStreak,
     computeWeeklyActivity,
+    computeMonthlyActivity,
     todaysMinutes,
     totalMinutes
 };

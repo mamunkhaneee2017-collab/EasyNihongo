@@ -37,11 +37,41 @@ router.get("/", requireAuth, (req, res) => {
     const lessonsCompleted = kanjiCompleted + grammarCompleted + vocabCompleted + quizAttemptCount;
     const lessonsTotal = kanjiTotal + grammarTotal + vocabTotal + quizLevelsTotal;
 
+    // ---- Hiragana / Katakana learning progress ----
+    // "Completed" here means status is completed or mastered — matches the
+    // Not Started -> Learning -> Practicing -> Completed -> Mastered scale
+    // shown on each character's detail page (character_progress table).
+    function kanaStats(contentType) {
+        const row = db
+            .prepare(
+                `SELECT COUNT(*) as completed, AVG(best_accuracy) as avgAccuracy
+                 FROM character_progress
+                 WHERE user_id = ? AND content_type = ? AND status IN ('completed', 'mastered')`
+            )
+            .get(userId, contentType);
+        return { completed: row.completed || 0, total: content.hiraganaData.length, avgAccuracy: row.avgAccuracy };
+    }
+
+    const hiraganaStats = kanaStats("hiragana");
+    const katakanaStats = kanaStats("katakana");
+    const kanaAccuracyRow = db
+        .prepare(
+            `SELECT AVG(best_accuracy) as avgAccuracy FROM character_progress
+             WHERE user_id = ? AND content_type IN ('hiragana', 'katakana') AND practice_count > 0`
+        )
+        .get(userId);
+    const kanaAccuracy = kanaAccuracyRow.avgAccuracy ? Math.round(kanaAccuracyRow.avgAccuracy) : 0;
+
+    const kanaTotal = hiraganaStats.total + katakanaStats.total;
+    const kanaCompleted = hiraganaStats.completed + katakanaStats.completed;
+    const kanaCompletionPercent = kanaTotal ? Math.round((kanaCompleted / kanaTotal) * 100) : 0;
+
     // ---- XP / streak / activity ----
     const xp = user.xp;
     const targetXP = (Math.floor(xp / 500) + 1) * 500;
     const streak = activity.computeStreak(userId);
     const weeklyActivity = activity.computeWeeklyActivity(userId, user.daily_goal_minutes);
+    const monthlyActivity = activity.computeMonthlyActivity(userId, user.daily_goal_minutes);
     const todayGoalPercent = Math.min(
         100,
         Math.round((activity.todaysMinutes(userId) / Math.max(1, user.daily_goal_minutes)) * 100)
@@ -84,8 +114,17 @@ router.get("/", requireAuth, (req, res) => {
             kanji: { completed: kanjiCompleted, total: kanjiTotal },
             grammar: { completed: grammarCompleted, total: grammarTotal }
         },
+        kana: {
+            hiragana: { completed: hiraganaStats.completed, total: hiraganaStats.total },
+            katakana: { completed: katakanaStats.completed, total: katakanaStats.total },
+            completed: kanaCompleted,
+            total: kanaTotal,
+            completionPercent: kanaCompletionPercent,
+            accuracyPercent: kanaAccuracy
+        },
         notifications,
-        weeklyActivity
+        weeklyActivity,
+        monthlyActivity
     });
 });
 

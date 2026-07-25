@@ -106,13 +106,17 @@ grid.innerHTML += `
 
         <button
             class="play-btn"
-            data-audio="${item.audio}">
+            data-speak="${item.character}">
 
             <i class="fa-solid fa-volume-high"></i>
 
         </button>
 
     </div>
+
+    <a class="practice-link" href="character.html?type=katakana&char=${encodeURIComponent(item.character)}">
+        <i class="fa-solid fa-pen-nib"></i> Stroke Order &amp; Practice
+    </a>
 
 </div>
 
@@ -130,19 +134,19 @@ function initializeButtons(){
 const playButtons=
 document.querySelectorAll(".play-btn");
 
+const speechSupported = window.EasyNihongoSpeech && window.EasyNihongoSpeech.isSupported();
+
 playButtons.forEach(button=>{
+
+if(!speechSupported){
+    button.disabled = true;
+    button.title = "Audio not supported in this browser";
+    return;
+}
 
 button.addEventListener("click",()=>{
 
-const audioFile=
-
-button.dataset.audio;
-
-const audio=
-
-new Audio(audioFile);
-
-audio.play();
+window.EasyNihongoSpeech.speak(button.dataset.speak);
 
 });
 

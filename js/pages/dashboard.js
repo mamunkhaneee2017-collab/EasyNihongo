@@ -28,6 +28,23 @@ if (localStorage.getItem("theme") === "dark") {
 }
 
 /*==========================
+    HEADER SEARCH
+    Sends the query to the real site-wide search
+    page (search.html) — this box used to have no
+    JS wiring at all.
+==========================*/
+
+const dashboardSearchInput = document.getElementById("dashboardSearchInput");
+
+if (dashboardSearchInput) {
+    dashboardSearchInput.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        const query = dashboardSearchInput.value.trim();
+        window.location.href = query ? `search.html?q=${encodeURIComponent(query)}` : "search.html";
+    });
+}
+
+/*==========================
     HIDE HEADER ON SCROLL DOWN,
     SHOW ON SCROLL UP
 ==========================*/
@@ -76,13 +93,15 @@ function animateProgressRing(percent) {
     Weekly Chart (built from JSON)
 ==========================*/
 
-function renderWeeklyChart(weeklyActivity) {
+function renderWeeklyChart(activityData, isMonthly) {
     const chart = document.getElementById("weeklyChart");
     chart.innerHTML = "";
+    chart.classList.toggle("monthly-view", !!isMonthly);
 
-    weeklyActivity.forEach(item => {
+    activityData.forEach(item => {
         const bar = document.createElement("div");
         bar.className = "bar";
+        bar.title = `${item.date || item.day}: ${item.percent}%`;
         bar.style.height = item.percent + "%";
         bar.innerHTML = `<span>${item.day}</span>`;
         chart.appendChild(bar);
@@ -126,7 +145,7 @@ function renderSkillBar(elementId, stat) {
 ==========================*/
 
 function populateDashboard(data) {
-    const { user, statistics, notifications, weeklyActivity } = data;
+    const { user, statistics, kana, notifications, weeklyActivity, monthlyActivity } = data;
 
     // Header / sidebar
     document.getElementById("userName").textContent = `Welcome Back, ${user.name} 👋`;
@@ -168,9 +187,30 @@ function populateDashboard(data) {
     renderSkillBar("grammarBar", statistics.grammar);
     renderSkillBar("kanjiBar", statistics.kanji);
     renderSkillBar("vocabBar", statistics.vocabulary);
+    if (kana) renderSkillBar("kanaBar", { completed: kana.completed, total: kana.total });
 
-    // Weekly chart + notifications
-    renderWeeklyChart(weeklyActivity);
+    // Hiragana/Katakana progress card
+    if (kana) {
+        document.getElementById("kanaCompletedStat").textContent = kana.completed;
+        document.getElementById("kanaRemainingStat").textContent = Math.max(0, kana.total - kana.completed);
+        document.getElementById("kanaAccuracyStat").textContent = `${kana.accuracyPercent}%`;
+        document.getElementById("kanaCompletionFill").style.width = `${kana.completionPercent}%`;
+        document.getElementById("kanaCompletionText").textContent = `${kana.completionPercent}% complete`;
+    }
+
+    // Weekly/Monthly chart toggle + notifications
+    renderWeeklyChart(weeklyActivity, false);
+    const rangeToggle = document.getElementById("chartRangeToggle");
+    if (rangeToggle) {
+        rangeToggle.querySelectorAll(".chart-range-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                rangeToggle.querySelector(".chart-range-btn.active")?.classList.remove("active");
+                btn.classList.add("active");
+                const isMonthly = btn.dataset.range === "monthly";
+                renderWeeklyChart(isMonthly ? monthlyActivity : weeklyActivity, isMonthly);
+            });
+        });
+    }
     renderNotifications(notifications);
 }
 

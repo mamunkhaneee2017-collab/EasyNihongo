@@ -57,6 +57,22 @@
             <p>Everyday, Kitchen, IT, Hospital &amp; more</p>
         </a>`;
 
-    grid.innerHTML = cardsHtml + topicsCardHtml;
+    // Hiragana/Katakana are the kana alphabet itself, not per-level content
+    // (same 46 characters regardless of JLPT level) — shown only on the N5
+    // hub, alongside Vocabulary/Grammar/Kanji/Topics, since that's where a
+    // beginner actually needs them.
+    const kanaCardsHtml = level === "n5" ? `
+        <a href="hiragana.html" class="level-hub-card">
+            <i class="fa-solid fa-a"></i>
+            <h3>Hiragana</h3>
+            <p>46 characters &middot; stroke order &amp; practice</p>
+        </a>
+        <a href="katakana.html" class="level-hub-card">
+            <i class="fa-solid fa-a"></i>
+            <h3>Katakana</h3>
+            <p>46 characters &middot; stroke order &amp; practice</p>
+        </a>` : "";
+
+    grid.innerHTML = cardsHtml + kanaCardsHtml + topicsCardHtml;
 
 })();

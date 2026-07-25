@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ef4444">
+
+<meta name="description" content="Learn a Hiragana or Katakana character with animated stroke order, audio, examples, and practice writing on Easy Nihongo.">
+<meta name="author" content="Md Mamun Khan">
+
+<title>Character | Easy Nihongo</title>
+
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/pages/character.css">
+<link rel="stylesheet" href="../css/dark.css">
+
+</head>
+
+<body data-page="courses">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div id="site-header"></div>
+<script src="../components/header.js"></script>
+
+<main id="main-content">
+
+<section class="character-hero">
+    <div class="container character-hero-top">
+        <a href="hiragana.html" id="backToListLink" class="back-to-chapters"><i class="fa-solid fa-arrow-left"></i> <span id="backToListLabel">Back to Hiragana</span></a>
+        <span class="char-progress-badge" id="progressBadge">Not Started</span>
+    </div>
+</section>
+
+<section class="character-display-section">
+    <div class="container character-display-grid">
+
+        <div class="character-display-card">
+            <button class="favorite-btn" id="favoriteBtn" title="Favorite">
+                <i class="fa-regular fa-star"></i>
+            </button>
+
+            <div class="character-big" id="characterBig">&nbsp;</div>
+
+            <div class="character-names">
+                <span class="character-romaji" id="characterRomaji"></span>
+                <span class="character-bn" id="characterBn"></span>
+            </div>
+
+            <div class="character-audio-controls">
+                <button id="playNormalBtn" class="audio-control-btn"><i class="fa-solid fa-volume-high"></i> <span data-i18n="character.normal">Normal</span></button>
+                <button id="playSlowBtn" class="audio-control-btn"><i class="fa-solid fa-gauge-simple-low"></i> <span data-i18n="character.slow">Slow</span></button>
+            </div>
+
+            <div class="character-nav-buttons">
+                <button id="prevCharBtn" class="char-nav-btn" title="Previous character"><i class="fa-solid fa-arrow-left"></i></button>
+                <span id="charPositionLabel" class="char-position-label">1 / 46</span>
+                <button id="nextCharBtn" class="char-nav-btn" title="Next character"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="stroke-animation-card">
+            <h2 class="section-title"><i class="fa-solid fa-pen-fancy"></i> <span data-i18n="character.strokeOrder">Stroke Order</span></h2>
+
+            <div class="stroke-svg-wrap">
+                <svg id="strokeSvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="2" x2="50" y2="98" class="stroke-guide-line"></line>
+                    <line x1="2" y1="50" x2="98" y2="50" class="stroke-guide-line"></line>
+                </svg>
+                <span class="stroke-number-badge" id="strokeNumberBadge">0 / 0</span>
+            </div>
+
+            <div class="stroke-controls">
+                <button id="strokePlayBtn" class="stroke-ctrl-btn" title="Play"><i class="fa-solid fa-play"></i></button>
+                <button id="strokePauseBtn" class="stroke-ctrl-btn" title="Pause" hidden><i class="fa-solid fa-pause"></i></button>
+                <button id="strokeReplayBtn" class="stroke-ctrl-btn" title="Replay"><i class="fa-solid fa-rotate-left"></i></button>
+                <button id="strokePrevStepBtn" class="stroke-ctrl-btn" title="Previous stroke"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="strokeNextStepBtn" class="stroke-ctrl-btn" title="Next stroke"><i class="fa-solid fa-forward-step"></i></button>
+
+                <select id="strokeSpeedSelect" class="stroke-speed-select" title="Speed">
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+
+                <label class="autoplay-toggle">
+                    <input type="checkbox" id="autoPlayToggle">
+                    <span data-i18n="character.autoPlay">Auto Play</span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="example-section-wrap">
+    <div class="container">
+        <h2 class="section-title"><i class="fa-solid fa-book-open"></i> <span data-i18n="character.exampleWords">Example Words</span></h2>
+        <div class="example-words-grid" id="exampleWordsGrid"></div>
+
+        <div class="example-sentence-card" id="exampleSentenceCard" hidden>
+            <span class="section-label" data-i18n="character.exampleSentence">Example Sentence</span>
+            <p class="example-jp" id="exampleSentenceJp"></p>
+            <p class="example-reading" id="exampleSentenceReading"></p>
+            <p class="example-translation" id="exampleSentenceTranslation"></p>
+            <button class="audio-btn" id="exampleSentenceAudioBtn" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+    </div>
+</section>
+
+<section class="practice-section-wrap">
+    <div class="container">
+        <h2 class="section-title"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="character.practiceWriting">Practice Writing</span></h2>
+
+        <div class="practice-card">
+            <div class="practice-canvas-wrap">
+                <canvas id="ghostCanvas" width="320" height="320"></canvas>
+                <canvas id="practiceCanvas" width="320" height="320"></canvas>
+            </div>
+
+            <div class="practice-controls">
+                <button id="clearBtn" class="btn btn-outline"><i class="fa-solid fa-eraser"></i> <span data-i18n="character.clear">Clear</span></button>
+                <button id="resetBtn" class="btn btn-outline"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="character.reset">Reset</span></button>
+                <button id="checkBtn" class="btn btn-primary"><i class="fa-solid fa-check"></i> <span data-i18n="character.checkWriting">Check My Writing</span></button>
+            </div>
+
+            <div class="practice-result" id="practiceResult" hidden></div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="../components/footer.js"></script>
+
+<script src="../data/hiragana-data.js"></script>
+<script src="../data/katakana-data.js"></script>
+<script src="../data/kana-strokes-data.js"></script>
+<script src="../data/kana-detail-data.js"></script>
+<script src="../js/speech.js"></script>
+<script src="../js/handwriting.js"></script>
+<script src="../js/pages/character.js"></script>
+<script src="../locales/en.js"></script>
+<script src="../locales/bn.js"></script>
+<script src="../locales/ja.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/utils.js"></script>
+
+</body>
+
+</html>

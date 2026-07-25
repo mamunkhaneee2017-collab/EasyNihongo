@@ -1,9 +1,11 @@
 /* ==========================================
    SINGLE TOPIC VOCABULARY PAGE (?topic=kitchen)
-   Browse-only flat word list, no progress
-   tracking (v1 scope) — but keeps the same
-   EN/BN language toggle as chapter.js so the
-   multi-language meanings are still useful here.
+   Flat word list with the same favorite (star)
+   and audio (Web Speech API) buttons as every
+   other content type, plus the EN/BN language
+   toggle shared with chapter.js. Favorites use
+   contentType "vocabulary-topic" with the topic
+   id as `level` (see backend/routes/progress.js).
 ========================================== */
 
 (function () {
@@ -50,17 +52,71 @@
     if (grid) {
         grid.innerHTML = topic.items
             .map(
-                (item) => `
+                (item, index) => `
             <div class="lesson-item-card">
+                <button class="favorite-btn" data-index="${index}" title="Favorite">
+                    <i class="fa-regular fa-star"></i>
+                </button>
                 <div class="lesson-item-main">
                     <span class="lesson-word">${item.word}</span>
                     ${item.reading ? `<span class="lesson-reading">${item.reading}</span>` : ""}
                 </div>
                 <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
+                <div class="card-actions">
+                    <button class="audio-btn" data-speak="${escapeAttr(item.word)}" title="Listen">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
             </div>`
             )
             .join("");
     }
+
+    /* ---------------- AUDIO (Web Speech API) ---------------- */
+
+    const speechSupported = window.EasyNihongoSpeech && window.EasyNihongoSpeech.isSupported();
+    document.querySelectorAll(".audio-btn").forEach((button) => {
+        if (!speechSupported) {
+            button.disabled = true;
+            button.title = "Audio not supported in this browser";
+            return;
+        }
+        button.addEventListener("click", () => {
+            window.EasyNihongoSpeech.speak(button.dataset.speak);
+        });
+    });
+
+    /* ---------------- FAVORITE (STAR) ---------------- */
+
+    document.querySelectorAll(".favorite-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            fetch("/api/progress/favorite", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({ contentType: "vocabulary-topic", level: topicId, itemIndex: button.dataset.index })
+            })
+                .then(async (res) => {
+                    if (!res.ok) throw new Error("not logged in");
+                    const data = await res.json();
+                    button.classList.toggle("active", data.favorited);
+                })
+                .catch(() => {
+                    alert("Log in to save your favorite words.");
+                });
+        });
+    });
+
+    fetch(`/api/progress/favorites?contentType=vocabulary-topic&level=${encodeURIComponent(topicId)}`, { credentials: "same-origin" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+            if (!data) return;
+            data.itemIndexes.forEach((index) => {
+                const button = document.querySelector(`.favorite-btn[data-index="${index}"]`);
+                if (button) button.classList.add("active");
+            });
+        })
+        .catch(() => {});
 
     const langToggleBtn = document.getElementById("langToggleBtn");
     const langToggleLabel = document.getElementById("langToggleLabel");

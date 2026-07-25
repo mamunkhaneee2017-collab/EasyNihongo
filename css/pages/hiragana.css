@@ -441,3 +441,82 @@ color:white;
     font-size:13px;
 
 }
+
+.play-btn:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+
+}
+
+/*==============================
+        PRACTICE LINK
+        (goes to the stroke-order /
+        practice-writing detail page,
+        character.html)
+===============================*/
+
+.practice-link{
+
+    display:block;
+
+    margin-top:16px;
+
+    padding:12px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    border:1px solid #e5e7eb;
+
+    color:#374151;
+
+    font-weight:600;
+
+    font-size:14px;
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.practice-link:hover{
+
+    border-color:#ef4444;
+
+    color:#ef4444;
+
+}
+
+.kana-quiz-cta{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    width:auto;
+
+    margin:20px auto 0;
+
+    padding:12px 26px;
+
+    background:#ef4444;
+
+    color:white;
+
+    border:none;
+
+}
+
+.kana-quiz-cta:hover{
+
+    background:#dc2626;
+
+    color:white;
+
+}

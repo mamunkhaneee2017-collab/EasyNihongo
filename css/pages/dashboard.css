@@ -234,6 +234,10 @@ body{
     background:#10b981;
 }
 
+.kana{
+    background:#a855f7;
+}
+
 /*====================================
       DASHBOARD BOTTOM
 =====================================*/
@@ -258,11 +262,60 @@ body{
     margin-bottom:30px;
 }
 
+.chart-card-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+
+.chart-card-header h2{
+    margin-bottom:0;
+}
+
+.chart-range-toggle{
+    display:flex;
+    gap:6px;
+    background:#f3f4f6;
+    padding:4px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.chart-range-btn{
+    border:none;
+    background:transparent;
+    padding:7px 16px;
+    border-radius:16px;
+    font-size:13px;
+    font-weight:600;
+    color:#6b7280;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.chart-range-btn.active{
+    background:#ef4444;
+    color:white;
+}
+
 .chart{
     height:300px;
     display:flex;
     align-items:flex-end;
     justify-content:space-between;
+}
+
+.chart.monthly-view{
+    gap:3px;
+}
+
+.chart.monthly-view .bar{
+    width:14px;
+}
+
+.chart.monthly-view .bar span{
+    display:none;
 }
 
 .bar{
@@ -302,6 +355,32 @@ body{
     background:#ddd;
     border-radius:20px;
     margin:20px 0;
+}
+
+.kana-progress-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:18px 0 8px;
+    text-align:center;
+}
+
+.kana-progress-stats span{
+    display:block;
+    font-size:22px;
+    font-weight:800;
+    color:#a855f7;
+}
+
+.kana-progress-stats small{
+    display:block;
+    color:#6b7280;
+    font-size:12px;
+    margin-top:2px;
+}
+
+.kana-progress-card .goal-fill{
+    background:#a855f7;
 }
 
 /* Profile Edit Form */
