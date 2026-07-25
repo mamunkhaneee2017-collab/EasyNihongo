@@ -198,6 +198,174 @@ body.dark .faq-answer p{
 
 
 /* ==========================================
+        CHAPTER / LESSON CARDS
+   (vocabulary, grammar, kanji chapters, and the
+   vocabulary-by-topic pages all share these same
+   classes via chapter.css/vocabulary-topic.js).
+
+   Unlike most cards on this site, .lesson-item-card
+   itself never got a dark background override, so
+   several of its children that rely on INHERITING
+   body's dark-mode text color (.meaning, .example-jp,
+   .chapter-hero h1, .topic-card h3, ...) were
+   rendering white-on-white — invisible, not just low
+   contrast. Darkening the card here is what makes
+   those inherited colors correct again; the explicit
+   hardcoded-dark and hardcoded-mid-gray children below
+   need their own override for the same reason the
+   .section-title-style fixes did.
+========================================== */
+
+body.dark .chapter-hero{
+
+    background:#111827;
+
+}
+
+body.dark .back-to-chapters{
+
+    color:#d1d5db;
+
+}
+
+body.dark .lesson-item-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .lesson-word{
+
+    color:#ffffff;
+
+}
+
+body.dark .lesson-reading{
+
+    color:#d1d5db;
+
+}
+
+body.dark .favorite-btn{
+
+    background:#4b5563;
+
+}
+
+body.dark .lesson-example,
+body.dark .kanji-examples{
+
+    background:#1f2937;
+
+}
+
+body.dark .example-translation,
+body.dark .kanji-example-word{
+
+    color:#f9fafb;
+
+}
+
+body.dark .example-reading,
+body.dark .kanji-stroke-count,
+body.dark .kanji-example-reading{
+
+    color:#9ca3af;
+
+}
+
+body.dark .kanji-readings{
+
+    color:#d1d5db;
+
+}
+
+body.dark .learned-btn,
+body.dark .audio-btn{
+
+    background:#1f2937;
+
+    border-color:#4b5563;
+
+    color:#f9fafb;
+
+}
+
+body.dark .conversation-block,
+body.dark .story-block{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .conversation-title,
+body.dark .story-title{
+
+    color:#ffffff;
+
+}
+
+body.dark .conversation-reading,
+body.dark .story-reading{
+
+    color:#9ca3af;
+
+}
+
+body.dark .conversation-translation,
+body.dark .story-translation{
+
+    color:#d1d5db;
+
+}
+
+body.dark .conversation-line{
+
+    border-bottom-color:#4b5563;
+
+}
+
+body.dark .no-results{
+
+    color:#d1d5db;
+
+}
+
+/* ==========================================
+        VOCABULARY BY TOPIC
+========================================== */
+
+body.dark .topics-hero{
+
+    background:#111827;
+
+}
+
+body.dark .topics-hero p{
+
+    color:#d1d5db;
+
+}
+
+body.dark .topic-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .topic-card p{
+
+    color:#d1d5db;
+
+}
+
+/* ==========================================
         FOOTER
 ========================================== */
 
