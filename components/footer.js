@@ -13,8 +13,10 @@
 
 (function () {
 
-    const scriptSrc = (document.currentScript && document.currentScript.getAttribute("src")) || "";
-    const inPagesFolder = scriptSrc.startsWith("../");
+    // See components/header.js for why this reads the actual browser URL
+    // rather than this script's own src path (fixes footer links on the
+    // 404 fallback page, which is served from root for any unmatched URL).
+    const inPagesFolder = window.location.pathname.includes("/pages/");
 
     const toRoot = inPagesFolder ? "../" : "";
     const toPages = inPagesFolder ? "" : "pages/";

@@ -568,6 +568,33 @@ body{
     color:white;
 }
 
+.has-activity{
+    position:relative;
+}
+
+.has-activity::after{
+    content:"";
+    display:block;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#10b981;
+    margin:3px auto 0;
+}
+
+.active-day.has-activity::after{
+    background:white;
+}
+
+.chart-empty-state,
+.continue-empty-state{
+    color:#6b7280;
+    text-align:center;
+    padding:40px 20px;
+    font-size:14px;
+    line-height:1.6;
+}
+
 /*====================================
         PROGRESS RING
 =====================================*/

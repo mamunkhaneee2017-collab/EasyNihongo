@@ -3,15 +3,52 @@ const db = require("../db");
 const requireAuth = require("../middleware/requireAuth");
 const content = require("../lib/contentData");
 const activity = require("../lib/activity");
+const { flattenLevel } = require("../../data/content-helpers");
 
 const router = express.Router();
+
+const CONTINUE_TYPES = [
+    { type: "grammar", data: content.grammarData, label: "Grammar" },
+    { type: "kanji", data: content.kanjiData, label: "Kanji" },
+    { type: "vocabulary", data: content.vocabularyData, label: "Vocabulary" }
+];
+
+// First not-fully-completed chapter for a content type/level, so the
+// dashboard's "Continue Learning" card links somewhere real instead of
+// showing hardcoded lesson titles that don't reflect this user's progress.
+function findContinueChapter(userId, contentType, rawData, level) {
+    const flat = flattenLevel(rawData[level]);
+    if (!flat.chapters.length) return null;
+
+    const completedRows = db
+        .prepare(`SELECT item_index FROM progress_items WHERE user_id = ? AND content_type = ? AND level = ?`)
+        .all(userId, contentType, level);
+    const completedSet = new Set(completedRows.map((r) => r.item_index));
+
+    for (let i = 0; i < flat.chapters.length; i++) {
+        const chapter = flat.chapters[i];
+        let allDone = true;
+        for (let idx = chapter.startIndex; idx <= chapter.endIndex; idx++) {
+            if (!completedSet.has(idx)) { allDone = false; break; }
+        }
+        if (!allDone) {
+            return { type: contentType, level, chapterNumber: i + 1, title: chapter.title };
+        }
+    }
+    return null;
+}
 
 router.get("/", requireAuth, (req, res) => {
     const userId = req.session.user.id;
     const user = db.prepare("SELECT * FROM users WHERE id = ?").get(userId);
     if (!user) return res.status(404).json({ error: "User not found." });
 
-    const level = (user.current_level || user.target_level || "N5").toUpperCase();
+    // Falls back to N5 if the stored value isn't an actual content level —
+    // e.g. accounts registered before the "Beginner" dropdown option was
+    // fixed to submit "N5" instead of the literal word "Beginner".
+    const VALID_LEVELS = ["N5", "N4", "N3", "N2", "N1"];
+    const storedLevel = (user.current_level || user.target_level || "N5").toUpperCase();
+    const level = VALID_LEVELS.includes(storedLevel) ? storedLevel : "N5";
 
     // ---- Per-category completed/total ----
     const kanjiCompleted = db
@@ -89,6 +126,27 @@ router.get("/", requireAuth, (req, res) => {
           )
         : 0;
 
+    // ---- Continue Learning (real next-chapter-per-type, not fixed titles) ----
+    const levelKey = level.toLowerCase();
+    const continueLearning = CONTINUE_TYPES.map((t) => {
+        const next = findContinueChapter(userId, t.type, t.data, levelKey);
+        return next ? { ...next, label: t.label } : null;
+    }).filter(Boolean);
+
+    // ---- Daily Mission (today's real activity, not manually-clickable fake checkboxes) ----
+    const dailyMission = {
+        vocabulary: !!db.prepare(`SELECT 1 FROM progress_items WHERE user_id = ? AND content_type = 'vocabulary' AND date(completed_at) = date('now') LIMIT 1`).get(userId),
+        grammar: !!db.prepare(`SELECT 1 FROM progress_items WHERE user_id = ? AND content_type = 'grammar' AND date(completed_at) = date('now') LIMIT 1`).get(userId),
+        kanaPractice: !!db.prepare(`SELECT 1 FROM character_progress WHERE user_id = ? AND date(last_practiced_at) = date('now') LIMIT 1`).get(userId),
+        quiz: !!db.prepare(`SELECT 1 FROM quiz_attempts WHERE user_id = ? AND date(taken_at) = date('now') LIMIT 1`).get(userId)
+    };
+
+    // ---- Study Calendar (real dates with activity, current calendar month) ----
+    const activeDatesThisMonth = db
+        .prepare(`SELECT DISTINCT activity_date FROM activity_log WHERE user_id = ? AND activity_date >= date('now', 'start of month')`)
+        .all(userId)
+        .map((r) => r.activity_date);
+
     // ---- Notifications (derived from real state, not invented strings) ----
     const notifications = [];
     if (streak > 0) notifications.push(`🔥 You have a ${streak} day streak!`);
@@ -124,7 +182,10 @@ router.get("/", requireAuth, (req, res) => {
         },
         notifications,
         weeklyActivity,
-        monthlyActivity
+        monthlyActivity,
+        continueLearning,
+        dailyMission,
+        activeDatesThisMonth
     });
 });
 

@@ -233,6 +233,22 @@
     margin-bottom:20px;
 }
 
+.feature-kana-char{
+    display:block;
+    font-size:42px;
+    line-height:1;
+    font-weight:700;
+    color:#ef4444;
+    margin-bottom:8px;
+}
+
+.feature-kana-native{
+    display:block;
+    font-size:14px;
+    color:#64748b;
+    margin-bottom:14px;
+}
+
 .feature-card h3{
     margin-bottom:15px;
 }

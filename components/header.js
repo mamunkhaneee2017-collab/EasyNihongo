@@ -26,8 +26,16 @@
 
 (function () {
 
-    const scriptSrc = (document.currentScript && document.currentScript.getAttribute("src")) || "";
-    const inPagesFolder = scriptSrc.startsWith("../");
+    // Based on the actual browser URL, not this script's own src path —
+    // the two usually agree, but diverge for Express's 404 fallback
+    // (backend/server.js sends root's 404.html verbatim for ANY unmatched
+    // path, including /pages/whatever — the script tag inside it still
+    // reads "components/header.js" since that's genuinely where the file
+    // living on disk sits, but the browser's address bar can be under
+    // /pages/, so links built from the script-src heuristic alone would
+    // point one level too shallow). window.location.pathname always
+    // reflects where the user actually is.
+    const inPagesFolder = window.location.pathname.includes("/pages/");
 
     const toRoot = inPagesFolder ? "../" : "";
     const toPages = inPagesFolder ? "" : "pages/";

@@ -61,6 +61,22 @@
     margin-bottom:15px;
 }
 
+.level-hub-kana-char{
+    display:block;
+    font-size:34px;
+    line-height:1;
+    font-weight:700;
+    color:#ef4444;
+    margin-bottom:6px;
+}
+
+.level-hub-kana-native{
+    display:block;
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
 .level-hub-card h3{
     margin-bottom:8px;
 }

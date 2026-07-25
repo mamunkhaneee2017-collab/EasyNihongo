@@ -224,6 +224,8 @@ window.JA_STRINGS = {
     "character.clear": "消去",
     "character.reset": "リセット",
     "character.checkWriting": "書いた文字をチェック",
+    "character.yourStroke": "あなたの筆画",
+    "character.correctStroke": "正しい筆画",
     "kanaQuiz.eyebrow": "ひらがな・カタカナクイズ",
     "kanaQuiz.title": "行ごとに仮名をマスター",
     "kanaQuiz.subtitle": "五十音の行ごとの短いクイズ10本と、総復習クイズ。",

@@ -45,6 +45,10 @@
 .badge-kana{ background:#a855f7; }
 .badge-kana-final{ background:#ef4444; }
 
+.kana-quiz-replay-btn[hidden]{
+    display:none;
+}
+
 .kana-quiz-replay-btn{
     display:flex;
     align-items:center;

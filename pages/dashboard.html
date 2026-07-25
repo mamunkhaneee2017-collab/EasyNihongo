@@ -263,28 +263,8 @@
     <div class="continue-card">
         <h2 data-i18n="courses.continueLearning">Continue Learning</h2>
 
-        <div class="lesson-item">
-            <div>
-                <h3>Grammar Lesson 12</h3>
-                <p>Particles 「は」「が」「を」</p>
-            </div>
-            <button data-i18n="dashboard.continueBtn">Continue</button>
-        </div>
-
-        <div class="lesson-item">
-            <div>
-                <h3>Kanji Lesson 08</h3>
-                <p>Daily Life Kanji</p>
-            </div>
-            <button data-i18n="dashboard.continueBtn">Continue</button>
-        </div>
-
-        <div class="lesson-item">
-            <div>
-                <h3>Vocabulary Lesson 20</h3>
-                <p>Restaurant Vocabulary</p>
-            </div>
-            <button data-i18n="dashboard.continueBtn">Continue</button>
+        <div id="continueLearningList">
+            <!-- injected by JS: real next-chapter-per-type from /api/dashboard -->
         </div>
     </div>
 
@@ -301,20 +281,16 @@
 
         <!-- Calendar -->
         <div class="calendar-card">
-            <h2 data-i18n="dashboard.studyCalendar">Study Calendar</h2>
+            <h2 id="calendarMonthLabel" data-i18n="dashboard.studyCalendar">Study Calendar</h2>
             <table>
-                <tr>
-                    <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
-                </tr>
-                <tr>
-                    <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-                </tr>
-                <tr>
-                    <td>6</td><td class="active-day">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
-                </tr>
-                <tr>
-                    <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- injected by JS: real current-month grid, real activity days highlighted -->
+                </tbody>
             </table>
         </div>
     </div>
@@ -361,10 +337,10 @@
     <div class="mission-card">
         <h2>🎯 <span data-i18n="dashboard.dailyMission">Daily Mission</span></h2>
         <ul>
-            <li><input type="checkbox"> <span data-i18n="dashboard.mission.vocab">Learn 15 Vocabulary</span></li>
-            <li><input type="checkbox"> <span data-i18n="dashboard.mission.grammar">Complete 1 Grammar Lesson</span></li>
-            <li><input type="checkbox"> <span data-i18n="dashboard.mission.listening">Practice Listening 20 Minutes</span></li>
-            <li><input type="checkbox"> <span data-i18n="dashboard.mission.quiz">Take Today's Quiz</span></li>
+            <li><input type="checkbox" id="missionVocab" disabled> <span data-i18n="dashboard.mission.vocab">Complete a Vocabulary word today</span></li>
+            <li><input type="checkbox" id="missionGrammar" disabled> <span data-i18n="dashboard.mission.grammar">Complete a Grammar lesson today</span></li>
+            <li><input type="checkbox" id="missionKana" disabled> <span data-i18n="dashboard.mission.kana">Practice Hiragana/Katakana Writing</span></li>
+            <li><input type="checkbox" id="missionQuiz" disabled> <span data-i18n="dashboard.mission.quiz">Take Today's Quiz</span></li>
         </ul>
     </div>
 

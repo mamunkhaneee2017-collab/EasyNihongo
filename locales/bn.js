@@ -224,6 +224,8 @@ window.BN_STRINGS = {
     "character.clear": "মুছুন",
     "character.reset": "রিসেট",
     "character.checkWriting": "আমার লেখা যাচাই করুন",
+    "character.yourStroke": "আপনার স্ট্রোক",
+    "character.correctStroke": "সঠিক স্ট্রোক",
     "kanaQuiz.eyebrow": "হিরাগানা ও কাতাকানা কুইজ",
     "kanaQuiz.title": "ধাপে ধাপে কানা আয়ত্ত করুন",
     "kanaQuiz.subtitle": "প্রতিটি গোজুওন রো-এর জন্য একটি করে ছোট কুইজ, এবং একটি Final Review।",

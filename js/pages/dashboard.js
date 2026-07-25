@@ -98,6 +98,15 @@ function renderWeeklyChart(activityData, isMonthly) {
     chart.innerHTML = "";
     chart.classList.toggle("monthly-view", !!isMonthly);
 
+    const hasAnyActivity = activityData.some((item) => item.percent > 0);
+    if (!hasAnyActivity) {
+        const empty = document.createElement("p");
+        empty.className = "chart-empty-state";
+        empty.textContent = "No study activity yet — complete a lesson, practice a character, or take a quiz to see it here.";
+        chart.appendChild(empty);
+        return;
+    }
+
     activityData.forEach(item => {
         const bar = document.createElement("div");
         bar.className = "bar";
@@ -106,6 +115,100 @@ function renderWeeklyChart(activityData, isMonthly) {
         bar.innerHTML = `<span>${item.day}</span>`;
         chart.appendChild(bar);
     });
+}
+
+/*==========================
+    Continue Learning
+    (real next-not-completed chapter per type,
+    from GET /api/dashboard's continueLearning)
+==========================*/
+
+function renderContinueLearning(continueLearning) {
+    const list = document.getElementById("continueLearningList");
+    if (!list) return;
+
+    if (!continueLearning || !continueLearning.length) {
+        list.innerHTML = `<p class="continue-empty-state">You've completed every available chapter — nice work! Check back as new levels are added.</p>`;
+        return;
+    }
+
+    list.innerHTML = continueLearning
+        .map(
+            (item) => `
+            <div class="lesson-item">
+                <div>
+                    <h3>${item.label}: ${item.title}</h3>
+                    <p>Chapter ${item.chapterNumber} &middot; ${item.level.toUpperCase()}</p>
+                </div>
+                <a href="chapter.html?level=${item.level}&type=${item.type}&chapter=${item.chapterNumber}">
+                    <button type="button">Continue</button>
+                </a>
+            </div>`
+        )
+        .join("");
+}
+
+/*==========================
+    Daily Mission
+    (today's real activity — read-only status,
+    not manually-clickable fake checkboxes)
+==========================*/
+
+function renderDailyMission(dailyMission) {
+    if (!dailyMission) return;
+    const map = { missionVocab: "vocabulary", missionGrammar: "grammar", missionKana: "kanaPractice", missionQuiz: "quiz" };
+    Object.keys(map).forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.checked = !!dailyMission[map[id]];
+    });
+}
+
+/*==========================
+    Study Calendar
+    (real current-month grid, real activity
+    dates highlighted — was a static hardcoded
+    table before)
+==========================*/
+
+function renderStudyCalendar(activeDates) {
+    const body = document.getElementById("calendarBody");
+    const monthLabel = document.getElementById("calendarMonthLabel");
+    if (!body) return;
+
+    const activeSet = new Set(activeDates || []);
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const todayStr = now.toISOString().slice(0, 10);
+
+    if (monthLabel) {
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        monthLabel.textContent = `${monthNames[month]} ${year}`;
+    }
+
+    const firstWeekday = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let html = "";
+    let dayNum = 1 - firstWeekday;
+
+    for (let week = 0; week < 6 && dayNum <= daysInMonth; week++) {
+        html += "<tr>";
+        for (let weekday = 0; weekday < 7; weekday++, dayNum++) {
+            if (dayNum < 1 || dayNum > daysInMonth) {
+                html += "<td></td>";
+                continue;
+            }
+            const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(dayNum).padStart(2, "0")}`;
+            const classes = [];
+            if (dateStr === todayStr) classes.push("active-day");
+            if (activeSet.has(dateStr)) classes.push("has-activity");
+            html += `<td class="${classes.join(" ")}">${dayNum}</td>`;
+        }
+        html += "</tr>";
+    }
+
+    body.innerHTML = html;
 }
 
 /*==========================
@@ -145,7 +248,7 @@ function renderSkillBar(elementId, stat) {
 ==========================*/
 
 function populateDashboard(data) {
-    const { user, statistics, kana, notifications, weeklyActivity, monthlyActivity } = data;
+    const { user, statistics, kana, notifications, weeklyActivity, monthlyActivity, continueLearning, dailyMission, activeDatesThisMonth } = data;
 
     // Header / sidebar
     document.getElementById("userName").textContent = `Welcome Back, ${user.name} 👋`;
@@ -212,6 +315,9 @@ function populateDashboard(data) {
         });
     }
     renderNotifications(notifications);
+    renderContinueLearning(continueLearning);
+    renderDailyMission(dailyMission);
+    renderStudyCalendar(activeDatesThisMonth);
 }
 
 /*==========================

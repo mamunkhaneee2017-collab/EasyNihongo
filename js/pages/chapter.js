@@ -69,9 +69,12 @@
             <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
             ${item.example ? `
             <div class="lesson-example">
-                <p class="example-jp">${item.example.jp}</p>
-                ${item.example.reading ? `<p class="example-reading">${item.example.reading}</p>` : ""}
-                <p class="example-translation" data-i18n-en="${escapeAttr(item.example.meanings.en)}" data-i18n-bn="${escapeAttr(item.example.meanings.bn)}">${item.example.meanings.en}</p>
+                <div class="lesson-example-text">
+                    <p class="example-jp">${item.example.jp}</p>
+                    ${item.example.reading ? `<p class="example-reading">${item.example.reading}</p>` : ""}
+                    <p class="example-translation" data-i18n-en="${escapeAttr(item.example.meanings.en)}" data-i18n-bn="${escapeAttr(item.example.meanings.bn)}">${item.example.meanings.en}</p>
+                </div>
+                <button class="audio-btn" data-speak="${escapeAttr(item.example.jp)}" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
             </div>` : ""}`;
     }
 
@@ -85,9 +88,12 @@
 
         const examplesHtml = (item.examples || []).map((ex) => `
             <div class="lesson-example">
-                <p class="example-jp">${ex.jp}</p>
-                ${ex.reading ? `<p class="example-reading">${ex.reading}</p>` : ""}
-                <p class="example-translation">${ex.en}</p>
+                <div class="lesson-example-text">
+                    <p class="example-jp">${ex.jp}</p>
+                    ${ex.reading ? `<p class="example-reading">${ex.reading}</p>` : ""}
+                    <p class="example-translation">${ex.en}</p>
+                </div>
+                <button class="audio-btn" data-speak="${escapeAttr(ex.jp)}" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
             </div>`).join("");
 
         return `
@@ -108,9 +114,12 @@
         const sentence = item.exampleSentence;
         const sentenceHtml = sentence ? `
             <div class="lesson-example">
-                <p class="example-jp">${sentence.jp}</p>
-                ${sentence.reading ? `<p class="example-reading">${sentence.reading}</p>` : ""}
-                <p class="example-translation" data-i18n-en="${escapeAttr(sentence.meanings.en)}" data-i18n-bn="${escapeAttr(sentence.meanings.bn)}">${sentence.meanings.en}</p>
+                <div class="lesson-example-text">
+                    <p class="example-jp">${sentence.jp}</p>
+                    ${sentence.reading ? `<p class="example-reading">${sentence.reading}</p>` : ""}
+                    <p class="example-translation" data-i18n-en="${escapeAttr(sentence.meanings.en)}" data-i18n-bn="${escapeAttr(sentence.meanings.bn)}">${sentence.meanings.en}</p>
+                </div>
+                <button class="audio-btn" data-speak="${escapeAttr(sentence.jp)}" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
             </div>` : "";
 
         return `
@@ -127,16 +136,16 @@
     const RENDERERS = { vocabulary: renderVocabularyItem, grammar: renderGrammarItem, kanji: renderKanjiItem };
 
     // What each card's bottom-right audio button speaks (Web Speech API,
-    // js/speech.js) — the single most useful bit of Japanese on the card.
-    // Grammar patterns contain 〜 placeholders that read oddly aloud, so
-    // prefer the first full example sentence when one exists.
+    // js/speech.js). Every example sentence now has its own audio button
+    // too (added directly to each .lesson-example), so this card-level
+    // button deliberately speaks something DIFFERENT from those — the
+    // word/character/pattern itself in isolation, not a duplicate of
+    // example #1. Grammar patterns contain 〜 placeholders that read
+    // oddly aloud, so those are stripped before speaking.
     function speakTextFor(item) {
         if (type === "vocabulary") return item.word;
         if (type === "kanji") return item.char;
-        if (type === "grammar") {
-            const firstExample = (item.examples || [])[0];
-            return firstExample ? firstExample.jp : item.pattern.replace(/〜/g, "");
-        }
+        if (type === "grammar") return item.pattern.replace(/〜/g, "");
         return "";
     }
 

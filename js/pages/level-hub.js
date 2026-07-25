@@ -63,12 +63,14 @@
     // beginner actually needs them.
     const kanaCardsHtml = level === "n5" ? `
         <a href="hiragana.html" class="level-hub-card">
-            <i class="fa-solid fa-a"></i>
+            <span class="level-hub-kana-char">あ</span>
+            <span class="level-hub-kana-native">ひらがな</span>
             <h3>Hiragana</h3>
             <p>46 characters &middot; stroke order &amp; practice</p>
         </a>
         <a href="katakana.html" class="level-hub-card">
-            <i class="fa-solid fa-a"></i>
+            <span class="level-hub-kana-char">ア</span>
+            <span class="level-hub-kana-native">カタカナ</span>
             <h3>Katakana</h3>
             <p>46 characters &middot; stroke order &amp; practice</p>
         </a>` : "";

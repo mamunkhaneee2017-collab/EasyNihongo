@@ -436,6 +436,44 @@
     cursor:crosshair;
 }
 
+#compareCanvas{
+    pointer-events:none;
+}
+
+.practice-legend{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:16px;
+    font-size:13px;
+    color:var(--text-muted);
+}
+
+.practice-legend[hidden]{
+    display:none;
+}
+
+.practice-legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.practice-legend-swatch{
+    width:14px;
+    height:4px;
+    border-radius:2px;
+    display:inline-block;
+}
+
+.practice-legend-yours{
+    background:#ef4444;
+}
+
+.practice-legend-correct{
+    background:#10b981;
+}
+
 .practice-controls{
     display:flex;
     justify-content:center;

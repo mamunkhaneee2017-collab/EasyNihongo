@@ -350,10 +350,12 @@
 
     const ghostCanvas = document.getElementById("ghostCanvas");
     const practiceCanvas = document.getElementById("practiceCanvas");
+    const compareCanvas = document.getElementById("compareCanvas");
     const clearBtn = document.getElementById("clearBtn");
     const resetBtn = document.getElementById("resetBtn");
     const checkBtn = document.getElementById("checkBtn");
     const resultBox = document.getElementById("practiceResult");
+    const practiceLegend = document.getElementById("practiceLegend");
 
     let userStrokes = [];
     let currentStroke = null;
@@ -381,9 +383,31 @@
         if (!practiceCanvas) return;
         const ctx = practiceCanvas.getContext("2d");
         ctx.clearRect(0, 0, practiceCanvas.width, practiceCanvas.height);
+        if (compareCanvas) compareCanvas.getContext("2d").clearRect(0, 0, compareCanvas.width, compareCanvas.height);
         userStrokes = [];
         currentStroke = null;
         if (resultBox) resultBox.hidden = true;
+        if (practiceLegend) practiceLegend.hidden = true;
+    }
+
+    // Draws the canonical stroke paths (same data as the ghost guide and
+    // the stroke-order animation — one source of truth) in green on top of
+    // the user's red drawing, so "compare" means an actual visual overlay,
+    // not just a percentage number.
+    function drawCorrectOverlay() {
+        if (!compareCanvas || !strokeDs.length) return;
+        const ctx = compareCanvas.getContext("2d");
+        ctx.clearRect(0, 0, compareCanvas.width, compareCanvas.height);
+        const scaleX = compareCanvas.width / 100;
+        const scaleY = compareCanvas.height / 100;
+        ctx.save();
+        ctx.setTransform(scaleX, 0, 0, scaleY, 0, 0);
+        ctx.lineWidth = 3 / scaleX;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = "#10b981";
+        strokeDs.forEach((d) => ctx.stroke(new Path2D(d)));
+        ctx.restore();
     }
 
     function canvasPointFromEvent(e) {
@@ -449,6 +473,9 @@
                 strokeDs,
                 { width: practiceCanvas.width, height: practiceCanvas.height }
             );
+
+            drawCorrectOverlay();
+            if (practiceLegend) practiceLegend.hidden = false;
 
             if (resultBox) {
                 resultBox.hidden = false;

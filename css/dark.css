@@ -22,6 +22,15 @@ body.dark .hero{
 
 }
 
+/* .hero h1's own color (#111827) is hardcoded near-black and exactly
+   matches this dark background above — without this override the
+   headline is invisible in dark mode. */
+body.dark .hero h1{
+
+    color:#ffffff;
+
+}
+
 body.dark .hero-tag{
 
     background:#7f1d1d;

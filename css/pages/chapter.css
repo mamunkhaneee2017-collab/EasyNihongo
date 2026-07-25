@@ -137,10 +137,25 @@
 }
 
 .lesson-example{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
     background:#f8fafc;
     border-radius:12px;
     padding:14px 16px;
     margin-bottom:14px;
+}
+
+.lesson-example-text{
+    flex:1;
+    min-width:0;
+}
+
+.lesson-example .audio-btn{
+    flex-shrink:0;
+    width:40px;
+    height:40px;
 }
 
 .example-jp{

@@ -227,6 +227,8 @@ window.EN_STRINGS = {
     "character.clear": "Clear",
     "character.reset": "Reset",
     "character.checkWriting": "Check My Writing",
+    "character.yourStroke": "Your stroke",
+    "character.correctStroke": "Correct stroke",
     "kanaQuiz.eyebrow": "Hiragana & Katakana Quiz",
     "kanaQuiz.title": "Master the Kana, Row by Row",
     "kanaQuiz.subtitle": "Ten short quizzes (one per gojuon row) plus a Final Review.",
