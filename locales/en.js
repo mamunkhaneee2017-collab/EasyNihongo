@@ -19,6 +19,7 @@ window.EN_STRINGS = {
     "nav.contact": "Contact",
     "nav.search": "Search",
     "nav.login": "Login",
+    "nav.darkMode": "Dark Mode",
 
     "footer.tagline": "Structured Japanese learning from N5 to N1 — lessons, vocabulary, grammar, Kanji and JLPT practice in one place.",
     "footer.quicklinks": "Quick Links",

@@ -16,6 +16,7 @@ window.BN_STRINGS = {
     "nav.contact": "যোগাযোগ",
     "nav.search": "সার্চ",
     "nav.login": "লগইন",
+    "nav.darkMode": "ডার্ক মোড",
 
     "footer.tagline": "N5 থেকে N1 পর্যন্ত সুসংগঠিত জাপানি ভাষা শিক্ষা — পাঠ, শব্দভাণ্ডার, ব্যাকরণ, কাঞ্জি এবং JLPT অনুশীলন এক জায়গায়।",
     "footer.quicklinks": "দ্রুত লিংক",

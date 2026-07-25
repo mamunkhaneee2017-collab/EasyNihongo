@@ -175,6 +175,14 @@
     display:none;
 }
 
+/* Mobile-drawer copy of the dark-mode toggle (see components/header.js) —
+   hidden on desktop since .nav-buttons already has #darkModeBtn there;
+   shown instead inside the drawer below the 992px breakpoint, since
+   .nav-buttons itself is hidden at that width. */
+.nav-mobile-darkmode{
+    display:none;
+}
+
 #darkModeBtn{
     width:42px;
     height:42px;
@@ -598,6 +606,42 @@ display:block;
 display:block;
 
 text-align:center;
+
+}
+
+.nav-mobile-darkmode{
+
+display:block;
+
+margin-top:10px;
+
+}
+
+.nav-mobile-darkmode-btn{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+width:100%;
+
+text-align:left;
+
+padding:10px 14px;
+
+border:none;
+
+border-radius:8px;
+
+background:var(--surface-alt, #f3f4f6);
+
+color:var(--text);
+
+font-weight:600;
+
+cursor:pointer;
 
 }
 

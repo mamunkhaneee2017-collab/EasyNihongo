@@ -16,6 +16,7 @@ window.JA_STRINGS = {
     "nav.contact": "お問い合わせ",
     "nav.search": "検索",
     "nav.login": "ログイン",
+    "nav.darkMode": "ダークモード",
 
     "footer.tagline": "N5からN1まで、体系立てられた日本語学習 — レッスン、単語、文法、漢字、JLPT対策をひとつの場所で。",
     "footer.quicklinks": "クイックリンク",

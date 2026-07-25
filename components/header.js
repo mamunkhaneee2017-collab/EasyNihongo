@@ -119,6 +119,12 @@
 
                 <li class="nav-mobile-login"><a href="${toPages}login.html" class="login-btn" data-i18n="nav.login">Login</a></li>
 
+                <li class="nav-mobile-darkmode">
+                    <button type="button" id="darkModeBtnMobile" class="nav-mobile-darkmode-btn">
+                        <i class="fa-solid fa-moon"></i> <span data-i18n="nav.darkMode">Dark Mode</span>
+                    </button>
+                </li>
+
                 <li class="nav-lang-mobile">
                     <span class="nav-lang-mobile-label"><i class="fa-solid fa-globe"></i> Language</span>
                     <div class="nav-lang-mobile-options">

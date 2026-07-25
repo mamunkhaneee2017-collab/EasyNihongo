@@ -19,13 +19,19 @@
        DARK MODE
     ========================================== */
 
-    const darkBtn = document.getElementById("darkModeBtn");
+    // #darkModeBtn lives in .nav-buttons, which is hidden below 992px (see
+    // css/navbar.css) — #darkModeBtnMobile (components/header.js) is the
+    // drawer's copy for mobile visitors. Both stay in sync: toggling either
+    // one flips the shared "dark" class/localStorage value and updates both
+    // icons (only the <i> is swapped, not the whole button, so the mobile
+    // button's "Dark Mode" text label survives the toggle).
+    const darkButtons = [document.getElementById("darkModeBtn"), document.getElementById("darkModeBtnMobile")].filter(Boolean);
 
     function setDarkIcon(isDark) {
-        if (!darkBtn) return;
-        darkBtn.innerHTML = isDark
-            ? '<i class="fa-solid fa-sun"></i>'
-            : '<i class="fa-solid fa-moon"></i>';
+        darkButtons.forEach((btn) => {
+            const icon = btn.querySelector("i");
+            if (icon) icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        });
     }
 
     if (localStorage.getItem("theme") === "dark") {
@@ -33,13 +39,13 @@
     }
     setDarkIcon(document.body.classList.contains("dark"));
 
-    if (darkBtn) {
-        darkBtn.addEventListener("click", () => {
+    darkButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
             const isDark = document.body.classList.toggle("dark");
             localStorage.setItem("theme", isDark ? "dark" : "light");
             setDarkIcon(isDark);
         });
-    }
+    });
 
     /* ==========================================
        FONT SIZE PREFERENCE (set on the Settings page)
