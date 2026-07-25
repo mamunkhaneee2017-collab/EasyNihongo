@@ -641,7 +641,7 @@ border:none;
 
 border-radius:8px;
 
-background:var(--surface-alt, #f3f4f6);
+background:var(--surface-2);
 
 color:var(--text);
 
@@ -675,7 +675,7 @@ font-size:13px;
 
 font-weight:700;
 
-color:#6b7280;
+color:var(--text-muted);
 
 text-transform:uppercase;
 
@@ -705,7 +705,7 @@ border:none;
 
 border-radius:8px;
 
-background:var(--surface-alt, #f3f4f6);
+background:var(--surface-2);
 
 color:var(--text);
 

@@ -39,6 +39,28 @@ body.dark .hero-tag{
 
 }
 
+body.dark .hero-stats span{
+
+    color:#d1d5db;
+
+}
+
+/* .section-title h2/p are reused (Features, Courses, Testimonials, FAQ)
+   with a hardcoded near-black heading + mid-gray subtitle — invisible or
+   low-contrast against the dark backgrounds each of those sections gets
+   below. One override here covers every section that uses this pattern. */
+body.dark .section-title h2{
+
+    color:#ffffff;
+
+}
+
+body.dark .section-title p{
+
+    color:#d1d5db;
+
+}
+
 
 
 /* ==========================================
@@ -61,6 +83,16 @@ body.dark .feature-card{
 
 }
 
+/* .feature-kana-native and .feature-card p each set their own hardcoded
+   gray, which (being more specific than .feature-card's inherited white
+   above) wins the cascade and stays low-contrast without this. */
+body.dark .feature-kana-native,
+body.dark .feature-card p{
+
+    color:#d1d5db;
+
+}
+
 
 
 /* ==========================================
@@ -78,6 +110,12 @@ body.dark .course-card{
     background:#374151;
 
     box-shadow:none;
+
+}
+
+body.dark .course-card h3{
+
+    color:#ffffff;
 
 }
 
@@ -119,6 +157,12 @@ body.dark .testimonial-card{
 
 }
 
+body.dark .testimonial-card p{
+
+    color:#d1d5db;
+
+}
+
 
 
 /* ==========================================
@@ -142,6 +186,12 @@ body.dark .faq-item{
 body.dark .faq-question span{
 
     color:#ef4444;
+
+}
+
+body.dark .faq-answer p{
+
+    color:#d1d5db;
 
 }
 
