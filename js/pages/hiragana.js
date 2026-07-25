@@ -12,35 +12,52 @@ progress.style.width="20%";
 });
 
 /*==========================
-    SEARCH
+    SEARCH + CATEGORY FILTER
+    (Basic / Dakuten / Handakuten / Yōon —
+    see data/kana-rows.js for the index ranges
+    these thresholds mirror)
 ==========================*/
 
 const search =
 document.getElementById("searchCharacter");
 
-search.addEventListener("keyup",()=>{
+let currentCategory = "all";
 
-const value =
-search.value.toLowerCase();
+function categoryForIndex(index){
+    if(index <= 45) return "base";
+    if(index <= 65) return "dakuten";
+    if(index <= 70) return "handakuten";
+    return "youon";
+}
+
+function applyFilters(){
+
+const value = search.value.toLowerCase();
 
 document.querySelectorAll(".card").forEach(card=>{
 
-const text =
-card.innerText.toLowerCase();
+const matchesSearch = card.innerText.toLowerCase().includes(value);
+const matchesCategory = currentCategory === "all" || card.dataset.category === currentCategory;
 
-if(text.includes(value)){
+card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
 
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
+});
 
 }
 
-});
+search.addEventListener("keyup", applyFilters);
 
-});
+const categoryTabs = document.getElementById("kanaCategoryTabs");
+if(categoryTabs){
+    categoryTabs.querySelectorAll(".kana-category-tab").forEach(tab=>{
+        tab.addEventListener("click", () => {
+            categoryTabs.querySelector(".kana-category-tab.active")?.classList.remove("active");
+            tab.classList.add("active");
+            currentCategory = tab.dataset.category;
+            applyFilters();
+        });
+    });
+}
 /*===============================
         RENDER CHARACTERS
    hiraganaData comes from data/hiragana-data.js
@@ -61,7 +78,7 @@ hiraganaData.forEach((item, index)=>{
 
 grid.innerHTML += `
 
-<div class="card">
+<div class="card" data-category="${categoryForIndex(index)}">
 
     <div class="card-header">
 

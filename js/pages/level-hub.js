@@ -58,21 +58,22 @@
         </a>`;
 
     // Hiragana/Katakana are the kana alphabet itself, not per-level content
-    // (same 46 characters regardless of JLPT level) — shown only on the N5
+    // (same characters regardless of JLPT level) — shown only on the N5
     // hub, alongside Vocabulary/Grammar/Kanji/Topics, since that's where a
-    // beginner actually needs them.
+    // beginner actually needs them. 104 = 46 base + 20 dakuten + 5
+    // handakuten + 33 yōon (data/hiragana-data.js / katakana-data.js).
     const kanaCardsHtml = level === "n5" ? `
         <a href="hiragana.html" class="level-hub-card">
             <span class="level-hub-kana-char">あ</span>
             <span class="level-hub-kana-native">ひらがな</span>
             <h3>Hiragana</h3>
-            <p>46 characters &middot; stroke order &amp; practice</p>
+            <p>104 characters &middot; stroke order &amp; practice</p>
         </a>
         <a href="katakana.html" class="level-hub-card">
             <span class="level-hub-kana-char">ア</span>
             <span class="level-hub-kana-native">カタカナ</span>
             <h3>Katakana</h3>
-            <p>46 characters &middot; stroke order &amp; practice</p>
+            <p>104 characters &middot; stroke order &amp; practice</p>
         </a>` : "";
 
     grid.innerHTML = cardsHtml + kanaCardsHtml + topicsCardHtml;

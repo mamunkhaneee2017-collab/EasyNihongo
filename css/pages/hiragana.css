@@ -238,6 +238,66 @@ font-size:16px;
 }
 
 /*====================================
+        CATEGORY TABS
+=====================================*/
+
+.kana-category-tabs{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.kana-category-tab{
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    border:1px solid #e5e7eb;
+
+    background:white;
+
+    color:#374151;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-family:inherit;
+
+}
+
+.kana-category-tab:hover{
+
+    border-color:#ef4444;
+
+    color:#ef4444;
+
+}
+
+.kana-category-tab.active{
+
+    background:#ef4444;
+
+    border-color:#ef4444;
+
+    color:white;
+
+}
+
+/*====================================
         ACTIONS
 =====================================*/
 

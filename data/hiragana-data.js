@@ -62,7 +62,85 @@ const hiraganaData = [
 
     { id: 44, character: "わ", romaji: "wa", word: "わたし", reading: "watashi", meaning: "I / me", sentence: "わたしは がくせいです。", translation: "I am a student.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/wa.mp3" },
     { id: 45, character: "を", romaji: "wo", word: "を", reading: "wo", meaning: "Object particle (marks the direct object)", sentence: "ほんを よみます。", translation: "I read a book (book = object).", level: "N5", difficulty: "Easy", audio: "audio/hiragana/wo.mp3" },
-    { id: 46, character: "ん", romaji: "n", word: "ほん", reading: "hon", meaning: "N sound (never starts a word)", sentence: "ほんが すきです。", translation: "I like books.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/n.mp3" }
+    { id: 46, character: "ん", romaji: "n", word: "ほん", reading: "hon", meaning: "N sound (never starts a word)", sentence: "ほんが すきです。", translation: "I like books.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/n.mp3" },
+
+    /* ---------- Dakuten (゛) が-row ---------- */
+    { id: 47, character: "が", romaji: "ga", word: "がっこう", reading: "gakkou", meaning: "School", sentence: "がっこうへ いきます。", translation: "I go to school.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ga.mp3" },
+    { id: 48, character: "ぎ", romaji: "gi", word: "ぎんこう", reading: "ginkou", meaning: "Bank", sentence: "ぎんこうへ いきます。", translation: "I go to the bank.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/gi.mp3" },
+    { id: 49, character: "ぐ", romaji: "gu", word: "かぐ", reading: "kagu", meaning: "Furniture", sentence: "かぐを かいます。", translation: "I buy furniture.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/gu.mp3" },
+    { id: 50, character: "げ", romaji: "ge", word: "げんき", reading: "genki", meaning: "Healthy / energetic", sentence: "げんきです。", translation: "I am fine.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ge.mp3" },
+    { id: 51, character: "ご", romaji: "go", word: "ごはん", reading: "gohan", meaning: "Meal / rice", sentence: "ごはんを たべます。", translation: "I eat a meal.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/go.mp3" },
+
+    /* ---------- Dakuten (゛) ざ-row ---------- */
+    { id: 52, character: "ざ", romaji: "za", word: "ざっし", reading: "zasshi", meaning: "Magazine", sentence: "ざっしを よみます。", translation: "I read a magazine.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/za.mp3" },
+    { id: 53, character: "じ", romaji: "ji", word: "じかん", reading: "jikan", meaning: "Time", sentence: "じかんが ありません。", translation: "I don't have time.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ji.mp3" },
+    { id: 54, character: "ず", romaji: "zu", word: "ずつう", reading: "zutsuu", meaning: "Headache", sentence: "ずつうが します。", translation: "I have a headache.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/zu.mp3" },
+    { id: 55, character: "ぜ", romaji: "ze", word: "ぜんぶ", reading: "zenbu", meaning: "All / everything", sentence: "ぜんぶ たべました。", translation: "I ate everything.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ze.mp3" },
+    { id: 56, character: "ぞ", romaji: "zo", word: "ぞう", reading: "zou", meaning: "Elephant", sentence: "ぞうが います。", translation: "There is an elephant.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/zo.mp3" },
+
+    /* ---------- Dakuten (゛) だ-row (ぢ/づ sound identical to じ/ず in modern Japanese) ---------- */
+    { id: 57, character: "だ", romaji: "da", word: "だいがく", reading: "daigaku", meaning: "University", sentence: "だいがくへ いきます。", translation: "I go to university.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/da.mp3" },
+    { id: 58, character: "ぢ", romaji: "ji", word: "はなぢ", reading: "hanaji", meaning: "Nosebleed", sentence: "はなぢが でました。", translation: "I got a nosebleed.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/di.mp3" },
+    { id: 59, character: "づ", romaji: "zu", word: "つづく", reading: "tsuzuku", meaning: "To continue", sentence: "はなしが つづきます。", translation: "The story continues.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/du.mp3" },
+    { id: 60, character: "で", romaji: "de", word: "でんわ", reading: "denwa", meaning: "Telephone", sentence: "でんわを かけます。", translation: "I make a phone call.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/de.mp3" },
+    { id: 61, character: "ど", romaji: "do", word: "どようび", reading: "doyoubi", meaning: "Saturday", sentence: "どようびは やすみです。", translation: "Saturday is a day off.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/do.mp3" },
+
+    /* ---------- Dakuten (゛) ば-row ---------- */
+    { id: 62, character: "ば", romaji: "ba", word: "ばしょ", reading: "basho", meaning: "Place", sentence: "ばしょが わかりません。", translation: "I don't know the place.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ba.mp3" },
+    { id: 63, character: "び", romaji: "bi", word: "びょういん", reading: "byouin", meaning: "Hospital", sentence: "びょういんへ いきます。", translation: "I go to the hospital.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/bi.mp3" },
+    { id: 64, character: "ぶ", romaji: "bu", word: "ぶた", reading: "buta", meaning: "Pig", sentence: "ぶたが います。", translation: "There is a pig.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/bu.mp3" },
+    { id: 65, character: "べ", romaji: "be", word: "べんきょう", reading: "benkyou", meaning: "Study", sentence: "にほんごを べんきょうします。", translation: "I study Japanese.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/be.mp3" },
+    { id: 66, character: "ぼ", romaji: "bo", word: "ぼうし", reading: "boushi", meaning: "Hat", sentence: "ぼうしを かぶります。", translation: "I wear a hat.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/bo.mp3" },
+
+    /* ---------- Handakuten (゜) ぱ-row ---------- */
+    { id: 67, character: "ぱ", romaji: "pa", word: "いっぱい", reading: "ippai", meaning: "Full / a lot", sentence: "おなかが いっぱいです。", translation: "My stomach is full.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pa.mp3" },
+    { id: 68, character: "ぴ", romaji: "pi", word: "えんぴつ", reading: "enpitsu", meaning: "Pencil", sentence: "えんぴつで かきます。", translation: "I write with a pencil.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pi.mp3" },
+    { id: 69, character: "ぷ", romaji: "pu", word: "てんぷら", reading: "tenpura", meaning: "Tempura", sentence: "てんぷらを たべます。", translation: "I eat tempura.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pu.mp3" },
+    { id: 70, character: "ぺ", romaji: "pe", word: "ぺらぺら", reading: "perapera", meaning: "Fluent (speaking)", sentence: "にほんごが ぺらぺらです。", translation: "[He/She] speaks Japanese fluently.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pe.mp3" },
+    { id: 71, character: "ぽ", romaji: "po", word: "たんぽぽ", reading: "tanpopo", meaning: "Dandelion", sentence: "たんぽぽが さいています。", translation: "The dandelion is blooming.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/po.mp3" },
+
+    /* ---------- Yōon (contracted sounds) き/し/ち-row ---------- */
+    { id: 72, character: "きゃ", romaji: "kya", word: "きゃく", reading: "kyaku", meaning: "Guest / customer", sentence: "きゃくが きます。", translation: "A guest is coming.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/kya.mp3" },
+    { id: 73, character: "きゅ", romaji: "kyu", word: "きゅうり", reading: "kyuuri", meaning: "Cucumber", sentence: "きゅうりを たべます。", translation: "I eat cucumber.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/kyu.mp3" },
+    { id: 74, character: "きょ", romaji: "kyo", word: "きょう", reading: "kyou", meaning: "Today", sentence: "きょうは あついです。", translation: "Today is hot.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/kyo.mp3" },
+    { id: 75, character: "しゃ", romaji: "sha", word: "かいしゃ", reading: "kaisha", meaning: "Company", sentence: "かいしゃへ いきます。", translation: "I go to the company.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/sha.mp3" },
+    { id: 76, character: "しゅ", romaji: "shu", word: "しゅみ", reading: "shumi", meaning: "Hobby", sentence: "しゅみは どくしょです。", translation: "My hobby is reading.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/shu.mp3" },
+    { id: 77, character: "しょ", romaji: "sho", word: "じしょ", reading: "jisho", meaning: "Dictionary", sentence: "じしょを つかいます。", translation: "I use a dictionary.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/sho.mp3" },
+    { id: 78, character: "ちゃ", romaji: "cha", word: "おちゃ", reading: "ocha", meaning: "Tea", sentence: "おちゃを のみます。", translation: "I drink tea.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/cha.mp3" },
+    { id: 79, character: "ちゅ", romaji: "chu", word: "ちゅうごく", reading: "chuugoku", meaning: "China", sentence: "ちゅうごくへ いきます。", translation: "I go to China.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/chu.mp3" },
+    { id: 80, character: "ちょ", romaji: "cho", word: "ちょっと", reading: "chotto", meaning: "A little / a moment", sentence: "ちょっと まってください。", translation: "Please wait a moment.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/cho.mp3" },
+
+    /* ---------- Yōon (contracted sounds) に/ひ/み-row ---------- */
+    { id: 81, character: "にゃ", romaji: "nya", word: "こんにゃく", reading: "konnyaku", meaning: "Konjac (jelly food)", sentence: "こんにゃくを たべます。", translation: "I eat konjac.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/nya.mp3" },
+    { id: 82, character: "にゅ", romaji: "nyu", word: "にゅうがく", reading: "nyuugaku", meaning: "School enrollment", sentence: "らいねん にゅうがくします。", translation: "I will enroll in school next year.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/nyu.mp3" },
+    { id: 83, character: "にょ", romaji: "nyo", word: "にょろにょろ", reading: "nyoronyoro", meaning: "Wriggling / slithering (onomatopoeia)", sentence: "へびが にょろにょろ うごきます。", translation: "The snake moves in a wriggling way.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/nyo.mp3" },
+    { id: 84, character: "ひゃ", romaji: "hya", word: "ひゃく", reading: "hyaku", meaning: "Hundred", sentence: "ひゃくえんです。", translation: "It's 100 yen.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/hya.mp3" },
+    { id: 85, character: "ひゅ", romaji: "hyu", word: "ひゅうひゅう", reading: "hyuuhyuu", meaning: "Whistling (wind sound, onomatopoeia)", sentence: "かぜが ひゅうひゅう ふきます。", translation: "The wind blows with a whistling sound.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/hyu.mp3" },
+    { id: 86, character: "ひょ", romaji: "hyo", word: "ひょう", reading: "hyou", meaning: "Table / chart", sentence: "ひょうを みます。", translation: "I look at the table (chart).", level: "N5", difficulty: "Easy", audio: "audio/hiragana/hyo.mp3" },
+    { id: 87, character: "みゃ", romaji: "mya", word: "みゃく", reading: "myaku", meaning: "Pulse", sentence: "みゃくを はかります。", translation: "I measure the pulse.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/mya.mp3" },
+    { id: 88, character: "みゅ", romaji: "myu", word: "みゅ", reading: "myu", meaning: "Rare hiragana sound (mostly appears in loanwords, which are normally written in katakana)", sentence: "みゅという おとは めずらしいです。", translation: "The sound 'myu' is rare.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/myu.mp3" },
+    { id: 89, character: "みょ", romaji: "myo", word: "みょうじ", reading: "myouji", meaning: "Surname", sentence: "みょうじは たなかです。", translation: "My surname is Tanaka.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/myo.mp3" },
+
+    /* ---------- Yōon (contracted sounds) り-row ---------- */
+    { id: 90, character: "りゃ", romaji: "rya", word: "りゃくご", reading: "ryakugo", meaning: "Abbreviation", sentence: "これは りゃくごです。", translation: "This is an abbreviation.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/rya.mp3" },
+    { id: 91, character: "りゅ", romaji: "ryu", word: "りゅう", reading: "ryuu", meaning: "Dragon", sentence: "りゅうの えを かきます。", translation: "I draw a picture of a dragon.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ryu.mp3" },
+    { id: 92, character: "りょ", romaji: "ryo", word: "りょこう", reading: "ryokou", meaning: "Travel / trip", sentence: "りょこうに いきます。", translation: "I go on a trip.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ryo.mp3" },
+
+    /* ---------- Yōon (contracted sounds) ぎ/じ-row ---------- */
+    { id: 93, character: "ぎゃ", romaji: "gya", word: "ぎゃく", reading: "gyaku", meaning: "Opposite / reverse", sentence: "それは ぎゃくです。", translation: "That is the opposite.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/gya.mp3" },
+    { id: 94, character: "ぎゅ", romaji: "gyu", word: "ぎゅうにゅう", reading: "gyuunyuu", meaning: "Milk", sentence: "ぎゅうにゅうを のみます。", translation: "I drink milk.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/gyu.mp3" },
+    { id: 95, character: "ぎょ", romaji: "gyo", word: "ぎょうざ", reading: "gyouza", meaning: "Gyoza (dumpling)", sentence: "ぎょうざを たべます。", translation: "I eat gyoza.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/gyo.mp3" },
+    { id: 96, character: "じゃ", romaji: "ja", word: "じゃがいも", reading: "jagaimo", meaning: "Potato", sentence: "じゃがいもを たべます。", translation: "I eat potato.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ja.mp3" },
+    { id: 97, character: "じゅ", romaji: "ju", word: "じゅぎょう", reading: "jugyou", meaning: "Class / lesson", sentence: "じゅぎょうが あります。", translation: "There is a class.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/ju.mp3" },
+    { id: 98, character: "じょ", romaji: "jo", word: "じょうず", reading: "jouzu", meaning: "Skillful", sentence: "りょうりが じょうずです。", translation: "[He/She] is good at cooking.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/jo.mp3" },
+
+    /* ---------- Yōon (contracted sounds) び/ぴ-row ---------- */
+    { id: 99, character: "びゃ", romaji: "bya", word: "さんびゃく", reading: "sanbyaku", meaning: "Three hundred", sentence: "さんびゃくえんです。", translation: "It's 300 yen.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/bya.mp3" },
+    { id: 100, character: "びゅ", romaji: "byu", word: "びゅうびゅう", reading: "byuubyuu", meaning: "Blowing fiercely (wind sound, onomatopoeia)", sentence: "かぜが びゅうびゅう ふきます。", translation: "The wind blows fiercely.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/byu.mp3" },
+    { id: 101, character: "びょ", romaji: "byo", word: "びょうき", reading: "byouki", meaning: "Sickness / illness", sentence: "びょうきに なりました。", translation: "I got sick.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/byo.mp3" },
+    { id: 102, character: "ぴゃ", romaji: "pya", word: "はっぴゃく", reading: "happyaku", meaning: "Eight hundred", sentence: "はっぴゃくえんです。", translation: "It's 800 yen.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pya.mp3" },
+    { id: 103, character: "ぴゅ", romaji: "pyu", word: "ぴゅうぴゅう", reading: "pyuupyuu", meaning: "Whistling (thin wind sound, onomatopoeia)", sentence: "かぜが ぴゅうぴゅう なります。", translation: "The wind whistles.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pyu.mp3" },
+    { id: 104, character: "ぴょ", romaji: "pyo", word: "ぴょんぴょん", reading: "pyonpyon", meaning: "Hopping (onomatopoeia)", sentence: "うさぎが ぴょんぴょん はねます。", translation: "The rabbit hops around.", level: "N5", difficulty: "Easy", audio: "audio/hiragana/pyo.mp3" }
 ];
 
 if (typeof module !== "undefined" && module.exports) { module.exports = hiraganaData; }
