@@ -39,6 +39,14 @@
     font-weight:700;
 }
 
+/* [hidden] and .char-progress-badge{display:inline-block} both have
+   specificity (0,1,0); without this rule the class (declared later in
+   the cascade) would win and the badge would stay visible even with the
+   hidden attribute set — same fix as .lang-menu[hidden] in navbar.css. */
+.char-progress-badge[hidden]{
+    display:none;
+}
+
 .char-progress-badge.status-learning{ background:#e0f2fe; color:#0369a1; }
 .char-progress-badge.status-practicing{ background:#fef3c7; color:#b45309; }
 .char-progress-badge.status-completed{ background:#dcfce7; color:#15803d; }
@@ -81,6 +89,7 @@
 
 .character-names{
     display:flex;
+    flex-wrap:wrap;
     align-items:baseline;
     justify-content:center;
     gap:14px;
@@ -91,6 +100,14 @@
     font-size:24px;
     font-weight:700;
     color:var(--brand);
+}
+
+/* Kanji On/Kun readings run longer than kana romaji — smaller and
+   wrappable so they don't overflow the card. */
+.character-romaji.readings{
+    font-size:16px;
+    max-width:100%;
+    text-align:center;
 }
 
 .character-bn{

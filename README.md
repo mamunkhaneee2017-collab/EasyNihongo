@@ -101,4 +101,4 @@ Known limitations (by design, not oversights):
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Third-party stroke-order data credits: see [docs/CREDITS.md](docs/CREDITS.md).

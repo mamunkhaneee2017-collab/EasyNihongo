@@ -129,6 +129,9 @@
             <div class="kanji-readings"><strong>On:</strong> ${item.on} &nbsp;&nbsp; <strong>Kun:</strong> ${item.kun}</div>
             <p class="meaning" data-i18n-en="${escapeAttr(item.meanings.en)}" data-i18n-bn="${escapeAttr(item.meanings.bn)}">${item.meanings.en}</p>
             <p class="kanji-stroke-count">${item.strokes} strokes</p>
+            <a class="btn btn-outline kanji-stroke-link" href="character.html?type=kanji&level=${level}&char=${encodeURIComponent(item.char)}&chapter=${chapterNum}">
+                <i class="fa-solid fa-pen-fancy"></i> View Stroke Order
+            </a>
             ${examplesHtml ? `<ul class="kanji-examples">${examplesHtml}</ul>` : ""}
             ${sentenceHtml}`;
     }

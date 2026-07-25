@@ -222,6 +222,15 @@
     margin-bottom:10px;
 }
 
+.kanji-stroke-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 16px;
+    font-size:13px;
+    margin-bottom:14px;
+}
+
 .kanji-examples{
     list-style:none;
     background:#f8fafc;

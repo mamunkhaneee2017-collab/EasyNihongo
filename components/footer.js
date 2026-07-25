@@ -82,6 +82,7 @@
 
     <div class="footer-bottom">
         &copy; 2026 Easy Nihongo. All Rights Reserved.
+        <span class="footer-credit">Kana &amp; Kanji stroke-order data &copy; animCJK contributors.</span>
     </div>
 </footer>
 

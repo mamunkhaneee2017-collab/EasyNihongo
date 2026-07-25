@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
-    "test:smoke": "node tests/smoke.js"
+    "test:smoke": "node tests/smoke.js",
+    "generate:kana-strokes": "node scripts/generate-kana-strokes.js",
+    "generate:kanji-strokes": "node scripts/generate-kanji-strokes.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
