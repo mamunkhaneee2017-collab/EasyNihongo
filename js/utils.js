@@ -63,11 +63,43 @@
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
+    // A touch-drag over a `position:fixed` element that itself has nothing
+    // to scroll doesn't "capture" the gesture on mobile browsers — it
+    // leaks through to scroll whatever's underneath (the page), which is
+    // exactly the reported bug: scrolling "on" the open drawer moves the
+    // homepage behind it instead. Plain `overflow:hidden` on <body> doesn't
+    // reliably stop that on iOS Safari either — the well-established fix
+    // is to pin <body> itself with position:fixed while the drawer is
+    // open (restoring the exact scroll position on close), so there's no
+    // scrollable page left underneath for a stray swipe to reach.
+    let savedScrollY = 0;
+
+    function lockBodyScroll() {
+        savedScrollY = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.width = "100%";
+    }
+
+    function unlockBodyScroll() {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, savedScrollY);
+    }
+
+    function setMobileMenuOpen(isOpen) {
+        if (!navMenu || !menuToggle) return;
+        navMenu.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen) lockBodyScroll();
+        else unlockBodyScroll();
+    }
+
     if (menuToggle && navMenu) {
         menuToggle.addEventListener("click", (e) => {
             e.stopPropagation();
-            const isOpen = navMenu.classList.toggle("active");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            setMobileMenuOpen(!navMenu.classList.contains("active"));
         });
 
         // Tapping anywhere else on the page (not just the hamburger button
@@ -75,8 +107,7 @@
         // registerDropdown below, just for the mobile nav-menu itself.
         document.addEventListener("click", (e) => {
             if (!navMenu.classList.contains("active") || navMenu.contains(e.target)) return;
-            navMenu.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
+            setMobileMenuOpen(false);
         });
     }
 
@@ -171,16 +202,13 @@
     // buttons inside the #navMenu drawer (components/header.js) is what
     // mobile visitors actually use. Same effect, just also closes the
     // drawer afterward since picking a language is a "done" action here.
-    const navMenuEl = document.getElementById("navMenu");
     document.querySelectorAll(".nav-lang-mobile-options button[data-lang]").forEach((btn) => {
         btn.addEventListener("click", () => {
             const lang = btn.dataset.lang;
             localStorage.setItem("lang", lang);
             if (langLabel) langLabel.textContent = LANG_LABELS[lang] || lang.toUpperCase();
             if (window.EasyNihongoI18n) window.EasyNihongoI18n.setLanguage(lang);
-            if (navMenuEl) navMenuEl.classList.remove("active");
-            const toggle = document.getElementById("menuToggle");
-            if (toggle) toggle.setAttribute("aria-expanded", "false");
+            setMobileMenuOpen(false);
         });
     });
 
