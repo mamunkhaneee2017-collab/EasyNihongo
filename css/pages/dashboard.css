@@ -896,16 +896,19 @@ body{
         gap:15px;
     }
 
+    /* Sidebar goes off-canvas at this same breakpoint, but that alone
+       doesn't guarantee room: header-left's welcome text has no fixed
+       width, so on a narrow-but-not-mobile window (or a Windows display
+       scale factor shrinking the effective CSS viewport) the row can
+       still run out of space and push the profile card off-screen.
+       Dropping the search box here — not just at 576px — is the same
+       fix already applied below, just triggered earlier. */
     .search-box{
-        width:220px;
+        display:none;
     }
 }
 
 @media(max-width:576px){
-
-    .search-box{
-        display:none;
-    }
 
     .dashboard-header{
         padding:14px 18px;
