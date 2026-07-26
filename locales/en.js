@@ -305,6 +305,7 @@ window.EN_STRINGS = {
     "home.faq.a4": "You can browse public lessons without an account, but progress tracking requires registration.",
 
     "sidebar.dashboard": "Dashboard",
+    "sidebar.home": "Home",
     "sidebar.quiz": "Quiz",
     "sidebar.favorites": "My Favorites",
     "favorites.title": "My Favorites",

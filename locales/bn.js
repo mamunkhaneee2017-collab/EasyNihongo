@@ -302,6 +302,7 @@ window.BN_STRINGS = {
     "home.faq.a4": "অ্যাকাউন্ট ছাড়াই আপনি পাবলিক লেসন দেখতে পারবেন, তবে অগ্রগতি ট্র্যাক করতে রেজিস্ট্রেশন প্রয়োজন।",
 
     "sidebar.dashboard": "ড্যাশবোর্ড",
+    "sidebar.home": "হোম",
     "sidebar.quiz": "কুইজ",
     "sidebar.favorites": "আমার পছন্দসমূহ",
     "favorites.title": "আমার পছন্দসমূহ",

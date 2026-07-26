@@ -302,6 +302,7 @@ window.JA_STRINGS = {
     "home.faq.a4": "アカウントなしでも公開レッスンを閲覧できますが、進捗の記録には登録が必要です。",
 
     "sidebar.dashboard": "ダッシュボード",
+    "sidebar.home": "ホーム",
     "sidebar.quiz": "クイズ",
     "sidebar.favorites": "お気に入り",
     "favorites.title": "お気に入り",

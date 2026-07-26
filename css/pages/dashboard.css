@@ -762,6 +762,7 @@ body{
     position:relative;
     width:50px;
     height:50px;
+    flex-shrink:0;
     border-radius:50%;
     background:white;
     display:flex;
@@ -796,6 +797,7 @@ body{
     display:flex;
     align-items:center;
     gap:15px;
+    flex-shrink:0;
     background:white;
     padding:8px 16px;
     border-radius:12px;
@@ -806,16 +808,49 @@ body{
 .profile img{
     width:50px;
     height:50px;
+    flex-shrink:0;
     border-radius:50%;
     object-fit:cover;
 }
 
 .profile h4{
     margin-bottom:4px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:110px;
 }
 
 .profile small{
     color:#6b7280;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:110px;
+    display:block;
+}
+
+/*====================================
+        SMALL DESKTOP
+    (sidebar is still docked here, so this
+    range needs its own squeeze relief before
+    the tablet breakpoint frees up the sidebar's
+    width entirely)
+=====================================*/
+
+@media(max-width:1300px){
+
+    .header-right{
+        gap:15px;
+    }
+
+    .search-box{
+        width:180px;
+    }
+
+    .dashboard-header h1{
+        font-size:21px;
+    }
 }
 
 /*====================================
@@ -913,6 +948,7 @@ body{
 .theme-btn{
     width:50px;
     height:50px;
+    flex-shrink:0;
     border:none;
     border-radius:50%;
     background:white;
