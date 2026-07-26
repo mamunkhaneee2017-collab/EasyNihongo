@@ -72,10 +72,33 @@ document.addEventListener("DOMContentLoaded", function () {
         notifDropdown.classList.remove("show");
     });
 
-    /* ---------------- DARK MODE ---------------- */
+    document.getElementById("notifDropdownList").addEventListener("click", function (e) {
+        if (e.target.closest(".notif-item")) switchView("messages");
+    });
 
-    document.getElementById("adminDarkModeBtn").addEventListener("click", function () {
-        document.body.classList.toggle("admin-dark");
+    /* ---------------- DARK MODE ---------------- */
+    // Own localStorage key ("adminTheme"), deliberately not the public
+    // site's "theme" key — same-origin localStorage is shared, and an
+    // admin's preference for this internal tool shouldn't flip the public
+    // pages they might also browse (logged out) in the same browser, or
+    // vice versa.
+
+    const adminDarkModeBtn = document.getElementById("adminDarkModeBtn");
+    const adminDarkModeIcon = adminDarkModeBtn.querySelector("i");
+
+    function setAdminDarkIcon(isDark) {
+        adminDarkModeIcon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    }
+
+    if (localStorage.getItem("adminTheme") === "dark") {
+        document.body.classList.add("dark");
+    }
+    setAdminDarkIcon(document.body.classList.contains("dark"));
+
+    adminDarkModeBtn.addEventListener("click", function () {
+        const isDark = document.body.classList.toggle("dark");
+        localStorage.setItem("adminTheme", isDark ? "dark" : "light");
+        setAdminDarkIcon(isDark);
     });
 
     /* ---------------- LOGOUT ---------------- */
@@ -98,6 +121,28 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ==========================================
        HELPERS
     ========================================== */
+
+    // Topbar search — filters whichever of the Courses & Files / Students /
+    // Messages views is currently on screen, by re-running that view's own
+    // existing render function (which already reads allMaterials/allStudents/
+    // allMessages) against this term. No new fetch, no new endpoint.
+    let adminSearchTerm = "";
+
+    function matchesAdminSearch(...fields) {
+        if (!adminSearchTerm) return true;
+        const term = adminSearchTerm.toLowerCase();
+        return fields.some((f) => String(f || "").toLowerCase().includes(term));
+    }
+
+    const adminSearchInput = document.getElementById("adminSearchInput");
+    if (adminSearchInput) {
+        adminSearchInput.addEventListener("input", () => {
+            adminSearchTerm = adminSearchInput.value.trim();
+            renderFiles();
+            renderStudents();
+            renderMessagesList();
+        });
+    }
 
     const TYPE_ICON = {
         pdf: { icon: "fa-file-pdf", cls: "icon-pdf" },
@@ -152,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("statUnread").textContent = data.unreadMessages.toLocaleString();
                 document.getElementById("statVisitorsToday").textContent = data.visitorsToday.toLocaleString();
                 document.getElementById("messagesBadge").textContent = data.unreadMessages;
+                document.getElementById("notifDot").textContent = data.unreadMessages > 0 ? data.unreadMessages : "";
 
                 const chart = document.getElementById("visitorChart");
                 if (chart && data.weeklyVisits) {
@@ -180,6 +226,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         </li>
                     `).join("")
                     : `<li class="empty-state">No messages yet.</li>`;
+
+                // Same response, second render target — the topbar bell
+                // dropdown, showing only unread ("new") messages.
+                const dropdownList = document.getElementById("notifDropdownList");
+                const unread = data.messages.filter((m) => m.status === "new").slice(0, 5);
+                dropdownList.innerHTML = unread.length
+                    ? unread.map((m) => `
+                        <div class="notif-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <p><strong>${m.name}</strong> ${m.subject}</p>
+                                <span>${timeAgo(m.created_at)}</span>
+                            </div>
+                        </div>
+                    `).join("")
+                    : `<p class="empty-state">No new messages.</p>`;
             });
 
         fetch("/api/admin/visitors", { credentials: "same-origin" })
@@ -216,7 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const activeFilter = filterType ? filterType.value : "all";
         const rows = allMaterials.filter((f) => {
             const type = mimeToType(f.mime_type);
-            return activeFilter === "all" || type === activeFilter;
+            if (activeFilter !== "all" && type !== activeFilter) return false;
+            return matchesAdminSearch(f.original_name, f.level, f.category);
         });
 
         filesTableBody.innerHTML = rows.map((f) => {
@@ -805,7 +868,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderMessagesList() {
         if (!messagesList) return;
 
-        messagesList.innerHTML = allMessages.map((m) => `
+        const filtered = allMessages.filter((m) => matchesAdminSearch(m.name, m.subject, m.message));
+
+        messagesList.innerHTML = filtered.map((m) => `
             <li class="message-item" data-id="${m.id}">
                 <div class="recent-avatar">${m.name.split(" ").map(w => w[0]).join("").slice(0, 2)}</div>
                 <div class="message-item-info">
@@ -922,7 +987,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!studentsTableBody) return;
 
         const activeFilter = filterLevel ? filterLevel.value : "all";
-        const rows = allStudents.filter((s) => activeFilter === "all" || s.level === activeFilter);
+        const rows = allStudents.filter((s) => {
+            if (activeFilter !== "all" && s.level !== activeFilter) return false;
+            return matchesAdminSearch(s.name, s.email);
+        });
 
         studentsTableBody.innerHTML = rows.map((s) => {
             const statusBadge = s.status === "active"
@@ -1031,8 +1099,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("siteNameInput").value = s.site_name || "";
                 document.getElementById("contactEmailInput").value = s.contact_email || "";
                 document.getElementById("supportPhoneInput").value = s.support_phone || "";
-                document.getElementById("maintenanceToggle").checked = !!s.maintenance_mode;
-                document.getElementById("notifyToggle").checked = !!s.notify_admin_on_message;
+                document.getElementById("socialFacebookInput").value = s.social_facebook || "";
+                document.getElementById("socialInstagramInput").value = s.social_instagram || "";
+                document.getElementById("socialYoutubeInput").value = s.social_youtube || "";
+                document.getElementById("socialGithubInput").value = s.social_github || "";
             });
 
         authCheckPromise.then((user) => {
@@ -1054,7 +1124,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     siteName: document.getElementById("siteNameInput").value.trim(),
                     contactEmail: document.getElementById("contactEmailInput").value.trim(),
                     supportPhone: document.getElementById("supportPhoneInput").value.trim(),
-                    maintenanceMode: document.getElementById("maintenanceToggle").checked
+                    socialFacebook: document.getElementById("socialFacebookInput").value.trim(),
+                    socialInstagram: document.getElementById("socialInstagramInput").value.trim(),
+                    socialYoutube: document.getElementById("socialYoutubeInput").value.trim(),
+                    socialGithub: document.getElementById("socialGithubInput").value.trim()
                 })
             })
                 .then(async (res) => {
@@ -1079,27 +1152,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             updateAccountBtn.disabled = true;
 
-            Promise.all([
-                fetch("/api/admin/settings/me", {
-                    method: "PATCH",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "same-origin",
-                    body: JSON.stringify({
-                        fullName: document.getElementById("adminNameInput").value.trim(),
-                        currentPassword: currentPassword || undefined,
-                        newPassword: newPassword || undefined
-                    })
-                }),
-                fetch("/api/admin/settings", {
-                    method: "PATCH",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "same-origin",
-                    body: JSON.stringify({
-                        notifyAdminOnMessage: document.getElementById("notifyToggle").checked
-                    })
+            fetch("/api/admin/settings/me", {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                credentials: "same-origin",
+                body: JSON.stringify({
+                    fullName: document.getElementById("adminNameInput").value.trim(),
+                    currentPassword: currentPassword || undefined,
+                    newPassword: newPassword || undefined
                 })
-            ])
-                .then(async ([accountRes]) => {
+            })
+                .then(async (accountRes) => {
                     const accountData = await accountRes.json();
                     if (!accountRes.ok) throw new Error(accountData.error || "Could not update account.");
 

@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../css/pages/dashboard.css">
 <link rel="stylesheet" href="../css/pages/settings.css">
 <link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/dark.css">
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -155,7 +156,7 @@
         <div class="settings-toggle-row">
             <span data-i18n="settings.dailyReminder">Daily study reminder</span>
             <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" id="notifDailyReminder" checked>
                 <span class="slider"></span>
             </label>
         </div>
@@ -163,7 +164,7 @@
         <div class="settings-toggle-row">
             <span data-i18n="settings.courseAnnouncements">New course announcements</span>
             <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" id="notifCourseAnnouncements" checked>
                 <span class="slider"></span>
             </label>
         </div>
@@ -171,7 +172,7 @@
         <div class="settings-toggle-row">
             <span data-i18n="settings.achievementAlerts">Achievement &amp; streak alerts</span>
             <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" id="notifAchievementAlerts" checked>
                 <span class="slider"></span>
             </label>
         </div>
@@ -180,6 +181,17 @@
     <div class="settings-card">
         <h2><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="settings.learningPreferences">Learning Preferences</span></h2>
         <p class="settings-hint" data-i18n="settings.learningPreferencesHint">These help personalize your dashboard and recommendations.</p>
+
+        <div class="settings-field">
+            <label for="currentLevel" data-i18n="register.label.currentLevel">Current JLPT level</label>
+            <select id="currentLevel">
+                <option>N5</option>
+                <option>N4</option>
+                <option>N3</option>
+                <option>N2</option>
+                <option>N1</option>
+            </select>
+        </div>
 
         <div class="settings-field">
             <label for="targetLevel" data-i18n="register.label.goalLevel">Target JLPT level</label>
@@ -234,6 +246,7 @@
 <script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/auth-guard.js"></script>
+<script src="../js/utils.js"></script>
 <script src="../js/pages/settings.js"></script>
 
 </body>

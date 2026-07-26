@@ -391,7 +391,27 @@ body.dark .footer a:hover{
 
 /* ==========================================
         DASHBOARD
+   Shared by dashboard.html, profile.html,
+   settings.html and favorites.html (all four
+   load css/pages/dashboard.css for their shell).
+   Consolidated here — the single source of
+   truth for every dark-mode rule these pages
+   need — rather than dashboard.css's own thin,
+   separate body.dark{} block (removed).
 ========================================== */
+
+/* css/pages/dashboard.css's own body{background:#f3f4f6} rule (loaded
+   after base.css) hardcodes a non-token background, unlike every other
+   page on the site — so unlike elsewhere, dark mode here needs an
+   explicit body.dark override to actually beat it, not just rely on
+   base.css's body{background:var(--bg)} + variables.css's token swap. */
+body.dark{
+
+    background:#111827;
+
+    color:white;
+
+}
 
 body.dark .sidebar{
 
@@ -399,19 +419,107 @@ body.dark .sidebar{
 
 }
 
-body.dark .dashboard-card{
+/* Card/panel backgrounds — moved verbatim from css/pages/dashboard.css's
+   own (now-removed) body.dark{} block. */
+body.dark .card,
+body.dark .dashboard-header,
+body.dark .progress-card,
+body.dark .chart-card,
+body.dark .goal-card,
+body.dark .achievement-card,
+body.dark .continue-card,
+body.dark .notification-card,
+body.dark .calendar-card,
+body.dark .progress-circle-card,
+body.dark .info-box,
+body.dark .mission-card,
+body.dark .xp-card,
+body.dark .search-box,
+body.dark .profile,
+body.dark .notification,
+body.dark .theme-btn{
+
+    background:#1f2937;
+
+    color:white;
+
+}
+
+body.dark input,
+body.dark .search-box input{
+
+    background:transparent;
+
+    color:white;
+
+}
+
+body.dark .calendar-card td:hover{
 
     background:#374151;
 
 }
 
-body.dark .profile-card{
+/* Text/track colors that stayed hardcoded light-mode values even after
+   their card backgrounds above went dark — each was invisible or
+   low-contrast without these. */
 
-    background:#374151;
+body.dark .card h2{
+
+    color:#ffffff;
 
 }
 
+body.dark .card h3{
 
+    color:#d1d5db;
+
+}
+
+body.dark .dashboard-header p{
+
+    color:#d1d5db;
+
+}
+
+body.dark .card small,
+body.dark #calendarDayInfo{
+
+    color:#9ca3af;
+
+}
+
+body.dark .progress,
+body.dark .goal-progress,
+body.dark .xp-progress{
+
+    background:#4b5563;
+
+}
+
+body.dark .chart-range-toggle{
+
+    background:#1f2937;
+
+}
+
+body.dark .chart-range-btn{
+
+    color:#d1d5db;
+
+}
+
+body.dark .badges div{
+
+    background:#4b5563;
+
+}
+
+body.dark .progress-ring .bg{
+
+    stroke:#4b5563;
+
+}
 
 /* .btn-secondary / .secondary-btn now read colors from
    css/variables.css (border/color: var(--brand)), so no

@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/pages/dashboard.css">
 <link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/dark.css">
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -137,12 +138,12 @@
             <i class="fa-solid fa-moon"></i>
         </button>
 
-        <div class="notification">
+        <div class="notification" id="notificationBell">
             <i class="fa-regular fa-bell"></i>
             <span class="badge" id="notificationCount">3</span>
         </div>
 
-        <div class="profile">
+        <div class="profile" id="profileWidget">
             <img id="profileAvatar" src="../assets/images/profile/mamun.jpeg" alt="Profile">
             <div>
                 <h4 id="profileName">Mamun</h4>
@@ -212,7 +213,7 @@
 
         <div class="goal-card">
             <h2 data-i18n="dashboard.todaysGoal">Today's Goal</h2>
-            <p data-i18n="dashboard.study60">Study 60 Minutes</p>
+            <p id="goalLabel">Study 60 Minutes</p>
             <div class="goal-progress">
                 <div class="goal-fill" id="goalFill"></div>
             </div>
@@ -244,10 +245,10 @@
         <div class="achievement-card">
             <h2 data-i18n="dashboard.achievements">Achievements</h2>
             <div class="badges">
-                <div>🏆</div>
-                <div>🔥</div>
-                <div>⭐</div>
-                <div>🎖️</div>
+                <div data-achievement="trophy" title="Reach 50% overall progress">🏆</div>
+                <div data-achievement="streak" title="Reach a 3 day streak">🔥</div>
+                <div data-achievement="xp" title="Reach 500 XP">⭐</div>
+                <div data-achievement="quiz" title="Complete a quiz">🎖️</div>
             </div>
         </div>
 
@@ -272,7 +273,7 @@
     <div>
 
         <!-- Notification -->
-        <div class="notification-card">
+        <div class="notification-card" id="notificationsCard">
             <h2 data-i18n="dashboard.notifications">Notifications</h2>
             <ul id="notificationList">
                 <!-- injected by JS -->
@@ -282,6 +283,7 @@
         <!-- Calendar -->
         <div class="calendar-card">
             <h2 id="calendarMonthLabel" data-i18n="dashboard.studyCalendar">Study Calendar</h2>
+            <small id="calendarDayInfo"></small>
             <table>
                 <thead>
                     <tr>
@@ -366,6 +368,7 @@
     <div class="card">
         <h3 data-i18n="dashboard.currentJlpt">Current JLPT</h3>
         <h2 id="cardJlptLevel">N3</h2>
+        <small id="cardJlptGoal"></small>
     </div>
 
     <div class="card">
@@ -388,6 +391,7 @@
 <script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/auth-guard.js"></script>
+<script src="../js/utils.js"></script>
 <script src="../js/pages/dashboard.js"></script>
 </body>
 </html>

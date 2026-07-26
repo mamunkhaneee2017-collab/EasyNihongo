@@ -34,6 +34,23 @@
         });
     }
 
+    // Shared theme API so pages with their own extra theme control (e.g.
+    // settings.html's #themeToggle switch, alongside the icon button every
+    // page has) can stay in sync without re-implementing this logic — see
+    // the "easynihongo:theme" event, dispatched on every change regardless
+    // of which control triggered it.
+    function setTheme(isDark) {
+        document.body.classList.toggle("dark", isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        setDarkIcon(isDark);
+        document.dispatchEvent(new CustomEvent("easynihongo:theme", { detail: { isDark } }));
+    }
+
+    window.EasyNihongoTheme = {
+        setTheme,
+        isDark: () => document.body.classList.contains("dark")
+    };
+
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark");
     }
@@ -41,9 +58,7 @@
 
     darkButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const isDark = document.body.classList.toggle("dark");
-            localStorage.setItem("theme", isDark ? "dark" : "light");
-            setDarkIcon(isDark);
+            setTheme(!document.body.classList.contains("dark"));
         });
     });
 

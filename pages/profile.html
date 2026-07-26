@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/pages/dashboard.css">
 <link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/dark.css">
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -132,7 +133,7 @@
             <i class="fa-solid fa-moon"></i>
         </button>
 
-        <div class="profile">
+        <div class="profile" id="profileWidget">
             <img id="profileAvatar" src="../assets/images/profile/mamun.jpeg" alt="Profile">
             <div>
                 <h4 id="profileName">Mamun</h4>
@@ -209,6 +210,7 @@
 <script src="../locales/ja.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/auth-guard.js"></script>
+<script src="../js/utils.js"></script>
 <script>
     let currentProfileUser = null;
 
@@ -292,18 +294,16 @@
     });
 </script>
 <script>
-    const themeToggle = document.getElementById("darkModeBtn");
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-    });
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
-
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.querySelector(".sidebar");
     menuToggle.addEventListener("click", () => sidebar.classList.toggle("show"));
+
+    const profileWidget = document.getElementById("profileWidget");
+    if (profileWidget) {
+        profileWidget.addEventListener("click", () => {
+            window.location.href = "profile.html";
+        });
+    }
 </script>
 
 </body>

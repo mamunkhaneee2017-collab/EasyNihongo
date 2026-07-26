@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 
@@ -49,7 +50,7 @@
 
                 <a href="#messages" class="admin-nav-link" data-view="messages">
                     <i class="fa-solid fa-envelope"></i> <span>Messages</span>
-                    <span class="nav-badge" id="messagesBadge">3</span>
+                    <span class="nav-badge" id="messagesBadge">0</span>
                 </a>
 
                 <a href="#visitors" class="admin-nav-link" data-view="visitors">
@@ -86,7 +87,7 @@
 
                 <div class="admin-search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search students, messages, files...">
+                    <input type="text" id="adminSearchInput" placeholder="Search students, messages, files...">
                 </div>
 
                 <div class="admin-topbar-right">
@@ -97,30 +98,12 @@
 
                     <div class="admin-notification" id="notifBtn">
                         <i class="fa-solid fa-bell"></i>
-                        <span class="notif-dot"></span>
+                        <span class="notif-dot" id="notifDot"></span>
 
                         <div class="notif-dropdown" id="notifDropdown">
                             <h4>Notifications</h4>
-                            <div class="notif-item">
-                                <i class="fa-solid fa-envelope"></i>
-                                <div>
-                                    <p><strong>Sara Kim</strong> sent a new message</p>
-                                    <span>5 minutes ago</span>
-                                </div>
-                            </div>
-                            <div class="notif-item">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <div>
-                                    <p><strong>Ahmed Rahman</strong> joined as a student</p>
-                                    <span>2 hours ago</span>
-                                </div>
-                            </div>
-                            <div class="notif-item">
-                                <i class="fa-solid fa-globe"></i>
-                                <div>
-                                    <p>12 new visitors from Bangladesh today</p>
-                                    <span>Today</span>
-                                </div>
+                            <div id="notifDropdownList">
+                                <p class="empty-state">No new messages.</p>
                             </div>
                         </div>
                     </div>
@@ -193,15 +176,7 @@
                             <div class="admin-card-header">
                                 <h3>Visitors — Last 7 Days</h3>
                             </div>
-                            <div class="bar-chart" id="visitorChart">
-                                <div class="bar-col"><div class="bar" style="--h:45%"></div><span>Mon</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:60%"></div><span>Tue</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:38%"></div><span>Wed</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:72%"></div><span>Thu</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:55%"></div><span>Fri</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:80%"></div><span>Sat</span></div>
-                                <div class="bar-col"><div class="bar" style="--h:65%"></div><span>Sun</span></div>
-                            </div>
+                            <div class="bar-chart" id="visitorChart"></div>
                         </div>
 
                         <div class="admin-card">
@@ -654,12 +629,21 @@
                                     <label for="supportPhoneInput">Support Phone</label>
                                     <input type="text" id="supportPhoneInput" placeholder="e.g. 080-1234-5678">
                                 </div>
-                                <div class="form-group toggle-row">
-                                    <label>Maintenance mode</label>
-                                    <label class="switch">
-                                        <input type="checkbox" id="maintenanceToggle">
-                                        <span class="slider"></span>
-                                    </label>
+                                <div class="form-group">
+                                    <label for="socialFacebookInput">Facebook URL</label>
+                                    <input type="url" id="socialFacebookInput" placeholder="https://facebook.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="socialInstagramInput">Instagram URL</label>
+                                    <input type="url" id="socialInstagramInput" placeholder="https://instagram.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="socialYoutubeInput">YouTube URL</label>
+                                    <input type="url" id="socialYoutubeInput" placeholder="https://youtube.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="socialGithubInput">GitHub URL</label>
+                                    <input type="url" id="socialGithubInput" placeholder="https://github.com/...">
                                 </div>
                                 <button class="btn btn-primary" id="saveSiteInfoBtn">Save Changes</button>
                                 <p id="siteSettingsStatus" class="settings-save-status"></p>
@@ -680,13 +664,6 @@
                                 <div class="form-group">
                                     <label for="adminNewPasswordInput">New Password</label>
                                     <input type="password" id="adminNewPasswordInput" placeholder="Leave blank to keep current password">
-                                </div>
-                                <div class="form-group toggle-row">
-                                    <label>Email me a copy of every new contact message</label>
-                                    <label class="switch">
-                                        <input type="checkbox" id="notifyToggle" checked>
-                                        <span class="slider"></span>
-                                    </label>
                                 </div>
                                 <button class="btn btn-primary" id="updateAccountBtn">Update Account</button>
                                 <p id="accountSettingsStatus" class="settings-save-status"></p>

@@ -10,24 +10,6 @@ menuToggle.addEventListener("click", () => {
 });
 
 /*==========================
-        DARK MODE
-==========================*/
-
-const themeToggle = document.getElementById("darkModeBtn");
-
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark") ? "dark" : "light"
-    );
-});
-
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-}
-
-/*==========================
     HEADER SEARCH
     Sends the query to the real site-wide search
     page (search.html) — this box used to have no
@@ -87,6 +69,31 @@ function animateProgressRing(percent) {
         progressCircle.style.transition = "2s";
         progressCircle.style.strokeDashoffset = offset;
     }, 300);
+}
+
+/*==========================
+    Notification Bell + Profile Widget
+    (both had cursor:pointer styling but no
+    handler — bell scrolls to the always-visible
+    notifications card below, profile navigates
+    to the profile page, mirroring the sidebar link)
+==========================*/
+
+const notificationBell = document.getElementById("notificationBell");
+const notificationsCard = document.getElementById("notificationsCard");
+
+if (notificationBell && notificationsCard) {
+    notificationBell.addEventListener("click", () => {
+        notificationsCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+}
+
+const profileWidget = document.getElementById("profileWidget");
+
+if (profileWidget) {
+    profileWidget.addEventListener("click", () => {
+        window.location.href = "profile.html";
+    });
 }
 
 /*==========================
@@ -167,15 +174,17 @@ function renderDailyMission(dailyMission) {
     Study Calendar
     (real current-month grid, real activity
     dates highlighted — was a static hardcoded
-    table before)
+    table before). Each active day carries its
+    real studied-minutes total and shows it on click.
 ==========================*/
 
 function renderStudyCalendar(activeDates) {
     const body = document.getElementById("calendarBody");
     const monthLabel = document.getElementById("calendarMonthLabel");
+    const dayInfo = document.getElementById("calendarDayInfo");
     if (!body) return;
 
-    const activeSet = new Set(activeDates || []);
+    const minutesByDate = new Map((activeDates || []).map((d) => [d.date, d.minutes]));
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth();
@@ -202,13 +211,24 @@ function renderStudyCalendar(activeDates) {
             const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(dayNum).padStart(2, "0")}`;
             const classes = [];
             if (dateStr === todayStr) classes.push("active-day");
-            if (activeSet.has(dateStr)) classes.push("has-activity");
-            html += `<td class="${classes.join(" ")}">${dayNum}</td>`;
+            if (minutesByDate.has(dateStr)) classes.push("has-activity");
+            html += `<td class="${classes.join(" ")}" data-date="${dateStr}">${dayNum}</td>`;
         }
         html += "</tr>";
     }
 
     body.innerHTML = html;
+
+    if (dayInfo) {
+        body.querySelectorAll("td[data-date]").forEach((cell) => {
+            cell.addEventListener("click", () => {
+                const minutes = minutesByDate.get(cell.dataset.date);
+                dayInfo.textContent = minutes
+                    ? `${cell.dataset.date}: ${minutes} minute${minutes === 1 ? "" : "s"} studied`
+                    : `${cell.dataset.date}: no study activity`;
+            });
+        });
+    }
 }
 
 /*==========================
@@ -244,11 +264,25 @@ function renderSkillBar(elementId, stat) {
 }
 
 /*==========================
+    Achievement Badges
+    (real earned/locked state from the backend,
+    not 4 static always-unlocked emoji)
+==========================*/
+
+function renderAchievements(achievements) {
+    if (!achievements) return;
+    document.querySelectorAll(".badges [data-achievement]").forEach((el) => {
+        const earned = !!achievements[el.dataset.achievement];
+        el.classList.toggle("locked", !earned);
+    });
+}
+
+/*==========================
     Populate Dashboard from JSON
 ==========================*/
 
 function populateDashboard(data) {
-    const { user, statistics, kana, notifications, weeklyActivity, monthlyActivity, continueLearning, dailyMission, activeDatesThisMonth } = data;
+    const { user, statistics, kana, notifications, weeklyActivity, monthlyActivity, continueLearning, dailyMission, activeDatesThisMonth, achievements } = data;
 
     // Header / sidebar
     document.getElementById("userName").textContent = `Welcome Back, ${user.name} 👋`;
@@ -271,10 +305,12 @@ function populateDashboard(data) {
     const gameLevel = Math.floor(user.xp / 100);
     document.getElementById("xpLevel").textContent = `Level ${gameLevel}`;
 
-    // Today's goal
+    // Today's goal — real studied/goal minutes from the backend, not
+    // back-derived from a percentage (which silently assumed a fixed
+    // 60-minute goal regardless of the user's actual daily_goal_minutes).
     document.getElementById("goalFill").style.width = `${user.todayGoal}%`;
-    const goalMinutes = Math.round((user.todayGoal / 100) * 60);
-    document.getElementById("goalText").textContent = `${goalMinutes} / 60 Minutes`;
+    document.getElementById("goalLabel").textContent = `Study ${user.dailyGoalMinutes} Minutes`;
+    document.getElementById("goalText").textContent = `${user.studiedMinutesToday} / ${user.dailyGoalMinutes} Minutes`;
 
     // Overall progress ring
     document.getElementById("overallProgress").textContent = `${user.overallProgress}%`;
@@ -282,7 +318,12 @@ function populateDashboard(data) {
 
     // Top stat cards
     document.getElementById("cardTodayGoal").textContent = `${user.todayGoal}%`;
-    document.getElementById("cardJlptLevel").textContent = user.jlptLevel.split(" ")[0];
+    const currentJlpt = user.jlptLevel.split(" ")[0];
+    document.getElementById("cardJlptLevel").textContent = currentJlpt;
+    const jlptGoalEl = document.getElementById("cardJlptGoal");
+    if (jlptGoalEl) {
+        jlptGoalEl.textContent = user.targetLevel && user.targetLevel !== currentJlpt ? `Goal: ${user.targetLevel}` : "";
+    }
     document.getElementById("cardStreak").textContent = `🔥${user.streak} Days`;
     document.getElementById("cardLessons").textContent = statistics.lessons.completed;
 
@@ -318,6 +359,7 @@ function populateDashboard(data) {
     renderContinueLearning(continueLearning);
     renderDailyMission(dailyMission);
     renderStudyCalendar(activeDatesThisMonth);
+    renderAchievements(achievements);
 }
 
 /*==========================

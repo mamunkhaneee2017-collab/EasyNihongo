@@ -18,6 +18,9 @@ function timeAgo(isoString) {
 }
 
 router.get("/", (req, res) => {
+    // Known limitation: silently capped at the 50 most recent rows, no
+    // pagination/"load more" on the admin Visitors view to reach older
+    // ones — acceptable for now, worth revisiting if visit volume grows.
     const rows = db
         .prepare(`SELECT * FROM page_views ORDER BY created_at DESC LIMIT 50`)
         .all();

@@ -109,9 +109,10 @@ router.get("/", requireAuth, (req, res) => {
     const streak = activity.computeStreak(userId);
     const weeklyActivity = activity.computeWeeklyActivity(userId, user.daily_goal_minutes);
     const monthlyActivity = activity.computeMonthlyActivity(userId, user.daily_goal_minutes);
+    const studiedMinutesToday = activity.todaysMinutes(userId);
     const todayGoalPercent = Math.min(
         100,
-        Math.round((activity.todaysMinutes(userId) / Math.max(1, user.daily_goal_minutes)) * 100)
+        Math.round((studiedMinutesToday / Math.max(1, user.daily_goal_minutes)) * 100)
     );
     const studyHours = Math.round(activity.totalMinutes(userId) / 60);
 
@@ -141,11 +142,15 @@ router.get("/", requireAuth, (req, res) => {
         quiz: !!db.prepare(`SELECT 1 FROM quiz_attempts WHERE user_id = ? AND date(taken_at) = date('now') LIMIT 1`).get(userId)
     };
 
-    // ---- Study Calendar (real dates with activity, current calendar month) ----
+    // ---- Study Calendar (real dates with activity + minutes studied per day, current calendar month) ----
     const activeDatesThisMonth = db
-        .prepare(`SELECT DISTINCT activity_date FROM activity_log WHERE user_id = ? AND activity_date >= date('now', 'start of month')`)
+        .prepare(
+            `SELECT activity_date, SUM(minutes) as minutes FROM activity_log
+             WHERE user_id = ? AND activity_date >= date('now', 'start of month')
+             GROUP BY activity_date`
+        )
         .all(userId)
-        .map((r) => r.activity_date);
+        .map((r) => ({ date: r.activity_date, minutes: r.minutes || 0 }));
 
     // ---- Notifications (derived from real state, not invented strings) ----
     const notifications = [];
@@ -164,7 +169,10 @@ router.get("/", requireAuth, (req, res) => {
             studyTime: `${studyHours} Hours`,
             overallProgress,
             streak,
-            todayGoal: todayGoalPercent
+            todayGoal: todayGoalPercent,
+            studiedMinutesToday,
+            dailyGoalMinutes: user.daily_goal_minutes,
+            targetLevel: user.target_level || null
         },
         statistics: {
             lessons: { completed: lessonsCompleted, total: lessonsTotal },
@@ -185,7 +193,13 @@ router.get("/", requireAuth, (req, res) => {
         monthlyActivity,
         continueLearning,
         dailyMission,
-        activeDatesThisMonth
+        activeDatesThisMonth,
+        achievements: {
+            trophy: overallProgress >= 50,
+            streak: streak >= 3,
+            xp: xp >= 500,
+            quiz: quizAttemptCount >= 1
+        }
     });
 });
 

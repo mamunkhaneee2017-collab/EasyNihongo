@@ -3,17 +3,22 @@
 ========================================== */
 
 :root {
-    --admin-primary: #e63950;
-    --admin-primary-dark: #c72e42;
+    /* Aliased to css/variables.css's site-wide tokens (loaded before this
+       file — see admin/index.html and admin/login.html) so the admin panel
+       shares the same brand color/neutrals/radius as the rest of the site
+       instead of a second, disconnected palette. Sidebar tokens and the
+       status colors below stay admin-only — there's no site equivalent. */
+    --admin-primary: var(--brand);
+    --admin-primary-dark: var(--brand-dark);
     --admin-sidebar-bg: #171923;
     --admin-sidebar-text: #a0a5b8;
     --admin-sidebar-active: #ffffff;
-    --admin-bg: #f5f6fa;
-    --admin-card-bg: #ffffff;
-    --admin-text: #1f2937;
-    --admin-muted: #6b7280;
-    --admin-border: #e5e7eb;
-    --admin-radius: 14px;
+    --admin-bg: var(--bg);
+    --admin-card-bg: var(--surface);
+    --admin-text: var(--text);
+    --admin-muted: var(--text-muted);
+    --admin-border: var(--border);
+    --admin-radius: var(--radius-lg);
     --admin-green: #16a34a;
     --admin-blue: #2563eb;
     --admin-yellow: #d97706;
@@ -425,14 +430,35 @@ button {
     font-size: 18px;
 }
 
+/* Empty (no unread messages) collapses to a plain small dot via the
+   width/height above; once JS sets a numeric textContent, min-width/padding
+   grow it into a small pill so the real count is readable. :empty hides it
+   entirely when the count is 0 — no class toggling needed from JS. */
 .notif-dot {
     position: absolute;
     top: -2px;
     right: -2px;
-    width: 8px;
+    min-width: 8px;
     height: 8px;
     background: var(--admin-primary);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.notif-dot:not(:empty) {
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+}
+
+.notif-dot:empty {
+    display: none;
 }
 
 .notif-dropdown {
@@ -441,10 +467,10 @@ button {
     right: 0;
     top: 34px;
     width: 300px;
-    background: #fff;
+    background: var(--admin-card-bg);
     border: 1px solid var(--admin-border);
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    box-shadow: var(--shadow-md);
     padding: 16px;
     z-index: 20;
 }
@@ -464,6 +490,7 @@ button {
     padding: 10px 0;
     border-top: 1px solid var(--admin-border);
     font-size: 12px;
+    cursor: pointer;
 }
 
 .notif-item:first-of-type {
@@ -566,6 +593,7 @@ button {
     align-items: center;
     gap: 16px;
     border: 1px solid var(--admin-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .admin-stat-icon {
@@ -600,10 +628,6 @@ button {
     color: var(--admin-muted);
 }
 
-.stat-trend.up {
-    color: var(--admin-green);
-}
-
 /* Dashboard grid */
 
 .dashboard-grid {
@@ -619,6 +643,7 @@ button {
     border-radius: var(--admin-radius);
     padding: 24px;
     margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
 }
 
 .admin-card-header {
@@ -731,11 +756,6 @@ button {
     font-weight: 700;
     color: var(--admin-primary);
     flex-shrink: 0;
-}
-
-.recent-avatar.flag {
-    font-size: 18px;
-    background: none;
 }
 
 .recent-info {
@@ -878,6 +898,10 @@ button {
     border-bottom: none;
 }
 
+.admin-table tbody tr:hover td {
+    background: var(--admin-bg);
+}
+
 .file-type-cell {
     display: flex;
     align-items: center;
@@ -926,7 +950,7 @@ button {
     height: 44px;
     border-radius: 8px;
     overflow: hidden;
-    background: #f1f1f1;
+    background: var(--admin-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -948,6 +972,8 @@ button {
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
+    background: var(--admin-card-bg);
+    color: var(--admin-text);
 }
 
 .inline-table-input[type="number"] {
@@ -1112,7 +1138,7 @@ button {
 }
 
 .btn-outline {
-    background: #fff;
+    background: var(--admin-card-bg);
     border: 1px solid var(--admin-border);
     color: var(--admin-text);
 }
@@ -1201,24 +1227,39 @@ button {
 }
 
 /* ================= DARK MODE ================= */
+/* CSS custom properties don't re-resolve their var() references per
+   inheriting element — --admin-bg's "var(--bg)" is substituted into a
+   fixed computed value once, at :root, using :root's own --bg. Overriding
+   --bg later under body.dark doesn't retroactively change the already-
+   computed --admin-bg, so the aliases have to be re-declared here too,
+   at the same body.dark scope where variables.css redefines the
+   underlying --bg/--surface/--text/--text-muted/--border tokens — that's
+   what actually makes every var(--admin-*) rule pick up the dark value. */
 
-body.admin-dark {
-    --admin-bg: #14151d;
-    --admin-card-bg: #1d1f2b;
-    --admin-text: #e5e7eb;
-    --admin-muted: #9096a8;
-    --admin-border: #2b2e3d;
+body.dark {
+    --admin-bg: var(--bg);
+    --admin-card-bg: var(--surface);
+    --admin-text: var(--text);
+    --admin-muted: var(--text-muted);
+    --admin-border: var(--border);
+    --admin-primary: var(--brand);
+    --admin-primary-dark: var(--brand-dark);
 }
 
-body.admin-dark .admin-topbar {
-    background: #1d1f2b;
+body.dark .admin-topbar {
+    background: var(--admin-card-bg);
 }
 
-body.admin-dark .form-group input,
-body.admin-dark .form-group select,
-body.admin-dark .reply-box textarea {
-    background: #14151d;
-    color: #e5e7eb;
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .reply-box textarea {
+    background: var(--admin-bg);
+    color: var(--admin-text);
+}
+
+body.dark .form-group input:focus,
+body.dark .form-group select:focus {
+    background: var(--admin-card-bg);
 }
 
 /* ================= RESPONSIVE ================= */

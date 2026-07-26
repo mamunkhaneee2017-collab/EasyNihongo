@@ -16,26 +16,22 @@ menuToggle.addEventListener("click", () => {
     sidebar.classList.toggle("show");
 });
 
-/* ---------------- Dark mode (button + toggle switch) ---------------- */
+/* ---------------- Dark mode (button + toggle switch) ----------------
+   #darkModeBtn itself is already wired by js/utils.js (loaded before this
+   file) — this page's only extra piece is #themeToggle, a second control
+   for the same state. Sync it off window.EasyNihongoTheme instead of
+   re-implementing the toggle, so clicking either control always keeps
+   both in sync. */
 
-const darkModeBtn = document.getElementById("darkModeBtn");
 const themeToggle = document.getElementById("themeToggle");
 
-function applyTheme(isDark) {
-    document.body.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    if (themeToggle) themeToggle.checked = isDark;
-}
-
-applyTheme(localStorage.getItem("theme") === "dark");
-
-darkModeBtn.addEventListener("click", () => {
-    applyTheme(!document.body.classList.contains("dark"));
-});
-
 if (themeToggle) {
+    themeToggle.checked = window.EasyNihongoTheme.isDark();
     themeToggle.addEventListener("change", () => {
-        applyTheme(themeToggle.checked);
+        window.EasyNihongoTheme.setTheme(themeToggle.checked);
+    });
+    document.addEventListener("easynihongo:theme", (e) => {
+        themeToggle.checked = e.detail.isDark;
     });
 }
 
@@ -45,6 +41,12 @@ const languageSelect = document.getElementById("languageSelect");
 
 if (languageSelect) {
     languageSelect.value = localStorage.getItem("lang") || "en";
+    languageSelect.addEventListener("change", () => {
+        localStorage.setItem("lang", languageSelect.value);
+        if (window.EasyNihongoI18n) {
+            window.EasyNihongoI18n.setLanguage(languageSelect.value);
+        }
+    });
 }
 
 /* ---------------- Font size ---------------- */
@@ -72,10 +74,28 @@ fontSizeButtons.forEach((btn) => {
     });
 });
 
+/* ---------------- Notification preferences (local, no delivery mechanism exists) ---------------- */
+
+const notificationCheckboxes = {
+    notifDailyReminder: document.getElementById("notifDailyReminder"),
+    notifCourseAnnouncements: document.getElementById("notifCourseAnnouncements"),
+    notifAchievementAlerts: document.getElementById("notifAchievementAlerts")
+};
+
+Object.entries(notificationCheckboxes).forEach(([key, el]) => {
+    if (!el) return;
+    const stored = localStorage.getItem(`notif:${key}`);
+    el.checked = stored === null ? true : stored === "true";
+    el.addEventListener("change", () => {
+        localStorage.setItem(`notif:${key}`, el.checked);
+    });
+});
+
 /* ---------------- Learning preferences (real, server-backed) ---------------- */
 
 const saveSettingsBtn = document.getElementById("saveSettingsBtn");
 const settingsStatus = document.getElementById("settingsStatus");
+const currentLevel = document.getElementById("currentLevel");
 const targetLevel = document.getElementById("targetLevel");
 const dailyGoal = document.getElementById("dailyGoal");
 
@@ -83,6 +103,7 @@ fetch("/api/users/me", { credentials: "same-origin" })
     .then((res) => (res.ok ? res.json() : null))
     .then((data) => {
         if (!data) return;
+        if (currentLevel && data.user.currentLevel) currentLevel.value = data.user.currentLevel;
         if (targetLevel && data.user.targetLevel) targetLevel.value = data.user.targetLevel;
         if (dailyGoal && data.user.dailyGoalMinutes) dailyGoal.value = data.user.dailyGoalMinutes;
     })
@@ -98,6 +119,7 @@ saveSettingsBtn.addEventListener("click", () => {
     }
 
     const formData = new FormData();
+    if (currentLevel) formData.append("currentLevel", currentLevel.value);
     if (targetLevel) formData.append("targetLevel", targetLevel.value);
     if (dailyGoal) formData.append("dailyGoalMinutes", dailyGoal.value);
 

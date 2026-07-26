@@ -183,6 +183,13 @@ body{
     color:#111827;
 }
 
+.card small{
+    display:block;
+    margin-top:6px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
 /*====================================
         PROGRESS
 =====================================*/
@@ -462,6 +469,16 @@ body{
     background:#ef4444;
 }
 
+.badges div.locked{
+    opacity:.35;
+    filter:grayscale(1);
+}
+
+.badges div.locked:hover{
+    transform:none;
+    background:#f3f4f6;
+}
+
 /*====================================
     EXTRA DASHBOARD
 =====================================*/
@@ -539,6 +556,12 @@ body{
     padding:30px;
     border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+#calendarDayInfo{
+    display:block;
+    margin-top:10px;
+    color:#6b7280;
 }
 
 .calendar-card table{
@@ -777,6 +800,7 @@ body{
     padding:8px 16px;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,.05);
+    cursor:pointer;
 }
 
 .profile img{
@@ -975,40 +999,7 @@ body{
 
 /*====================================
         DARK MODE
+   Consolidated into css/dark.css (loaded by all
+   4 pages that use this stylesheet) — one source
+   of truth instead of a second, thinner copy here.
 =====================================*/
-
-body.dark{
-    background:#111827;
-    color:white;
-}
-
-body.dark .card,
-body.dark .dashboard-header,
-body.dark .progress-card,
-body.dark .chart-card,
-body.dark .goal-card,
-body.dark .achievement-card,
-body.dark .continue-card,
-body.dark .notification-card,
-body.dark .calendar-card,
-body.dark .progress-circle-card,
-body.dark .info-box,
-body.dark .mission-card,
-body.dark .xp-card,
-body.dark .search-box,
-body.dark .profile,
-body.dark .notification,
-body.dark .theme-btn{
-    background:#1f2937;
-    color:white;
-}
-
-body.dark input,
-body.dark .search-box input{
-    background:transparent;
-    color:white;
-}
-
-body.dark .calendar-card td:hover{
-    background:#374151;
-}

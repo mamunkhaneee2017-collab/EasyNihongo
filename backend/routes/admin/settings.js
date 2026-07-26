@@ -21,16 +21,13 @@ router.patch("/", (req, res) => {
         socialFacebook,
         socialInstagram,
         socialYoutube,
-        socialGithub,
-        maintenanceMode,
-        notifyAdminOnMessage
+        socialGithub
     } = req.body || {};
 
     db.prepare(
         `UPDATE site_settings SET
             site_name = ?, contact_email = ?, support_phone = ?,
-            social_facebook = ?, social_instagram = ?, social_youtube = ?, social_github = ?,
-            maintenance_mode = ?, notify_admin_on_message = ?
+            social_facebook = ?, social_instagram = ?, social_youtube = ?, social_github = ?
          WHERE id = 1`
     ).run(
         siteName ?? current.site_name,
@@ -39,9 +36,7 @@ router.patch("/", (req, res) => {
         socialFacebook ?? current.social_facebook,
         socialInstagram ?? current.social_instagram,
         socialYoutube ?? current.social_youtube,
-        socialGithub ?? current.social_github,
-        maintenanceMode !== undefined ? (maintenanceMode ? 1 : 0) : current.maintenance_mode,
-        notifyAdminOnMessage !== undefined ? (notifyAdminOnMessage ? 1 : 0) : current.notify_admin_on_message
+        socialGithub ?? current.social_github
     );
 
     res.json({ settings: db.prepare(`SELECT * FROM site_settings WHERE id = 1`).get() });

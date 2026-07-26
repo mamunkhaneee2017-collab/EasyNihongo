@@ -56,10 +56,11 @@ router.patch("/me", requireAuth, upload.single("avatar"), (req, res) => {
     const user = db.prepare("SELECT * FROM users WHERE id = ?").get(req.session.user.id);
     if (!user) return res.status(404).json({ error: "User not found." });
 
-    const { fullName, targetLevel, dailyGoalMinutes, currentPassword, newPassword } = req.body || {};
+    const { fullName, currentLevel, targetLevel, dailyGoalMinutes, currentPassword, newPassword } = req.body || {};
 
     const updates = {
         full_name: fullName !== undefined && fullName !== "" ? fullName : user.full_name,
+        current_level: currentLevel !== undefined ? (currentLevel || null) : user.current_level,
         target_level: targetLevel !== undefined ? (targetLevel || null) : user.target_level,
         daily_goal_minutes:
             dailyGoalMinutes !== undefined && dailyGoalMinutes !== ""
@@ -84,10 +85,11 @@ router.patch("/me", requireAuth, upload.single("avatar"), (req, res) => {
     }
 
     db.prepare(
-        `UPDATE users SET full_name = ?, target_level = ?, daily_goal_minutes = ?, password_hash = ?, avatar_path = ?
+        `UPDATE users SET full_name = ?, current_level = ?, target_level = ?, daily_goal_minutes = ?, password_hash = ?, avatar_path = ?
          WHERE id = ?`
     ).run(
         updates.full_name,
+        updates.current_level,
         updates.target_level,
         updates.daily_goal_minutes,
         updates.password_hash,

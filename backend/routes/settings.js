@@ -14,8 +14,7 @@ router.get("/", (req, res) => {
             instagram: settings.social_instagram,
             youtube: settings.social_youtube,
             github: settings.social_github
-        },
-        maintenanceMode: !!settings.maintenance_mode
+        }
     });
 });
 
