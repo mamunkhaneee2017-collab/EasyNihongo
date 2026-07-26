@@ -367,6 +367,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadStatus = document.getElementById("uploadStatus");
     const uploadLevel = document.getElementById("uploadLevel");
     const uploadCategory = document.getElementById("uploadCategory");
+    const uploadLevelOther = document.getElementById("uploadLevelOther");
+    const uploadCategoryOther = document.getElementById("uploadCategoryOther");
+
+    // "Other" reveals a free-text input instead of forcing the fixed list —
+    // getUploadValue() below is what actually gets sent to the server.
+    function wireOtherToggle(select, otherInput) {
+        if (!select || !otherInput) return;
+        select.addEventListener("change", () => {
+            otherInput.hidden = select.value !== "other";
+            if (select.value === "other") otherInput.focus();
+        });
+    }
+    wireOtherToggle(uploadLevel, uploadLevelOther);
+    wireOtherToggle(uploadCategory, uploadCategoryOther);
+
+    function getUploadValue(select, otherInput) {
+        if (select.value === "other") return otherInput.value.trim();
+        return select.value;
+    }
 
     let selectedFiles = [];
 
@@ -442,10 +461,19 @@ document.addEventListener("DOMContentLoaded", function () {
         uploadSubmitBtn.addEventListener("click", () => {
             if (!selectedFiles.length) return;
 
+            const level = getUploadValue(uploadLevel, uploadLevelOther);
+            const category = getUploadValue(uploadCategory, uploadCategoryOther);
+
+            if (!level || !category) {
+                uploadStatus.textContent = "Please enter a custom level/category — it can't be empty.";
+                uploadStatus.className = "upload-status error";
+                return;
+            }
+
             const formData = new FormData();
             selectedFiles.forEach((file) => formData.append("files", file));
-            formData.append("level", uploadLevel.value);
-            formData.append("category", uploadCategory.value);
+            formData.append("level", level);
+            formData.append("category", category);
 
             uploadSubmitBtn.disabled = true;
             uploadStatus.textContent = "Uploading…";
