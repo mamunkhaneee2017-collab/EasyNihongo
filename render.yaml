@@ -13,3 +13,5 @@ services:
         value: admin@easynihongo.com
       - key: ADMIN_SEED_PASSWORD
         sync: false
+      - key: GEMINI_API_KEY
+        sync: false

@@ -29,6 +29,7 @@ const advertisementsRoutes = require("./routes/advertisements");
 const adminAdvertisementsRoutes = require("./routes/admin/advertisements");
 const heroPhotosRoutes = require("./routes/heroPhotos");
 const adminHeroPhotosRoutes = require("./routes/admin/heroPhotos");
+const chatbotRoutes = require("./routes/chatbot");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -76,6 +77,7 @@ app.use("/api/advertisements", advertisementsRoutes);
 app.use("/api/admin/advertisements", adminAdvertisementsRoutes);
 app.use("/api/hero-photos", heroPhotosRoutes);
 app.use("/api/admin/hero-photos", adminHeroPhotosRoutes);
+app.use("/api/chatbot", chatbotRoutes);
 
 app.use(express.static(ROOT_DIR));
 
