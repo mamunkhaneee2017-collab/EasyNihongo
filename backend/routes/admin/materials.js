@@ -72,9 +72,12 @@ router.post("/", upload.array("files", 10), (req, res) => {
     );
 
     const inserted = req.files.map((file) => {
+        // Multer decodes multipart filename headers as latin1, but browsers send UTF-8 —
+        // re-decode so non-ASCII original names (e.g. Japanese) don't come out as mojibake.
+        const originalName = Buffer.from(file.originalname, "latin1").toString("utf8");
         const result = insert.run(
             file.filename,
-            file.originalname,
+            originalName,
             level,
             category,
             file.mimetype,

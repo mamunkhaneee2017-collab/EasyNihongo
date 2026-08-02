@@ -11,7 +11,17 @@
 // ==========================================
 // RENDER COURSE GRID
 // coursesData comes from data/courses-data.js
-// (loaded as a <script> tag before this file).
+// (loaded as a <script> tag before this file),
+// which only ever has the honest "0% / Start"
+// default — real per-user numbers are patched in
+// afterward by applyRealProgress() below once
+// GET /api/dashboard resolves. Rendered
+// synchronously (not deferred until that fetch
+// settles) so utils.js's one-time ".reveal" /
+// ".counter" passes — which run right after this
+// script, per courses.html's <script> order — still
+// find these elements in the DOM like every other
+// page.
 // ==========================================
 
 (function renderCoursesGrid(){
@@ -109,6 +119,83 @@
     bars.forEach(el => observer.observe(el));
 
 })();
+
+
+// ==========================================
+// REAL PROGRESS (logged-in visitors only)
+// The grid above always renders with the honest
+// "0% / Start" default from data/courses/courses-data.js
+// — this patches already-rendered, already-visible
+// elements in place once GET /api/dashboard resolves
+// with this specific user's real per-level progress,
+// rather than re-rendering (which would race the
+// one-time .reveal/.counter passes in utils.js, since
+// those run once, right after this script, and never
+// re-scan the DOM). Guests / logged-out visitors get a
+// 401 here and the page is simply left at its honest
+// 0%/no-Continue-Learning-card default — never a
+// fabricated sample.
+// ==========================================
+
+function applyRealProgress(dashboard){
+
+    const levelProgress = dashboard.levelProgress || {};
+
+    Object.keys(levelProgress).forEach((level) => {
+
+        const card = document.querySelector(`.course-card.${level}:not(.locked)`);
+        if(!card) return;
+
+        const percent = levelProgress[level];
+
+        const fill = card.querySelector(".progress-fill");
+        const counter = card.querySelector(".counter");
+        const actionBtn = card.querySelector(".card-btn button");
+
+        if(fill){
+            fill.dataset.progress = String(percent);
+            fill.style.width = `${percent}%`;
+        }
+        if(counter){
+            counter.dataset.target = String(percent);
+            counter.textContent = String(percent);
+        }
+        if(actionBtn){
+            actionBtn.textContent = percent > 0 ? "Continue" : "Start";
+        }
+
+    });
+
+    const next = (dashboard.continueLearning || [])[0];
+    if(!next) return;
+
+    const section = document.getElementById("continueLearningSection");
+    if(!section) return;
+
+    const title = document.getElementById("continueTitle");
+    const barFill = document.getElementById("continueBarFill");
+    const percentCounter = document.getElementById("continuePercent");
+    const link = document.getElementById("continueLink");
+
+    const percent = levelProgress[next.level] || 0;
+
+    title.textContent = `JLPT ${next.level.toUpperCase()} — ${next.label} Chapter ${next.chapterNumber}: ${next.title}`;
+    barFill.dataset.progress = String(percent);
+    barFill.style.width = `${percent}%`;
+    percentCounter.dataset.target = String(percent);
+    percentCounter.textContent = String(percent);
+    link.href = `chapter.html?level=${next.level}&type=${next.type}&chapter=${next.chapterNumber}`;
+
+    section.hidden = false;
+
+}
+
+fetch("/api/dashboard", { credentials: "same-origin" })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((dashboard) => {
+        if(dashboard) applyRealProgress(dashboard);
+    })
+    .catch(() => {});
 
 
 // ==========================================

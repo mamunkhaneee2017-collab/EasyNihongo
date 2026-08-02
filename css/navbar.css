@@ -208,6 +208,13 @@
     background:var(--brand-dark);
 }
 
+/* Logout button injected next to Dashboard when a session already
+   exists — see components/header.js. Reuses .secondary-btn's outline
+   look but matched to the navbar's tighter button padding. */
+.nav-logout-btn{
+    padding:12px 24px;
+}
+
 /* Language switcher */
 
 .lang-btn{
@@ -512,6 +519,42 @@
 .nav-menu a:hover::after{
 
     width:100%;
+
+}
+
+/* Between the 992px hamburger breakpoint and ~1200px, the full desktop
+   nav (logo + 6 menu items + lang/dark-mode/login buttons) is wider than
+   the viewport at its default spacing, which pushed "Home" to overlap
+   the logo wordmark. Tighten spacing rather than moving the shared
+   992px breakpoint used site-wide (navbar/footer/dashboard/home/
+   vocabulary all key off it) just for this one component. */
+@media(min-width:993px) and (max-width:1200px){
+
+.logo img{
+    width:60px;
+    height:45px;
+}
+
+.logo-text{
+    font-size:20px;
+}
+
+.nav-menu{
+    gap:18px;
+}
+
+.nav-buttons{
+    gap:8px;
+}
+
+.login-btn,
+.nav-logout-btn{
+    padding:10px 16px;
+}
+
+.lang-btn{
+    padding:8px 12px;
+}
 
 }
 

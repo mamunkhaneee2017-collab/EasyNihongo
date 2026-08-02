@@ -117,7 +117,7 @@
 
                 <li><a href="${toPages}search.html"${currentPage === "search" ? ' class="active"' : ""}><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="nav.search">Search</span></a></li>
 
-                <li class="nav-mobile-login"><a href="${toPages}login.html" class="login-btn" data-i18n="nav.login">Login</a></li>
+                <li class="nav-mobile-login" id="navMobileLoginItem"><a href="${toPages}login.html" class="login-btn" data-i18n="nav.login">Login</a></li>
 
                 <li class="nav-mobile-darkmode">
                     <button type="button" id="darkModeBtnMobile" class="nav-mobile-darkmode-btn">
@@ -149,7 +149,7 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
-                <a href="${toPages}login.html" class="login-btn" data-i18n="nav.login">Login</a>
+                <a href="${toPages}login.html" class="login-btn" id="navLoginBtn" data-i18n="nav.login">Login</a>
             </div>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
@@ -202,6 +202,56 @@
                     sessionStorage.setItem(`adDismissed_${ads.banner.id}`, "1");
                     mediaBanner.hidden = true;
                 });
+            }
+        })
+        .catch(() => {});
+
+    // Swap the Login button for Dashboard/Logout when a session already
+    // exists — otherwise a logged-in student sees "Login" on every public
+    // page (everywhere except the dashboard/profile/settings/favorites
+    // pages, which use a separate authenticated layout entirely).
+    fetch("/api/auth/me", { credentials: "same-origin" })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+            if (!data || !data.user) return;
+
+            const doLogout = (e) => {
+                e.preventDefault();
+                fetch("/api/auth/logout", { method: "POST", credentials: "same-origin" })
+                    .then(() => window.location.reload())
+                    .catch(() => window.location.reload());
+            };
+
+            const desktopLogin = document.getElementById("navLoginBtn");
+            if (desktopLogin) {
+                desktopLogin.textContent = "Dashboard";
+                desktopLogin.href = `${toPages}dashboard.html`;
+                desktopLogin.removeAttribute("data-i18n");
+
+                const logoutBtn = document.createElement("a");
+                logoutBtn.href = "#";
+                logoutBtn.className = "secondary-btn nav-logout-btn";
+                logoutBtn.textContent = "Logout";
+                logoutBtn.addEventListener("click", doLogout);
+                desktopLogin.insertAdjacentElement("afterend", logoutBtn);
+            }
+
+            const mobileItem = document.getElementById("navMobileLoginItem");
+            if (mobileItem) {
+                const mobileLogin = mobileItem.querySelector("a");
+                mobileLogin.textContent = "Dashboard";
+                mobileLogin.href = `${toPages}dashboard.html`;
+                mobileLogin.removeAttribute("data-i18n");
+
+                const logoutLi = document.createElement("li");
+                logoutLi.className = "nav-mobile-login";
+                const logoutLink = document.createElement("a");
+                logoutLink.href = "#";
+                logoutLink.className = "login-btn";
+                logoutLink.textContent = "Logout";
+                logoutLink.addEventListener("click", doLogout);
+                logoutLi.appendChild(logoutLink);
+                mobileItem.insertAdjacentElement("afterend", logoutLi);
             }
         })
         .catch(() => {});

@@ -127,6 +127,29 @@ router.get("/", requireAuth, (req, res) => {
           )
         : 0;
 
+    // ---- Per-level progress (drives the Courses page's course cards,
+    // which used to show hardcoded 60%/30% for every visitor regardless
+    // of who they were or whether they were even logged in) ----
+    const LEVEL_KEYS = ["n5", "n4", "n3", "n2", "n1"];
+    const levelProgress = {};
+    LEVEL_KEYS.forEach((lvl) => {
+        const categories = ["vocabulary", "grammar", "kanji"]
+            .map((type) => {
+                const total = content.levelItemCount(type, lvl);
+                if (!total) return null;
+                const completed = db
+                    .prepare(`SELECT COUNT(*) as c FROM progress_items WHERE user_id = ? AND content_type = ? AND level = ?`)
+                    .get(userId, type, lvl).c;
+                return { completed, total };
+            })
+            .filter(Boolean);
+        if (categories.length) {
+            levelProgress[lvl] = Math.round(
+                (categories.reduce((sum, c) => sum + c.completed / c.total, 0) / categories.length) * 100
+            );
+        }
+    });
+
     // ---- Continue Learning (real next-chapter-per-type, not fixed titles) ----
     const levelKey = level.toLowerCase();
     const continueLearning = CONTINUE_TYPES.map((t) => {
@@ -191,6 +214,7 @@ router.get("/", requireAuth, (req, res) => {
         notifications,
         weeklyActivity,
         monthlyActivity,
+        levelProgress,
         continueLearning,
         dailyMission,
         activeDatesThisMonth,

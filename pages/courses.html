@@ -95,20 +95,25 @@
 
 <!-- ==========================================
             CONTINUE LEARNING
+   Hidden by default — only a logged-in visitor
+   with real in-progress chapters has anything to
+   "continue", so js/pages/courses.js fills this in
+   (or leaves it hidden) after checking /api/dashboard.
+   Never shows fabricated progress to guests.
 ========================================== -->
-<section class="continue-learning reveal" data-anim="fade-up">
+<section class="continue-learning reveal" data-anim="fade-up" id="continueLearningSection" hidden>
     <div class="container continue-box">
 
         <div class="continue-info">
             <span class="continue-label"><i class="fa-solid fa-bolt"></i> <span data-i18n="courses.continueLearning">Continue Learning</span></span>
-            <h3 id="continueTitle">JLPT N5 &mdash; Lesson 12: 挨拶 (Greetings)</h3>
+            <h3 id="continueTitle"></h3>
             <div class="continue-bar">
-                <div class="continue-bar-fill" data-progress="60"></div>
+                <div class="continue-bar-fill" id="continueBarFill" data-progress="0"></div>
             </div>
-            <span class="continue-percent"><span class="counter" data-target="60">0</span><span data-i18n="courses.percentComplete">% complete</span></span>
+            <span class="continue-percent"><span class="counter" id="continuePercent" data-target="0">0</span><span data-i18n="courses.percentComplete">% complete</span></span>
         </div>
 
-        <a href="chapter.html?level=n5&type=vocabulary&chapter=1" class="btn-ripple primary-btn continue-btn">
+        <a href="chapter.html?level=n5&type=vocabulary&chapter=1" class="btn-ripple primary-btn continue-btn" id="continueLink">
             <span data-i18n="courses.resume">Resume</span> <i class="fa-solid fa-arrow-right"></i>
         </a>
 
