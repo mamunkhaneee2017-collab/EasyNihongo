@@ -183,6 +183,24 @@
 .shape-blob{
     border-radius:63% 37% 54% 46% / 46% 45% 55% 54%;
 }
+
+/* ===================================
+        CHATBOT SECTION
+=================================== */
+
+.chatbot-section{
+    padding:100px 0;
+    background:var(--bg);
+}
+
+@media (max-width:768px){
+
+    .chatbot-section{
+        padding:60px 0;
+    }
+
+}
+
 /* ===================================
         FEATURES SECTION
 =================================== */

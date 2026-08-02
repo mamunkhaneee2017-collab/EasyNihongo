@@ -25,7 +25,7 @@ Data lives in `database/easynihongo.sqlite` (created automatically); uploaded fi
 The chat widget on the homepage answers visitor questions about the site's courses, grounded in the real course content, plus general Japanese-language questions. It calls Google's Gemini API (free tier), not Claude/OpenAI.
 
 1. Get a free API key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) (no credit card required).
-2. Set it as an environment variable before starting the server: `GEMINI_API_KEY=your-key-here`.
+2. Copy `.env.example` to `.env` and paste the key in: `GEMINI_API_KEY=your-key-here`. `.env` is gitignored, so it never gets committed.
 3. Optional: `GEMINI_MODEL` overrides the default (`gemini-2.5-flash`).
 
 Without a key set, the widget still renders but shows a friendly "not configured yet" message instead of crashing.

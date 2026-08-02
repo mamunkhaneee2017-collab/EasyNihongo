@@ -1,11 +1,13 @@
 /* ==========================================
    AI CHATBOT WIDGET
-   Floating launcher + panel that answers visitor
-   questions about the site's courses, grounded in
-   the real course data server-side (see
-   backend/lib/chatbotContext.js) — talks to
-   POST /api/chatbot/message, which streams back
-   plain text chunks from Gemini.
+   Inline chat card, embedded in the homepage's
+   normal section flow (between the hero and
+   features sections) rather than floating fixed
+   over the page. Answers visitor questions about
+   the site's courses, grounded in the real course
+   data server-side (see backend/lib/chatbotContext.js)
+   — talks to POST /api/chatbot/message, which
+   streams back plain text chunks from Gemini.
 
    Usage:
      <div id="chatbot-widget"></div>
@@ -22,19 +24,12 @@
     if (!mount) return;
 
     mount.innerHTML = `
-<button type="button" class="chatbot-launcher" id="chatbotLauncher" aria-label="Open chat assistant" aria-expanded="false">
-    <i class="fa-solid fa-comment-dots"></i>
-</button>
-
-<div class="chatbot-panel" id="chatbotPanel" hidden role="dialog" aria-label="Easy Nihongo chat assistant">
+<div class="chatbot-panel" role="region" aria-label="Easy Nihongo chat assistant">
     <div class="chatbot-header">
         <div class="chatbot-header-title">
             <i class="fa-solid fa-robot"></i>
             <span>Easy Nihongo Assistant</span>
         </div>
-        <button type="button" class="chatbot-close" id="chatbotClose" aria-label="Close chat">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
     </div>
 
     <div class="chatbot-messages" id="chatbotMessages"></div>
@@ -47,9 +42,6 @@
     </form>
 </div>`;
 
-    const launcher = document.getElementById("chatbotLauncher");
-    const panel = document.getElementById("chatbotPanel");
-    const closeBtn = document.getElementById("chatbotClose");
     const messagesEl = document.getElementById("chatbotMessages");
     const form = document.getElementById("chatbotForm");
     const input = document.getElementById("chatbotInput");
@@ -62,10 +54,25 @@
     let history = [];
     let awaitingReply = false;
 
+    // Gemini replies use light markdown (**bold**, *italic*, `code`) —
+    // render it instead of showing the raw asterisks/backticks. Escaping
+    // runs first so the text can never inject markup of its own.
+    function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function renderMarkdown(text) {
+        let html = escapeHtml(text);
+        html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+        html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        return html;
+    }
+
     function addBubble(role, text) {
         const bubble = document.createElement("div");
         bubble.className = `chatbot-bubble chatbot-bubble-${role}`;
-        bubble.textContent = text;
+        bubble.innerHTML = renderMarkdown(text);
         messagesEl.appendChild(bubble);
         messagesEl.scrollTop = messagesEl.scrollHeight;
         return bubble;
@@ -80,23 +87,7 @@
         return el;
     }
 
-    function openPanel() {
-        panel.hidden = false;
-        launcher.setAttribute("aria-expanded", "true");
-        if (!messagesEl.childElementCount) addBubble("model", GREETING);
-        input.focus();
-    }
-
-    function closePanel() {
-        panel.hidden = true;
-        launcher.setAttribute("aria-expanded", "false");
-    }
-
-    launcher.addEventListener("click", () => {
-        if (panel.hidden) openPanel();
-        else closePanel();
-    });
-    closeBtn.addEventListener("click", closePanel);
+    addBubble("model", GREETING);
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -136,7 +127,7 @@
                 const { done, value } = await reader.read();
                 if (done) break;
                 fullText += decoder.decode(value, { stream: true });
-                replyEl.textContent = fullText;
+                replyEl.innerHTML = renderMarkdown(fullText);
                 messagesEl.scrollTop = messagesEl.scrollHeight;
             }
 

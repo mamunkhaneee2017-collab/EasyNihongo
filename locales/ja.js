@@ -251,6 +251,9 @@ window.JA_STRINGS = {
     "chapter.prevChapter": "前の課",
     "chapter.nextChapter": "次の課",
 
+    "home.chatbot.title": "AIアシスタントに質問する",
+    "home.chatbot.subtitle": "コースについて質問がありますか?ここでEasy Nihongoアシスタントとチャットできます。",
+
     "home.features.title": "Easy Nihongoが選ばれる理由",
     "home.features.subtitle": "日本語をマスターするために必要なすべてが、1つのプラットフォームに。",
     "home.features.courses.title": "JLPTコース",

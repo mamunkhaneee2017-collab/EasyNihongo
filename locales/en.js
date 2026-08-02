@@ -254,6 +254,9 @@ window.EN_STRINGS = {
     "chapter.prevChapter": "Previous Chapter",
     "chapter.nextChapter": "Next Chapter",
 
+    "home.chatbot.title": "Ask Our AI Assistant",
+    "home.chatbot.subtitle": "Have a question about our courses? Chat with the Easy Nihongo assistant right here.",
+
     "home.features.title": "Why Choose Easy Nihongo?",
     "home.features.subtitle": "Everything you need to master Japanese in one platform.",
     "home.features.courses.title": "JLPT Courses",

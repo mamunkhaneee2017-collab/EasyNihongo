@@ -251,6 +251,9 @@ window.BN_STRINGS = {
     "chapter.prevChapter": "পূর্ববর্তী চ্যাপ্টার",
     "chapter.nextChapter": "পরবর্তী চ্যাপ্টার",
 
+    "home.chatbot.title": "আমাদের AI সহায়ককে জিজ্ঞাসা করুন",
+    "home.chatbot.subtitle": "আমাদের কোর্স নিয়ে কোনো প্রশ্ন আছে? এখানেই Easy Nihongo সহায়কের সাথে চ্যাট করুন।",
+
     "home.features.title": "কেন Easy Nihongo বেছে নেবেন?",
     "home.features.subtitle": "জাপানি ভাষায় দক্ষ হতে যা যা প্রয়োজন, সব একটা প্ল্যাটফর্মে।",
     "home.features.courses.title": "JLPT কোর্স",

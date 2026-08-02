@@ -16,7 +16,7 @@ const chatLimiter = rateLimit({
     message: { error: "You're sending messages a bit fast — please wait a few minutes and try again." }
 });
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
 const MAX_HISTORY_MESSAGES = 12;
 const MAX_MESSAGE_LENGTH = 1000;
 
