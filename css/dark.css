@@ -336,6 +336,49 @@ body.dark .no-results{
 }
 
 /* ==========================================
+        CHAPTERS LIST PAGE
+   (chapters.html — the chapter-picker grid shared
+   by every level+type combo: vocabulary, grammar,
+   and kanji chapter lists. Not to be confused with
+   chapter.css/.lesson-item-card above, which is the
+   page for items INSIDE one chapter.)
+
+   .chapter-card never got a dark background, so its
+   title (.chapter-card-body h3, no color of its own)
+   inherited body's white dark-mode text straight onto
+   the still-white card — invisible, not just low
+   contrast. Same fix shape as .lesson-item-card above.
+========================================== */
+
+body.dark .chapter-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .chapter-card-body h3{
+
+    color:#ffffff;
+
+}
+
+body.dark .chapter-card-body p{
+
+    color:#d1d5db;
+
+}
+
+body.dark .chapter-progress-bar{
+
+    background:#4b5563;
+
+}
+
+
+
+/* ==========================================
         VOCABULARY BY TOPIC
 ========================================== */
 

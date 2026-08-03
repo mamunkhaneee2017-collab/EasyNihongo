@@ -188,6 +188,7 @@
     height:42px;
     border-radius:50%;
     background:var(--surface-2);
+    color:var(--text);
     transition:.3s;
 }
 
