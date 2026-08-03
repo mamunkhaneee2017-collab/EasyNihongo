@@ -29,15 +29,28 @@
                     if the sentence has no kanji)
                     and en
 
-   25 chapters, restructured from the original
-   34 to pair 1:1 with vocabulary-data.js's 25
-   chapters (matching id slugs) — see that file's
-   header for why and for the conversation/story
-   pairing this enables.
+   N5: 25 chapters, restructured from the
+   original 34 to pair 1:1 with vocabulary-data.js's
+   25 chapters (matching id slugs) — see that
+   file's header for why and for the
+   conversation/story pairing this enables.
 
-   N4 keeps its previously-authored 5 patterns
-   as a single chapter (real content, just not
-   yet re-organized into a full chapter set).
+   N4: 25 chapters of its own (source: the three
+   N4-grammar PDFs — Learnjapaneseaz's "N4 All
+   Grammar", japanesetest4you's grammar list, and
+   passjapanesetest's N4 grammar table), following
+   a Minna no Nihongo II-style progression
+   (obligation/permission → conditionals →
+   giving/receiving → potential/passive/causative →
+   keigo → volitional → advanced connectors →
+   uncertainty). These ids are NOT paired 1:1 with
+   vocabulary-data.js's N4 chapters (see that
+   file's header) — conversations-data.js and
+   stories-data.js key off grammar-data.js's N4
+   ids instead. Kanji (with furigana in `reading`)
+   is used from chapter 1, since N4 assumes the
+   N5 kana/kanji base is already known.
+
    N3-N1 stay empty/locked until content is
    written for those levels.
 ========================================== */
@@ -1304,8 +1317,8 @@ const grammarData = {
     n4: {
         chapters: [
             {
-                id: "n4-carryover-chapter-1",
-                title: "Chapter 1",
+                id: "obligation-permission-prohibition",
+                title: "Obligation, Permission & Prohibition",
                 items: [
                     {
                         pattern: "〜なければなりません",
@@ -1313,34 +1326,181 @@ const grammarData = {
                         connection: ["動詞（ない形語幹）+ なければなりません"],
                         examples: [
                             { jp: "明日、早く起きなければなりません。", reading: "あした、はやくおきなければなりません。", en: "I must wake up early tomorrow." },
-                            { jp: "宿題をしなければなりません。", reading: "しゅくだいをしなければなりません。", en: "I must do my homework." },
-                            { jp: "薬を飲まなければなりません。", reading: "くすりをのまなければなりません。", en: "I must take medicine." }
+                            { jp: "宿題を今日中にしなければなりません。", reading: "しゅくだいをきょうじゅうにしなければなりません。", en: "I must finish my homework by the end of today." },
+                            { jp: "体のために野菜を食べなければなりません。", reading: "からだのためにやさいをたべなければなりません。", en: "I must eat vegetables for my health." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なくてもいいです",
+                        meanings: { en: "Expresses that something is not necessary — \"don't have to\" do it.", bn: "কোনো কিছু করা আবশ্যক নয় তা বোঝায় — \"করতে হবে না\"।" },
+                        connection: ["動詞（ない形語幹）+ なくてもいいです"],
+                        examples: [
+                            { jp: "今日は残業しなくてもいいです。", reading: "きょうはざんぎょうしなくてもいいです。", en: "You don't have to work overtime today." },
+                            { jp: "靴を脱がなくてもいいですよ。", reading: "くつをぬがなくてもいいですよ。", en: "You don't have to take off your shoes." },
+                            { jp: "心配しなくてもいいです。大丈夫です。", reading: "しんぱいしなくてもいいです。だいじょうぶです。", en: "You don't need to worry. It's fine." }
                         ]
                     },
                     {
                         pattern: "〜てもいいです",
-                        meanings: { en: "Asks or grants permission — \"may\" or \"is allowed to.\"", bn: "অনুমতি চায় বা দেয় — \"করতে পারি\" বা \"করার অনুমতি আছে\"।" },
+                        meanings: { en: "Asks for or grants permission — \"may\" or \"is allowed to.\"", bn: "অনুমতি চাওয়া বা দেওয়া বোঝায় — \"করতে পারা\" বা \"করার অনুমতি থাকা\"।" },
                         connection: ["動詞（て形）+ もいいです"],
                         examples: [
                             { jp: "ここに座ってもいいですか。", reading: "ここにすわってもいいですか。", en: "May I sit here?" },
-                            { jp: "このペンを使ってもいいですか。", reading: "このペンをつかってもいいですか。", en: "May I use this pen?" },
-                            { jp: "窓を開けてもいいですか。", reading: "まどをあけてもいいですか。", en: "May I open the window?" }
+                            { jp: "写真を撮ってもいいですか。", reading: "しゃしんをとってもいいですか。", en: "May I take a photo?" },
+                            { jp: "もう帰ってもいいですよ。", reading: "もうかえってもいいですよ。", en: "You may go home now." }
                         ]
                     },
+                    {
+                        pattern: "〜てはいけません",
+                        meanings: { en: "Expresses prohibition — \"must not\" do something.", bn: "নিষেধ প্রকাশ করে — কিছু করা \"যাবে না\"।" },
+                        connection: ["動詞（て形）+ はいけません"],
+                        examples: [
+                            { jp: "ここでたばこを吸ってはいけません。", reading: "ここでたばこをすってはいけません。", en: "You must not smoke here." },
+                            { jp: "授業中に携帯電話を使ってはいけません。", reading: "じゅぎょうちゅうにけいたいでんわをつかってはいけません。", en: "You must not use your phone during class." },
+                            { jp: "人の物を勝手に使ってはいけません。", reading: "ひとのものをかってにつかってはいけません。", en: "You must not use other people's things without permission." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "conditionals-tara-to",
+                title: "Conditionals I: たら & と",
+                items: [
                     {
                         pattern: "〜たら",
                         meanings: { en: "A conditional — \"if\" or \"when\" something happens.", bn: "একটি শর্তসাপেক্ষ রূপ — কিছু ঘটলে \"যদি\" বা \"যখন\"।" },
                         connection: ["動詞／形容詞／名詞（た形）+ ら"],
                         examples: [
-                            { jp: "雨が降ったら、行きません。", reading: "あめがふったら、いきません。", en: "If it rains, I won't go." },
+                            { jp: "雨が降ったら、試合は中止です。", reading: "あめがふったら、しあいはちゅうしです。", en: "If it rains, the match will be cancelled." },
                             { jp: "安かったら、買います。", reading: "やすかったら、かいます。", en: "If it's cheap, I'll buy it." },
-                            { jp: "時間があったら、遊びに来てください。", reading: "じかんがあったら、あそびにきてください。", en: "If you have time, please come play." }
+                            { jp: "日本に着いたら、電話してください。", reading: "にほんについたら、でんわしてください。", en: "When you arrive in Japan, please call me." }
                         ]
                     },
                     {
-                        pattern: "〜そうです",
-                        meanings: { en: "Describes an appearance — \"looks like\" or \"seems.\"", bn: "চেহারা/অবস্থা বর্ণনা করে — \"মনে হচ্ছে\" বা \"দেখতে লাগছে\"।" },
-                        connection: ["動詞（ます形語幹）／い形容詞／な形容詞（語幹）+ そうです", "※いい → よさそうです（例外）"],
+                        pattern: "〜たらどうですか",
+                        meanings: { en: "A suggestion — \"why don't you...\" or \"maybe you should...\"", bn: "পরামর্শ দেওয়ার রূপ — \"করলে কেমন হয়?\" বা \"করা উচিত না?\"।" },
+                        connection: ["動詞（た形）+ らどうですか"],
+                        examples: [
+                            { jp: "疲れているなら、少し休んだらどうですか。", reading: "つかれているなら、すこしやすんだらどうですか。", en: "If you're tired, why don't you rest a little?" },
+                            { jp: "先生に聞いたらどうですか。", reading: "せんせいにきいたらどうですか。", en: "Why don't you ask the teacher?" },
+                            { jp: "医者に見てもらったらどうですか。", reading: "いしゃにみてもらったらどうですか。", en: "Why don't you have a doctor look at it?" }
+                        ]
+                    },
+                    {
+                        pattern: "〜と、〜",
+                        meanings: { en: "A conditional used for automatic or habitual results — when/if ... happens, ... naturally follows.", bn: "স্বাভাবিক বা অভ্যাসগত ফলাফলের শর্তসাপেক্ষ রূপ — \"করলেই\" স্বাভাবিকভাবে যা ঘটে।" },
+                        connection: ["動詞（辞書形）+ と、〜", "※後件に意志・命令・依頼は使えない"],
+                        examples: [
+                            { jp: "このボタンを押すと、電気がつきます。", reading: "このボタンをおすと、でんきがつきます。", en: "When you press this button, the light turns on." },
+                            { jp: "春になると、桜が咲きます。", reading: "はるになると、さくらがさきます。", en: "When spring comes, the cherry blossoms bloom." },
+                            { jp: "まっすぐ行くと、右に駅があります。", reading: "まっすぐいくと、みぎにえきがあります。", en: "If you go straight, the station is on the right." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ば良かった",
+                        reading: "〜ばよかった",
+                        meanings: { en: "Expresses regret — \"I should have...\" or \"I wish I had...\"", bn: "অনুশোচনা প্রকাশ করে — \"করলে ভালো হতো\" বা \"করা উচিত ছিল\"।" },
+                        connection: ["動詞（ば形）+ 良かった"],
+                        examples: [
+                            { jp: "もっと早く勉強すればよかったです。", reading: "もっとはやくべんきょうすればよかったです。", en: "I should have studied earlier." },
+                            { jp: "傘を持ってくればよかったです。", reading: "かさをもってくればよかったです。", en: "I wish I had brought an umbrella." },
+                            { jp: "あの時、本当のことを言えばよかったです。", reading: "あのとき、ほんとうのことをいえばよかったです。", en: "I wish I had told the truth back then." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "conditionals-ba-nara",
+                title: "Conditionals II: ば & なら",
+                items: [
+                    {
+                        pattern: "〜ば",
+                        meanings: { en: "A conditional — \"if ... then ...\" for a general or hypothetical condition.", bn: "শর্তসাপেক্ষ রূপ — \"যদি ... তাহলে ...\" (সাধারণ বা অনুমানভিত্তিক শর্ত)।" },
+                        connection: ["動詞（ば形）", "い形容詞（語幹）+ ければ", "な形容詞／名詞 + であれば"],
+                        examples: [
+                            { jp: "薬を飲めば、風邪はすぐに治ります。", reading: "くすりをのめば、かぜはすぐになおります。", en: "If you take medicine, your cold will heal quickly." },
+                            { jp: "時間があれば、旅行に行きたいです。", reading: "じかんがあれば、りょこうにいきたいです。", en: "If I have time, I want to go on a trip." },
+                            { jp: "安ければ、もう一つ買います。", reading: "やすければ、もうひとつかいます。", en: "If it's cheap, I'll buy one more." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なら",
+                        meanings: { en: "Introduces a topic based on what the other person said or the situation — \"if that's the case,\" \"as for...\"", bn: "অন্যের কথা বা পরিস্থিতির ভিত্তিতে একটি বিষয় উপস্থাপন করে — \"যদি তাই হয়\" বা \"...-এর ক্ষেত্রে\"।" },
+                        connection: ["動詞（辞書形）+ なら", "い形容詞 + なら", "な形容詞／名詞 + なら"],
+                        examples: [
+                            { jp: "日本語を習いたいのなら、いい先生を紹介します。", reading: "にほんごをならいたいのなら、いいせんせいをしょうかいします。", en: "If you want to learn Japanese, I'll introduce you to a good teacher." },
+                            { jp: "京都に行くなら、秋がいちばんきれいです。", reading: "きょうとにいくなら、あきがいちばんきれいです。", en: "If you're going to Kyoto, autumn is the most beautiful time." },
+                            { jp: "暇なら、手伝ってください。", reading: "ひまなら、てつだってください。", en: "If you're free, please help me." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ても／〜でも",
+                        meanings: { en: "Presents a reverse condition — \"even if...\" — where the expected result doesn't happen.", bn: "একটি বিপরীত শর্ত উপস্থাপন করে — \"যদিও/তবুও\" — যেখানে প্রত্যাশিত ফলাফল ঘটে না।" },
+                        connection: ["動詞（て形）+ も、〜", "い形容詞（語幹）+ くても、〜", "な形容詞／名詞 + でも、〜"],
+                        examples: [
+                            { jp: "雨が降っても、出かけます。", reading: "あめがふっても、でかけます。", en: "Even if it rains, I'll go out." },
+                            { jp: "いくら高くても、これを買います。", reading: "いくらたかくても、これをかいます。", en: "However expensive it is, I'll buy this." },
+                            { jp: "休みの日でも、六時に起きます。", reading: "やすみのひでも、ろくじにおきます。", en: "Even on a day off, I get up at six." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "trying-preparing-finishing",
+                title: "Trying, Preparing & Finishing Actions",
+                items: [
+                    {
+                        pattern: "〜てみる",
+                        meanings: { en: "Expresses trying to do something to see the result.", bn: "ফলাফল দেখার জন্য কিছু করে দেখা বোঝায়।" },
+                        connection: ["動詞（て形）+ みる"],
+                        examples: [
+                            { jp: "おいしいかどうか分からないので、食べてみます。", reading: "おいしいかどうかわからないので、たべてみます。", en: "I don't know if it's tasty, so I'll try eating it." },
+                            { jp: "一度、着物を着てみたいです。", reading: "いちど、きものをきてみたいです。", en: "I'd like to try wearing a kimono once." },
+                            { jp: "分からない言葉は辞書で調べてみてください。", reading: "わからないことばはじしょでしらべてみてください。", en: "Please try looking up words you don't know in a dictionary." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ておく",
+                        meanings: { en: "Expresses doing something in advance, in preparation for later.", bn: "পরবর্তী সময়ের জন্য আগে থেকেই কিছু করে রাখা বোঝায়।" },
+                        connection: ["動詞（て形）+ おく"],
+                        examples: [
+                            { jp: "旅行の前に、ホテルを予約しておきます。", reading: "りょこうのまえに、ホテルをよやくしておきます。", en: "Before the trip, I'll make a hotel reservation in advance." },
+                            { jp: "会議の資料を準備しておいてください。", reading: "かいぎのしりょうをじゅんびしておいてください。", en: "Please prepare the meeting materials in advance." },
+                            { jp: "暑いので、窓を開けておきました。", reading: "あついので、まどをあけておきました。", en: "Since it's hot, I left the window open." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てしまう",
+                        meanings: { en: "Expresses that an action is completed entirely, or that something happened regrettably.", bn: "কোনো কাজ পুরোপুরি শেষ হওয়া, অথবা দুর্ভাগ্যবশত/অনিচ্ছাকৃতভাবে কিছু ঘটে যাওয়া বোঝায়।" },
+                        connection: ["動詞（て形）+ しまう"],
+                        examples: [
+                            { jp: "この本はもう全部読んでしまいました。", reading: "このほんはもうぜんぶよんでしまいました。", en: "I've already finished reading this whole book." },
+                            { jp: "電車の中で財布をなくしてしまいました。", reading: "でんしゃのなかでさいふをなくしてしまいました。", en: "I ended up losing my wallet on the train." },
+                            { jp: "大切な約束を忘れてしまいました。", reading: "たいせつなやくそくをわすれてしまいました。", en: "I ended up forgetting an important promise." }
+                        ]
+                    },
+                    {
+                        pattern: "〜終わる",
+                        reading: "〜おわる",
+                        meanings: { en: "Expresses finishing the act of doing something.", bn: "কোনো কাজ করা শেষ হওয়া বোঝায়।" },
+                        connection: ["動詞（ます形語幹）+ 終わる"],
+                        examples: [
+                            { jp: "レポートを書き終わりました。", reading: "レポートをかきおわりました。", en: "I finished writing the report." },
+                            { jp: "ご飯を食べ終わったら、教えてください。", reading: "ごはんをたべおわったら、おしえてください。", en: "Please tell me when you finish eating." },
+                            { jp: "話し終わると、みんなが拍手しました。", reading: "はなしおわると、みんながはくしゅしました。", en: "When I finished speaking, everyone applauded." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "appearance-hearsay-sou",
+                title: "Appearance & Hearsay: そうです",
+                items: [
+                    {
+                        pattern: "〜そうです（様態）",
+                        reading: "〜そうです（ようたい）",
+                        meanings: { en: "Describes an appearance based on what you see — \"looks like,\" \"seems.\"", bn: "চোখে দেখে ধারণা প্রকাশ করে — \"দেখতে মনে হচ্ছে\"।" },
+                        connection: ["動詞（ます形語幹）+ そうです", "い形容詞（語幹）+ そうです", "な形容詞（語幹）+ そうです", "※いい → よさそうです（例外）"],
                         examples: [
                             { jp: "このケーキは美味しそうです。", reading: "このケーキはおいしそうです。", en: "This cake looks delicious." },
                             { jp: "雨が降りそうです。", reading: "あめがふりそうです。", en: "It looks like it's going to rain." },
@@ -1348,13 +1508,832 @@ const grammarData = {
                         ]
                     },
                     {
+                        pattern: "〜そうです（伝聞）",
+                        reading: "〜そうです（でんぶん）",
+                        meanings: { en: "Reports information heard from another source — \"I heard that...,\" \"it is said that...\"", bn: "অন্য কারো কাছ থেকে শোনা তথ্য জানায় — \"শুনেছি যে...\"।" },
+                        connection: ["普通形 + そうです"],
+                        examples: [
+                            { jp: "天気予報によると、明日は雨だそうです。", reading: "てんきよほうによると、あしたはあめだそうです。", en: "According to the weather forecast, I heard it will rain tomorrow." },
+                            { jp: "あの店のラーメンはとてもおいしいそうです。", reading: "あのみせのラーメンはとてもおいしいそうです。", en: "I heard that ramen at that shop is very delicious." },
+                            { jp: "田中さんはもう国に帰ったそうです。", reading: "たなかさんはもうくにかえったそうです。", en: "I heard that Tanaka has already returned to his home country." }
+                        ]
+                    },
+                    {
+                        pattern: "〜出す",
+                        reading: "〜だす",
+                        meanings: { en: "Expresses that an action or state suddenly begins.", bn: "হঠাৎ কোনো কাজ বা অবস্থা শুরু হওয়া বোঝায়।" },
+                        connection: ["動詞（ます形語幹）+ 出す"],
+                        examples: [
+                            { jp: "赤ちゃんが急に泣き出しました。", reading: "あかちゃんがきゅうになきだしました。", en: "The baby suddenly started crying." },
+                            { jp: "空が暗くなって、雨が降り出しました。", reading: "そらがくらくなって、あめがふりだしました。", en: "The sky got dark and it started raining." },
+                            { jp: "彼の話を聞いて、みんな笑い出しました。", reading: "かれのはなしをきいて、みんなわらいだしました。", en: "Hearing his story, everyone burst out laughing." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "seeming-and-comparing",
+                title: "Seeming & Comparing: ようだ・らしい・みたい",
+                items: [
+                    {
+                        pattern: "〜ようです",
+                        meanings: { en: "Expresses that something seems or appears to be so, based on the speaker's own observation.", bn: "বক্তার নিজস্ব পর্যবেক্ষণের ভিত্তিতে কিছু মনে হওয়া/মনে হচ্ছে বোঝায়।" },
+                        connection: ["動詞／い形容詞（普通形）+ ようです", "な形容詞（な）+ ようです", "名詞（の）+ ようです"],
+                        examples: [
+                            { jp: "午後から雨が降るようです。", reading: "ごごからあめがふるようです。", en: "It seems it will rain from this afternoon." },
+                            { jp: "隣の部屋にだれかいるようです。", reading: "となりのへやにだれかいるようです。", en: "It seems someone is in the next room." },
+                            { jp: "彼はこの町のことをよく知っているようです。", reading: "かれはこのまちのことをよくしっているようです。", en: "He seems to know a lot about this town." }
+                        ]
+                    },
+                    {
+                        pattern: "〜らしいです",
+                        meanings: { en: "Expresses that something seems to be true, usually based on information heard from others.", bn: "সাধারণত অন্যের কাছ থেকে শোনা তথ্যের ভিত্তিতে কিছু সত্য বলে মনে হওয়া বোঝায়।" },
+                        connection: ["普通形 + らしいです"],
+                        examples: [
+                            { jp: "あの店は本当においしいらしいです。", reading: "あのみせはほんとうにおいしいらしいです。", en: "I hear that shop is really delicious." },
+                            { jp: "来年、この道路が新しくなるらしいです。", reading: "らいねん、このどうろがあたらしくなるらしいです。", en: "I hear this road will be renovated next year." },
+                            { jp: "田中さんは今日、休みらしいです。", reading: "たなかさんはきょう、やすみらしいです。", en: "I hear Tanaka is off today." }
+                        ]
+                    },
+                    {
+                        pattern: "〜みたいです",
+                        meanings: { en: "A casual way of saying \"seems\" or \"like,\" similar in meaning to ようです.", bn: "\"মনে হচ্ছে\" বা \"মতো\" বোঝানোর একটি সাধারণ/কথ্য রূপ, ようです-এর কাছাকাছি অর্থ।" },
+                        connection: ["普通形 + みたいです", "※な形容詞／名詞は「だ」を取る"],
+                        examples: [
+                            { jp: "外は寒いみたいです。", reading: "そとはさむいみたいです。", en: "It seems cold outside." },
+                            { jp: "彼女はこの歌手のファンみたいです。", reading: "かのじょはこのかしゅのファンみたいです。", en: "It seems she's a fan of this singer." },
+                            { jp: "だれもいないみたいですね。", reading: "だれもいないみたいですね。", en: "It seems no one is here, huh." }
+                        ]
+                    },
+                    {
+                        pattern: "〜のような／〜のように",
+                        meanings: { en: "Compares one thing to another — \"like,\" \"similar to.\"", bn: "একটি জিনিসকে অন্য কিছুর সাথে তুলনা করে — \"মতো\", \"সদৃশ\"।" },
+                        connection: ["名詞 + のような + 名詞", "名詞 + のように + 動詞／形容詞"],
+                        examples: [
+                            { jp: "彼女の肌は雪のように白いです。", reading: "かのじょのはだはゆきのようにしろいです。", en: "Her skin is as white as snow." },
+                            { jp: "兄のような人になりたいです。", reading: "あにのようなひとになりたいです。", en: "I want to become a person like my older brother." },
+                            { jp: "鳥のように空を飛びたいです。", reading: "とりのようにそらをとびたいです。", en: "I want to fly through the sky like a bird." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "giving-receiving-favors",
+                title: "Giving & Receiving Favors",
+                items: [
+                    {
+                        pattern: "〜てあげる",
+                        meanings: { en: "Expresses doing something for someone else's benefit.", bn: "অন্য কারো উপকারের জন্য কিছু করে দেওয়া বোঝায়।" },
+                        connection: ["動詞（て形）+ あげる"],
+                        examples: [
+                            { jp: "友達に日本語を教えてあげました。", reading: "ともだちににほんごをおしえてあげました。", en: "I taught my friend Japanese." },
+                            { jp: "荷物を持ってあげましょうか。", reading: "にもつをもってあげましょうか。", en: "Shall I carry your luggage for you?" },
+                            { jp: "妹に本を読んであげました。", reading: "いもうとにほんをよんであげました。", en: "I read a book for my little sister." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てくれる",
+                        meanings: { en: "Expresses someone doing something for the speaker's benefit.", bn: "অন্য কেউ বক্তার উপকারের জন্য কিছু করে দেওয়া বোঝায়।" },
+                        connection: ["動詞（て形）+ くれる"],
+                        examples: [
+                            { jp: "友達が駅まで迎えに来てくれました。", reading: "ともだちがえきまでむかえにきてくれました。", en: "My friend came to pick me up at the station." },
+                            { jp: "田中さんが仕事を手伝ってくれました。", reading: "たなかさんがしごとをてつだってくれました。", en: "Tanaka helped me with my work." },
+                            { jp: "母がセーターを送ってくれました。", reading: "ははがセーターをおくってくれました。", en: "My mother sent me a sweater." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てもらう",
+                        meanings: { en: "Expresses receiving the favor of someone doing something.", bn: "কারো কাছ থেকে কোনো কাজ করিয়ে নেওয়ার সুবিধা পাওয়া বোঝায়।" },
+                        connection: ["動詞（て形）+ もらう"],
+                        examples: [
+                            { jp: "先生に作文を直してもらいました。", reading: "せんせいにさくぶんをなおしてもらいました。", en: "I had the teacher correct my essay." },
+                            { jp: "友達に空港まで送ってもらいました。", reading: "ともだちにくうこうまでおくってもらいました。", en: "I had a friend take me to the airport." },
+                            { jp: "兄に宿題を手伝ってもらいました。", reading: "あににしゅくだいをてつだってもらいました。", en: "I had my older brother help me with my homework." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ていただけませんか",
+                        meanings: { en: "A polite way to ask someone to do something — \"could you please...\"", bn: "কাউকে কিছু করার জন্য ভদ্রভাবে অনুরোধ করার রূপ — \"করে দিতে পারবেন কি?\"।" },
+                        connection: ["動詞（て形）+ いただけませんか"],
+                        examples: [
+                            { jp: "すみません、写真を撮っていただけませんか。", reading: "すみません、しゃしんをとっていただけませんか。", en: "Excuse me, could you take a photo for me?" },
+                            { jp: "もう一度説明していただけませんか。", reading: "もういちどせつめいしていただけませんか。", en: "Could you please explain that one more time?" },
+                            { jp: "少し待っていただけませんか。", reading: "すこしまっていただけませんか。", en: "Could you please wait a little?" }
+                        ]
+                    },
+                    {
+                        pattern: "〜てほしい",
+                        meanings: { en: "Expresses wanting someone else to do something.", bn: "অন্য কাউকে দিয়ে কিছু করাতে চাওয়া বোঝায়।" },
+                        connection: ["（人）に + 動詞（て形）+ ほしい"],
+                        examples: [
+                            { jp: "もっと野菜を食べてほしいです。", reading: "もっとやさいをたべてほしいです。", en: "I want you to eat more vegetables." },
+                            { jp: "早く元気になってほしいです。", reading: "はやくげんきになってほしいです。", en: "I want you to get well soon." },
+                            { jp: "私の気持ちを分かってほしいです。", reading: "わたしのきもちをわかってほしいです。", en: "I want you to understand my feelings." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "potential-form-ability",
+                title: "Potential Form & Ability",
+                items: [
+                    {
+                        pattern: "可能形",
+                        reading: "かのうけい",
+                        meanings: { en: "The potential form of a verb, expressing the ability to do something.", bn: "ক্রিয়ার সামর্থ্যবাচক রূপ, যা কিছু করার সক্ষমতা প্রকাশ করে।" },
+                        connection: ["グループ1：う→える（例：読む→読める）", "グループ2：る→られる（例：食べる→食べられる）", "グループ3：する→できる、来る→来られる"],
+                        examples: [
+                            { jp: "私は漢字が読めます。", reading: "わたしはかんじがよめます。", en: "I can read kanji." },
+                            { jp: "妹はピアノが弾けます。", reading: "いもうとはピアノがひけます。", en: "My little sister can play the piano." },
+                            { jp: "明日は早く来られますか。", reading: "あしたははやくこられますか。", en: "Can you come early tomorrow?" }
+                        ]
+                    },
+                    {
+                        pattern: "〜ことができる",
+                        meanings: { en: "Expresses being able to do something.", bn: "কিছু করতে সক্ষম হওয়া বোঝায়।" },
+                        connection: ["動詞（辞書形）+ ことができる"],
+                        examples: [
+                            { jp: "田中さんは車を運転することができます。", reading: "たなかさんはくるまをうんてんすることができます。", en: "Tanaka can drive a car." },
+                            { jp: "この図書館では本を借りることができます。", reading: "このとしょかんではほんをかりることができます。", en: "You can borrow books at this library." },
+                            { jp: "一人で漢字を書くことができますか。", reading: "ひとりでかんじをかくことができますか。", en: "Can you write kanji by yourself?" }
+                        ]
+                    },
+                    {
+                        pattern: "見える／聞こえる",
+                        reading: "みえる／きこえる",
+                        meanings: { en: "Expresses that something is naturally visible or audible, without deliberate effort.", bn: "ইচ্ছাকৃত চেষ্টা ছাড়াই স্বাভাবিকভাবে কিছু দেখা বা শোনা যাওয়া বোঝায় — \"দেখা যায়\", \"শোনা যায়\"।" },
+                        connection: ["名詞 + が + 見えます／聞こえます"],
+                        examples: [
+                            { jp: "窓から山が見えます。", reading: "まどからやまがみえます。", en: "You can see the mountain from the window." },
+                            { jp: "隣の部屋から音楽が聞こえます。", reading: "となりのへやからおんがくがきこえます。", en: "I can hear music from the next room." },
+                            { jp: "ここから海が見えますか。", reading: "ここからうみがみえますか。", en: "Can you see the ocean from here?" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "passive-voice",
+                title: "Passive Voice",
+                items: [
+                    {
+                        pattern: "受身形（られる）",
+                        reading: "うけみけい",
+                        meanings: { en: "The passive form of a verb, used when the subject receives the action.", bn: "ক্রিয়ার কর্মবাচ্য রূপ, যখন কর্তা নিজে ক্রিয়াটি ভোগ করে।" },
+                        connection: ["グループ1：う→われる（例：使う→使われる）", "グループ2：る→られる（例：ほめる→ほめられる）", "グループ3：する→される、来る→来られる"],
+                        examples: [
+                            { jp: "この本は多くの人に読まれています。", reading: "このほんはおおくのひとによまれています。", en: "This book is read by many people." },
+                            { jp: "先生に褒められました。", reading: "せんせいにほめられました。", en: "I was praised by the teacher." },
+                            { jp: "昨日、雨に降られました。", reading: "きのう、あめにふられました。", en: "I got rained on yesterday." }
+                        ]
+                    },
+                    {
+                        pattern: "（人）に〜される",
+                        meanings: { en: "Marks the agent of a passive action — \"by (someone).\"", bn: "কর্মবাচ্য ক্রিয়ার কর্তা চিহ্নিত করে — \"...-এর দ্বারা\"।" },
+                        connection: ["（人）に + 動詞（受身形）"],
+                        examples: [
+                            { jp: "妹に大事な本を破られました。", reading: "いもうとにだいじなほんをやぶられました。", en: "My important book was torn by my little sister." },
+                            { jp: "電車の中で足を踏まれました。", reading: "でんしゃのなかであしをふまれました。", en: "My foot was stepped on in the train." },
+                            { jp: "犬に手を噛まれました。", reading: "いぬにてをかまれました。", en: "I was bitten on the hand by a dog." }
+                        ]
+                    },
+                    {
+                        pattern: "〜によって（受身の動作主）",
+                        meanings: { en: "Marks the agent in a passive sentence, typically for things created, discovered, or decided by someone.", bn: "কর্মবাচ্য বাক্যে কর্তা চিহ্নিত করে, সাধারণত কেউ কিছু তৈরি, আবিষ্কার বা সিদ্ধান্ত নিলে ব্যবহৃত হয়।" },
+                        connection: ["（人）によって + 動詞（受身形）"],
+                        examples: [
+                            { jp: "この絵は有名な画家によって描かれました。", reading: "このえはゆうめいながかによってかかれました。", en: "This picture was painted by a famous artist." },
+                            { jp: "電話はベルによって発明されました。", reading: "でんわはベルによってはつめいされました。", en: "The telephone was invented by Bell." },
+                            { jp: "その法律は国会によって決められました。", reading: "そのほうりつはこっかいによってきめられました。", en: "That law was decided by the parliament." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "causative-form",
+                title: "Causative Form",
+                items: [
+                    {
+                        pattern: "使役形（させる）",
+                        reading: "しえきけい",
+                        meanings: { en: "The causative form of a verb, used to express making or letting someone do something.", bn: "ক্রিয়ার প্রযোজক রূপ, যা কাউকে দিয়ে কিছু করানো বা করতে দেওয়া বোঝায়।" },
+                        connection: ["グループ1：う→わせる（例：使う→使わせる）", "グループ2：る→させる（例：食べる→食べさせる）", "グループ3：する→させる、来る→来させる"],
+                        examples: [
+                            { jp: "母は子供に野菜を食べさせます。", reading: "はははこどもにやさいをたべさせます。", en: "The mother makes her child eat vegetables." },
+                            { jp: "先生は学生に本を読ませました。", reading: "せんせいはがくせいにほんをよませました。", en: "The teacher had the students read the book." },
+                            { jp: "今日は休ませてください。", reading: "きょうはやすませてください。", en: "Please let me take the day off today." }
+                        ]
+                    },
+                    {
+                        pattern: "〜（さ）せてください",
+                        meanings: { en: "A polite way to ask permission to do something oneself.", bn: "নিজে কিছু করার অনুমতি ভদ্রভাবে চাওয়ার রূপ।" },
+                        connection: ["動詞（使役形）+ てください"],
+                        examples: [
+                            { jp: "私にその仕事をさせてください。", reading: "わたしにそのしごとをさせてください。", en: "Please let me do that job." },
+                            { jp: "少し考えさせてください。", reading: "すこしかんがえさせてください。", en: "Please let me think about it a little." },
+                            { jp: "ここで写真を撮らせてください。", reading: "ここでしゃしんをとらせてください。", en: "Please let me take a photo here." }
+                        ]
+                    },
+                    {
+                        pattern: "〜させてもらう／〜させていただく",
+                        meanings: { en: "Politely expresses receiving permission to do something oneself.", bn: "নিজে কিছু করার অনুমতি বিনয়ের সাথে পাওয়া বোঝায়।" },
+                        connection: ["動詞（使役形）+ てもらう／ていただく"],
+                        examples: [
+                            { jp: "今日は早く帰らせてもらいます。", reading: "きょうははやくかえらせてもらいます。", en: "I'll go home early today, if that's alright." },
+                            { jp: "お先に失礼させていただきます。", reading: "おさきにしつれいさせていただきます。", en: "Please allow me to leave before you." },
+                            { jp: "この件について話させていただきます。", reading: "このけんについてはなさせていただきます。", en: "Allow me to talk about this matter." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "causative-passive",
+                title: "Causative-Passive Form",
+                items: [
+                    {
+                        pattern: "使役受身形（させられる）",
+                        reading: "しえきうけみけい",
+                        meanings: { en: "The causative-passive form, expressing being made to do something, usually against one's will.", bn: "প্রযোজক-কর্মবাচ্য রূপ, যা কাউকে দিয়ে জোরপূর্বক কিছু করানো (সাধারণত অনিচ্ছাসত্ত্বেও) বোঝায়।" },
+                        connection: ["グループ1：う→わされる（例：歌う→歌わされる）", "グループ2：る→させられる（例：食べる→食べさせられる）", "グループ3：する→させられる、来る→来させられる"],
+                        examples: [
+                            { jp: "子供のとき、よく野菜を食べさせられました。", reading: "こどものとき、よくやさいをたべさせられました。", en: "When I was a child, I was often made to eat vegetables." },
+                            { jp: "先生に漢字を百回書かされました。", reading: "せんせいにかんじをひゃっかいかかされました。", en: "The teacher made me write the kanji a hundred times." },
+                            { jp: "パーティーで歌を歌わされました。", reading: "パーティーでうたをうたわされました。", en: "I was made to sing a song at the party." }
+                        ]
+                    },
+                    {
+                        pattern: "〜させられる（感情の使役受身）",
+                        meanings: { en: "Uses the causative-passive form to express a feeling that was caused involuntarily.", bn: "প্রযোজক-কর্মবাচ্য রূপ ব্যবহার করে অনিচ্ছাকৃতভাবে সৃষ্ট অনুভূতি প্রকাশ করা হয়।" },
+                        connection: ["動詞（使役受身形）"],
+                        examples: [
+                            { jp: "その映画を見て、泣かされました。", reading: "そのえいがをみて、なかされました。", en: "That movie made me cry." },
+                            { jp: "彼の話にはいつも驚かされます。", reading: "かれのはなしにはいつもおどろかされます。", en: "His stories always surprise me." },
+                            { jp: "娘の一言に考えさせられました。", reading: "むすめのひとことにかんがえさせられました。", en: "My daughter's remark made me think." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "respectful-keigo",
+                title: "Respectful Keigo (尊敬語)",
+                items: [
+                    {
+                        pattern: "尊敬の特別な動詞",
+                        reading: "そんけいのとくべつなどうし",
+                        meanings: { en: "Special respectful verbs used when talking about the actions of someone of higher status.", bn: "উচ্চপদস্থ বা সম্মানিত ব্যক্তির কাজ সম্পর্কে বলার সময় ব্যবহৃত বিশেষ সম্মানসূচক ক্রিয়া।" },
+                        connection: ["いる／行く／来る → いらっしゃる", "言う → おっしゃる", "する → なさる", "食べる／飲む → 召し上がる", "見る → ご覧になる"],
+                        examples: [
+                            { jp: "社長は明日、大阪にいらっしゃいます。", reading: "しゃちょうはあした、おおさかにいらっしゃいます。", en: "The president will go to Osaka tomorrow." },
+                            { jp: "先生が何かおっしゃいました。", reading: "せんせいがなにかおっしゃいました。", en: "The teacher said something." },
+                            { jp: "どうぞ、召し上がってください。", reading: "どうぞ、めしあがってください。", en: "Please, go ahead and eat." }
+                        ]
+                    },
+                    {
+                        pattern: "お（ご）〜になる",
+                        meanings: { en: "A respectful pattern used to describe another person's action politely.", bn: "অন্য কারো কাজ ভদ্র/সম্মানজনকভাবে বর্ণনা করার একটি রূপ।" },
+                        connection: ["お + 動詞（ます形語幹）+ になる", "ご + 名詞（する動詞の語幹）+ になる"],
+                        examples: [
+                            { jp: "田中先生はもうお帰りになりました。", reading: "たなかせんせいはもうおかえりになりました。", en: "Mr. Tanaka has already gone home." },
+                            { jp: "この新聞をお読みになりましたか。", reading: "このしんぶんをおよみになりましたか。", en: "Have you read this newspaper?" },
+                            { jp: "お客様は何時にご出発になりますか。", reading: "おきゃくさまはなんじにごしゅっぱつになりますか。", en: "What time will you be departing?" }
+                        ]
+                    },
+                    {
+                        pattern: "お（ご）〜ください",
+                        meanings: { en: "A respectful request pattern — a polite \"please do (something)\" for someone of higher status.", bn: "সম্মানসূচক অনুরোধের রূপ — কাউকে ভদ্রভাবে \"দয়া করে করুন\" বলার জন্য।" },
+                        connection: ["お + 動詞（ます形語幹）+ ください", "ご + 名詞（する動詞の語幹）+ ください"],
+                        examples: [
+                            { jp: "こちらにお名前をお書きください。", reading: "こちらにおなまえをおかきください。", en: "Please write your name here." },
+                            { jp: "少々お待ちください。", reading: "しょうしょうおまちください。", en: "Please wait a moment." },
+                            { jp: "どうぞご安心ください。", reading: "どうぞごあんしんください。", en: "Please rest assured." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "humble-keigo",
+                title: "Humble Keigo (謙譲語)",
+                items: [
+                    {
+                        pattern: "謙譲の特別な動詞 I",
+                        reading: "けんじょうのとくべつなどうし いち",
+                        meanings: { en: "Special humble verbs used to lower the speaker's own action out of respect for the listener.", bn: "শ্রোতার প্রতি সম্মান দেখাতে নিজের কাজকে নম্রভাবে প্রকাশ করার বিশেষ ক্রিয়া।" },
+                        connection: ["行く／来る → 参る", "言う → 申す", "する → いたす", "いる → おる"],
+                        examples: [
+                            { jp: "明日、そちらへ参ります。", reading: "あした、そちらへまいります。", en: "I will go there tomorrow." },
+                            { jp: "田中と申します。", reading: "たなかともうします。", en: "My name is Tanaka." },
+                            { jp: "私がご案内いたします。", reading: "わたしがごあんないいたします。", en: "I will guide you." }
+                        ]
+                    },
+                    {
+                        pattern: "謙譲の特別な動詞 II",
+                        reading: "けんじょうのとくべつなどうし に",
+                        meanings: { en: "More special humble verbs used to lower the speaker's own action.", bn: "নিজের কাজকে নম্রভাবে প্রকাশ করার আরও কিছু বিশেষ ক্রিয়া।" },
+                        connection: ["行く（訪問）→ 伺う", "見る → 拝見する", "食べる／飲む／もらう → いただく", "あげる → 差し上げる"],
+                        examples: [
+                            { jp: "明日、お宅に伺います。", reading: "あした、おたくにうかがいます。", en: "I will visit your home tomorrow." },
+                            { jp: "資料を拝見しました。", reading: "しりょうをはいけんしました。", en: "I have looked at the materials." },
+                            { jp: "お茶をいただきます。", reading: "おちゃをいただきます。", en: "I will have some tea." }
+                        ]
+                    },
+                    {
+                        pattern: "ご存じです",
+                        reading: "ごぞんじです",
+                        meanings: { en: "The respectful way of saying \"to know,\" used for someone of higher status.", bn: "\"জানা\"-এর সম্মানসূচক রূপ, উচ্চপদস্থ ব্যক্তির ক্ষেত্রে ব্যবহৃত হয়।" },
+                        connection: ["名詞 + を + ご存じです"],
+                        examples: [
+                            { jp: "この件をご存じですか。", reading: "このけんをごぞんじですか。", en: "Do you know about this matter?" },
+                            { jp: "山田さんのことをご存じですか。", reading: "やまださんのことをごぞんじですか。", en: "Do you know Mr. Yamada?" },
+                            { jp: "先生はもうご存じでした。", reading: "せんせいはもうごぞんじでした。", en: "The teacher already knew." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "commands-and-orders",
+                title: "Commands, Orders & Strong Requests",
+                items: [
+                    {
+                        pattern: "命令形",
+                        reading: "めいれいけい",
+                        meanings: { en: "The plain command form of a verb, used for strong, direct orders.", bn: "ক্রিয়ার সাধারণ আদেশসূচক রূপ, কঠোর ও সরাসরি নির্দেশের জন্য ব্যবহৃত হয়।" },
+                        connection: ["グループ1：う段→え段（例：読む→読め）", "グループ2：る→ろ（例：食べる→食べろ）", "グループ3：する→しろ、来る→来い"],
+                        examples: [
+                            { jp: "早く来い。", reading: "はやくこい。", en: "Come quickly!" },
+                            { jp: "ここに座れ。", reading: "ここにすわれ。", en: "Sit here!" },
+                            { jp: "静かにしろ。", reading: "しずかにしろ。", en: "Be quiet!" }
+                        ]
+                    },
+                    {
+                        pattern: "〜な（禁止形）",
+                        reading: "〜な（きんしけい）",
+                        meanings: { en: "The plain prohibitive form — a strong \"don't do\" command.", bn: "সাধারণ নিষেধসূচক রূপ — কঠোরভাবে \"করো না\" বলার জন্য।" },
+                        connection: ["動詞（辞書形）+ な"],
+                        examples: [
+                            { jp: "危ないから、触るな。", reading: "あぶないから、さわるな。", en: "Don't touch it, it's dangerous." },
+                            { jp: "ここに車を止めるな。", reading: "ここにくるまをとめるな。", en: "Don't park your car here." },
+                            { jp: "心配するな。", reading: "しんぱいするな。", en: "Don't worry." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なさい",
+                        meanings: { en: "A command form softer than the plain imperative, often used by parents or teachers.", bn: "সাধারণ আদেশের চেয়ে নরম রূপ, প্রায়ই বাবা-মা বা শিক্ষকরা ব্যবহার করেন।" },
+                        connection: ["動詞（ます形語幹）+ なさい"],
+                        examples: [
+                            { jp: "早く宿題をしなさい。", reading: "はやくしゅくだいをしなさい。", en: "Do your homework quickly." },
+                            { jp: "もっと野菜を食べなさい。", reading: "もっとやさいをたべなさい。", en: "Eat more vegetables." },
+                            { jp: "気をつけなさい。", reading: "きをつけなさい。", en: "Be careful." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "volitional-and-intentions",
+                title: "Volitional Form & Intentions",
+                items: [
+                    {
+                        pattern: "意向形",
+                        reading: "いこうけい",
+                        meanings: { en: "The volitional form of a verb, expressing the speaker's will or a suggestion — \"let's...\"", bn: "ক্রিয়ার ইচ্ছাসূচক রূপ, যা বক্তার ইচ্ছা বা প্রস্তাব প্রকাশ করে — \"চলো...\"।" },
+                        connection: ["グループ1：う段→お段+う（例：行く→行こう）", "グループ2：る→よう（例：食べる→食べよう）", "グループ3：する→しよう、来る→来よう"],
+                        examples: [
+                            { jp: "お腹が空いたから、何か食べよう。", reading: "おなかがすいたから、なにかたべよう。", en: "I'm hungry, so let's eat something." },
+                            { jp: "明日、一緒に映画を見に行こう。", reading: "あした、いっしょにえいがをみにいこう。", en: "Let's go watch a movie together tomorrow." },
+                            { jp: "そろそろ帰ろう。", reading: "そろそろかえろう。", en: "Let's head home soon." }
+                        ]
+                    },
+                    {
+                        pattern: "〜（よ）うと思います",
+                        meanings: { en: "Expresses the speaker's own intention — \"I'm thinking of doing...\"", bn: "বক্তার নিজের ইচ্ছা প্রকাশ করে — \"...করব বলে ভাবছি\"।" },
+                        connection: ["動詞（意向形）+ と思います"],
+                        examples: [
+                            { jp: "来年、日本へ留学しようと思います。", reading: "らいねん、にほんへりゅうがくしようとおもいます。", en: "I'm thinking of studying abroad in Japan next year." },
+                            { jp: "週末、部屋を掃除しようと思います。", reading: "しゅうまつ、へやをそうじしようとおもいます。", en: "I'm thinking of cleaning my room this weekend." },
+                            { jp: "夜遅くまで働かないようにしようと思います。", reading: "よるおそくまではたらかないようにしようとおもいます。", en: "I'm thinking of trying not to work until late at night." }
+                        ]
+                    },
+                    {
+                        pattern: "〜つもりです",
+                        meanings: { en: "Expresses a plan or intention decided upon in advance.", bn: "আগে থেকে নেওয়া পরিকল্পনা বা সিদ্ধান্ত প্রকাশ করে।" },
+                        connection: ["動詞（辞書形／ない形）+ つもりです"],
+                        examples: [
+                            { jp: "今年、車を買うつもりです。", reading: "ことし、くるまをかうつもりです。", en: "I intend to buy a car this year." },
+                            { jp: "もうお酒は飲まないつもりです。", reading: "もうおさけはのまないつもりです。", en: "I intend not to drink alcohol anymore." },
+                            { jp: "卒業したら、国へ帰るつもりです。", reading: "そつぎょうしたら、くにへかえるつもりです。", en: "After graduating, I intend to return to my country." }
+                        ]
+                    },
+                    {
+                        pattern: "〜予定です",
+                        reading: "〜よていです",
+                        meanings: { en: "Expresses a scheduled plan.", bn: "নির্ধারিত পরিকল্পনা প্রকাশ করে।" },
+                        connection: ["動詞（辞書形）／名詞（の）+ 予定です"],
+                        examples: [
+                            { jp: "来月、大阪へ出張する予定です。", reading: "らいげつ、おおさかへしゅっちょうするよていです。", en: "I'm scheduled to go on a business trip to Osaka next month." },
+                            { jp: "会議は三時に始まる予定です。", reading: "かいぎはさんじにはじまるよていです。", en: "The meeting is scheduled to start at three." },
+                            { jp: "十日間の旅行の予定です。", reading: "とおかかんのりょこうのよていです。", en: "It's a planned ten-day trip." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "reasons-and-connectors",
+                title: "Reasons & Connecting Sentences",
+                items: [
+                    {
+                        pattern: "〜し〜し",
+                        meanings: { en: "Lists two or more reasons or facts together.", bn: "দুই বা ততোধিক কারণ বা তথ্য একসাথে তুলে ধরে।" },
+                        connection: ["普通形 + し、普通形 + し"],
+                        examples: [
+                            { jp: "この店は安いし、おいしいし、いつも人気です。", reading: "このみせはやすいし、おいしいし、いつもにんきです。", en: "This shop is cheap, delicious, and always popular." },
+                            { jp: "頭も痛いし、熱もあるし、今日は休みます。", reading: "あたまもいたいし、ねつもあるし、きょうはやすみます。", en: "My head hurts and I have a fever, so I'll rest today." },
+                            { jp: "彼は親切だし、頭もいいし、みんなに好かれています。", reading: "かれはしんせつだし、あたまもいいし、みんなにすかれています。", en: "He's kind, smart, and liked by everyone." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たり〜たり",
+                        meanings: { en: "Lists representative actions or states among several — \"doing things like A and B.\"", bn: "একাধিক কাজ বা অবস্থার মধ্য থেকে কিছু প্রতিনিধিত্বমূলক উদাহরণ তুলে ধরে — \"এটা-ওটা করা\"।" },
+                        connection: ["動詞（た形）+ り、動詞（た形）+ り＋する"],
+                        examples: [
+                            { jp: "週末は本を読んだり、音楽を聞いたりします。", reading: "しゅうまつはほんをよんだり、おんがくをきいたりします。", en: "On weekends I do things like reading books and listening to music." },
+                            { jp: "公園で写真を撮ったり、サッカーをしたりしました。", reading: "こうえんでしゃしんをとったり、サッカーをしたりしました。", en: "At the park we took photos, played soccer, and so on." },
+                            { jp: "この道は広かったり狭かったりします。", reading: "このみちはひろかったりせまかったりします。", en: "This road is sometimes wide, sometimes narrow." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ながら",
+                        meanings: { en: "Expresses two actions happening at the same time, done by the same person.", bn: "একই ব্যক্তির দ্বারা একসাথে দুটি কাজ করা বোঝায়।" },
+                        connection: ["動詞（ます形語幹）+ ながら"],
+                        examples: [
+                            { jp: "音楽を聞きながら、勉強します。", reading: "おんがくをききながら、べんきょうします。", en: "I study while listening to music." },
+                            { jp: "テレビを見ながら、ご飯を食べないでください。", reading: "テレビをみながら、ごはんをたべないでください。", en: "Please don't eat while watching TV." },
+                            { jp: "彼はいつも笑いながら話します。", reading: "かれはいつもわらいながらはなします。", en: "He always talks while smiling." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "concession-and-contrast",
+                title: "Concession, Contrast & Unexpected Outcomes",
+                items: [
+                    {
+                        pattern: "〜のに",
+                        meanings: { en: "Expresses an unexpected or contrary result — \"although,\" \"even though,\" often with surprise or complaint.", bn: "অপ্রত্যাশিত বা বিপরীত ফলাফল প্রকাশ করে — \"যদিও/তা সত্ত্বেও\", প্রায়ই বিস্ময় বা অভিযোগের সুরে।" },
+                        connection: ["普通形 + のに"],
+                        examples: [
+                            { jp: "一生懸命勉強したのに、試験に落ちました。", reading: "いっしょうけんめいべんきょうしたのに、しけんにおちました。", en: "Even though I studied hard, I failed the exam." },
+                            { jp: "天気がいいのに、家にいます。", reading: "てんきがいいのに、いえにいます。", en: "Even though the weather is nice, I'm staying home." },
+                            { jp: "まだ子供なのに、とても頼りになります。", reading: "まだこどもなのに、とてもたよりになります。", en: "Even though he's still a child, he's very reliable." }
+                        ]
+                    },
+                    {
+                        pattern: "それでも",
+                        meanings: { en: "Expresses a contrast — \"but still,\" \"and yet\" — used to start a new sentence.", bn: "বৈপরীত্য প্রকাশ করে — \"তবুও\" — নতুন বাক্য শুরু করতে ব্যবহৃত হয়।" },
+                        connection: ["文。それでも、文。"],
+                        examples: [
+                            { jp: "熱があります。それでも、学校に行きます。", reading: "ねつがあります。それでも、がっこうにいきます。", en: "I have a fever. Even so, I'll go to school." },
+                            { jp: "何度も失敗しました。それでも、諦めませんでした。", reading: "なんどもしっぱいしました。それでも、あきらめませんでした。", en: "I failed many times. Even so, I didn't give up." },
+                            { jp: "高いです。それでも、買いたいです。", reading: "たかいです。それでも、かいたいです。", en: "It's expensive. Even so, I want to buy it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜けれど（も）",
+                        meanings: { en: "A softer, more conversational way to say \"but\" or \"however.\"", bn: "\"কিন্তু\" বা \"তবে\" বলার নরম ও কথ্য রূপ।" },
+                        connection: ["普通形 + けれど（も）"],
+                        examples: [
+                            { jp: "この漢字は難しいけれど、面白いです。", reading: "このかんじはむずかしいけれど、おもしろいです。", en: "This kanji is difficult, but interesting." },
+                            { jp: "行きたいけれども、時間がありません。", reading: "いきたいけれども、じかんがありません。", en: "I want to go, but I don't have time." },
+                            { jp: "雨が降っているけれど、出かけます。", reading: "あめがふっているけれど、でかけます。", en: "It's raining, but I'll go out." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "quoting-and-reported-speech",
+                title: "Quoting & Reported Speech",
+                items: [
+                    {
+                        pattern: "〜と言っていました",
+                        reading: "〜といっていました",
+                        meanings: { en: "Reports what someone else said.", bn: "অন্য কেউ কী বলেছিল তা জানায়।" },
+                        connection: ["普通形 + と言っていました"],
+                        examples: [
+                            { jp: "田中さんは明日休みだと言っていました。", reading: "たなかさんはあしたやすみだといっていました。", en: "Tanaka said he's off tomorrow." },
+                            { jp: "兄はもう結婚したと言っていました。", reading: "あにはもうけっこんしたといっていました。", en: "My older brother said he already got married." },
+                            { jp: "母は元気だと言っていました。", reading: "はははげんきだといっていました。", en: "My mother said she's doing well." }
+                        ]
+                    },
+                    {
+                        pattern: "〜と思います",
+                        meanings: { en: "Expresses the speaker's own thought or opinion — \"I think that...\"", bn: "বক্তার নিজের মতামত প্রকাশ করে — \"আমার মনে হয় যে...\"।" },
+                        connection: ["普通形 + と思います"],
+                        examples: [
+                            { jp: "明日は雨が降ると思います。", reading: "あしたはあめがふるとおもいます。", en: "I think it will rain tomorrow." },
+                            { jp: "この映画はおもしろいと思います。", reading: "このえいがはおもしろいとおもいます。", en: "I think this movie is interesting." },
+                            { jp: "彼は来ないと思います。", reading: "かれはこないとおもいます。", en: "I don't think he'll come." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ということ",
+                        meanings: { en: "Turns a sentence or phrase into a noun — \"the fact that...\" or introducing what something is called.", bn: "একটি বাক্য বা বাক্যাংশকে বিশেষ্যে রূপান্তরিত করে — \"যে বিষয়টি\" বা কোনো কিছুর নাম বোঝাতে।" },
+                        connection: ["文 + ということ"],
+                        examples: [
+                            { jp: "彼が来月結婚するということを聞きました。", reading: "かれがらいげつけっこんするということをききました。", en: "I heard that he's getting married next month." },
+                            { jp: "分からないということを正直に言いました。", reading: "わからないということをしょうじきにいいました。", en: "I honestly said that I don't understand." },
+                            { jp: "これは「もったいない」ということです。", reading: "これは「もったいない」ということです。", en: "This is what's called \"mottainai.\"" }
+                        ]
+                    },
+                    {
+                        pattern: "って",
+                        meanings: { en: "A casual particle used for quoting or reporting speech, similar to と.", bn: "উদ্ধৃতি দেওয়ার একটি কথ্য/সাধারণ রূপ, と-এর কাছাকাছি অর্থ।" },
+                        connection: ["普通形 + って"],
+                        examples: [
+                            { jp: "田中さん、今日休みだって。", reading: "たなかさん、きょうやすみだって。", en: "I heard Tanaka is off today." },
+                            { jp: "明日、雨が降るって聞きました。", reading: "あした、あめがふるってききました。", en: "I heard it's going to rain tomorrow." },
+                            { jp: "「駅で待ってて」って言われた。", reading: "「えきでまってて」っていわれた。", en: "I was told, \"Wait at the station.\"" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "degree-and-extent",
+                title: "Degree & Extent",
+                items: [
+                    {
+                        pattern: "〜すぎる",
+                        meanings: { en: "Expresses that something is done or is to an excessive degree — \"too much.\"", bn: "কোনো কিছু অতিরিক্ত পরিমাণে করা বা হওয়া বোঝায় — \"খুব বেশি\"।" },
+                        connection: ["動詞（ます形語幹）+ すぎる", "い形容詞（語幹）+ すぎる", "な形容詞（語幹）+ すぎる"],
+                        examples: [
+                            { jp: "昨日、お酒を飲みすぎました。", reading: "きのう、おさけをのみすぎました。", en: "I drank too much alcohol yesterday." },
+                            { jp: "この問題は簡単すぎます。", reading: "このもんだいはかんたんすぎます。", en: "This problem is too easy." },
+                            { jp: "その靴は私には派手すぎます。", reading: "そのくつはわたしにははですぎます。", en: "Those shoes are too flashy for me." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ほど",
+                        meanings: { en: "Expresses degree or extent — \"to the point that,\" \"as much as.\"", bn: "মাত্রা বা পরিমাণ প্রকাশ করে — \"এতটাই যে\", \"যতটা\"।" },
+                        connection: ["普通形／名詞 + ほど"],
+                        examples: [
+                            { jp: "疲れて、動けないほどです。", reading: "つかれて、うごけないほどです。", en: "I'm so tired I can hardly move." },
+                            { jp: "彼ほど日本語が上手な人はいません。", reading: "かれほどにほんごがじょうずなひとはいません。", en: "There's no one as good at Japanese as him." },
+                            { jp: "今日は昨日ほど寒くないです。", reading: "きょうはきのうほどさむくないです。", en: "Today isn't as cold as yesterday." }
+                        ]
+                    },
+                    {
+                        pattern: "〜くらい／〜ぐらい",
+                        meanings: { en: "Expresses an approximate amount, or gives an example of degree.", bn: "আনুমানিক পরিমাণ বা মাত্রার একটি উদাহরণ প্রকাশ করে — \"প্রায়\", \"এতটা\"।" },
+                        connection: ["数量／名詞 + くらい／ぐらい"],
+                        examples: [
+                            { jp: "駅まで十分くらいかかります。", reading: "えきまでじゅっぷんくらいかかります。", en: "It takes about ten minutes to the station." },
+                            { jp: "漢字が二千字くらい読めます。", reading: "かんじがにせんじくらいよめます。", en: "I can read about two thousand kanji." },
+                            { jp: "泣きたいくらい嬉しいです。", reading: "なきたいくらいうれしいです。", en: "I'm so happy I could cry." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "difficulty-and-ease",
+                title: "Difficulty & Ease of Doing",
+                items: [
+                    {
+                        pattern: "〜やすい",
+                        meanings: { en: "Expresses that something is easy to do.", bn: "কোনো কিছু করা সহজ তা প্রকাশ করে।" },
+                        connection: ["動詞（ます形語幹）+ やすい"],
+                        examples: [
+                            { jp: "この本は字が大きくて、読みやすいです。", reading: "このほんはじがおおきくて、よみやすいです。", en: "This book's letters are big, so it's easy to read." },
+                            { jp: "あの先生の説明は分かりやすいです。", reading: "あのせんせいのせつめいはわかりやすいです。", en: "That teacher's explanation is easy to understand." },
+                            { jp: "この靴は歩きやすいです。", reading: "このくつはあるきやすいです。", en: "These shoes are easy to walk in." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にくい",
+                        meanings: { en: "Expresses that something is difficult to do.", bn: "কোনো কিছু করা কঠিন তা প্রকাশ করে।" },
+                        connection: ["動詞（ます形語幹）+ にくい"],
+                        examples: [
+                            { jp: "この漢字は複雑で、覚えにくいです。", reading: "このかんじはふくざつで、おぼえにくいです。", en: "This kanji is complex and hard to remember." },
+                            { jp: "この魚は骨が多くて、食べにくいです。", reading: "このさかなはほねがおおくて、たべにくいです。", en: "This fish has a lot of bones, so it's hard to eat." },
+                            { jp: "悪い知らせは言いにくいです。", reading: "わるいしらせはいいにくいです。", en: "Bad news is hard to tell." }
+                        ]
+                    },
+                    {
+                        pattern: "〜方",
+                        reading: "〜かた",
+                        meanings: { en: "Expresses the way or method of doing something — \"how to...\"", bn: "কিছু করার পদ্ধতি বা উপায় প্রকাশ করে — \"কীভাবে করে\"।" },
+                        connection: ["動詞（ます形語幹）+ 方"],
+                        examples: [
+                            { jp: "この漢字の読み方が分かりません。", reading: "このかんじのよみかたがわかりません。", en: "I don't know how to read this kanji." },
+                            { jp: "料理の作り方を教えてください。", reading: "りょうりのつくりかたをおしえてください。", en: "Please teach me how to make this dish." },
+                            { jp: "使い方が簡単です。", reading: "つかいかたがかんたんです。", en: "The way to use it is simple." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "change-of-state",
+                title: "Change of State & Decisions",
+                items: [
+                    {
                         pattern: "〜ようになる",
-                        meanings: { en: "Describes a change of state — \"come to\" be able to do something.", bn: "অবস্থার পরিবর্তন বর্ণনা করে — কিছু করতে \"সক্ষম হয়ে ওঠা\"।" },
+                        meanings: { en: "Describes a gradual change of state — \"come to\" be able to do or be a certain way.", bn: "ধীরে ধীরে অবস্থার পরিবর্তন বর্ণনা করে — কিছু করতে/হতে \"সক্ষম হয়ে ওঠা\"।" },
                         connection: ["動詞（辞書形／可能形）+ ようになる"],
                         examples: [
-                            { jp: "漢字が読めるようになりました。", reading: "かんじがよめるようになりました。", en: "I've come to be able to read Kanji." },
-                            { jp: "少し日本語が話せるようになりました。", reading: "すこしにほんごがはなせるようになりました。", en: "I've come to be able to speak a little Japanese." },
-                            { jp: "毎日練習して、上手に泳げるようになりました。", reading: "まいにちれんしゅうして、じょうずにおよげるようになりました。", en: "I practiced every day and became able to swim well." }
+                            { jp: "漢字が読めるようになりました。", reading: "かんじがよめるようになりました。", en: "I've come to be able to read kanji." },
+                            { jp: "毎日練習して、上手に泳げるようになりました。", reading: "まいにちれんしゅうして、じょうずにおよげるようになりました。", en: "I practiced every day and became able to swim well." },
+                            { jp: "最近、野菜を食べるようになりました。", reading: "さいきん、やさいをたべるようになりました。", en: "Lately I've come to eat vegetables." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ことになる",
+                        meanings: { en: "Expresses that something has been decided, often by circumstances beyond the speaker's own choice.", bn: "কোনো কিছু সিদ্ধান্ত হয়ে যাওয়া বোঝায়, প্রায়ই বক্তার নিজের ইচ্ছার বাইরে পরিস্থিতির কারণে।" },
+                        connection: ["動詞（辞書形／ない形）+ ことになる"],
+                        examples: [
+                            { jp: "来月から大阪で働くことになりました。", reading: "らいげつからおおさかではたらくことになりました。", en: "It has been decided that I will work in Osaka from next month." },
+                            { jp: "会議は来週に延期することになりました。", reading: "かいぎはらいしゅうにえんきすることになりました。", en: "It has been decided that the meeting will be postponed to next week." },
+                            { jp: "駅前に新しい店ができることになりました。", reading: "えきまえにあたらしいみせができることになりました。", en: "It has been decided that a new shop will open in front of the station." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ことにする",
+                        meanings: { en: "Expresses the speaker's own decision to do something.", bn: "বক্তা নিজে কিছু করার সিদ্ধান্ত নেওয়া বোঝায়।" },
+                        connection: ["動詞（辞書形／ない形）+ ことにする"],
+                        examples: [
+                            { jp: "今度の休みに旅行に行くことにしました。", reading: "こんどのやすみにりょこうにいくことにしました。", en: "I decided to go on a trip during my next holiday." },
+                            { jp: "今日から毎日運動することにしました。", reading: "きょうからまいにちうんどうすることにしました。", en: "I decided to exercise every day starting today." },
+                            { jp: "お酒はもう飲まないことにしました。", reading: "おさけはもうのまないことにしました。", en: "I decided not to drink alcohol anymore." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "time-and-simultaneity",
+                title: "Time Relations & Simultaneous Actions",
+                items: [
+                    {
+                        pattern: "〜ているところ",
+                        meanings: { en: "Expresses being in the middle of doing something right now.", bn: "এই মুহূর্তে কোনো কাজ চলমান থাকা বোঝায়।" },
+                        connection: ["動詞（て形）+ いるところ"],
+                        examples: [
+                            { jp: "今、資料を作っているところです。", reading: "いま、しりょうをつくっているところです。", en: "I'm in the middle of making the materials right now." },
+                            { jp: "ちょうどご飯を食べているところです。", reading: "ちょうどごはんをたべているところです。", en: "I'm just eating right now." },
+                            { jp: "会議は今、始まっているところです。", reading: "かいぎはいま、はじまっているところです。", en: "The meeting is just starting right now." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たところ",
+                        meanings: { en: "Expresses that an action has just finished happening.", bn: "কোনো কাজ সবে শেষ হয়েছে তা বোঝায়।" },
+                        connection: ["動詞（た形）+ ところ"],
+                        examples: [
+                            { jp: "たった今、駅に着いたところです。", reading: "たったいま、えきについたところです。", en: "I've just arrived at the station right now." },
+                            { jp: "会議が終わったところです。", reading: "かいぎがおわったところです。", en: "The meeting has just ended." },
+                            { jp: "ちょうどご飯を食べたところです。", reading: "ちょうどごはんをたべたところです。", en: "I've just finished eating." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たばかり",
+                        meanings: { en: "Expresses that something happened only very recently.", bn: "কোনো কিছু খুব সম্প্রতি ঘটেছে তা বোঝায়।" },
+                        connection: ["動詞（た形）+ ばかり"],
+                        examples: [
+                            { jp: "日本に来たばかりで、まだ道が分かりません。", reading: "にほんにきたばかりで、まだみちがわかりません。", en: "I just came to Japan, so I don't know the streets yet." },
+                            { jp: "この本は買ったばかりです。", reading: "このほんはかったばかりです。", en: "I just bought this book." },
+                            { jp: "娘は先月、生まれたばかりです。", reading: "むすめはせんげつ、うまれたばかりです。", en: "My daughter was just born last month." }
+                        ]
+                    },
+                    {
+                        pattern: "〜まま",
+                        meanings: { en: "Expresses that a state continues unchanged while something else happens.", bn: "একটি অবস্থা অপরিবর্তিত থাকা অবস্থায় অন্য কিছু ঘটা বোঝায়।" },
+                        connection: ["動詞（た形）+ まま", "名詞＋の＋まま"],
+                        examples: [
+                            { jp: "靴を履いたまま、部屋に入らないでください。", reading: "くつをはいたまま、へやにはいらないでください。", en: "Please don't come into the room with your shoes still on." },
+                            { jp: "窓を開けたまま、寝てしまいました。", reading: "まどをあけたまま、ねてしまいました。", en: "I fell asleep with the window left open." },
+                            { jp: "昔のまま、何も変わっていません。", reading: "むかしのまま、なにもかわっていません。", en: "Nothing has changed — it's just as it was before." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "uncertainty-and-possibility",
+                title: "Uncertainty, Possibility & Confirmation",
+                items: [
+                    {
+                        pattern: "〜かどうか",
+                        meanings: { en: "Expresses uncertainty about whether something is true or not — \"whether or not.\"", bn: "কোনো কিছু সত্য কিনা তা নিয়ে অনিশ্চয়তা প্রকাশ করে — \"হোক বা না হোক\"।" },
+                        connection: ["普通形 + かどうか"],
+                        examples: [
+                            { jp: "これが正しいかどうか分かりません。", reading: "これがただしいかどうかわかりません。", en: "I don't know whether this is correct or not." },
+                            { jp: "明日、雨が降るかどうか心配です。", reading: "あした、あめがふるかどうかしんぱいです。", en: "I'm worried about whether it will rain tomorrow or not." },
+                            { jp: "彼が来るかどうか聞いてください。", reading: "かれがくるかどうかきいてください。", en: "Please ask whether he's coming or not." }
+                        ]
+                    },
+                    {
+                        pattern: "〜かもしれません",
+                        meanings: { en: "Expresses a possibility — \"might,\" \"may.\"", bn: "একটি সম্ভাবনা প্রকাশ করে — \"হতে পারে\"।" },
+                        connection: ["普通形 + かもしれません"],
+                        examples: [
+                            { jp: "電車に間に合わないかもしれません。", reading: "でんしゃにまにあわないかもしれません。", en: "I might not make it to the train in time." },
+                            { jp: "来年、この会社を辞めるかもしれません。", reading: "らいねん、このかいしゃをやめるかもしれません。", en: "I might quit this company next year." },
+                            { jp: "彼は今日、忙しいかもしれません。", reading: "かれはきょう、いそがしいかもしれません。", en: "He might be busy today." }
+                        ]
+                    },
+                    {
+                        pattern: "〜はずです",
+                        meanings: { en: "Expresses a strong expectation based on reason or evidence — \"should be,\" \"is supposed to be.\"", bn: "যুক্তি বা প্রমাণের ভিত্তিতে দৃঢ় প্রত্যাশা প্রকাশ করে — \"নিশ্চয়ই হওয়ার কথা\"।" },
+                        connection: ["普通形 + はずです"],
+                        examples: [
+                            { jp: "彼はもう空港に着いているはずです。", reading: "かれはもうくうこうについているはずです。", en: "He should have already arrived at the airport." },
+                            { jp: "今日は休みのはずです。", reading: "きょうはやすみのはずです。", en: "Today should be a day off." },
+                            { jp: "田中さんは日本語が上手なはずです。", reading: "たなかさんはにほんごがじょうずなはずです。", en: "Tanaka should be good at Japanese." }
+                        ]
+                    },
+                    {
+                        pattern: "〜でしょう",
+                        meanings: { en: "Expresses probability, seeks confirmation, or is used as a polite way to ask a question.", bn: "সম্ভাবনা প্রকাশ করে, নিশ্চিতকরণ চায়, অথবা ভদ্রভাবে প্রশ্ন করার জন্য ব্যবহৃত হয়।" },
+                        connection: ["普通形 + でしょう"],
+                        examples: [
+                            { jp: "明日は雨でしょう。", reading: "あしたはあめでしょう。", en: "It will probably rain tomorrow." },
+                            { jp: "疲れたでしょう。ゆっくり休んでください。", reading: "つかれたでしょう。ゆっくりやすんでください。", en: "You must be tired, right? Please rest well." },
+                            { jp: "こちらはお客様のお荷物でしょうか。", reading: "こちらはおきゃくさまのおにもつでしょうか。", en: "Would this be your luggage, sir?" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "purpose-and-advice",
+                title: "Purpose & Giving Advice",
+                items: [
+                    {
+                        pattern: "〜ように",
+                        meanings: { en: "Expresses acting with a purpose or goal in mind — \"in order to,\" \"so that.\"", bn: "একটি লক্ষ্য বা উদ্দেশ্য নিয়ে কাজ করা বোঝায় — \"যাতে করে\"।" },
+                        connection: ["動詞（辞書形／可能形）+ ように", "動詞（ない形）+ ように"],
+                        examples: [
+                            { jp: "日本語が上手になるように、毎日勉強しています。", reading: "にほんごがじょうずになるように、まいにちべんきょうしています。", en: "I study every day so that I can become good at Japanese." },
+                            { jp: "忘れないように、メモしておきます。", reading: "わすれないように、メモしておきます。", en: "I'll write it down so I don't forget." },
+                            { jp: "風邪をひかないように、気をつけてください。", reading: "かぜをひかないように、きをつけてください。", en: "Please take care so you don't catch a cold." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たほうがいいです",
+                        meanings: { en: "Gives advice or a suggestion — \"you'd better...\"", bn: "পরামর্শ বা প্রস্তাব দেয় — \"করা উচিত\"।" },
+                        connection: ["動詞（た形）+ ほうがいいです"],
+                        examples: [
+                            { jp: "疲れたら、早く寝たほうがいいです。", reading: "つかれたら、はやくねたほうがいいです。", en: "If you're tired, you'd better go to bed early." },
+                            { jp: "暑い日には、水をたくさん飲んだほうがいいです。", reading: "あついひには、みずをたくさんのんだほうがいいです。", en: "On hot days, you'd better drink a lot of water." },
+                            { jp: "医者に相談したほうがいいですよ。", reading: "いしゃにそうだんしたほうがいいですよ。", en: "You'd better consult a doctor." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ないほうがいいです",
+                        meanings: { en: "Gives advice against doing something — \"you'd better not...\"", bn: "কোনো কিছু না করার পরামর্শ দেয় — \"না করাই ভালো\"।" },
+                        connection: ["動詞（ない形）+ ほうがいいです"],
+                        examples: [
+                            { jp: "夜遅くまで働かないほうがいいです。", reading: "よるおそくまではたらかないほうがいいです。", en: "You'd better not work late into the night." },
+                            { jp: "甘い物を食べすぎないほうがいいです。", reading: "あまいものをたべすぎないほうがいいです。", en: "You'd better not eat too many sweets." },
+                            { jp: "一人で行かないほうがいいですよ。", reading: "ひとりでいかないほうがいいですよ。", en: "You'd better not go alone." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "compound-verbs-and-review",
+                title: "Compound Verbs & Everyday Expressions",
+                items: [
+                    {
+                        pattern: "〜始める",
+                        reading: "〜はじめる",
+                        meanings: { en: "Expresses the beginning of an action.", bn: "কোনো কাজ শুরু হওয়া বোঝায়।" },
+                        connection: ["動詞（ます形語幹）+ 始める"],
+                        examples: [
+                            { jp: "三年前に日本語を勉強し始めました。", reading: "さんねんまえににほんごをべんきょうしはじめました。", en: "I started studying Japanese three years ago." },
+                            { jp: "空が暗くなって、雨が降り始めました。", reading: "そらがくらくなって、あめがふりはじめました。", en: "The sky darkened and it started to rain." },
+                            { jp: "赤ちゃんが泣き始めました。", reading: "あかちゃんがなきはじめました。", en: "The baby started crying." }
+                        ]
+                    },
+                    {
+                        pattern: "〜続ける",
+                        reading: "〜つづける",
+                        meanings: { en: "Expresses continuing an action.", bn: "কোনো কাজ চালিয়ে যাওয়া বোঝায়।" },
+                        connection: ["動詞（ます形語幹）+ 続ける"],
+                        examples: [
+                            { jp: "十年間、この会社で働き続けています。", reading: "じゅうねんかん、このかいしゃではたらきつづけています。", en: "I've been working at this company continuously for ten years." },
+                            { jp: "面白くなくても、この本を最後まで読み続けます。", reading: "おもしろくなくても、このほんをさいごまでよみつづけます。", en: "Even if it's not interesting, I'll keep reading this book to the end." },
+                            { jp: "諦めないで、練習し続けてください。", reading: "あきらめないで、れんしゅうしつづけてください。", en: "Please don't give up, and keep practicing." }
+                        ]
+                    },
+                    {
+                        pattern: "〜がる",
+                        meanings: { en: "Expresses that someone, usually a third person, outwardly shows a feeling or desire.", bn: "কেউ (সাধারণত তৃতীয় ব্যক্তি) বাহ্যিকভাবে কোনো অনুভূতি বা ইচ্ছা প্রকাশ করছে তা বোঝায়।" },
+                        connection: ["い形容詞（語幹）+ がる", "な形容詞（語幹）+ がる"],
+                        examples: [
+                            { jp: "子供は新しいおもちゃを欲しがっています。", reading: "こどもはあたらしいおもちゃをほしがっています。", en: "The child wants a new toy." },
+                            { jp: "妹は一人で暗い部屋を怖がります。", reading: "いもうとはひとりでくらいへやをこわがります。", en: "My little sister is scared of dark rooms when alone." },
+                            { jp: "みんなが彼の成功を羨ましがっています。", reading: "みんながかれのせいこうをうらやましがっています。", en: "Everyone is envious of his success." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とか〜とか",
+                        meanings: { en: "Lists examples informally — \"things like ... and ...\"", bn: "অনানুষ্ঠানিকভাবে উদাহরণ তালিকাভুক্ত করে — \"যেমন ... আর ...\"।" },
+                        connection: ["名詞／動詞（辞書形）+ とか"],
+                        examples: [
+                            { jp: "休みの日は、掃除をするとか、洗濯をするとかします。", reading: "やすみのひは、そうじをするとか、せんたくをするとかします。", en: "On days off, I do things like cleaning and doing laundry." },
+                            { jp: "果物とか野菜とかをよく食べます。", reading: "くだものとかやさいとかをよくたべます。", en: "I often eat things like fruit and vegetables." },
+                            { jp: "忙しくて、休むとか無理です。", reading: "いそがしくて、やすむとかむりです。", en: "I'm too busy — resting and such is impossible." }
                         ]
                     }
                 ]

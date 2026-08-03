@@ -474,7 +474,460 @@ const conversationsData = {
         ]
     },
 
-    n4: { chapters: [] },
+    n4: {
+        chapters: [
+            {
+                id: "obligation-permission-prohibition",
+                title: "Obligation, Permission & Prohibition",
+                conversation: {
+                    title: "テストの前に",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "明日、テストがありますよね。", reading: "あした、テストがありますよね。", en: "There's a test tomorrow, right?", bn: "আগামীকাল তো পরীক্ষা আছে, তাই না?" },
+                        { speaker: "ラキブ", jp: "はい。今日中に文法を復習しなければなりません。", reading: "はい。きょうじゅうにぶんぽうをふくしゅうしなければなりません。", en: "Yes. I have to review the grammar by the end of today.", bn: "হ্যাঁ। আজকের মধ্যেই গ্রামার রিভিশন করতেই হবে।" },
+                        { speaker: "田中", jp: "テストのとき、辞書を使ってもいいですか。", reading: "テストのとき、じしょをつかってもいいですか。", en: "May I use a dictionary during the test?", bn: "পরীক্ষার সময় অভিধান ব্যবহার করা যাবে কি?" },
+                        { speaker: "ラキブ", jp: "いいえ、テストのときは辞書を使ってはいけませんよ。", reading: "いいえ、テストのときはじしょをつかってはいけませんよ。", en: "No, you must not use a dictionary during the test.", bn: "না, পরীক্ষার সময় অভিধান ব্যবহার করা যাবে না।" },
+                        { speaker: "田中", jp: "そうですか。じゃ、単語を全部覚えなければなりませんね。", reading: "そうですか。じゃ、たんごをぜんぶおぼえなければなりませんね。", en: "I see. Then I have to memorize all the words.", bn: "আচ্ছা। তাহলে তো সব শব্দ মুখস্থ করতেই হবে।" },
+                        { speaker: "ラキブ", jp: "でも、漢字は全部書けなくてもいいですよ。読めれば大丈夫です。", reading: "でも、かんじはぜんぶかけなくてもいいですよ。よめればだいじょうぶです。", en: "But you don't have to be able to write all the kanji. It's fine if you can read them.", bn: "তবে সব কাঞ্জি লিখতে না পারলেও চলবে। পড়তে পারলেই হবে।" },
+                        { speaker: "田中", jp: "良かったです。少し安心しました。一緒に勉強しませんか。", reading: "よかったです。すこしあんしんしました。いっしょにべんきょうしませんか。", en: "That's a relief. I feel a bit more at ease. Shall we study together?", bn: "যাক, একটু স্বস্তি পেলাম। একসাথে পড়ব কি?" },
+                        { speaker: "ラキブ", jp: "いいですね。図書館へ行きましょう。", reading: "いいですね。としょかんへいきましょう。", en: "Sounds good. Let's go to the library.", bn: "বেশ ভালো। লাইব্রেরিতে যাই চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "conditionals-tara-to",
+                title: "Conditionals I: たら & と",
+                conversation: {
+                    title: "週末の予定",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "ラキブさん、週末、暇だったら、何をしますか。", reading: "ラキブさん、しゅうまつ、ひまだったら、なにをしますか。", en: "Rakib, if you're free this weekend, what will you do?", bn: "রাকিব, সপ্তাহান্তে ফ্রি থাকলে কী করবে?" },
+                        { speaker: "ラキブ", jp: "天気が良かったら、山に登りたいです。", reading: "てんきがよかったら、やまにのぼりたいです。", en: "If the weather's good, I want to climb a mountain.", bn: "আবহাওয়া ভালো থাকলে পাহাড়ে উঠতে চাই।" },
+                        { speaker: "田中", jp: "いいですね。疲れているなら、家で休んだらどうですか。", reading: "いいですね。つかれているなら、いえでやすんだらどうですか。", en: "That's nice. But if you're tired, why don't you rest at home instead?", bn: "বেশ ভালো। ক্লান্ত থাকলে বাসায় বিশ্রাম নিলে কেমন হয়?" },
+                        { speaker: "ラキブ", jp: "大丈夫です。この道をまっすぐ行くと、山の入り口がありますよね。", reading: "だいじょうぶです。このみちをまっすぐいくと、やまのいりぐちがありますよね。", en: "I'm fine. If you go straight down this road, there's the mountain entrance, right?", bn: "ঠিক আছি। এই রাস্তা ধরে সোজা গেলেই পাহাড়ের প্রবেশপথ পাওয়া যায়, তাই না?" },
+                        { speaker: "田中", jp: "はい、そうです。去年、もっと早く準備すればよかったと思いました。", reading: "はい、そうです。きょねん、もっとはやくじゅんびすればよかったとおもいました。", en: "Yes, that's right. Last year I thought I should have prepared earlier.", bn: "হ্যাঁ, ঠিক। গত বছর মনে হয়েছিল আরও আগে প্রস্তুতি নিলে ভালো হতো।" },
+                        { speaker: "ラキブ", jp: "どうしてですか。", reading: "どうしてですか。", en: "Why is that?", bn: "কেন?" },
+                        { speaker: "田中", jp: "山に着いたら、もう暗くなっていましたから。", reading: "やまについたら、もうくらくなっていましたから。", en: "Because by the time I got to the mountain, it was already dark.", bn: "কারণ পাহাড়ে পৌঁছাতে পৌঁছাতে অন্ধকার হয়ে গিয়েছিল।" },
+                        { speaker: "ラキブ", jp: "今度は、早く出発しましょう。", reading: "こんどは、はやくしゅっぱつしましょう。", en: "Let's set out early this time.", bn: "এবার তাড়াতাড়ি রওনা দিই চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "conditionals-ba-nara",
+                title: "Conditionals II: ば & なら",
+                conversation: {
+                    title: "日本語が上手になりたい",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "日本語が上手になりたいです。どうしたらいいですか。", reading: "にほんごがじょうずになりたいです。どうしたらいいですか。", en: "I want to get good at Japanese. What should I do?", bn: "জাপানি ভাষায় দক্ষ হতে চাই। কী করলে ভালো হবে?" },
+                        { speaker: "田中", jp: "毎日練習すれば、必ず上手になりますよ。", reading: "まいにちれんしゅうすれば、かならずじょうずになりますよ。", en: "If you practice every day, you'll definitely improve.", bn: "প্রতিদিন অনুশীলন করলে অবশ্যই দক্ষ হয়ে যাবে।" },
+                        { speaker: "ラキブ", jp: "日本語を習いたいのなら、いい先生も必要ですよね。", reading: "にほんごをならいたいのなら、いいせんせいもひつようですよね。", en: "If I want to learn Japanese, I need a good teacher too, right?", bn: "জাপানি শিখতে চাইলে তো একজন ভালো শিক্ষকও দরকার, তাই না?" },
+                        { speaker: "田中", jp: "そうですね。時間があれば、私が手伝います。", reading: "そうですね。じかんがあれば、わたしがてつだいます。", en: "That's true. If I have time, I'll help you.", bn: "ঠিক তাই। সময় থাকলে আমিই সাহায্য করব।" },
+                        { speaker: "ラキブ", jp: "ありがとうございます。難しくても、頑張ります。", reading: "ありがとうございます。むずかしくても、がんばります。", en: "Thank you. Even if it's difficult, I'll do my best.", bn: "ধন্যবাদ। কঠিন হলেও চেষ্টা করে যাব।" },
+                        { speaker: "田中", jp: "いいですね。雨の日でも、一緒に勉強しましょう。", reading: "いいですね。あめのひでも、いっしょにべんきょうしましょう。", en: "Good. Let's study together even on rainy days.", bn: "বেশ ভালো। বৃষ্টির দিনেও একসাথে পড়ব চলো।" },
+                        { speaker: "ラキブ", jp: "分かりました。安ければ、新しい教科書も買いたいです。", reading: "わかりました。やすければ、あたらしいきょうかしょもかいたいです。", en: "Got it. If it's cheap, I want to buy a new textbook too.", bn: "বুঝেছি। সস্তা হলে নতুন পাঠ্যবইও কিনতে চাই।" },
+                        { speaker: "田中", jp: "本屋に行くなら、一緒に行きましょう。", reading: "ほんやにいくなら、いっしょにいきましょう。", en: "If you're going to the bookstore, let's go together.", bn: "বইয়ের দোকানে যেতে চাইলে একসাথেই যাই চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "trying-preparing-finishing",
+                title: "Trying, Preparing & Finishing Actions",
+                conversation: {
+                    title: "新しい店で",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "あの新しい店、行ってみましたか。", reading: "あのあたらしいみせ、いってみましたか。", en: "Have you tried going to that new shop?", bn: "ওই নতুন দোকানটায় গিয়েছিলে নাকি?" },
+                        { speaker: "ラキブ", jp: "いいえ、まだです。今度、行ってみたいです。", reading: "いいえ、まだです。こんど、いってみたいです。", en: "No, not yet. I'd like to try going sometime.", bn: "না, এখনো যাইনি। এবার গিয়ে দেখতে চাই।" },
+                        { speaker: "田中", jp: "人気がありますから、予約しておいたほうがいいですよ。", reading: "にんきがありますから、よやくしておいたほうがいいですよ。", en: "Since it's popular, you should make a reservation in advance.", bn: "ওটা জনপ্রিয় তো, তাই আগে থেকে বুকিং করে রাখাই ভালো।" },
+                        { speaker: "ラキブ", jp: "分かりました。今、電話しておきます。", reading: "わかりました。いま、でんわしておきます。", en: "Got it. I'll call now, in advance.", bn: "বুঝেছি। এখনই ফোন করে রাখছি।" },
+                        { speaker: "田中", jp: "すみません、さっき晩ご飯を全部食べてしまいました。", reading: "すみません、さっきばんごはんをぜんぶたべてしまいました。", en: "Sorry, I already ate up all of dinner earlier.", bn: "দুঃখিত, একটু আগে রাতের খাবার পুরোটাই খেয়ে ফেলেছি।" },
+                        { speaker: "ラキブ", jp: "大丈夫です。デザートだけ食べ終わったら、出かけましょう。", reading: "だいじょうぶです。デザートだけたべおわったら、でかけましょう。", en: "It's fine. Once you finish eating just the dessert, let's head out.", bn: "কোনো ব্যাপার না। শুধু ডেজার্টটা খাওয়া শেষ হলেই বেরিয়ে পড়ি।" },
+                        { speaker: "田中", jp: "はい。宿題も終わったし、時間がありますね。", reading: "はい。しゅくだいもおわったし、じかんがありますね。", en: "Yes. My homework is done too, so I have time.", bn: "হ্যাঁ। হোমওয়ার্কও শেষ, সময়ও আছে।" },
+                        { speaker: "ラキブ", jp: "じゃ、一緒に新しい店を見てみましょう。", reading: "じゃ、いっしょにあたらしいみせをみてみましょう。", en: "Then, let's go see the new shop together.", bn: "তাহলে চলো, একসাথে নতুন দোকানটা দেখে আসি।" }
+                    ]
+                }
+            },
+            {
+                id: "appearance-hearsay-sou",
+                title: "Appearance & Hearsay: そうです",
+                conversation: {
+                    title: "天気予報",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "空が暗いですね。雨が降りそうです。", reading: "そらがくらいですね。あめがふりそうです。", en: "The sky is dark. It looks like it's going to rain.", bn: "আকাশ তো অন্ধকার হয়ে আছে। বৃষ্টি হবে বলে মনে হচ্ছে।" },
+                        { speaker: "田中", jp: "天気予報によると、午後から大雨だそうです。", reading: "てんきよほうによると、ごごからおおあめだそうです。", en: "According to the weather forecast, I heard there'll be heavy rain from the afternoon.", bn: "আবহাওয়ার পূর্বাভাস অনুযায়ী, বিকেল থেকে নাকি ভারী বৃষ্টি হবে।" },
+                        { speaker: "ラキブ", jp: "本当ですか。傘を持ってきて良かったです。", reading: "ほんとうですか。かさをもってきてよかったです。", en: "Really? I'm glad I brought an umbrella.", bn: "সত্যি? ছাতা নিয়ে আসা ভালোই হলো তাহলে।" },
+                        { speaker: "田中", jp: "このケーキ、美味しそうですね。一つどうですか。", reading: "このケーキ、おいしそうですね。ひとつどうですか。", en: "This cake looks delicious. Would you like one?", bn: "এই কেকটা তো দেখতে সুস্বাদু লাগছে। একটা নেবে?" },
+                        { speaker: "ラキブ", jp: "ありがとうございます。あ、外で誰かが急に歌い出しましたよ。", reading: "ありがとうございます。あ、そとでだれかがきゅうにうたいだしましたよ。", en: "Thank you. Oh, someone outside suddenly started singing.", bn: "ধন্যবাদ। আরে, বাইরে কেউ হঠাৎ গান গাইতে শুরু করল দেখো।" },
+                        { speaker: "田中", jp: "本当ですね。あの人は歌手らしいですよ。", reading: "ほんとうですね。あのひとはかしゅらしいですよ。", en: "True. I hear that person is a singer.", bn: "তাই তো। শুনেছি ওই লোকটা নাকি একজন গায়ক।" },
+                        { speaker: "ラキブ", jp: "そうなんですか。じゃ、雨が降り出す前に、聞きましょう。", reading: "そうなんですか。じゃ、あめがふりだすまえに、ききましょう。", en: "Is that so? Then let's listen before the rain starts.", bn: "তাই নাকি? তাহলে বৃষ্টি শুরু হওয়ার আগেই শুনে নিই চলো।" },
+                        { speaker: "田中", jp: "いいですね。", reading: "いいですね。", en: "Sounds good.", bn: "বেশ ভালো।" }
+                    ]
+                }
+            },
+            {
+                id: "seeming-and-comparing",
+                title: "Seeming & Comparing: ようだ・らしい・みたい",
+                conversation: {
+                    title: "有名なレストラン",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "あの店、いつも人がたくさん並んでいますね。", reading: "あのみせ、いつもひとがたくさんならんでいますね。", en: "That shop always has a lot of people lining up.", bn: "ওই দোকানটায় তো সবসময় অনেক মানুষ লাইনে দাঁড়িয়ে থাকে দেখো।" },
+                        { speaker: "ラキブ", jp: "はい。とても人気があるようです。", reading: "はい。とてもにんきがあるようです。", en: "Yes. It seems to be very popular.", bn: "হ্যাঁ। খুব জনপ্রিয় বলে মনে হচ্ছে।" },
+                        { speaker: "田中", jp: "料理がおいしいらしいですよ。友達がそう言っていました。", reading: "りょうりがおいしいらしいですよ。ともだちがそういっていました。", en: "I hear the food is delicious. My friend said so.", bn: "শুনেছি খাবারটা নাকি সুস্বাদু। বন্ধু তাই বলেছিল।" },
+                        { speaker: "ラキブ", jp: "値段も高くないみたいですね。", reading: "ねだんもたかくないみたいですね。", en: "It seems the price isn't high either.", bn: "দামও বেশি না বলে মনে হচ্ছে।" },
+                        { speaker: "田中", jp: "そうですね。まるで家族のようなお店だと聞きました。", reading: "そうですね。まるでかぞくのようなおみせだときました。", en: "That's right. I heard it's like a family-run shop.", bn: "ঠিক তাই। শুনেছি এটা যেন একদম পারিবারিক দোকানের মতো।" },
+                        { speaker: "ラキブ", jp: "楽しみですね。今度、一緒に行ってみましょう。", reading: "たのしみですね。こんど、いっしょにいってみましょう。", en: "I'm looking forward to it. Let's go together sometime.", bn: "বেশ আগ্রহ জাগছে তো। এবার একসাথে গিয়ে দেখি চলো।" },
+                        { speaker: "田中", jp: "はい。今週末は忙しいようですから、来週はどうですか。", reading: "はい。こんしゅうまつはいそがしいようですから、らいしゅうはどうですか。", en: "Yes. It seems I'm busy this weekend, so how about next week?", bn: "হ্যাঁ। এই সপ্তাহান্তে ব্যস্ত থাকব বলে মনে হচ্ছে, তাহলে আগামী সপ্তাহে কেমন হয়?" },
+                        { speaker: "ラキブ", jp: "いいですよ。楽しみに待っています。", reading: "いいですよ。たのしみにまっています。", en: "Sounds good. I'll be looking forward to it.", bn: "ঠিক আছে। অপেক্ষায় থাকব।" }
+                    ]
+                }
+            },
+            {
+                id: "giving-receiving-favors",
+                title: "Giving & Receiving Favors",
+                conversation: {
+                    title: "引っ越しの手伝い",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "今度の日曜日、引っ越しをします。", reading: "こんどのにちようび、ひっこしをします。", en: "I'm moving this coming Sunday.", bn: "আগামী রবিবার বাসা পরিবর্তন করছি।" },
+                        { speaker: "田中", jp: "大変ですね。荷物を運ぶのを手伝ってあげましょうか。", reading: "たいへんですね。にもつをはこぶのをてつだってあげましょうか。", en: "That sounds tough. Shall I help you carry your things?", bn: "কঠিন কাজ তো। জিনিসপত্র বহন করতে সাহায্য করি?" },
+                        { speaker: "ラキブ", jp: "本当ですか。手伝ってくれるなら、とても助かります。", reading: "ほんとうですか。てつだってくれるなら、とてもたすかります。", en: "Really? If you help me, it would be a great help.", bn: "সত্যি? সাহায্য করলে খুব উপকার হবে।" },
+                        { speaker: "田中", jp: "友達にも車を貸してもらいます。", reading: "ともだちにもくるまをかしてもらいます。", en: "I'll also have a friend lend me a car.", bn: "বন্ধুর কাছ থেকেও গাড়ি ধার নেব।" },
+                        { speaker: "ラキブ", jp: "すみません、朝九時に来ていただけませんか。", reading: "すみません、あさくじにきていただけませんか。", en: "Sorry, could you come at nine in the morning?", bn: "দুঃখিত, সকাল নয়টায় আসতে পারবে কি?" },
+                        { speaker: "田中", jp: "はい、大丈夫です。他に何か手伝ってほしいことがありますか。", reading: "はい、だいじょうぶです。ほかになにかてつだってほしいことがありますか。", en: "Yes, that's fine. Is there anything else you'd like help with?", bn: "হ্যাঁ, ঠিক আছে। আর কিছুতে সাহায্য দরকার?" },
+                        { speaker: "ラキブ", jp: "箱を組み立ててほしいです。一人では時間がかかりますから。", reading: "はこをくみたててほしいです。ひとりではじかんがかかりますから。", en: "I'd like you to help assemble the boxes. It takes time to do alone.", bn: "বাক্সগুলো জোড়া লাগাতে সাহায্য চাই। একা করলে সময় লাগবে তো।" },
+                        { speaker: "田中", jp: "分かりました。日曜日、頑張りましょう。", reading: "わかりました。にちようび、がんばりましょう。", en: "Got it. Let's do our best on Sunday.", bn: "বুঝেছি। রবিবার একসাথে করে ফেলি।" }
+                    ]
+                }
+            },
+            {
+                id: "potential-form-ability",
+                title: "Potential Form & Ability",
+                conversation: {
+                    title: "マラソン大会",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "ラキブさんは何キロ走れますか。", reading: "ラキブさんはなんキロはしれますか。", en: "How many kilometers can you run, Rakib?", bn: "রাকিব, তুমি কত কিলোমিটার দৌড়াতে পারো?" },
+                        { speaker: "ラキブ", jp: "十キロぐらいなら走れます。フルマラソンはまだ走ることができません。", reading: "じゅっキロぐらいならはしれます。フルマラソンはまだはしることができません。", en: "I can run about ten kilometers. I still can't run a full marathon.", bn: "প্রায় দশ কিলোমিটার দৌড়াতে পারি। পুরো ম্যারাথন এখনো দৌড়াতে পারি না।" },
+                        { speaker: "田中", jp: "すごいですね。私は五キロしか走れません。", reading: "すごいですね。わたしはごキロしかはしれません。", en: "That's amazing. I can only run five kilometers.", bn: "দারুণ তো। আমি মাত্র পাঁচ কিলোমিটার দৌড়াতে পারি।" },
+                        { speaker: "ラキブ", jp: "練習すれば、もっと長く走れるようになりますよ。", reading: "れんしゅうすれば、もっとながくはしれるようになりますよ。", en: "If you practice, you'll become able to run longer.", bn: "অনুশীলন করলে আরও বেশি দূরত্ব দৌড়াতে পারবে।" },
+                        { speaker: "田中", jp: "この公園から海が見えますね。", reading: "このこうえんからうみがみえますね。", en: "You can see the ocean from this park.", bn: "এই পার্ক থেকে সমুদ্র দেখা যায় দেখো।" },
+                        { speaker: "ラキブ", jp: "はい、鳥の声も聞こえます。走るのに気持ちがいい場所です。", reading: "はい、とりのこえもきこえます。はしるのにきもちがいいばしょです。", en: "Yes, you can hear the birds too. It's a nice place to run.", bn: "হ্যাঁ, পাখির ডাকও শোনা যায়। দৌড়ানোর জন্য বেশ আরামদায়ক জায়গা।" },
+                        { speaker: "田中", jp: "来月のマラソン大会に参加することができますか。", reading: "らいげつのマラソンたいかいにさんかすることができますか。", en: "Can you participate in next month's marathon race?", bn: "আগামী মাসের ম্যারাথন প্রতিযোগিতায় অংশ নিতে পারবে?" },
+                        { speaker: "ラキブ", jp: "はい、もう申し込みました。一緒に頑張りましょう。", reading: "はい、もうもうしこみました。いっしょにがんばりましょう。", en: "Yes, I've already signed up. Let's do our best together.", bn: "হ্যাঁ, ইতিমধ্যে নিবন্ধন করে ফেলেছি। একসাথে চেষ্টা করি চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "passive-voice",
+                title: "Passive Voice",
+                conversation: {
+                    title: "会議での出来事",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "今日の会議はどうでしたか。", reading: "きょうのかいぎはどうでしたか。", en: "How was today's meeting?", bn: "আজকের মিটিং কেমন হলো?" },
+                        { speaker: "田中", jp: "部長にみんなの前で褒められました。", reading: "ぶちょうにみんなのまえでほめられました。", en: "I was praised by the manager in front of everyone.", bn: "সবার সামনে ম্যানেজার আমাকে প্রশংসা করেছেন।" },
+                        { speaker: "ラキブ", jp: "すごいですね。おめでとうございます。", reading: "すごいですね。おめでとうございます。", en: "That's amazing. Congratulations.", bn: "দারুণ তো। অভিনন্দন।" },
+                        { speaker: "田中", jp: "ありがとうございます。でも、帰るとき、雨に降られて大変でした。", reading: "ありがとうございます。でも、かえるとき、あめにふられてたいへんでした。", en: "Thank you. But on my way home, I got caught in the rain and it was rough.", bn: "ধন্যবাদ। তবে ফেরার সময় বৃষ্টিতে ভিজে খুব কষ্ট হয়েছে।" },
+                        { speaker: "ラキブ", jp: "それは大変でしたね。この本、有名な作家によって書かれたそうです。", reading: "それはたいへんでしたね。このほん、ゆうめいなさっかによってかかれたそうです。", en: "That sounds tough. I heard this book was written by a famous author.", bn: "কষ্ট হয়েছে তাহলে। এই বইটা নাকি একজন বিখ্যাত লেখকের লেখা।" },
+                        { speaker: "田中", jp: "本当ですか。読んでみたいです。", reading: "ほんとうですか。よんでみたいです。", en: "Really? I'd like to try reading it.", bn: "সত্যি? পড়ে দেখতে চাই।" },
+                        { speaker: "ラキブ", jp: "電車の中で、足を踏まれたことがありますか。", reading: "でんしゃのなかで、あしをふまれたことがありますか。", en: "Have you ever had your foot stepped on in the train?", bn: "ট্রেনে কখনো কারো পায়ে চাপা পড়েছ?" },
+                        { speaker: "田中", jp: "はい、何度もあります。", reading: "はい、なんどもあります。", en: "Yes, many times.", bn: "হ্যাঁ, অনেকবার হয়েছে।" }
+                    ]
+                }
+            },
+            {
+                id: "causative-form",
+                title: "Causative Form",
+                conversation: {
+                    title: "子供のしつけ",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "お子さんに、毎日野菜を食べさせていますか。", reading: "おこさんに、まいにちやさいをたべさせていますか。", en: "Do you make your child eat vegetables every day?", bn: "তোমার বাচ্চাকে কি প্রতিদিন সবজি খাওয়াও?" },
+                        { speaker: "ラキブ", jp: "はい、食べさせています。でも、なかなか食べてくれません。", reading: "はい、たべさせています。でも、なかなかたべてくれません。", en: "Yes, I make them. But they won't easily eat them.", bn: "হ্যাঁ, খাওয়াই। তবে সহজে খেতে চায় না।" },
+                        { speaker: "田中", jp: "大変ですね。うちの子は、毎晩本を読ませています。", reading: "たいへんですね。うちのこは、まいばんほんをよませています。", en: "That sounds hard. I have my child read a book every night.", bn: "কঠিন তো। আমার বাচ্চাকে প্রতি রাতে বই পড়াই।" },
+                        { speaker: "ラキブ", jp: "いいですね。あ、ちょっとこの資料を確認させてください。", reading: "いいですね。あ、ちょっとこのしりょうをかくにんさせてください。", en: "That's nice. Oh, please let me check this document for a moment.", bn: "ভালোই তো। ও, একটু এই কাগজটা দেখে নিতে দাও।" },
+                        { speaker: "田中", jp: "どうぞ。今日は早く帰らせてもらいます。子供が熱を出しましたから。", reading: "どうぞ。きょうははやくかえらせてもらいます。こどもがねつをだしましたから。", en: "Go ahead. I'll go home early today, if that's okay — my child came down with a fever.", bn: "নাও। আজ একটু তাড়াতাড়ি বাসায় ফিরতে হবে, বাচ্চার জ্বর এসেছে তো।" },
+                        { speaker: "ラキブ", jp: "それは心配ですね。お大事に。", reading: "それはしんぱいですね。おだいじに。", en: "That's worrying. Take care.", bn: "চিন্তার বিষয় তো। যত্ন নিও।" },
+                        { speaker: "田中", jp: "ありがとうございます。明日、また休ませていただくかもしれません。", reading: "ありがとうございます。あした、またやすませていただくかもしれません。", en: "Thank you. I might need to take tomorrow off as well.", bn: "ধন্যবাদ। আগামীকালও হয়তো ছুটি নিতে হতে পারে।" },
+                        { speaker: "ラキブ", jp: "大丈夫ですよ。子供のことを優先してください。", reading: "だいじょうぶですよ。こどものことをゆうせんしてください。", en: "That's fine. Please prioritize your child.", bn: "কোনো ব্যাপার না। বাচ্চার দিকেই আগে খেয়াল রেখো।" }
+                    ]
+                }
+            },
+            {
+                id: "causative-passive",
+                title: "Causative-Passive Form",
+                conversation: {
+                    title: "子供のころの思い出",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "子供のころ、よく親に野菜を食べさせられました。", reading: "こどものころ、よくおやにやさいをたべさせられました。", en: "When I was a child, my parents often made me eat vegetables.", bn: "ছোটবেলায় বাবা-মা প্রায়ই জোর করে সবজি খাওয়াতেন।" },
+                        { speaker: "田中", jp: "私もです。学校でも、漢字を百回書かされました。", reading: "わたしもです。がっこうでも、かんじをひゃっかいかかされました。", en: "Me too. At school, I was also made to write kanji a hundred times.", bn: "আমারও তাই। স্কুলেও কাঞ্জি একশোবার লেখাতে বাধ্য করা হতো।" },
+                        { speaker: "ラキブ", jp: "大変でしたね。パーティーで歌を歌わされたこともあります。", reading: "たいへんでしたね。パーティーでうたをうたわされたこともあります。", en: "That sounds tough. I've also been made to sing a song at a party.", bn: "কষ্টের ছিল তো। পার্টিতে জোর করে গানও গাওয়ানো হয়েছিল একবার।" },
+                        { speaker: "田中", jp: "それは恥ずかしいですね。私はその映画を見て、泣かされました。", reading: "それははずかしいですね。わたしはそのえいがをみて、なかされました。", en: "That's embarrassing. That movie made me cry.", bn: "লজ্জার ব্যাপার তো। আমাকে তো ওই সিনেমাটা দেখে কাঁদিয়ে দিয়েছিল।" },
+                        { speaker: "ラキブ", jp: "分かります。彼の話にはいつも驚かされますよね。", reading: "わかります。かれのはなしにはいつもおどろかされますよね。", en: "I understand. His stories always surprise us, don't they?", bn: "বুঝি। তার গল্পগুলো সবসময়ই অবাক করে দেয়, তাই না?" },
+                        { speaker: "田中", jp: "本当に。でも、いい思い出です。", reading: "ほんとうに。でも、いいおもいでです。", en: "Really. But they're good memories.", bn: "সত্যিই তাই। তবে সুন্দর স্মৃতি।" },
+                        { speaker: "ラキブ", jp: "娘の一言に、よく考えさせられます。", reading: "むすめのひとことに、よくかんがえさせられます。", en: "My daughter's remarks often make me think.", bn: "মেয়ের একটা কথায় প্রায়ই ভাবতে বাধ্য হই।" },
+                        { speaker: "田中", jp: "子供から学ぶことも多いですね。", reading: "こどもからまなぶこともおおいですね。", en: "There's a lot to learn from children too.", bn: "বাচ্চাদের কাছ থেকেও অনেক কিছু শেখার আছে, তাই না।" }
+                    ]
+                }
+            },
+            {
+                id: "respectful-keigo",
+                title: "Respectful Keigo (尊敬語)",
+                conversation: {
+                    title: "敬語の練習",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "田中さん、社長はもう会社にいらっしゃいますか。", reading: "たなかさん、しゃちょうはもうかいしゃにいらっしゃいますか。", en: "Tanaka, has the president already arrived at the office?", bn: "তানাকা, প্রেসিডেন্ট কি ইতিমধ্যে অফিসে চলে এসেছেন?" },
+                        { speaker: "田中", jp: "はい、もういらっしゃいます。何かおっしゃっていましたよ。", reading: "はい、もういらっしゃいます。なにかおっしゃっていましたよ。", en: "Yes, he's already here. He said something.", bn: "হ্যাঁ, ইতিমধ্যে এসে গেছেন। কিছু একটা বলেছিলেন।" },
+                        { speaker: "ラキブ", jp: "そうですか。何とおっしゃいましたか。", reading: "そうですか。なんとおっしゃいましたか。", en: "I see. What did he say?", bn: "তাই নাকি? কী বলেছিলেন?" },
+                        { speaker: "田中", jp: "「会議の資料をお読みになりましたか」とおっしゃいました。", reading: "「かいぎのしりょうをおよみになりましたか」とおっしゃいました。", en: "He said, \"Have you read the meeting materials?\"", bn: "\"মিটিংয়ের কাগজপত্র পড়েছেন কি?\" বলেছিলেন।" },
+                        { speaker: "ラキブ", jp: "大変です。まだ読んでいません。少々お待ちくださいと伝えてください。", reading: "たいへんです。まだよんでいません。しょうしょうおまちくださいとつたえてください。", en: "That's a problem. I haven't read them yet. Please tell him to wait a moment.", bn: "সমস্যা তো। এখনো পড়িনি। একটু অপেক্ষা করতে বলে দাও।" },
+                        { speaker: "田中", jp: "分かりました。お茶もお持ちしましょうか。", reading: "わかりました。おちゃもおもちしましょうか。", en: "Understood. Shall I bring some tea as well?", bn: "বুঝেছি। চা-ও নিয়ে যাই কি?" },
+                        { speaker: "ラキブ", jp: "お願いします。社長にどうぞ召し上がってくださいと伝えてください。", reading: "おねがいします。しゃちょうにどうぞめしあがってくださいとつたえてください。", en: "Please do. Please tell the president to go ahead and enjoy it.", bn: "দাও। প্রেসিডেন্টকে বলে দাও দয়া করে খেয়ে নিতে।" },
+                        { speaker: "田中", jp: "はい、伝えます。", reading: "はい、つたえます。", en: "Yes, I'll tell him.", bn: "হ্যাঁ, বলে দেব।" }
+                    ]
+                }
+            },
+            {
+                id: "humble-keigo",
+                title: "Humble Keigo (謙譲語)",
+                conversation: {
+                    title: "面接の練習",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "明日、面接がありますよね。練習しましょうか。", reading: "あした、めんせつがありますよね。れんしゅうしましょうか。", en: "You have an interview tomorrow, right? Shall we practice?", bn: "আগামীকাল তো ইন্টারভিউ আছে। অনুশীলন করি চলো?" },
+                        { speaker: "ラキブ", jp: "お願いします。まず、自己紹介からですか。", reading: "おねがいします。まず、じこしょうかいからですか。", en: "Please. Should I start with a self-introduction?", bn: "দয়া করে করাও। প্রথমে কি নিজের পরিচয় দিয়ে শুরু করব?" },
+                        { speaker: "田中", jp: "はい、どうぞ。", reading: "はい、どうぞ。", en: "Yes, go ahead.", bn: "হ্যাঁ, শুরু করো।" },
+                        { speaker: "ラキブ", jp: "ラキブと申します。よろしくお願いいたします。", reading: "ラキブともうします。よろしくおねがいいたします。", en: "My name is Rakib. Pleased to meet you.", bn: "আমার নাম রাকিব। আপনার সাথে কাজ করতে পেরে ভালো লাগবে।" },
+                        { speaker: "田中", jp: "いいですね。「明日、そちらに伺います」も言えますか。", reading: "いいですね。「あした、そちらにうかがいます」もいえますか。", en: "Good. Can you also say, \"I will visit you there tomorrow\"?", bn: "বেশ ভালো। \"আগামীকাল আপনার কাছে যাব\" এটাও বলতে পারবে?" },
+                        { speaker: "ラキブ", jp: "明日、そちらに伺います。資料は拝見しました。", reading: "あした、そちらにうかがいます。しりょうははいけんしました。", en: "I will visit you there tomorrow. I have looked over the materials.", bn: "আগামীকাল আপনার কাছে যাব। কাগজপত্র দেখে নিয়েছি।" },
+                        { speaker: "田中", jp: "完璧です。「うちの会社のことをご存じですか」と聞かれたら、何と答えますか。", reading: "かんぺきです。「うちのかいしゃのことをごぞんじですか」ときかれたら、なんとこたえますか。", en: "Perfect. If they ask, \"Do you know about our company?\" what will you answer?", bn: "একদম নিখুঁত। \"আমাদের কোম্পানি সম্পর্কে জানেন কি?\" জিজ্ঞেস করলে কী উত্তর দেবে?" },
+                        { speaker: "ラキブ", jp: "「はい、存じております」と申し上げます。", reading: "「はい、ぞんじております」ともうしあげます。", en: "I'll say, \"Yes, I am aware of it.\"", bn: "\"হ্যাঁ, জানি\" বলে বিনয়ের সাথে উত্তর দেব।" }
+                    ]
+                }
+            },
+            {
+                id: "commands-and-orders",
+                title: "Commands, Orders & Strong Requests",
+                conversation: {
+                    title: "厳しい先生の思い出",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "田中さんの高校の先生は厳しかったですか。", reading: "たなかさんのこうこうのせんせいはきびしかったですか。", en: "Was your high school teacher strict, Tanaka?", bn: "তানাকা, তোমার হাইস্কুলের শিক্ষক কি কঠোর ছিলেন?" },
+                        { speaker: "田中", jp: "はい、とても厳しかったです。よく「早く来い」と言われました。", reading: "はい、とてもきびしかったです。よく「はやくこい」といわれました。", en: "Yes, very strict. I was often told, \"Come quickly!\"", bn: "হ্যাঁ, খুব কঠোর ছিলেন। প্রায়ই বলতেন, \"তাড়াতাড়ি আয়!\"" },
+                        { speaker: "ラキブ", jp: "怖いですね。私の先生は「静かにしろ」とよく言っていました。", reading: "こわいですね。わたしのせんせいは「しずかにしろ」とよくいっていました。", en: "That's scary. My teacher often said, \"Be quiet!\"", bn: "ভয়ংকর তো। আমার শিক্ষক প্রায়ই বলতেন, \"চুপ থাক!\"" },
+                        { speaker: "田中", jp: "分かります。「廊下を走るな」というルールもありましたね。", reading: "わかります。「ろうかをはしるな」というルールもありましたね。", en: "I know what you mean. There was also a rule, \"Don't run in the hallway.\"", bn: "বুঝি। \"বারান্দায় দৌড়াবি না\" নিয়মও ছিল, তাই না।" },
+                        { speaker: "ラキブ", jp: "うちの学校にもありました。「宿題を忘れるな」ともよく言われました。", reading: "うちのがっこうにもありました。「しゅくだいをわすれるな」ともよくいわれました。", en: "We had that at my school too. I was also often told, \"Don't forget your homework.\"", bn: "আমাদের স্কুলেও ছিল। \"হোমওয়ার্ক ভুলবি না\" এটাও প্রায়ই শুনতে হতো।" },
+                        { speaker: "田中", jp: "母にも「野菜を食べなさい」とよく言われました。", reading: "ははにも「やさいをたべなさい」とよくいわれました。", en: "My mother also often told me, \"Eat your vegetables.\"", bn: "মায়ের কাছ থেকেও প্রায়ই শুনতাম, \"সবজি খাও।\"" },
+                        { speaker: "ラキブ", jp: "懐かしいですね。でも、そのおかげで、今の私たちがあります。", reading: "なつかしいですね。でも、そのおかげで、いまのわたしたちがあります。", en: "That's nostalgic. But thanks to that, we are who we are today.", bn: "নস্টালজিক লাগছে তো। তবে তার কারণেই আজকের আমরা এমন হয়েছি।" },
+                        { speaker: "田中", jp: "そうですね。今度、先生に会いに行きましょう。", reading: "そうですね。こんど、せんせいにあいにいきましょう。", en: "That's true. Let's go visit our teachers sometime.", bn: "ঠিক তাই। একদিন শিক্ষকদের সাথে দেখা করতে যাই চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "volitional-and-intentions",
+                title: "Volitional Form & Intentions",
+                conversation: {
+                    title: "将来の夢",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "ラキブさんは将来、何をしようと思っていますか。", reading: "ラキブさんはしょうらい、なにをしようとおもっていますか。", en: "What are you thinking of doing in the future, Rakib?", bn: "রাকিব, ভবিষ্যতে কী করবে বলে ভাবছ?" },
+                        { speaker: "ラキブ", jp: "自分の会社を作ろうと思っています。田中さんは?", reading: "じぶんのかいしゃをつくろうとおもっています。たなかさんは?", en: "I'm thinking of starting my own company. What about you, Tanaka?", bn: "নিজের একটা কোম্পানি বানাব বলে ভাবছি। তানাকা, তুমি?" },
+                        { speaker: "田中", jp: "私は大学院に進学するつもりです。", reading: "わたしはだいがくいんにしんがくするつもりです。", en: "I intend to go on to graduate school.", bn: "আমি গ্র্যাজুয়েট স্কুলে পড়াশোনা চালিয়ে যাওয়ার ইচ্ছা করছি।" },
+                        { speaker: "ラキブ", jp: "いいですね。いつごろ卒業する予定ですか。", reading: "いいですね。いつごろそつぎょうするよていですか。", en: "That's nice. When are you scheduled to graduate?", bn: "ভালো তো। কখন গ্র্যাজুয়েট হওয়ার পরিকল্পনা?" },
+                        { speaker: "田中", jp: "来年の三月に卒業する予定です。そのあと、少し休もうと思います。", reading: "らいねんのさんがつにそつぎょうするよていです。そのあと、すこしやすもうとおもいます。", en: "I'm scheduled to graduate next March. After that, I'm thinking of resting a bit.", bn: "আগামী বছরের মার্চে গ্র্যাজুয়েট হওয়ার কথা। তারপর একটু বিশ্রাম নেব বলে ভাবছি।" },
+                        { speaker: "ラキブ", jp: "いいですね。私は今年中に準備を始めるつもりです。", reading: "いいですね。わたしはことしじゅうにじゅんびをはじめるつもりです。", en: "That's good. I intend to start preparing by the end of this year.", bn: "ভালো তো। আমি এই বছরের মধ্যেই প্রস্তুতি শুরু করার ইচ্ছা করছি।" },
+                        { speaker: "田中", jp: "応援しています。困ったことがあれば、いつでも相談しに行こうと思っています。", reading: "おうえんしています。こまったことがあれば、いつでもそうだんしにいこうとおもっています。", en: "I'm rooting for you. If you have any trouble, I'm thinking of coming to you for advice anytime.", bn: "পাশে আছি। কোনো সমস্যা হলে যেকোনো সময় পরামর্শ নিতে যাব বলে ভাবছি।" },
+                        { speaker: "ラキブ", jp: "ありがとうございます。頑張りましょう。", reading: "ありがとうございます。がんばりましょう。", en: "Thank you. Let's do our best.", bn: "ধন্যবাদ। একসাথে চেষ্টা করি চলো।" }
+                    ]
+                }
+            },
+            {
+                id: "reasons-and-connectors",
+                title: "Reasons & Connecting Sentences",
+                conversation: {
+                    title: "休みの日の過ごし方",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "休みの日は何をしますか。", reading: "やすみのひはなにをしますか。", en: "What do you do on your days off?", bn: "ছুটির দিনে কী করো?" },
+                        { speaker: "田中", jp: "本を読んだり、料理をしたりします。", reading: "ほんをよんだり、りょうりをしたりします。", en: "I do things like reading books and cooking.", bn: "বই পড়া, রান্না করা—এসবই করি।" },
+                        { speaker: "ラキブ", jp: "いいですね。この店は安いし、料理もおいしいし、よく来ます。", reading: "いいですね。このみせはやすいし、りょうりもおいしいし、よくきます。", en: "Nice. This shop is cheap and the food is delicious, so I come here often.", bn: "ভালোই তো। এই দোকানটা সস্তাও, খাবারও সুস্বাদু, তাই প্রায়ই আসি।" },
+                        { speaker: "田中", jp: "本当ですね。音楽を聞きながら食べると、もっとおいしく感じます。", reading: "ほんとうですね。おんがくをききながらたべると、もっとおいしくかんじます。", en: "True. If you eat while listening to music, it feels even more delicious.", bn: "ঠিক তাই। গান শুনতে শুনতে খেলে আরও সুস্বাদু মনে হয়।" },
+                        { speaker: "ラキブ", jp: "そうですね。私は散歩したり、写真を撮ったりするのも好きです。", reading: "そうですね。わたしはさんぽしたり、しゃしんをとったりするのもすきです。", en: "That's right. I also like doing things like taking walks and taking photos.", bn: "ঠিক। আমারও হাঁটাহাঁটি করা, ছবি তোলা—এসবও পছন্দ।" },
+                        { speaker: "田中", jp: "頭も痛いし、少し疲れているし、今日はゆっくりしたいです。", reading: "あたまもいたいし、すこしつかれているし、きょうはゆっくりしたいです。", en: "My head hurts and I'm a bit tired, so I want to relax today.", bn: "মাথাও ব্যথা করছে, একটু ক্লান্তও লাগছে, তাই আজ একটু আরাম করতে চাই।" },
+                        { speaker: "ラキブ", jp: "大丈夫ですか。休みながら、無理をしないでくださいね。", reading: "だいじょうぶですか。やすみながら、むりをしないでくださいね。", en: "Are you okay? Please rest and don't push yourself too hard.", bn: "ঠিক আছ তো? বিশ্রাম নাও, নিজেকে বেশি কষ্ট দিও না।" },
+                        { speaker: "田中", jp: "ありがとうございます。少し休んだら、元気になると思います。", reading: "ありがとうございます。すこしやすんだら、げんきになるとおもいます。", en: "Thank you. I think I'll feel better after resting a bit.", bn: "ধন্যবাদ। একটু বিশ্রাম নিলে ভালো লাগবে বলে মনে হয়।" }
+                    ]
+                }
+            },
+            {
+                id: "concession-and-contrast",
+                title: "Concession, Contrast & Unexpected Outcomes",
+                conversation: {
+                    title: "諦めない気持ち",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "試験、どうでしたか。", reading: "しけん、どうでしたか。", en: "How was the exam?", bn: "পরীক্ষা কেমন হলো?" },
+                        { speaker: "ラキブ", jp: "一生懸命勉強したのに、あまりできませんでした。", reading: "いっしょうけんめいべんきょうしたのに、あまりできませんでした。", en: "Even though I studied hard, I couldn't do very well.", bn: "প্রাণপণ পড়াশোনা করেছিলাম, তবুও ভালো হয়নি।" },
+                        { speaker: "田中", jp: "それは残念でしたね。でも、それでも、諦めないでくださいね。", reading: "それはざんねんでしたね。でも、それでも、あきらめないでくださいね。", en: "That's a shame. But even so, please don't give up.", bn: "খারাপ লাগল শুনে। তবে তাও, হাল ছেড়ো না কিন্তু।" },
+                        { speaker: "ラキブ", jp: "はい。難しいけれど、来月もう一度受けます。", reading: "はい。むずかしいけれど、らいげつもういちどうけます。", en: "Yes. It's difficult, but I'll take it again next month.", bn: "হ্যাঁ। কঠিন হলেও আগামী মাসে আবার পরীক্ষা দেব।" },
+                        { speaker: "田中", jp: "いいですね。天気がいいのに、今日はずっと勉強していましたか。", reading: "いいですね。てんきがいいのに、きょうはずっとべんきょうしていましたか。", en: "That's good. Even though the weather is nice, were you studying the whole time today?", bn: "ভালো তো। আবহাওয়া এত সুন্দর হওয়া সত্ত্বেও আজ সারাদিন পড়াশোনা করছিলে?" },
+                        { speaker: "ラキブ", jp: "はい。外に出たかったけれど、我慢しました。", reading: "はい。そとにでたかったけれど、がまんしました。", en: "Yes. I wanted to go outside, but I held back.", bn: "হ্যাঁ। বাইরে যেতে ইচ্ছা করছিল, তবু সামলে নিয়েছি।" },
+                        { speaker: "田中", jp: "偉いですね。それでも、たまには休んでくださいね。", reading: "えらいですね。それでも、たまにはやすんでくださいね。", en: "That's admirable. Even so, please rest sometimes too.", bn: "খুব ভালো। তবু, মাঝেমধ্যে একটু বিশ্রামও নিও কিন্তু।" },
+                        { speaker: "ラキブ", jp: "分かりました。ありがとうございます。", reading: "わかりました。ありがとうございます。", en: "Understood. Thank you.", bn: "বুঝেছি। ধন্যবাদ।" }
+                    ]
+                }
+            },
+            {
+                id: "quoting-and-reported-speech",
+                title: "Quoting & Reported Speech",
+                conversation: {
+                    title: "噂を聞きました",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "田中さん、山田さんが来月結婚するって聞きましたか。", reading: "たなかさん、やまださんがらいげつけっこんするってききましたか。", en: "Tanaka, did you hear that Yamada is getting married next month?", bn: "তানাকা, শুনেছ ইয়ামাদা আগামী মাসে বিয়ে করছে?" },
+                        { speaker: "田中", jp: "はい、聞きました。とても幸せだと言っていました。", reading: "はい、ききました。とてもしあわせだといっていました。", en: "Yes, I heard. She said she's very happy.", bn: "হ্যাঁ, শুনেছি। বলেছিল খুব খুশি।" },
+                        { speaker: "ラキブ", jp: "私もそう思います。相手はとても優しい人だということです。", reading: "わたしもそうおもいます。あいてはとてもやさしいひとだということです。", en: "I think so too. I hear the partner is a very kind person.", bn: "আমারও তাই মনে হয়। শুনেছি ওর সঙ্গী নাকি খুব ভালো মানুষ।" },
+                        { speaker: "田中", jp: "いいですね。私は、二人はきっと幸せになると思います。", reading: "いいですね。わたしは、ふたりはきっとしあわせになるとおもいます。", en: "That's wonderful. I think the two of them will surely be happy.", bn: "ভালো তো। আমার মনে হয় দুজনেই নিশ্চয়ই সুখী হবে।" },
+                        { speaker: "ラキブ", jp: "田中さんも結婚するつもりだって、誰かが言っていましたよ。", reading: "たなかさんもけっこんするつもりだって、だれかがいっていましたよ。", en: "Someone said that you're planning to get married too, Tanaka.", bn: "তানাকা, তুমিও নাকি বিয়ে করার ইচ্ছা করছ, কেউ একজন বলছিল।" },
+                        { speaker: "田中", jp: "え、誰がそんなことを言っていましたか。", reading: "え、だれがそんなことをいっていましたか。", en: "What, who said such a thing?", bn: "আরে, কে এমন কথা বলল?" },
+                        { speaker: "ラキブ", jp: "冗談です。でも、いつか幸せになってほしいということです。", reading: "じょうだんです。でも、いつかしあわせになってほしいということです。", en: "I'm joking. But it means I hope you'll be happy someday.", bn: "মজা করছিলাম। তবে বলতে চাইছি, একদিন তুমি সুখী হও এটাই চাই।" },
+                        { speaker: "田中", jp: "ありがとうございます。", reading: "ありがとうございます。", en: "Thank you.", bn: "ধন্যবাদ।" }
+                    ]
+                }
+            },
+            {
+                id: "degree-and-extent",
+                title: "Degree & Extent",
+                conversation: {
+                    title: "昨日の飲み会",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "昨日、飲みすぎましたか。顔色が悪いですよ。", reading: "きのう、のみすぎましたか。かおいろがわるいですよ。", en: "Did you drink too much yesterday? You look pale.", bn: "গতকাল কি বেশি মদ খেয়েছিলে? মুখটা ফ্যাকাশে দেখাচ্ছে তো।" },
+                        { speaker: "ラキブ", jp: "はい、少し飲みすぎました。頭が痛いです。", reading: "はい、すこしのみすぎました。あたまがいたいです。", en: "Yes, I drank a bit too much. My head hurts.", bn: "হ্যাঁ, একটু বেশিই খেয়ে ফেলেছিলাম। মাথা ব্যথা করছে।" },
+                        { speaker: "田中", jp: "大丈夫ですか。動けないほど痛いですか。", reading: "だいじょうぶですか。うごけないほどいたいですか。", en: "Are you okay? Does it hurt so much you can't move?", bn: "ঠিক আছ তো? এতটাই ব্যথা যে নড়তেও পারছ না?" },
+                        { speaker: "ラキブ", jp: "そこまでではないです。少し休めば良くなると思います。", reading: "そこまでではないです。すこしやすめばよくなるとおもいます。", en: "Not that much. I think I'll get better if I rest a little.", bn: "অতটা না। একটু বিশ্রাম নিলে ভালো হয়ে যাবে মনে হয়।" },
+                        { speaker: "田中", jp: "駅まで十分くらい歩けますか。", reading: "えきまでじゅっぷんくらいあるけますか。", en: "Can you walk about ten minutes to the station?", bn: "স্টেশন পর্যন্ত মিনিট দশেক হাঁটতে পারবে?" },
+                        { speaker: "ラキブ", jp: "はい、大丈夫です。もう水をたくさん飲みましたから。", reading: "はい、だいじょうぶです。もうみずをたくさんのみましたから。", en: "Yes, I'm fine. I've already drunk a lot of water.", bn: "হ্যাঁ, পারব। ইতিমধ্যে অনেক পানি খেয়ে নিয়েছি তো।" },
+                        { speaker: "田中", jp: "それはいいですね。彼ほどお酒に強い人はいませんね。", reading: "それはいいですね。かれほどおさけにつよいひとはいませんね。", en: "That's good. There's no one who can hold their liquor as well as he can, huh.", bn: "ভালো তো। তার মতো মদ সহ্য করার ক্ষমতা কারো নেই, তাই না।" },
+                        { speaker: "ラキブ", jp: "本当ですね。次は飲みすぎないように気をつけます。", reading: "ほんとうですね。つぎはのみすぎないようにきをつけます。", en: "True. Next time I'll be careful not to drink too much.", bn: "সত্যিই তাই। পরের বার বেশি না খাওয়ার ব্যাপারে সতর্ক থাকব।" }
+                    ]
+                }
+            },
+            {
+                id: "difficulty-and-ease",
+                title: "Difficulty & Ease of Doing",
+                conversation: {
+                    title: "新しい携帯電話",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "新しい携帯電話を買いましたね。使いやすいですか。", reading: "あたらしいけいたいでんわをかいましたね。つかいやすいですか。", en: "You bought a new phone, right? Is it easy to use?", bn: "নতুন মোবাইল ফোন কিনেছ তো। ব্যবহার করা সহজ?" },
+                        { speaker: "田中", jp: "はい、とても使いやすいです。画面も見やすいです。", reading: "はい、とてもつかいやすいです。がめんもみやすいです。", en: "Yes, it's very easy to use. The screen is also easy to see.", bn: "হ্যাঁ, খুব সহজে ব্যবহার করা যায়। স্ক্রিনটাও দেখতে সুবিধাজনক।" },
+                        { speaker: "ラキブ", jp: "いいですね。私の携帯は古くて、字が読みにくいです。", reading: "いいですね。わたしのけいたいはふるくて、じがよみにくいです。", en: "That's nice. My phone is old and the letters are hard to read.", bn: "ভালো তো। আমার ফোনটা পুরনো, লেখা পড়তে কষ্ট হয়।" },
+                        { speaker: "田中", jp: "このアプリの使い方を教えましょうか。", reading: "このアプリのつかいかたをおしえましょうか。", en: "Shall I teach you how to use this app?", bn: "এই অ্যাপটা কীভাবে ব্যবহার করতে হয় শিখিয়ে দিই?" },
+                        { speaker: "ラキブ", jp: "お願いします。設定の仕方が分かりにくいんです。", reading: "おねがいします。せっていのしかたがわかりにくいんです。", en: "Please. The way to set it up is hard to understand.", bn: "দাও। সেটিংস করার পদ্ধতিটা বুঝতে কষ্ট হচ্ছে।" },
+                        { speaker: "田中", jp: "分かりました。この操作は覚えやすいですよ。", reading: "わかりました。このそうさはおぼえやすいですよ。", en: "Got it. This operation is easy to remember.", bn: "বুঝেছি। এই অপারেশনটা মনে রাখা সহজ।" },
+                        { speaker: "ラキブ", jp: "ありがとうございます。写真の撮り方も教えてください。", reading: "ありがとうございます。しゃしんのとりかたもおしえてください。", en: "Thank you. Please also teach me how to take photos.", bn: "ধন্যবাদ। ছবি তোলার পদ্ধতিও শিখিয়ে দাও।" },
+                        { speaker: "田中", jp: "いいですよ。とても簡単で、分かりやすいです。", reading: "いいですよ。とてもかんたんで、わかりやすいです。", en: "Sure. It's very simple and easy to understand.", bn: "ঠিক আছে। খুব সহজ, বোঝাও সহজ।" }
+                    ]
+                }
+            },
+            {
+                id: "change-of-state",
+                title: "Change of State & Decisions",
+                conversation: {
+                    title: "引っ越しのニュース",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "ラキブさん、来月から福岡で働くことになりました。", reading: "ラキブさん、らいげつからふくおかではたらくことになりました。", en: "Rakib, it's been decided that I'll work in Fukuoka starting next month.", bn: "রাকিব, আগামী মাস থেকে ফুকুওকায় কাজ করার সিদ্ধান্ত হয়ে গেছে।" },
+                        { speaker: "ラキブ", jp: "本当ですか。急ですね。", reading: "ほんとうですか。きゅうですね。", en: "Really? That's sudden.", bn: "সত্যি? বেশ হঠাৎই তো।" },
+                        { speaker: "田中", jp: "はい。だから、この部屋を引っ越すことにしました。", reading: "はい。だから、このへやをひっこすことにしました。", en: "Yes. So I decided to move out of this apartment.", bn: "হ্যাঁ। তাই এই ঘরটা ছেড়ে চলে যাওয়ার সিদ্ধান্ত নিয়েছি।" },
+                        { speaker: "ラキブ", jp: "寂しくなりますね。でも、日本語がとても上手になりましたね。", reading: "さびしくなりますね。でも、にほんごがとてもじょうずになりましたね。", en: "It'll be lonely. But you've become really good at Japanese, haven't you.", bn: "মন খারাপ হয়ে যাবে তো। তবে জাপানি ভাষায় তো খুব ভালো হয়ে গেছ, তাই না।" },
+                        { speaker: "田中", jp: "ありがとうございます。最近、敬語も上手に使えるようになりました。", reading: "ありがとうございます。さいきん、けいごもじょうずにつかえるようになりました。", en: "Thank you. Lately I've also become able to use keigo well.", bn: "ধন্যবাদ। সম্প্রতি কেইগোও ভালোভাবে ব্যবহার করতে পারি এখন।" },
+                        { speaker: "ラキブ", jp: "素晴らしいです。福岡でも、時々連絡することにしましょう。", reading: "すばらしいです。ふくおかでも、ときどきれんらくすることにしましょう。", en: "That's wonderful. Let's make sure to keep in touch sometimes even from Fukuoka.", bn: "চমৎকার। ফুকুওকা থেকেও মাঝেমধ্যে যোগাযোগ করার চেষ্টা কোরো।" },
+                        { speaker: "田中", jp: "はい、ぜひ。新しい生活にも、すぐ慣れるようになると思います。", reading: "はい、ぜひ。あたらしいせいかつにも、すぐなれるようになるとおもいます。", en: "Yes, definitely. I think I'll quickly get used to the new life too.", bn: "হ্যাঁ, অবশ্যই। নতুন জীবনেও শীঘ্রই অভ্যস্ত হয়ে যাব মনে হয়।" },
+                        { speaker: "ラキブ", jp: "きっとそうですね。応援しています。", reading: "きっとそうですね。おうえんしています。", en: "I'm sure you will. I'm rooting for you.", bn: "নিশ্চয়ই তাই হবে। পাশে আছি।" }
+                    ]
+                }
+            },
+            {
+                id: "time-and-simultaneity",
+                title: "Time Relations & Simultaneous Actions",
+                conversation: {
+                    title: "引っ越しの準備",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "今、何をしていますか。", reading: "いま、なにをしていますか。", en: "What are you doing right now?", bn: "এখন কী করছ?" },
+                        { speaker: "田中", jp: "ちょうど荷物を整理しているところです。", reading: "ちょうどにもつをせいりしているところです。", en: "I'm just in the middle of organizing my things.", bn: "এইমাত্র জিনিসপত্র গুছাচ্ছিলাম।" },
+                        { speaker: "ラキブ", jp: "手伝いましょうか。", reading: "てつだいましょうか。", en: "Shall I help?", bn: "সাহায্য করি?" },
+                        { speaker: "田中", jp: "ありがとうございます。実は、さっき箱を全部閉じたところなんです。", reading: "ありがとうございます。じつは、さっきはこをぜんぶとじたところなんです。", en: "Thank you. Actually, I just finished closing all the boxes a moment ago.", bn: "ধন্যবাদ। আসলে এইমাত্র সব বাক্সগুলো বন্ধ করা শেষ করলাম।" },
+                        { speaker: "ラキブ", jp: "そうですか。私も先月、引っ越したばかりですから、大変さが分かります。", reading: "そうですか。わたしもせんげつ、ひっこしたばかりですから、たいへんさがわかります。", en: "I see. Since I just moved last month too, I understand how tough it is.", bn: "তাই নাকি। আমিও গত মাসেই মাত্র বাসা বদলেছি, তাই কষ্টটা বুঝি।" },
+                        { speaker: "田中", jp: "本当ですね。あ、この箱、開けたままでした。", reading: "ほんとうですね。あ、このはこ、あけたままでした。", en: "True. Oh, this box was left open.", bn: "ঠিক তাই। ওহ, এই বাক্সটা তো খোলাই রয়ে গেছে।" },
+                        { speaker: "ラキブ", jp: "大丈夫です。閉めておきます。窓も開いたままですよ。", reading: "だいじょうぶです。しめておきます。まどもあいたままですよ。", en: "It's fine. I'll close it. The window is also left open.", bn: "ঠিক আছে। বন্ধ করে রাখছি। জানালাও খোলা রয়ে গেছে।" },
+                        { speaker: "田中", jp: "あ、本当ですね。閉めましょう。", reading: "あ、ほんとうですね。しめましょう。", en: "Oh, that's true. Let's close it.", bn: "ওহ, সত্যিই তো। বন্ধ করে দিই।" }
+                    ]
+                }
+            },
+            {
+                id: "uncertainty-and-possibility",
+                title: "Uncertainty, Possibility & Confirmation",
+                conversation: {
+                    title: "明日の天気",
+                    participants: ["ラキブ", "田中"],
+                    lines: [
+                        { speaker: "ラキブ", jp: "明日の天気予報、見ましたか。雨が降るかどうか知っていますか。", reading: "あしたのてんきよほう、みましたか。あめがふるかどうかしっていますか。", en: "Did you see tomorrow's weather forecast? Do you know whether it'll rain or not?", bn: "আগামীকালের আবহাওয়ার পূর্বাভাস দেখেছ? বৃষ্টি হবে কিনা জানো?" },
+                        { speaker: "田中", jp: "いいえ、まだです。でも、曇っていますから、降るかもしれませんね。", reading: "いいえ、まだです。でも、くもっていますから、ふるかもしれませんね。", en: "No, not yet. But it's cloudy, so it might rain.", bn: "না, এখনো দেখিনি। তবে মেঘলা তো, তাই হতেও পারে।" },
+                        { speaker: "ラキブ", jp: "そうですね。ハイキングの予定なのに、心配です。", reading: "そうですね。ハイキングのよていなのに、しんぱいです。", en: "That's right. I'm worried since we have a hike planned.", bn: "ঠিক তাই। হাইকিংয়ের পরিকল্পনা আছে, তাই চিন্তা হচ্ছে।" },
+                        { speaker: "田中", jp: "大丈夫ですよ。天気予報によると、午後は晴れるはずです。", reading: "だいじょうぶですよ。てんきよほうによると、ごごははれるはずです。", en: "It's fine. According to the forecast, it should clear up in the afternoon.", bn: "চিন্তা কোরো না। পূর্বাভাস অনুযায়ী বিকেলে রোদ ওঠার কথা।" },
+                        { speaker: "ラキブ", jp: "それを聞いて安心しました。朝は少し寒いでしょうね。", reading: "それをきいてあんしんしました。あさはすこしさむいでしょうね。", en: "That's a relief to hear. It'll probably be a bit cold in the morning, right?", bn: "শুনে স্বস্তি পেলাম। সকালে একটু ঠান্ডা থাকবে, তাই না?" },
+                        { speaker: "田中", jp: "そうでしょう。上着を持って行ったほうがいいかもしれません。", reading: "そうでしょう。うわぎをもっていったほうがいいかもしれません。", en: "Probably. It might be better to bring a jacket.", bn: "হয়তো তাই। একটা জ্যাকেট নিয়ে যাওয়াই ভালো হবে হয়তো।" },
+                        { speaker: "ラキブ", jp: "はい、そうします。田中さんも来られるかどうか、まだ分かりませんか。", reading: "はい、そうします。たなかさんもこられるかどうか、まだわかりませんか。", en: "Yes, I'll do that. Do you still not know whether you can come too, Tanaka?", bn: "হ্যাঁ, তাই করব। তানাকা, তুমি আসতে পারবে কিনা এখনো জানো না?" },
+                        { speaker: "田中", jp: "いいえ、もう決まりました。私も行けるはずです。", reading: "いいえ、もうきまりました。わたしもいけるはずです。", en: "No, it's already decided. I should be able to go too.", bn: "না, এখন ঠিক হয়ে গেছে। আমারও যাওয়া হয়ে যাবে মনে হয়।" }
+                    ]
+                }
+            },
+            {
+                id: "purpose-and-advice",
+                title: "Purpose & Giving Advice",
+                conversation: {
+                    title: "健康のために",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "最近、体の調子はどうですか。", reading: "さいきん、からだのちょうしはどうですか。", en: "How's your health been lately?", bn: "সম্প্রতি শরীর কেমন আছে?" },
+                        { speaker: "ラキブ", jp: "あまり良くないです。少し太ってしまいました。", reading: "あまりよくないです。すこしふとってしまいました。", en: "Not very good. I've gained a little weight.", bn: "খুব একটা ভালো না। একটু মোটা হয়ে গেছি।" },
+                        { speaker: "田中", jp: "健康のために、毎日運動したほうがいいですよ。", reading: "けんこうのために、まいにちうんどうしたほうがいいですよ。", en: "For your health, you'd better exercise every day.", bn: "স্বাস্থ্যের জন্য প্রতিদিন ব্যায়াম করা ভালো।" },
+                        { speaker: "ラキブ", jp: "そうですね。甘い物も食べすぎないほうがいいですよね。", reading: "そうですね。あまいものもたべすぎないほうがいいですよね。", en: "That's true. I'd also better not eat too many sweets, right?", bn: "ঠিক তাই। মিষ্টি জিনিসও বেশি না খাওয়া ভালো, তাই না?" },
+                        { speaker: "田中", jp: "はい。太らないように、野菜をたくさん食べてください。", reading: "はい。ふとらないように、やさいをたくさんたべてください。", en: "Yes. Please eat plenty of vegetables so you don't gain weight.", bn: "হ্যাঁ। মোটা না হওয়ার জন্য প্রচুর সবজি খাও।" },
+                        { speaker: "ラキブ", jp: "分かりました。夜遅くに食べないほうがいいですか。", reading: "わかりました。よるおそくにたべないほうがいいですか。", en: "Got it. Is it better not to eat late at night?", bn: "বুঝেছি। রাতে দেরিতে না খাওয়াই ভালো?" },
+                        { speaker: "田中", jp: "はい、そうです。よく眠れるように、早く寝たほうがいいですよ。", reading: "はい、そうです。よくねむれるように、はやくねたほうがいいですよ。", en: "Yes, that's right. You'd better sleep early so you can sleep well.", bn: "হ্যাঁ, ঠিক। ভালো ঘুমের জন্য তাড়াতাড়ি ঘুমানো ভালো।" },
+                        { speaker: "ラキブ", jp: "分かりました。今日から気をつけます。", reading: "わかりました。きょうからきをつけます。", en: "Got it. I'll be careful starting today.", bn: "বুঝেছি। আজ থেকেই খেয়াল রাখব।" }
+                    ]
+                }
+            },
+            {
+                id: "compound-verbs-and-review",
+                title: "Compound Verbs & Everyday Expressions",
+                conversation: {
+                    title: "三年間の日本語学習",
+                    participants: ["田中", "ラキブ"],
+                    lines: [
+                        { speaker: "田中", jp: "ラキブさんはいつから日本語を勉強し始めましたか。", reading: "ラキブさんはいつからにほんごをべんきょうしはじめましたか。", en: "When did you start studying Japanese, Rakib?", bn: "রাকিব, তুমি কবে থেকে জাপানি ভাষা শেখা শুরু করেছিলে?" },
+                        { speaker: "ラキブ", jp: "三年前から勉強し始めました。今もまだ勉強し続けています。", reading: "さんねんまえからべんきょうしはじめました。いまもまだべんきょうしつづけています。", en: "I started studying three years ago. I'm still continuing to study even now.", bn: "তিন বছর আগে থেকে শুরু করেছিলাম। এখনও পড়াশোনা চালিয়ে যাচ্ছি।" },
+                        { speaker: "田中", jp: "すごいですね。よく諦めないで続けられましたね。", reading: "すごいですね。よくあきらめないでつづけられましたね。", en: "That's amazing. You managed to keep going without giving up, huh.", bn: "দারুণ তো। হাল না ছেড়ে চালিয়ে যেতে পেরেছ, খুব ভালো।" },
+                        { speaker: "ラキブ", jp: "妹も日本語を習いたがっています。一緒に勉強するとか、教えるとかしたいです。", reading: "いもうともにほんごをならいたがっています。いっしょにべんきょうするとか、おしえるとかしたいです。", en: "My little sister wants to learn Japanese too. I'd like to do things like study together or teach her.", bn: "আমার ছোট বোনও জাপানি শিখতে চাইছে। একসাথে পড়া বা শেখানো—এমন কিছু করতে চাই।" },
+                        { speaker: "田中", jp: "いいですね。子供は新しいことを覚えたがりますからね。", reading: "いいですね。こどもはあたらしいことをおぼえたがりますからね。", en: "That's nice. Children want to learn new things, after all.", bn: "ভালো তো। বাচ্চারা নতুন কিছু শিখতে চায় তো সবসময়।" },
+                        { speaker: "ラキブ", jp: "はい。この三年間、本当にたくさんのことを学びました。", reading: "はい。このさんねんかん、ほんとうにたくさんのことをまなびました。", en: "Yes. Over these three years, I've really learned a lot.", bn: "হ্যাঁ। এই তিন বছরে সত্যিই অনেক কিছু শিখেছি।" },
+                        { speaker: "田中", jp: "これからも一緒に勉強し続けましょう。", reading: "これからもいっしょにべんきょうしつづけましょう。", en: "Let's keep studying together from now on too.", bn: "এখন থেকেও একসাথে পড়াশোনা চালিয়ে যাই চলো।" },
+                        { speaker: "ラキブ", jp: "はい、よろしくお願いします。", reading: "はい、よろしくおねがいします。", en: "Yes, I look forward to it.", bn: "হ্যাঁ, তোমার সাথে কাজ করতে পেরে ভালো লাগবে।" }
+                    ]
+                }
+            }
+        ]
+    },
     n3: { chapters: [] },
     n2: { chapters: [] },
     n1: { chapters: [] }
