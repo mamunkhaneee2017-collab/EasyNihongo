@@ -96,7 +96,7 @@
         }
     }
     document.getElementById("characterBn").textContent =
-        type === "kanji" ? ((item.meanings && item.meanings.bn) || "") : (detail ? detail.nameBn : "");
+        type === "kanji" ? ((item.meanings && item.meanings.en) || "") : (detail ? detail.nameBn : "");
 
     const posLabel = document.getElementById("charPositionLabel");
     if (posLabel) posLabel.textContent = `${index + 1} / ${list.length}`;
@@ -451,14 +451,19 @@
         let currentStroke = null;
         let drawing = false;
 
-        if (ghostCanvas && strokeDs.length) {
+        // Ghost-guide stroke color follows the --ink token (near-black in
+        // light mode, white in dark mode) so it stays visible against
+        // .practice-canvas-wrap's theme-aware background — redrawn on
+        // theme toggle since canvas pixels don't update via CSS alone.
+        function drawGhostGuide() {
+            if (!ghostCanvas || !strokeDs.length) return;
             const gctx = ghostCanvas.getContext("2d");
+            gctx.clearRect(0, 0, ghostCanvas.width, ghostCanvas.height);
             const scaleX = ghostCanvas.width / 100;
             const scaleY = ghostCanvas.height / 100;
-            gctx.lineWidth = 10;
             gctx.lineCap = "round";
             gctx.lineJoin = "round";
-            gctx.strokeStyle = "#111827";
+            gctx.strokeStyle = getComputedStyle(document.body).getPropertyValue("--ink").trim() || "#111827";
             strokeDs.forEach((d) => {
                 const path2d = new Path2D(d);
                 gctx.save();
@@ -468,6 +473,8 @@
                 gctx.restore();
             });
         }
+        drawGhostGuide();
+        document.addEventListener("easynihongo:theme", drawGhostGuide);
 
         function clearPracticeCanvas() {
             if (!practiceCanvas) return;

@@ -5,8 +5,8 @@
 .level-hub-hero{
     text-align:center;
     padding:60px 20px;
-    background:white;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    background:var(--surface);
+    box-shadow:var(--shadow-sm);
 }
 
 .level-hub-hero .hero-eyebrow{
@@ -25,7 +25,7 @@
 }
 
 .level-hub-hero p{
-    color:#6b7280;
+    color:var(--text-muted);
 }
 
 .level-hub-grid-section{

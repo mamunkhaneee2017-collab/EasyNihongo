@@ -77,6 +77,8 @@ body{
 
 .login-left p{
 
+    color:rgba(255,255,255,.9);
+
     font-size:18px;
 
     line-height:1.8;
