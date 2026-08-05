@@ -1,0 +1,60 @@
+/* ==========================================
+   TORN-PAPER ACCENT
+   Shared red+green decorative pattern — a
+   jagged "torn paper" edge revealing red
+   underneath a green layer. Standalone file
+   like navbar.css/footer.css: loaded only on
+   the pages that use it (login, register),
+   not bundled into base.css.
+
+   .torn-diagonal is the base (red background +
+   white text). .torn-diagonal--panel supplies
+   the actual jagged shape for a tall vertical
+   panel (login-left/register-left).
+
+   Uses filter:drop-shadow() on the ::before
+   pseudo-element, NOT box-shadow — box-shadow
+   is clipped away along with the element's box
+   when clip-path is applied, so it can't hug a
+   jagged silhouette. drop-shadow() operates on
+   the actual rendered (post-clip-path) shape,
+   so the shadow correctly follows the tear line.
+
+   Fixed, bold colors — deliberately NOT themed
+   per dark mode (see css/variables.css).
+========================================== */
+
+.torn-diagonal{
+    position:relative;
+    z-index:0;
+    overflow:hidden;
+    background:var(--brand-dark);
+    color:#fff;
+}
+
+.torn-diagonal::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--accent-green);
+    filter:drop-shadow(0 6px 6px rgba(0,0,0,.35));
+}
+
+/* Real content (headings, text, form elements) must paint above the
+   decorative ::before layer — an absolutely-positioned pseudo-element
+   with z-index:auto otherwise paints ABOVE normal-flow siblings like
+   <h1>/<p>, hiding them under the solid green/red fill. */
+.torn-diagonal > *{
+    position:relative;
+    z-index:1;
+}
+
+/* Tall panel — login-left / register-left */
+.torn-diagonal--panel::before{
+    clip-path:polygon(
+        0% 0%, 100% 0%,
+        100% 38%, 94% 40%, 90% 36%, 84% 44%, 78% 40%,
+        72% 48%, 64% 43%, 58% 52%, 50% 47%, 42% 55%,
+        34% 50%, 26% 58%, 18% 53%, 10% 60%, 4% 55%, 0% 62%
+    );
+}

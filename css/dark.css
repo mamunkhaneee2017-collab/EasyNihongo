@@ -379,6 +379,40 @@ body.dark .chapter-progress-bar{
 
 
 /* ==========================================
+        LEVEL HUB PAGE
+   (level-hub.html — the "pick what to study" grid
+   shown right after choosing a level: Vocabulary,
+   Grammar, Kanji, Kana, etc. Same bug shape as
+   .chapter-card above: .level-hub-card never got a
+   dark background, so its title (.level-hub-card h3,
+   no color of its own) inherited body's white
+   dark-mode text straight onto the still-white card.
+========================================== */
+
+body.dark .level-hub-card{
+
+    background:#374151;
+
+    box-shadow:none;
+
+}
+
+body.dark .level-hub-card h3{
+
+    color:#ffffff;
+
+}
+
+body.dark .level-hub-card p,
+body.dark .level-hub-kana-native{
+
+    color:#d1d5db;
+
+}
+
+
+
+/* ==========================================
         VOCABULARY BY TOPIC
 ========================================== */
 

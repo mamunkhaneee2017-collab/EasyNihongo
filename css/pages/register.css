@@ -19,7 +19,14 @@ body{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:50px;
-    align-items:center;
+}
+
+.register-left{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px 50px;
+    border-radius:20px;
 }
 
 .register-left h1{
@@ -28,14 +35,8 @@ body{
 }
 
 .register-left p{
-    color:#666;
+    color:rgba(255,255,255,.9);
     line-height:1.8;
-}
-
-.register-left img{
-    width:100%;
-    max-width:500px;
-    margin-top:30px;
 }
 
 .register-right{

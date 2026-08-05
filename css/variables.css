@@ -19,6 +19,11 @@
     --brand-light:#fee2e2;
     --brand-light-text:#dc2626;
 
+    /* Accent (secondary) — torn-paper green, used only by the
+       torn-diagonal decorative pattern (see css/torn-accent.css). */
+    --accent-green:#166534;
+    --accent-green-dark:#14532d;
+
     /* Neutrals */
     --ink:#111827;
     --text:#1e293b;
@@ -63,6 +68,10 @@ body.dark{
 
     --brand-light:#7f1d1d;
     --brand-light-text:#fecaca;
+
+    /* --accent-green / --accent-green-dark are NOT redefined here —
+       same reasoning as --brand/--brand-dark above: a fixed, bold
+       decorative accent, not a text-on-tint UI chip. */
 
     --shadow-sm:none;
     --shadow-md:none;
