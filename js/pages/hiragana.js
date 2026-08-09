@@ -30,6 +30,13 @@ function categoryForIndex(index){
     return "youon";
 }
 
+const CATEGORY_TITLES = {
+    base: "基本かな（きほんかな）— Basic Kana",
+    dakuten: "濁音（だくおん）— Dakuten",
+    handakuten: "半濁音（はんだくおん）— Handakuten",
+    youon: "拗音（ようおん）— Yōon"
+};
+
 function applyFilters(){
 
 const value = search.value.toLowerCase();
@@ -40,6 +47,12 @@ const matchesSearch = card.innerText.toLowerCase().includes(value);
 const matchesCategory = currentCategory === "all" || card.dataset.category === currentCategory;
 
 card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+
+});
+
+document.querySelectorAll("#hiraganaGrid .kana-section-title").forEach(title=>{
+
+title.style.display = (currentCategory === "all" || title.dataset.category === currentCategory) ? "block" : "none";
 
 });
 
@@ -74,11 +87,20 @@ if(!grid || typeof hiraganaData==="undefined") return;
 
 grid.innerHTML="";
 
+let lastCategory = null;
+
 hiraganaData.forEach((item, index)=>{
+
+const category = categoryForIndex(index);
+
+if(category !== lastCategory){
+    grid.innerHTML += `<h2 class="kana-section-title" data-category="${category}">${CATEGORY_TITLES[category]}</h2>`;
+    lastCategory = category;
+}
 
 grid.innerHTML += `
 
-<div class="card" data-category="${categoryForIndex(index)}" data-href="character.html?type=hiragana&char=${encodeURIComponent(item.character)}">
+<div class="card" data-category="${category}" data-href="character.html?type=hiragana&char=${encodeURIComponent(item.character)}">
 
     <button class="favorite" data-index="${index}" title="Favorite">
 
@@ -205,3 +227,27 @@ function loadFavorites(){
         .catch(() => {});
 
 }
+
+/*==========================
+    KANA NOTES AUDIO
+    (Sokuon/Chōon/Special Kana example
+    cards are static markup already in the
+    page, not data-rendered, so they're
+    wired up separately from initializeButtons())
+==========================*/
+
+document.querySelectorAll(".kana-notes .audio-btn").forEach(button=>{
+
+    const speechSupported = window.EasyNihongoSpeech && window.EasyNihongoSpeech.isSupported();
+
+    if(!speechSupported){
+        button.disabled = true;
+        button.title = "Audio not supported in this browser";
+        return;
+    }
+
+    button.addEventListener("click", () => {
+        window.EasyNihongoSpeech.speak(button.dataset.speak);
+    });
+
+});

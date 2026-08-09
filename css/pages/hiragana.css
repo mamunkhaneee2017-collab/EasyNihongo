@@ -224,6 +224,134 @@ background:#ef4444;
 
 }
 /*====================================
+        KANA CATEGORY SECTION TITLES
+        (green rule above + below, spans
+        the full width of the character
+        grid — grid-column:1/-1 breaks it
+        out of the auto-fill columns)
+=====================================*/
+
+.kana-section-title{
+
+grid-column:1 / -1;
+
+margin:40px 0 8px;
+
+padding:14px 0;
+
+text-align:center;
+
+font-size:22px;
+
+font-weight:700;
+
+color:var(--text);
+
+border-top:3px solid var(--logo-green);
+
+border-bottom:3px solid var(--logo-green);
+
+}
+
+.kana-section-title:first-child{
+
+margin-top:0;
+
+}
+
+/*====================================
+        KANA NOTES
+        (Sokuon / long vowels / special kana
+        — reference examples below the main
+        grid, reuses .kana-section-title for
+        its own headings)
+=====================================*/
+
+.kana-notes{
+
+width:90%;
+
+max-width:1200px;
+
+margin:20px auto 50px;
+
+}
+
+.kana-note{
+
+background:var(--surface);
+
+border-radius:16px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+padding:24px 28px;
+
+margin-bottom:30px;
+
+text-align:center;
+
+}
+
+.kana-note-chars{
+
+font-size:36px;
+
+font-weight:700;
+
+margin-bottom:12px;
+
+letter-spacing:2px;
+
+}
+
+.kana-note-desc{
+
+color:var(--text-muted);
+
+margin-bottom:10px;
+
+line-height:1.6;
+
+}
+
+.kana-note-example{
+
+font-size:16px;
+
+font-weight:600;
+
+}
+
+.kana-example-grid{
+
+margin-top:22px;
+
+}
+
+.kana-example-tag{
+
+display:inline-block;
+
+margin-left:6px;
+
+padding:2px 10px;
+
+border-radius:20px;
+
+background:var(--brand-light);
+
+color:var(--brand-light-text);
+
+font-size:11px;
+
+font-weight:700;
+
+vertical-align:middle;
+
+}
+
+/*====================================
         SEARCH
 =====================================*/
 

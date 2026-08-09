@@ -8,9 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Lesson 1 - Hiragana | Easy Nihongo</title>
+<title>Lesson 1 - Hiragana | Easy Japanese</title>
 
-<link rel="icon" type="image/jpeg" href="../assets/icons/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="../assets/icons/logo1.jpg">
 <link rel="manifest" href="../manifest.json">
 
 <link rel="stylesheet" href="../css/variables.css">
@@ -24,9 +24,18 @@ href="../css/base.css">
 <link rel="stylesheet"
 href="../css/pages/hiragana.css">
 
+<!-- Reuses the vocabulary lesson-card classes (.lesson-item-card,
+     .lesson-example, ...) for the Sokuon/Chōon/Special Kana example
+     cards below the grid, instead of one-off styling — see
+     css/pages/chapter.css for the class definitions and css/dark.css
+     for their (class-keyed, page-agnostic) dark mode overrides. -->
+<link rel="stylesheet" href="../css/pages/chapter.css">
+
 <link rel="stylesheet" href="../css/navbar.css">
 
 <link rel="stylesheet" href="../css/footer.css">
+
+<link rel="stylesheet" href="../css/dark.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -102,6 +111,181 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     class="hiragana-grid"
 
     id="hiraganaGrid">
+
+</section>
+
+<section class="kana-notes">
+
+    <h2 class="kana-section-title">促音（そくおん）— Sokuon</h2>
+
+    <div class="kana-note">
+        <p class="kana-note-chars">っ / ッ</p>
+        <p class="kana-note-desc">A small っ (or ッ) doubles the consonant that follows it, adding a brief pause before the next sound.</p>
+    </div>
+
+    <div class="lesson-items-grid kana-example-grid">
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">がっこう</span></div>
+            <p class="meaning">School</p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">がっこうへ いきます。</p>
+                    <p class="example-translation">I go to school.</p>
+                </div>
+                <button class="audio-btn" data-speak="がっこうへ いきます。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">きって</span></div>
+            <p class="meaning">Postage stamp</p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">きってを かいます。</p>
+                    <p class="example-translation">I buy a stamp.</p>
+                </div>
+                <button class="audio-btn" data-speak="きってを かいます。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">けっこん</span></div>
+            <p class="meaning">Marriage</p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">らいねん けっこんします。</p>
+                    <p class="example-translation">I will get married next year.</p>
+                </div>
+                <button class="audio-btn" data-speak="らいねん けっこんします。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">サッカー</span></div>
+            <p class="meaning">Soccer <span class="kana-example-tag">Katakana ッ</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">サッカーが すきです。</p>
+                    <p class="example-translation">I like soccer.</p>
+                </div>
+                <button class="audio-btn" data-speak="サッカーが すきです。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="kana-section-title">長音（ちょうおん）— Long Vowels</h2>
+
+    <div class="kana-note">
+        <p class="kana-note-chars">ああ ・ いい ・ うう</p>
+        <p class="kana-note-desc">Doubling a vowel (or using a long dash ー in katakana) holds the sound for two beats instead of one.</p>
+    </div>
+
+    <div class="lesson-items-grid kana-example-grid">
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">おかあさん</span></div>
+            <p class="meaning">Mother</p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">おかあさんは やさしいです。</p>
+                    <p class="example-translation">My mother is kind.</p>
+                </div>
+                <button class="audio-btn" data-speak="おかあさんは やさしいです。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">くうこう</span></div>
+            <p class="meaning">Airport</p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">くうこうへ いきます。</p>
+                    <p class="example-translation">I go to the airport.</p>
+                </div>
+                <button class="audio-btn" data-speak="くうこうへ いきます。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">スーパー</span></div>
+            <p class="meaning">Supermarket <span class="kana-example-tag">Katakana ー</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">スーパーで かいものします。</p>
+                    <p class="example-translation">I shop at the supermarket.</p>
+                </div>
+                <button class="audio-btn" data-speak="スーパーで かいものします。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">コーヒー</span></div>
+            <p class="meaning">Coffee <span class="kana-example-tag">Katakana ー</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">コーヒーを のみます。</p>
+                    <p class="example-translation">I drink coffee.</p>
+                </div>
+                <button class="audio-btn" data-speak="コーヒーを のみます。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="kana-section-title">特殊なかな（とくしゅなかな）— Special Kana</h2>
+
+    <div class="kana-note">
+        <p class="kana-note-chars">ゔ ゕ ゖ ヵ ヶ ヷ</p>
+        <p class="kana-note-desc">Rare kana used mainly for loanwords, counters, and historical spellings. ゔ, ゕ, ゖ and ヷ are essentially obsolete in everyday writing — ヵ and ヶ are the two you'll actually run into, as small-counter substitutes for か/こ.</p>
+    </div>
+
+    <div class="lesson-items-grid kana-example-grid">
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main"><span class="lesson-word">ヴァイオリン</span></div>
+            <p class="meaning">Violin <span class="kana-example-tag">ヴ (vu)</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">ヴァイオリンを ひきます。</p>
+                    <p class="example-translation">I play the violin.</p>
+                </div>
+                <button class="audio-btn" data-speak="ヴァイオリンを ひきます。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main">
+                <span class="lesson-word">一ヶ月</span>
+                <span class="lesson-reading">いっかげつ</span>
+            </div>
+            <p class="meaning">One month <span class="kana-example-tag">ヶ as counter</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">にほんに いっかげつ います。</p>
+                    <p class="example-translation">I will be in Japan for one month.</p>
+                </div>
+                <button class="audio-btn" data-speak="にほんに いっかげつ います。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+        <div class="lesson-item-card">
+            <div class="lesson-item-main">
+                <span class="lesson-word">3ヵ国</span>
+                <span class="lesson-reading">さんかこく</span>
+            </div>
+            <p class="meaning">Three countries <span class="kana-example-tag">ヵ as counter</span></p>
+            <div class="lesson-example">
+                <div class="lesson-example-text">
+                    <p class="example-jp">さんかこくを りょこうしました。</p>
+                    <p class="example-translation">I traveled to three countries.</p>
+                </div>
+                <button class="audio-btn" data-speak="さんかこくを りょこうしました。" title="Listen"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        </div>
+
+    </div>
 
 </section>
 
