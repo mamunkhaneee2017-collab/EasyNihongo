@@ -12,6 +12,8 @@
 window.EN_STRINGS = {
     "nav.home": "Home",
     "nav.courses": "Courses",
+    "nav.hiragana": "Hiragana",
+    "nav.katakana": "Katakana",
     "nav.vocabulary": "Vocabulary",
     "nav.grammar": "Grammar",
     "nav.kanji": "Kanji",

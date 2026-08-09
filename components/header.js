@@ -11,11 +11,11 @@
      <script src="../components/header.js"></script>     (from pages/*.html)
    and set
      <body data-page="courses">
-   (one of: home, courses, vocabulary, grammar,
-   kanji, quiz, contact) so the matching nav
-   link gets marked active. Pages with no
-   matching key (login, register, lesson, ...)
-   simply get no active link, same as before.
+   (one of: home, courses, hiragana, katakana,
+   vocabulary, grammar, kanji, quiz, contact) so
+   the matching nav link gets marked active. Pages
+   with no matching key (login, register, lesson,
+   ...) simply get no active link, same as before.
 
    This file detects whether it was loaded from
    the root or from pages/ by reading its own
@@ -42,48 +42,30 @@
 
     const currentPage = document.body.dataset.page || "";
 
-    // Courses, Vocabulary, Grammar and Kanji are grouped under one
-    // "Courses" dropdown instead of 4 separate top-level nav items —
-    // keeps the navbar from wrapping on smaller desktop widths.
-    // Vocabulary/Grammar/Kanji each additionally get a nested level
-    // flyout (N5-N1) so picking a level jumps straight into chapter 1 —
-    // only N5 is a real link; N4-N1 are shown locked, matching the same
-    // "coming soon" convention used everywhere else on the site. This is
-    // a fixed, numeric-position link (not a data lookup) deliberately:
-    // header.js loads on every page site-wide and must not be forced to
-    // load the (large) content data files just to resolve "first chapter."
-    const LEVELS = ["n5", "n4", "n3", "n2", "n1"];
-    const COURSE_TYPES = [
-        { key: "vocabulary", label: "Vocabulary" },
-        { key: "grammar", label: "Grammar" },
-        { key: "kanji", label: "Kanji" }
-    ];
-
-    const groupIsActive = ["courses", "vocabulary", "grammar", "kanji"].includes(currentPage);
+    // The Courses dropdown lists how a student actually thinks about
+    // progression — by level, not by content type — instead of the old
+    // Vocabulary/Grammar/Kanji type-first grouping. N5 is fully open;
+    // N4 requires a session (its href is filled in below once the
+    // /api/auth/me check this file already makes for the Login/Dashboard
+    // swap resolves, so no second request); N3-N1 stay locked until
+    // that level's content is authored. This is a fixed list (not a
+    // data lookup) deliberately: header.js loads on every page site-wide
+    // and must not be forced to load the (large) content data files.
+    const groupIsActive = ["courses", "hiragana", "katakana"].includes(currentPage);
 
     const courseOverviewHtml = `<a href="${toPages}courses.html"${currentPage === "courses" ? ' class="active"' : ""} role="menuitem">Course Overview</a>`;
+    const hiraganaHtml = `<a href="${toPages}hiragana.html"${currentPage === "hiragana" ? ' class="active"' : ""} role="menuitem" data-i18n="nav.hiragana">Hiragana</a>`;
+    const katakanaHtml = `<a href="${toPages}katakana.html"${currentPage === "katakana" ? ' class="active"' : ""} role="menuitem" data-i18n="nav.katakana">Katakana</a>`;
+    const n5Html = `<a href="${toPages}level-hub.html?level=n5" role="menuitem">N5</a>`;
+    // href is set once auth state is known (see the /api/auth/me handler
+    // below) — "#" until then so a click before that resolves is a no-op
+    // rather than a broken/unlocked link.
+    const n4Html = `<a href="#" class="nav-level-gated" data-level="n4" role="menuitem">N4</a>`;
+    const lockedLevelsHtml = ["n3", "n2", "n1"]
+        .map((level) => `<span class="locked" aria-disabled="true" title="Coming soon">${level.toUpperCase()}</span>`)
+        .join("");
 
-    const courseTypeFlyoutsHtml = COURSE_TYPES.map((type) => {
-        const levelLinksHtml = LEVELS.map((level) => {
-            const isUnlocked = level === "n5";
-            return isUnlocked
-                ? `<a href="${toPages}chapter.html?level=${level}&type=${type.key}&chapter=1" role="menuitem">${level.toUpperCase()}</a>`
-                : `<span class="locked" aria-disabled="true" title="Coming soon">${level.toUpperCase()}</span>`;
-        }).join("");
-
-        return `
-            <div class="nav-flyout-item">
-                <a href="${toPages}${type.key}.html"${currentPage === type.key ? ' class="active"' : ""} role="menuitem" data-i18n="nav.${type.key}">${type.label}</a>
-                <button type="button" class="nav-flyout-caret" aria-label="Choose a ${type.label} level" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret">&#9662;</span>
-                </button>
-                <div class="nav-flyout-submenu" role="menu" hidden>
-                    ${levelLinksHtml}
-                </div>
-            </div>`;
-    }).join("");
-
-    const dropdownItemsHtml = courseOverviewHtml + courseTypeFlyoutsHtml;
+    const dropdownItemsHtml = courseOverviewHtml + hiraganaHtml + katakanaHtml + n5Html + n4Html + lockedLevelsHtml;
 
     const otherLinksHtml = `<li><a href="${toPages}quiz.html"${currentPage === "quiz" ? ' class="active"' : ""} data-i18n="nav.quiz">JLPT Test</a></li>
                 <li><a href="${toPages}contact.html"${currentPage === "contact" ? ' class="active"' : ""} data-i18n="nav.contact">Contact</a></li>`;
@@ -210,9 +192,33 @@
     // exists — otherwise a logged-in student sees "Login" on every public
     // page (everywhere except the dashboard/profile/settings/favorites
     // pages, which use a separate authenticated layout entirely).
+    // Points every .nav-level-gated link (currently just N4) at the
+    // level hub if a session exists, or at login.html?redirect=... (so
+    // login/register hands the student straight back into that level)
+    // if it doesn't. Resolved from the same auth check right below
+    // rather than a second request; on request failure it fails toward
+    // requiring login rather than silently granting access.
+    const resolveGatedLevelLinks = (isLoggedIn) => {
+        document.querySelectorAll(".nav-level-gated").forEach((link) => {
+            if (isLoggedIn) {
+                link.href = `${toPages}level-hub.html?level=${link.dataset.level}`;
+                return;
+            }
+            // login.html always lives in pages/, so the redirect value it
+            // consumes must be relative to THAT location (a plain sibling
+            // filename), not to wherever this click happened to originate
+            // — using toPages here too would double up to pages/pages/...
+            // when the click came from the root page.
+            const redirectTarget = `level-hub.html?level=${link.dataset.level}`;
+            link.href = `${toPages}login.html?redirect=${encodeURIComponent(redirectTarget)}`;
+        });
+    };
+
     fetch("/api/auth/me", { credentials: "same-origin" })
         .then((res) => (res.ok ? res.json() : null))
         .then((data) => {
+            resolveGatedLevelLinks(!!(data && data.user));
+
             if (!data || !data.user) return;
 
             const doLogout = (e) => {
@@ -254,7 +260,7 @@
                 mobileItem.insertAdjacentElement("afterend", logoutLi);
             }
         })
-        .catch(() => {});
+        .catch(() => resolveGatedLevelLinks(false));
 
     // Reflects the admin panel's Site Name setting (falls back to the
     // hardcoded markup above if the API isn't reachable, e.g. a page

@@ -3,6 +3,19 @@
 // Register Page JavaScript
 // ==========================================
 
+// ---------- Redirect-back target ----------
+// (?redirect=... set by header.js when a login-gated nav item, e.g.
+// N4, is clicked while logged out — carried through to the Login link
+// too, and passed along to login.html after registration succeeds, so
+// the student lands where they meant to go instead of the dashboard.)
+
+const redirectParam = new URLSearchParams(window.location.search).get("redirect");
+
+if (redirectParam) {
+    const loginLink = document.querySelector('a[href="login.html"]');
+    if (loginLink) loginLink.href = `login.html?redirect=${encodeURIComponent(redirectParam)}`;
+}
+
 // ---------- Elements ----------
 
 const registerForm = document.getElementById("registerForm");
@@ -317,7 +330,7 @@ else if(!isStrongPassword(password.value)){
                 const data = await res.json();
                 if(!res.ok) throw new Error(data.error || "Registration failed.");
                 alert("🎉 Registration Successful! Please log in.");
-                window.location.href = "login.html";
+                window.location.href = redirectParam ? `login.html?redirect=${encodeURIComponent(redirectParam)}` : "login.html";
             })
             .catch((err) => {
                 alert(err.message);

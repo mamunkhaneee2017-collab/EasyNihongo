@@ -9,6 +9,8 @@
 window.BN_STRINGS = {
     "nav.home": "হোম",
     "nav.courses": "কোর্স",
+    "nav.hiragana": "হিরাগানা",
+    "nav.katakana": "কাতাকানা",
     "nav.vocabulary": "শব্দভাণ্ডার",
     "nav.grammar": "ব্যাকরণ",
     "nav.kanji": "কাঞ্জি",

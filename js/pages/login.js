@@ -1,4 +1,21 @@
 /* ==========================
+    REDIRECT-BACK TARGET
+    (?redirect=... set by header.js when a
+    login-gated nav item, e.g. N4, is clicked
+    while logged out — carried through to the
+    Register link too, so register -> login ->
+    target still lands where the student meant
+    to go, not on the dashboard.)
+========================== */
+
+const redirectParam = new URLSearchParams(window.location.search).get("redirect");
+
+if (redirectParam) {
+    const registerLink = document.querySelector('a[href="register.html"]');
+    if (registerLink) registerLink.href = `register.html?redirect=${encodeURIComponent(redirectParam)}`;
+}
+
+/* ==========================
     SHOW PASSWORD
 ========================== */
 
@@ -103,7 +120,7 @@ fetch("/api/auth/login", {
     .then(async (res) => {
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || "Login failed.");
-        window.location.href = "dashboard.html";
+        window.location.href = redirectParam || "dashboard.html";
     })
     .catch((err) => {
         alert(err.message);

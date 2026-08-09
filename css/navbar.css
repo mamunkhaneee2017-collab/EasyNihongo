@@ -339,6 +339,14 @@
     content:none;
 }
 
+.nav-dropdown-menu .locked{
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:500;
+    color:#9ca3af;
+    cursor:not-allowed;
+}
+
 /* Nested level flyout (Vocabulary/Grammar/Kanji -> N5-N1) */
 
 .nav-flyout-item{

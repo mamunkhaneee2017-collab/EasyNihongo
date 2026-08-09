@@ -9,6 +9,8 @@
 window.JA_STRINGS = {
     "nav.home": "ホーム",
     "nav.courses": "コース",
+    "nav.hiragana": "ひらがな",
+    "nav.katakana": "カタカナ",
     "nav.vocabulary": "単語",
     "nav.grammar": "文法",
     "nav.kanji": "漢字",
