@@ -45,9 +45,9 @@
     // The Courses dropdown lists how a student actually thinks about
     // progression — by level, not by content type — instead of the old
     // Vocabulary/Grammar/Kanji type-first grouping. N5 is fully open;
-    // N4 requires a session (its href is filled in below once the
+    // N4 and N3 require a session (hrefs are filled in below once the
     // /api/auth/me check this file already makes for the Login/Dashboard
-    // swap resolves, so no second request); N3-N1 stay locked until
+    // swap resolves, so no second request); N2-N1 stay locked until
     // that level's content is authored. This is a fixed list (not a
     // data lookup) deliberately: header.js loads on every page site-wide
     // and must not be forced to load the (large) content data files.
@@ -60,12 +60,14 @@
     // href is set once auth state is known (see the /api/auth/me handler
     // below) — "#" until then so a click before that resolves is a no-op
     // rather than a broken/unlocked link.
-    const n4Html = `<a href="#" class="nav-level-gated" data-level="n4" role="menuitem">N4</a>`;
-    const lockedLevelsHtml = ["n3", "n2", "n1"]
+    const gatedLevelsHtml = ["n4", "n3"]
+        .map((level) => `<a href="#" class="nav-level-gated" data-level="${level}" role="menuitem">${level.toUpperCase()}</a>`)
+        .join("");
+    const lockedLevelsHtml = ["n2", "n1"]
         .map((level) => `<span class="locked" aria-disabled="true" title="Coming soon">${level.toUpperCase()}</span>`)
         .join("");
 
-    const dropdownItemsHtml = courseOverviewHtml + hiraganaHtml + katakanaHtml + n5Html + n4Html + lockedLevelsHtml;
+    const dropdownItemsHtml = courseOverviewHtml + hiraganaHtml + katakanaHtml + n5Html + gatedLevelsHtml + lockedLevelsHtml;
 
     const otherLinksHtml = `<li><a href="${toPages}quiz.html"${currentPage === "quiz" ? ' class="active"' : ""} data-i18n="nav.quiz">JLPT Test</a></li>
                 <li><a href="${toPages}contact.html"${currentPage === "contact" ? ' class="active"' : ""} data-i18n="nav.contact">Contact</a></li>`;
