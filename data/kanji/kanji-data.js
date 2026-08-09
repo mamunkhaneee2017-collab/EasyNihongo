@@ -1955,7 +1955,421 @@ const kanjiData = {
         ]
     },
 
-    n3: { chapters: [] },
+    n3: {
+        chapters: [
+            {
+                id: "economy-money",
+                title: "Economy & Money",
+                items: [
+                    { char: "経", on: "ケイ、キョウ", kun: "へ(る)", meanings: { en: "pass through, manage, sutra", bn: "অতিক্রম করা, পরিচালনা করা" }, strokes: 11, examples: [
+                        { word: "経済", reading: "けいざい", meanings: { en: "economy", bn: "অর্থনীতি" } },
+                        { word: "経験", reading: "けいけん", meanings: { en: "experience", bn: "অভিজ্ঞতা" } },
+                        { word: "神経", reading: "しんけい", meanings: { en: "nerve", bn: "স্নায়ু" } }
+                    ], exampleSentence: { jp: "彼は多くの経験があります。", reading: "かれはおおくのけいけんがあります。", meanings: { en: "He has a lot of experience.", bn: "তার প্রচুর অভিজ্ঞতা আছে।" } } },
+                    { char: "済", on: "サイ", kun: "す(む)、す(ませる)", meanings: { en: "finish, settle (a matter)", bn: "শেষ করা, নিষ্পত্তি করা" }, strokes: 11, examples: [
+                        { word: "経済", reading: "けいざい", meanings: { en: "economy", bn: "অর্থনীতি" } },
+                        { word: "返済", reading: "へんさい", meanings: { en: "repayment", bn: "পরিশোধ" } },
+                        { word: "済む", reading: "すむ", meanings: { en: "to be finished", bn: "সম্পন্ন হওয়া" } }
+                    ], exampleSentence: { jp: "宿題はもう済みました。", reading: "しゅくだいはもうすみました。", meanings: { en: "The homework is already finished.", bn: "বাড়ির কাজ ইতিমধ্যে শেষ হয়েছে।" } } },
+                    { char: "費", on: "ヒ", kun: "つい(やす)", meanings: { en: "cost, expense", bn: "খরচ, ব্যয়" }, strokes: 12, examples: [
+                        { word: "費用", reading: "ひよう", meanings: { en: "cost, expenses", bn: "খরচ" } },
+                        { word: "食費", reading: "しょくひ", meanings: { en: "food expenses", bn: "খাদ্য ব্যয়" } },
+                        { word: "消費", reading: "しょうひ", meanings: { en: "consumption", bn: "ভোগ (ক্রয়ব্যবহার)" } }
+                    ], exampleSentence: { jp: "旅行の費用はいくらですか。", reading: "りょこうのひようはいくらですか。", meanings: { en: "How much are the travel expenses?", bn: "ভ্রমণের খরচ কত?" } } },
+                    { char: "給", on: "キュウ", kun: "", meanings: { en: "supply, wage", bn: "সরবরাহ, বেতন" }, strokes: 12, examples: [
+                        { word: "給料", reading: "きゅうりょう", meanings: { en: "salary", bn: "বেতন" } },
+                        { word: "月給", reading: "げっきゅう", meanings: { en: "monthly salary", bn: "মাসিক বেতন" } },
+                        { word: "補給", reading: "ほきゅう", meanings: { en: "supply, replenishment", bn: "সরবরাহ" } }
+                    ], exampleSentence: { jp: "毎月、給料をもらいます。", reading: "まいつき、きゅうりょうをもらいます。", meanings: { en: "I receive my salary every month.", bn: "আমি প্রতি মাসে বেতন পাই।" } } },
+                    { char: "資", on: "シ", kun: "", meanings: { en: "resources, capital", bn: "সম্পদ, মূলধন" }, strokes: 13, examples: [
+                        { word: "資源", reading: "しげん", meanings: { en: "resources", bn: "সম্পদ" } },
+                        { word: "資金", reading: "しきん", meanings: { en: "funds", bn: "তহবিল" } },
+                        { word: "資料", reading: "しりょう", meanings: { en: "materials, documents", bn: "নথিপত্র" } }
+                    ], exampleSentence: { jp: "新しい事業のための資金を集めています。", reading: "あたらしいじぎょうのためのしきんをあつめています。", meanings: { en: "I am gathering funds for a new business.", bn: "আমি একটি নতুন ব্যবসার জন্য তহবিল সংগ্রহ করছি।" } } },
+                    { char: "益", on: "エキ、ヤク", kun: "", meanings: { en: "profit, benefit", bn: "লাভ, উপকার" }, strokes: 10, examples: [
+                        { word: "利益", reading: "りえき", meanings: { en: "profit", bn: "লাভ" } },
+                        { word: "有益", reading: "ゆうえき", meanings: { en: "beneficial", bn: "উপকারী" } },
+                        { word: "国益", reading: "こくえき", meanings: { en: "national interest", bn: "জাতীয় স্বার্থ" } }
+                    ], exampleSentence: { jp: "会社は今年大きな利益を出した。", reading: "かいしゃはことしおおきなりえきをだした。", meanings: { en: "The company made a big profit this year.", bn: "কোম্পানি এই বছর বড় লাভ করেছে।" } } },
+                    { char: "損", on: "ソン", kun: "そこ(なう)", meanings: { en: "loss, damage", bn: "ক্ষতি" }, strokes: 13, examples: [
+                        { word: "損害", reading: "そんがい", meanings: { en: "damage, loss", bn: "ক্ষতি" } },
+                        { word: "損失", reading: "そんしつ", meanings: { en: "a loss (financial)", bn: "লোকসান" } },
+                        { word: "破損", reading: "はそん", meanings: { en: "breakage, damage", bn: "ভাঙ্গন" } }
+                    ], exampleSentence: { jp: "台風で大きな損害を受けた。", reading: "たいふうでおおきなそんがいをうけた。", meanings: { en: "We suffered great damage from the typhoon.", bn: "ঘূর্ণিঝড়ে আমরা বড় ক্ষতির সম্মুখীন হয়েছি।" } } }
+                ]
+            },
+            {
+                id: "politics-law",
+                title: "Politics & Law",
+                items: [
+                    { char: "政", on: "セイ、ショウ", kun: "まつりごと", meanings: { en: "politics, government", bn: "রাজনীতি, শাসন" }, strokes: 9, examples: [
+                        { word: "政治", reading: "せいじ", meanings: { en: "politics", bn: "রাজনীতি" } },
+                        { word: "政府", reading: "せいふ", meanings: { en: "government", bn: "সরকার" } },
+                        { word: "政策", reading: "せいさく", meanings: { en: "policy", bn: "নীতি" } }
+                    ], exampleSentence: { jp: "政治に興味があります。", reading: "せいじにきょうみがあります。", meanings: { en: "I am interested in politics.", bn: "আমার রাজনীতিতে আগ্রহ আছে।" } } },
+                    { char: "府", on: "フ", kun: "", meanings: { en: "government office, urban prefecture", bn: "সরকারি দপ্তর" }, strokes: 8, examples: [
+                        { word: "政府", reading: "せいふ", meanings: { en: "government", bn: "সরকার" } },
+                        { word: "大阪府", reading: "おおさかふ", meanings: { en: "Osaka Prefecture", bn: "ওসাকা প্রশাসনিক অঞ্চল" } },
+                        { word: "首府", reading: "しゅふ", meanings: { en: "capital city", bn: "রাজধানী" } }
+                    ], exampleSentence: { jp: "政府が新しい法律を作った。", reading: "せいふがあたらしいほうりつをつくった。", meanings: { en: "The government made a new law.", bn: "সরকার একটি নতুন আইন তৈরি করেছে।" } } },
+                    { char: "選", on: "セン", kun: "えら(ぶ)", meanings: { en: "choose, select, election", bn: "নির্বাচন করা" }, strokes: 15, examples: [
+                        { word: "選挙", reading: "せんきょ", meanings: { en: "election", bn: "নির্বাচন" } },
+                        { word: "選択", reading: "せんたく", meanings: { en: "choice, selection", bn: "নির্বাচন (পছন্দ)" } },
+                        { word: "選ぶ", reading: "えらぶ", meanings: { en: "to choose", bn: "বেছে নেওয়া" } }
+                    ], exampleSentence: { jp: "好きな色を選んでください。", reading: "すきないろをえらんでください。", meanings: { en: "Please choose your favorite color.", bn: "অনুগ্রহ করে আপনার পছন্দের রঙ বেছে নিন।" } } },
+                    { char: "挙", on: "キョ", kun: "あ(げる)", meanings: { en: "raise, conduct (an event)", bn: "উত্থাপন করা, অনুষ্ঠিত করা" }, strokes: 10, examples: [
+                        { word: "選挙", reading: "せんきょ", meanings: { en: "election", bn: "নির্বাচন" } },
+                        { word: "挙式", reading: "きょしき", meanings: { en: "wedding ceremony", bn: "বিবাহ অনুষ্ঠান" } },
+                        { word: "手を挙げる", reading: "てをあげる", meanings: { en: "to raise one's hand", bn: "হাত তোলা" } }
+                    ], exampleSentence: { jp: "質問がある人は手を挙げてください。", reading: "しつもんがあるひとはてをあげてください。", meanings: { en: "If you have a question, please raise your hand.", bn: "যদি প্রশ্ন থাকে, অনুগ্রহ করে হাত তুলুন।" } } },
+                    { char: "票", on: "ヒョウ", kun: "", meanings: { en: "vote, ballot", bn: "ভোট" }, strokes: 11, examples: [
+                        { word: "投票", reading: "とうひょう", meanings: { en: "voting", bn: "ভোটদান" } },
+                        { word: "票数", reading: "ひょうすう", meanings: { en: "number of votes", bn: "ভোটের সংখ্যা" } },
+                        { word: "伝票", reading: "でんぴょう", meanings: { en: "receipt, slip", bn: "রসিদ" } }
+                    ], exampleSentence: { jp: "選挙で投票しました。", reading: "せんきょでとうひょうしました。", meanings: { en: "I voted in the election.", bn: "আমি নির্বাচনে ভোট দিয়েছি।" } } },
+                    { char: "規", on: "キ", kun: "", meanings: { en: "rule, standard", bn: "নিয়ম, মানদণ্ড" }, strokes: 11, examples: [
+                        { word: "規則", reading: "きそく", meanings: { en: "rule, regulation", bn: "নিয়ম" } },
+                        { word: "規模", reading: "きぼ", meanings: { en: "scale, scope", bn: "পরিসর" } },
+                        { word: "新規", reading: "しんき", meanings: { en: "new, fresh", bn: "নতুন" } }
+                    ], exampleSentence: { jp: "学校の規則を守ってください。", reading: "がっこうのきそくをまもってください。", meanings: { en: "Please follow the school rules.", bn: "অনুগ্রহ করে স্কুলের নিয়ম মেনে চলুন।" } } },
+                    { char: "則", on: "ソク", kun: "", meanings: { en: "rule, law", bn: "নিয়ম" }, strokes: 9, examples: [
+                        { word: "規則", reading: "きそく", meanings: { en: "rule, regulation", bn: "নিয়ম" } },
+                        { word: "原則", reading: "げんそく", meanings: { en: "principle", bn: "মূলনীতি" } },
+                        { word: "法則", reading: "ほうそく", meanings: { en: "law (of nature/science)", bn: "সূত্র" } }
+                    ], exampleSentence: { jp: "これは大切な原則です。", reading: "これはたいせつなげんそくです。", meanings: { en: "This is an important principle.", bn: "এটি একটি গুরুত্বপূর্ণ মূলনীতি।" } } }
+                ]
+            },
+            {
+                id: "environment-disaster",
+                title: "Environment & Disaster",
+                items: [
+                    { char: "環", on: "カン", kun: "", meanings: { en: "ring, surround", bn: "বৃত্ত, বেষ্টন করা" }, strokes: 17, examples: [
+                        { word: "環境", reading: "かんきょう", meanings: { en: "environment", bn: "পরিবেশ" } },
+                        { word: "循環", reading: "じゅんかん", meanings: { en: "circulation", bn: "সঞ্চালন" } },
+                        { word: "環境問題", reading: "かんきょうもんだい", meanings: { en: "environmental problem", bn: "পরিবেশগত সমস্যা" } }
+                    ], exampleSentence: { jp: "環境を守ることが大切です。", reading: "かんきょうをまもることがたいせつです。", meanings: { en: "It is important to protect the environment.", bn: "পরিবেশ রক্ষা করা গুরুত্বপূর্ণ।" } } },
+                    { char: "境", on: "キョウ、ケイ", kun: "さかい", meanings: { en: "boundary, border", bn: "সীমানা" }, strokes: 14, examples: [
+                        { word: "環境", reading: "かんきょう", meanings: { en: "environment", bn: "পরিবেশ" } },
+                        { word: "国境", reading: "こっきょう", meanings: { en: "national border", bn: "সীমান্ত" } },
+                        { word: "境界", reading: "きょうかい", meanings: { en: "boundary", bn: "সীমারেখা" } }
+                    ], exampleSentence: { jp: "この川が二つの国の境です。", reading: "このかわがふたつのくにのさかいです。", meanings: { en: "This river is the border between the two countries.", bn: "এই নদীটি দুটি দেশের সীমান্ত।" } } },
+                    { char: "汚", on: "オ", kun: "きたな(い)、よご(れる)", meanings: { en: "dirty, pollute", bn: "নোংরা, দূষিত করা" }, strokes: 6, examples: [
+                        { word: "汚染", reading: "おせん", meanings: { en: "pollution", bn: "দূষণ" } },
+                        { word: "汚い", reading: "きたない", meanings: { en: "dirty", bn: "নোংরা" } },
+                        { word: "汚れる", reading: "よごれる", meanings: { en: "to become dirty", bn: "নোংরা হওয়া" } }
+                    ], exampleSentence: { jp: "空気の汚染がひどくなっている。", reading: "くうきのおせんがひどくなっている。", meanings: { en: "Air pollution is getting worse.", bn: "বায়ু দূষণ আরও খারাপ হচ্ছে।" } } },
+                    { char: "染", on: "セン", kun: "そ(める)、し(みる)", meanings: { en: "dye, be infected/stained", bn: "রঙ করা, দূষিত হওয়া" }, strokes: 9, examples: [
+                        { word: "汚染", reading: "おせん", meanings: { en: "pollution", bn: "দূষণ" } },
+                        { word: "感染", reading: "かんせん", meanings: { en: "infection", bn: "সংক্রমণ" } },
+                        { word: "染める", reading: "そめる", meanings: { en: "to dye", bn: "রঙ করা" } }
+                    ], exampleSentence: { jp: "髪を茶色に染めました。", reading: "かみをちゃいろにそめました。", meanings: { en: "I dyed my hair brown.", bn: "আমি চুল বাদামী রঙ করেছি।" } } },
+                    { char: "源", on: "ゲン", kun: "みなもと", meanings: { en: "source, origin", bn: "উৎস" }, strokes: 13, examples: [
+                        { word: "資源", reading: "しげん", meanings: { en: "resources", bn: "সম্পদ" } },
+                        { word: "水源", reading: "すいげん", meanings: { en: "water source", bn: "পানির উৎস" } },
+                        { word: "起源", reading: "きげん", meanings: { en: "origin", bn: "উৎপত্তি" } }
+                    ], exampleSentence: { jp: "エネルギー資源が不足しています。", reading: "エネルギーしげんがふそくしています。", meanings: { en: "Energy resources are in short supply.", bn: "শক্তি সম্পদের ঘাটতি রয়েছে।" } } },
+                    { char: "防", on: "ボウ", kun: "ふせ(ぐ)", meanings: { en: "prevent, defend", bn: "প্রতিরোধ করা" }, strokes: 7, examples: [
+                        { word: "予防", reading: "よぼう", meanings: { en: "prevention", bn: "প্রতিরোধ" } },
+                        { word: "防止", reading: "ぼうし", meanings: { en: "prevention", bn: "প্রতিরোধ" } },
+                        { word: "消防", reading: "しょうぼう", meanings: { en: "fire fighting", bn: "অগ্নিনির্বাপণ" } }
+                    ], exampleSentence: { jp: "病気を予防しましょう。", reading: "びょうきをよぼうしましょう。", meanings: { en: "Let's prevent illness.", bn: "চলুন রোগ প্রতিরোধ করি।" } } },
+                    { char: "災", on: "サイ", kun: "わざわ(い)", meanings: { en: "disaster, calamity", bn: "দুর্যোগ" }, strokes: 7, examples: [
+                        { word: "災害", reading: "さいがい", meanings: { en: "disaster", bn: "দুর্যোগ" } },
+                        { word: "火災", reading: "かさい", meanings: { en: "fire (disaster)", bn: "অগ্নিকাণ্ড" } },
+                        { word: "天災", reading: "てんさい", meanings: { en: "natural disaster", bn: "প্রাকৃতিক দুর্যোগ" } }
+                    ], exampleSentence: { jp: "自然災害に気をつけてください。", reading: "しぜんさいがいにきをつけてください。", meanings: { en: "Please be careful of natural disasters.", bn: "অনুগ্রহ করে প্রাকৃতিক দুর্যোগ সম্পর্কে সতর্ক থাকুন।" } } }
+                ]
+            },
+            {
+                id: "health-medicine",
+                title: "Health & Medicine",
+                items: [
+                    { char: "療", on: "リョウ", kun: "", meanings: { en: "medical treatment", bn: "চিকিৎসা" }, strokes: 17, examples: [
+                        { word: "治療", reading: "ちりょう", meanings: { en: "medical treatment", bn: "চিকিৎসা" } },
+                        { word: "医療", reading: "いりょう", meanings: { en: "medical care", bn: "চিকিৎসা সেবা" } },
+                        { word: "診療", reading: "しんりょう", meanings: { en: "medical examination", bn: "রোগ পরীক্ষা" } }
+                    ], exampleSentence: { jp: "病院で治療を受けました。", reading: "びょういんでちりょうをうけました。", meanings: { en: "I received treatment at the hospital.", bn: "আমি হাসপাতালে চিকিৎসা নিয়েছি।" } } },
+                    { char: "症", on: "ショウ", kun: "", meanings: { en: "symptom, illness", bn: "উপসর্গ" }, strokes: 10, examples: [
+                        { word: "症状", reading: "しょうじょう", meanings: { en: "symptom", bn: "উপসর্গ" } },
+                        { word: "重症", reading: "じゅうしょう", meanings: { en: "serious illness", bn: "গুরুতর রোগ" } },
+                        { word: "花粉症", reading: "かふんしょう", meanings: { en: "hay fever", bn: "পরাগ অ্যালার্জি" } }
+                    ], exampleSentence: { jp: "どんな症状がありますか。", reading: "どんなしょうじょうがありますか。", meanings: { en: "What symptoms do you have?", bn: "আপনার কী কী উপসর্গ আছে?" } } },
+                    { char: "状", on: "ジョウ", kun: "", meanings: { en: "state, condition, letter", bn: "অবস্থা, চিঠি" }, strokes: 7, examples: [
+                        { word: "状態", reading: "じょうたい", meanings: { en: "condition, state", bn: "অবস্থা" } },
+                        { word: "症状", reading: "しょうじょう", meanings: { en: "symptom", bn: "উপসর্গ" } },
+                        { word: "年賀状", reading: "ねんがじょう", meanings: { en: "New Year's card", bn: "নববর্ষের কার্ড" } }
+                    ], exampleSentence: { jp: "彼の体の状態はよくなりました。", reading: "かれのからだのじょうたいはよくなりました。", meanings: { en: "His physical condition has improved.", bn: "তার শারীরিক অবস্থার উন্নতি হয়েছে।" } } },
+                    { char: "健", on: "ケン", kun: "すこ(やか)", meanings: { en: "healthy", bn: "সুস্থ" }, strokes: 11, examples: [
+                        { word: "健康", reading: "けんこう", meanings: { en: "health", bn: "স্বাস্থ্য" } },
+                        { word: "健全", reading: "けんぜん", meanings: { en: "sound, wholesome", bn: "সুস্থ (মন-মানসিকতা)" } },
+                        { word: "保健", reading: "ほけん", meanings: { en: "health preservation", bn: "স্বাস্থ্য সংরক্ষণ" } }
+                    ], exampleSentence: { jp: "健康に気をつけています。", reading: "けんこうにきをつけています。", meanings: { en: "I am careful about my health.", bn: "আমি আমার স্বাস্থ্যের যত্ন নিচ্ছি।" } } },
+                    { char: "康", on: "コウ", kun: "", meanings: { en: "peaceful, healthy", bn: "শান্তিপূর্ণ, সুস্থ" }, strokes: 11, examples: [
+                        { word: "健康", reading: "けんこう", meanings: { en: "health", bn: "স্বাস্থ্য" } },
+                        { word: "健康診断", reading: "けんこうしんだん", meanings: { en: "health checkup", bn: "স্বাস্থ্য পরীক্ষা" } },
+                        { word: "小康", reading: "しょうこう", meanings: { en: "a lull, temporary calm", bn: "সাময়িক প্রশান্তি" } }
+                    ], exampleSentence: { jp: "毎年、健康診断を受けます。", reading: "まいとし、けんこうしんだんをうけます。", meanings: { en: "I get a health checkup every year.", bn: "আমি প্রতি বছর স্বাস্থ্য পরীক্ষা করাই।" } } },
+                    { char: "栄", on: "エイ", kun: "さか(える)", meanings: { en: "prosper, glory", bn: "সমৃদ্ধ হওয়া" }, strokes: 9, examples: [
+                        { word: "栄養", reading: "えいよう", meanings: { en: "nutrition", bn: "পুষ্টি" } },
+                        { word: "光栄", reading: "こうえい", meanings: { en: "honor, privilege", bn: "সম্মান" } },
+                        { word: "栄える", reading: "さかえる", meanings: { en: "to prosper", bn: "সমৃদ্ধ হওয়া" } }
+                    ], exampleSentence: { jp: "栄養のバランスが大切です。", reading: "えいようのバランスがたいせつです。", meanings: { en: "Nutritional balance is important.", bn: "পুষ্টির ভারসাম্য গুরুত্বপূর্ণ।" } } },
+                    { char: "養", on: "ヨウ", kun: "やしな(う)", meanings: { en: "nourish, cultivate", bn: "লালন-পালন করা" }, strokes: 15, examples: [
+                        { word: "栄養", reading: "えいよう", meanings: { en: "nutrition", bn: "পুষ্টি" } },
+                        { word: "養う", reading: "やしなう", meanings: { en: "to support, raise", bn: "প্রতিপালন করা" } },
+                        { word: "教養", reading: "きょうよう", meanings: { en: "culture, education", bn: "শিক্ষা-সংস্কৃতি" } }
+                    ], exampleSentence: { jp: "彼は家族を養っています。", reading: "かれはかぞくをやしなっています。", meanings: { en: "He supports his family.", bn: "সে তার পরিবারের ভরণপোষণ করে।" } } }
+                ]
+            },
+            {
+                id: "society-justice",
+                title: "Society & Justice",
+                items: [
+                    { char: "貧", on: "ヒン、ビン", kun: "まず(しい)", meanings: { en: "poor", bn: "দরিদ্র" }, strokes: 11, examples: [
+                        { word: "貧困", reading: "ひんこん", meanings: { en: "poverty", bn: "দারিদ্র্য" } },
+                        { word: "貧しい", reading: "まずしい", meanings: { en: "poor", bn: "দরিদ্র" } },
+                        { word: "貧富", reading: "ひんぷ", meanings: { en: "rich and poor", bn: "ধনী ও দরিদ্র" } }
+                    ], exampleSentence: { jp: "貧困問題について考えます。", reading: "ひんこんもんだいについてかんがえます。", meanings: { en: "I think about the poverty problem.", bn: "আমি দারিদ্র্য সমস্যা নিয়ে চিন্তা করি।" } } },
+                    { char: "差", on: "サ", kun: "さ(す)", meanings: { en: "difference", bn: "পার্থক্য" }, strokes: 10, examples: [
+                        { word: "格差", reading: "かくさ", meanings: { en: "gap, disparity", bn: "বৈষম্য" } },
+                        { word: "差別", reading: "さべつ", meanings: { en: "discrimination", bn: "বৈষম্য (বিভেদ)" } },
+                        { word: "時差", reading: "じさ", meanings: { en: "time difference", bn: "সময়ের পার্থক্য" } }
+                    ], exampleSentence: { jp: "経済格差が広がっています。", reading: "けいざいかくさがひろがっています。", meanings: { en: "The economic gap is widening.", bn: "অর্থনৈতিক বৈষম্য বাড়ছে।" } } },
+                    { char: "罪", on: "ザイ", kun: "つみ", meanings: { en: "crime, sin", bn: "অপরাধ" }, strokes: 13, examples: [
+                        { word: "犯罪", reading: "はんざい", meanings: { en: "crime", bn: "অপরাধ" } },
+                        { word: "罪人", reading: "ざいにん", meanings: { en: "criminal", bn: "অপরাধী" } },
+                        { word: "謝罪", reading: "しゃざい", meanings: { en: "apology", bn: "ক্ষমাপ্রার্থনা" } }
+                    ], exampleSentence: { jp: "犯罪が減っています。", reading: "はんざいがへっています。", meanings: { en: "Crime is decreasing.", bn: "অপরাধ কমছে।" } } },
+                    { char: "犯", on: "ハン", kun: "おか(す)", meanings: { en: "commit (a crime), violate", bn: "লঙ্ঘন করা" }, strokes: 5, examples: [
+                        { word: "犯罪", reading: "はんざい", meanings: { en: "crime", bn: "অপরাধ" } },
+                        { word: "犯人", reading: "はんにん", meanings: { en: "culprit, criminal", bn: "অপরাধী" } },
+                        { word: "犯す", reading: "おかす", meanings: { en: "to commit (a crime)", bn: "অপরাধ করা" } }
+                    ], exampleSentence: { jp: "犯人はまだ捕まっていない。", reading: "はんにんはまだつかまっていない。", meanings: { en: "The culprit has not been caught yet.", bn: "অপরাধী এখনো ধরা পড়েনি।" } } },
+                    { char: "裁", on: "サイ", kun: "さば(く)、た(つ)", meanings: { en: "judge, cut cloth", bn: "বিচার করা" }, strokes: 12, examples: [
+                        { word: "裁判", reading: "さいばん", meanings: { en: "trial, court case", bn: "বিচার" } },
+                        { word: "裁判所", reading: "さいばんしょ", meanings: { en: "courthouse", bn: "আদালত" } },
+                        { word: "独裁", reading: "どくさい", meanings: { en: "dictatorship", bn: "একনায়কতন্ত্র" } }
+                    ], exampleSentence: { jp: "裁判が始まりました。", reading: "さいばんがはじまりました。", meanings: { en: "The trial has begun.", bn: "বিচার শুরু হয়েছে।" } } },
+                    { char: "賛", on: "サン", kun: "", meanings: { en: "agree, approve", bn: "সম্মত হওয়া" }, strokes: 15, examples: [
+                        { word: "賛成", reading: "さんせい", meanings: { en: "agreement", bn: "সম্মতি" } },
+                        { word: "賛否", reading: "さんぴ", meanings: { en: "pros and cons", bn: "পক্ষে-বিপক্ষে" } },
+                        { word: "絶賛", reading: "ぜっさん", meanings: { en: "high praise", bn: "উচ্চ প্রশংসা" } }
+                    ], exampleSentence: { jp: "その意見に賛成です。", reading: "そのいけんにさんせいです。", meanings: { en: "I agree with that opinion.", bn: "আমি সেই মতামতের সাথে একমত।" } } },
+                    { char: "否", on: "ヒ", kun: "いな", meanings: { en: "no, deny", bn: "না, অস্বীকার" }, strokes: 7, examples: [
+                        { word: "賛否", reading: "さんぴ", meanings: { en: "pros and cons", bn: "পক্ষে-বিপক্ষে" } },
+                        { word: "否定", reading: "ひてい", meanings: { en: "denial", bn: "অস্বীকৃতি" } },
+                        { word: "拒否", reading: "きょひ", meanings: { en: "refusal", bn: "প্রত্যাখ্যান" } }
+                    ], exampleSentence: { jp: "彼はその話を否定した。", reading: "かれはそのはなしをひていした。", meanings: { en: "He denied that story.", bn: "সে সেই কথাটি অস্বীকার করেছে।" } } }
+                ]
+            },
+            {
+                id: "technology",
+                title: "Technology",
+                items: [
+                    { char: "技", on: "ギ", kun: "わざ", meanings: { en: "skill, technique", bn: "দক্ষতা" }, strokes: 7, examples: [
+                        { word: "技術", reading: "ぎじゅつ", meanings: { en: "technology, skill", bn: "প্রযুক্তি" } },
+                        { word: "特技", reading: "とくぎ", meanings: { en: "special skill", bn: "বিশেষ দক্ষতা" } },
+                        { word: "演技", reading: "えんぎ", meanings: { en: "acting, performance", bn: "অভিনয়" } }
+                    ], exampleSentence: { jp: "技術が進歩しました。", reading: "ぎじゅつがしんぽしました。", meanings: { en: "Technology has advanced.", bn: "প্রযুক্তি উন্নত হয়েছে।" } } },
+                    { char: "術", on: "ジュツ", kun: "", meanings: { en: "art, technique", bn: "কৌশল, শিল্প" }, strokes: 11, examples: [
+                        { word: "技術", reading: "ぎじゅつ", meanings: { en: "technology, skill", bn: "প্রযুক্তি" } },
+                        { word: "美術", reading: "びじゅつ", meanings: { en: "fine art", bn: "চারুকলা" } },
+                        { word: "手術", reading: "しゅじゅつ", meanings: { en: "surgery", bn: "অস্ত্রোপচার" } }
+                    ], exampleSentence: { jp: "美術館へ行きました。", reading: "びじゅつかんへいきました。", meanings: { en: "I went to the art museum.", bn: "আমি চারুকলা জাদুঘরে গিয়েছিলাম।" } } },
+                    { char: "科", on: "カ", kun: "", meanings: { en: "field of study, department", bn: "বিভাগ, শাখা" }, strokes: 9, examples: [
+                        { word: "科学", reading: "かがく", meanings: { en: "science", bn: "বিজ্ঞান" } },
+                        { word: "教科書", reading: "きょうかしょ", meanings: { en: "textbook", bn: "পাঠ্যপুস্তক" } },
+                        { word: "内科", reading: "ないか", meanings: { en: "internal medicine (dept.)", bn: "অভ্যন্তরীণ চিকিৎসা বিভাগ" } }
+                    ], exampleSentence: { jp: "科学は面白いです。", reading: "かがくはおもしろいです。", meanings: { en: "Science is interesting.", bn: "বিজ্ঞান মজার।" } } },
+                    { char: "情", on: "ジョウ", kun: "なさ(け)", meanings: { en: "emotion, information", bn: "আবেগ, তথ্য" }, strokes: 11, examples: [
+                        { word: "情報", reading: "じょうほう", meanings: { en: "information", bn: "তথ্য" } },
+                        { word: "感情", reading: "かんじょう", meanings: { en: "emotion", bn: "আবেগ" } },
+                        { word: "友情", reading: "ゆうじょう", meanings: { en: "friendship", bn: "বন্ধুত্ব" } }
+                    ], exampleSentence: { jp: "たくさんの情報があります。", reading: "たくさんのじょうほうがあります。", meanings: { en: "There is a lot of information.", bn: "প্রচুর তথ্য রয়েছে।" } } },
+                    { char: "報", on: "ホウ", kun: "むく(いる)", meanings: { en: "report, news, reward", bn: "প্রতিবেদন, খবর" }, strokes: 12, examples: [
+                        { word: "情報", reading: "じょうほう", meanings: { en: "information", bn: "তথ্য" } },
+                        { word: "報告", reading: "ほうこく", meanings: { en: "report", bn: "প্রতিবেদন" } },
+                        { word: "天気予報", reading: "てんきよほう", meanings: { en: "weather forecast", bn: "আবহাওয়ার পূর্বাভাস" } }
+                    ], exampleSentence: { jp: "結果を報告してください。", reading: "けっかをほうこくしてください。", meanings: { en: "Please report the results.", bn: "অনুগ্রহ করে ফলাফল প্রতিবেদন করুন।" } } },
+                    { char: "査", on: "サ", kun: "", meanings: { en: "investigate", bn: "তদন্ত করা" }, strokes: 9, examples: [
+                        { word: "調査", reading: "ちょうさ", meanings: { en: "survey, investigation", bn: "জরিপ" } },
+                        { word: "検査", reading: "けんさ", meanings: { en: "examination, inspection", bn: "পরীক্ষা" } },
+                        { word: "審査", reading: "しんさ", meanings: { en: "screening, judging", bn: "মূল্যায়ন" } }
+                    ], exampleSentence: { jp: "アンケート調査をしました。", reading: "アンケートちょうさをしました。", meanings: { en: "We conducted a questionnaire survey.", bn: "আমরা একটি প্রশ্নাবলী জরিপ পরিচালনা করেছি।" } } },
+                    { char: "検", on: "ケン", kun: "", meanings: { en: "examine, inspect", bn: "পরীক্ষা করা" }, strokes: 12, examples: [
+                        { word: "検査", reading: "けんさ", meanings: { en: "examination, inspection", bn: "পরীক্ষা" } },
+                        { word: "点検", reading: "てんけん", meanings: { en: "inspection, check", bn: "যাচাই" } },
+                        { word: "検討", reading: "けんとう", meanings: { en: "consideration, study", bn: "বিবেচনা" } }
+                    ], exampleSentence: { jp: "健康診断で検査を受けました。", reading: "けんこうしんだんでけんさをうけました。", meanings: { en: "I had an examination during the health checkup.", bn: "স্বাস্থ্য পরীক্ষার সময় আমি পরীক্ষা করিয়েছি।" } } }
+                ]
+            },
+            {
+                id: "expression-rights",
+                title: "Expression & Rights",
+                items: [
+                    { char: "達", on: "タツ", kun: "", meanings: { en: "reach, attain; plural suffix", bn: "পৌঁছানো, অর্জন করা" }, strokes: 12, examples: [
+                        { word: "発達", reading: "はったつ", meanings: { en: "development", bn: "বিকাশ" } },
+                        { word: "友達", reading: "ともだち", meanings: { en: "friend", bn: "বন্ধু" } },
+                        { word: "配達", reading: "はいたつ", meanings: { en: "delivery", bn: "ডেলিভারি" } }
+                    ], exampleSentence: { jp: "技術が発達しました。", reading: "ぎじゅつがはったつしました。", meanings: { en: "Technology has developed.", bn: "প্রযুক্তির বিকাশ হয়েছে।" } } },
+                    { char: "述", on: "ジュツ", kun: "の(べる)", meanings: { en: "state, mention", bn: "বর্ণনা করা, বলা" }, strokes: 8, examples: [
+                        { word: "述べる", reading: "のべる", meanings: { en: "to state, mention", bn: "বলা / বর্ণনা করা" } },
+                        { word: "記述", reading: "きじゅつ", meanings: { en: "description", bn: "বর্ণনা" } },
+                        { word: "口述", reading: "こうじゅつ", meanings: { en: "oral statement", bn: "মৌখিক বিবৃতি" } }
+                    ], exampleSentence: { jp: "自分の意見を述べてください。", reading: "じぶんのいけんをのべてください。", meanings: { en: "Please state your own opinion.", bn: "অনুগ্রহ করে নিজের মতামত বলুন।" } } },
+                    { char: "表", on: "ヒョウ", kun: "あらわ(す)、おもて", meanings: { en: "express, surface, table (chart)", bn: "প্রকাশ করা, তালিকা" }, strokes: 8, examples: [
+                        { word: "表現", reading: "ひょうげん", meanings: { en: "expression", bn: "প্রকাশ" } },
+                        { word: "発表", reading: "はっぴょう", meanings: { en: "announcement, presentation", bn: "ঘোষণা" } },
+                        { word: "表す", reading: "あらわす", meanings: { en: "to express, represent", bn: "প্রকাশ করা" } }
+                    ], exampleSentence: { jp: "感情を表に出します。", reading: "かんじょうをおもてにだします。", meanings: { en: "I express my emotions.", bn: "আমি আমার আবেগ প্রকাশ করি।" } } },
+                    { char: "印", on: "イン", kun: "しるし", meanings: { en: "mark, seal, impression", bn: "চিহ্ন, ছাপ" }, strokes: 6, examples: [
+                        { word: "印象", reading: "いんしょう", meanings: { en: "impression", bn: "ছাপ" } },
+                        { word: "印刷", reading: "いんさつ", meanings: { en: "printing", bn: "মুদ্রণ" } },
+                        { word: "目印", reading: "めじるし", meanings: { en: "landmark, sign", bn: "চিহ্ন" } }
+                    ], exampleSentence: { jp: "いい印象を持ちました。", reading: "いいいんしょうをもちました。", meanings: { en: "I got a good impression.", bn: "আমি একটি ভালো ছাপ পেয়েছি।" } } },
+                    { char: "積", on: "セキ", kun: "つ(む)", meanings: { en: "accumulate, load, area", bn: "সঞ্চিত করা, ক্ষেত্রফল" }, strokes: 16, examples: [
+                        { word: "積極的", reading: "せっきょくてき", meanings: { en: "proactive, positive", bn: "উদ্যমী" } },
+                        { word: "面積", reading: "めんせき", meanings: { en: "area (measurement)", bn: "ক্ষেত্রফল" } },
+                        { word: "積む", reading: "つむ", meanings: { en: "to pile up, load", bn: "স্তূপ করা" } }
+                    ], exampleSentence: { jp: "積極的に参加します。", reading: "せっきょくてきにさんかします。", meanings: { en: "I will participate proactively.", bn: "আমি উদ্যমীভাবে অংশগ্রহণ করব।" } } },
+                    { char: "極", on: "キョク、ゴク", kun: "きわ(める)", meanings: { en: "extreme, pole", bn: "চরম, মেরু" }, strokes: 12, examples: [
+                        { word: "積極的", reading: "せっきょくてき", meanings: { en: "proactive, positive", bn: "উদ্যমী" } },
+                        { word: "消極的", reading: "しょうきょくてき", meanings: { en: "passive, negative", bn: "নিষ্ক্রিয়" } },
+                        { word: "北極", reading: "ほっきょく", meanings: { en: "North Pole", bn: "উত্তর মেরু" } }
+                    ], exampleSentence: { jp: "彼は消極的な性格です。", reading: "かれはしょうきょくてきなせいかくです。", meanings: { en: "He has a passive personality.", bn: "তার একটি নিষ্ক্রিয় ব্যক্তিত্ব রয়েছে।" } } },
+                    { char: "権", on: "ケン、ゴン", kun: "", meanings: { en: "right, authority", bn: "অধিকার, ক্ষমতা" }, strokes: 15, examples: [
+                        { word: "権利", reading: "けんり", meanings: { en: "right (legal)", bn: "অধিকার" } },
+                        { word: "人権", reading: "じんけん", meanings: { en: "human rights", bn: "মানবাধিকার" } },
+                        { word: "権力", reading: "けんりょく", meanings: { en: "power, authority", bn: "ক্ষমতা" } }
+                    ], exampleSentence: { jp: "人には権利があります。", reading: "ひとにはけんりがあります。", meanings: { en: "People have rights.", bn: "মানুষের অধিকার আছে।" } } }
+                ]
+            },
+            {
+                id: "cause-relation",
+                title: "Cause & Relation",
+                items: [
+                    { char: "効", on: "コウ", kun: "き(く)", meanings: { en: "effect, efficacy", bn: "কার্যকারিতা" }, strokes: 8, examples: [
+                        { word: "効果", reading: "こうか", meanings: { en: "effect", bn: "প্রভাব" } },
+                        { word: "有効", reading: "ゆうこう", meanings: { en: "valid, effective", bn: "কার্যকর" } },
+                        { word: "効く", reading: "きく", meanings: { en: "to be effective", bn: "কাজ করা (প্রভাব ফেলা)" } }
+                    ], exampleSentence: { jp: "この薬は効果があります。", reading: "このくすりはこうかがあります。", meanings: { en: "This medicine is effective.", bn: "এই ওষুধটি কার্যকর।" } } },
+                    { char: "果", on: "カ", kun: "は(たす)、くだもの", meanings: { en: "result, fruit", bn: "ফলাফল, ফল" }, strokes: 8, examples: [
+                        { word: "結果", reading: "けっか", meanings: { en: "result", bn: "ফলাফল" } },
+                        { word: "効果", reading: "こうか", meanings: { en: "effect", bn: "প্রভাব" } },
+                        { word: "果物", reading: "くだもの", meanings: { en: "fruit", bn: "ফল" } }
+                    ], exampleSentence: { jp: "いい結果が出ました。", reading: "いいけっかがでました。", meanings: { en: "A good result came out.", bn: "একটি ভালো ফলাফল এসেছে।" } } },
+                    { char: "原", on: "ゲン", kun: "はら", meanings: { en: "origin, plain, original", bn: "মূল, প্রান্তর" }, strokes: 10, examples: [
+                        { word: "原因", reading: "げんいん", meanings: { en: "cause", bn: "কারণ" } },
+                        { word: "原則", reading: "げんそく", meanings: { en: "principle", bn: "মূলনীতি" } },
+                        { word: "高原", reading: "こうげん", meanings: { en: "plateau", bn: "মালভূমি" } }
+                    ], exampleSentence: { jp: "事故の原因を調べます。", reading: "じこのげんいんをしらべます。", meanings: { en: "I will investigate the cause of the accident.", bn: "আমি দুর্ঘটনার কারণ অনুসন্ধান করব।" } } },
+                    { char: "因", on: "イン", kun: "よ(る)", meanings: { en: "cause, factor", bn: "কারণ, কারক" }, strokes: 6, examples: [
+                        { word: "原因", reading: "げんいん", meanings: { en: "cause", bn: "কারণ" } },
+                        { word: "因果", reading: "いんが", meanings: { en: "cause and effect", bn: "কার্যকারণ" } },
+                        { word: "要因", reading: "よういん", meanings: { en: "(key) factor", bn: "প্রধান কারণ" } }
+                    ], exampleSentence: { jp: "失敗の要因はいくつかある。", reading: "しっぱいのよういんはいくつかある。", meanings: { en: "There are several factors behind the failure.", bn: "ব্যর্থতার পেছনে বেশ কয়েকটি কারণ রয়েছে।" } } },
+                    { char: "結", on: "ケツ", kun: "むす(ぶ)", meanings: { en: "tie, conclude", bn: "বাঁধা, সমাপ্ত করা" }, strokes: 12, examples: [
+                        { word: "結果", reading: "けっか", meanings: { en: "result", bn: "ফলাফল" } },
+                        { word: "結婚", reading: "けっこん", meanings: { en: "marriage", bn: "বিবাহ" } },
+                        { word: "結ぶ", reading: "むすぶ", meanings: { en: "to tie, connect", bn: "সংযুক্ত করা" } }
+                    ], exampleSentence: { jp: "新しい契約を結びました。", reading: "あたらしいけいやくをむすびました。", meanings: { en: "We signed a new contract.", bn: "আমরা একটি নতুন চুক্তি স্বাক্ষর করেছি।" } } },
+                    { char: "関", on: "カン", kun: "せき、かか(わる)", meanings: { en: "connection, related to", bn: "সম্পর্ক, সংযোগ" }, strokes: 14, examples: [
+                        { word: "関係", reading: "かんけい", meanings: { en: "relationship", bn: "সম্পর্ক" } },
+                        { word: "関心", reading: "かんしん", meanings: { en: "interest, concern", bn: "আগ্রহ" } },
+                        { word: "税関", reading: "ぜいかん", meanings: { en: "customs (border)", bn: "শুল্ক অফিস" } }
+                    ], exampleSentence: { jp: "いい関係を作りましょう。", reading: "いいかんけいをつくりましょう。", meanings: { en: "Let's build a good relationship.", bn: "চলুন একটি ভালো সম্পর্ক গড়ি।" } } },
+                    { char: "係", on: "ケイ", kun: "かかり、かか(わる)", meanings: { en: "in charge of, relation", bn: "দায়িত্বপ্রাপ্ত, সম্পর্ক" }, strokes: 9, examples: [
+                        { word: "関係", reading: "かんけい", meanings: { en: "relationship", bn: "সম্পর্ক" } },
+                        { word: "係員", reading: "かかりいん", meanings: { en: "person in charge", bn: "দায়িত্বপ্রাপ্ত ব্যক্তি" } },
+                        { word: "人間関係", reading: "にんげんかんけい", meanings: { en: "human relationships", bn: "মানব সম্পর্ক" } }
+                    ], exampleSentence: { jp: "係の人に聞いてください。", reading: "かかりのひとにきいてください。", meanings: { en: "Please ask the person in charge.", bn: "অনুগ্রহ করে দায়িত্বপ্রাপ্ত ব্যক্তিকে জিজ্ঞাসা করুন।" } } }
+                ]
+            },
+            {
+                id: "standards-scope",
+                title: "Standards & Scope",
+                items: [
+                    { char: "基", on: "キ", kun: "もと(づく)、もとい", meanings: { en: "base, foundation", bn: "ভিত্তি" }, strokes: 11, examples: [
+                        { word: "基準", reading: "きじゅん", meanings: { en: "standard, criterion", bn: "মানদণ্ড" } },
+                        { word: "基本", reading: "きほん", meanings: { en: "basics", bn: "মূল বিষয়" } },
+                        { word: "基づく", reading: "もとづく", meanings: { en: "to be based on", bn: "ভিত্তি করা" } }
+                    ], exampleSentence: { jp: "これが判断の基準です。", reading: "これがはんだんのきじゅんです。", meanings: { en: "This is the standard for judgment.", bn: "এটি বিচারের মানদণ্ড।" } } },
+                    { char: "準", on: "ジュン", kun: "", meanings: { en: "standard, semi-", bn: "মান, প্রায়" }, strokes: 13, examples: [
+                        { word: "基準", reading: "きじゅん", meanings: { en: "standard, criterion", bn: "মানদণ্ড" } },
+                        { word: "準備", reading: "じゅんび", meanings: { en: "preparation", bn: "প্রস্তুতি" } },
+                        { word: "標準", reading: "ひょうじゅん", meanings: { en: "standard, norm", bn: "প্রমিত মান" } }
+                    ], exampleSentence: { jp: "会議の準備をします。", reading: "かいぎのじゅんびをします。", meanings: { en: "I will prepare for the meeting.", bn: "আমি সভার প্রস্তুতি নেব।" } } },
+                    { char: "対", on: "タイ、ツイ", kun: "", meanings: { en: "against, versus, pair", bn: "বিরুদ্ধে, জোড়া" }, strokes: 7, examples: [
+                        { word: "反対", reading: "はんたい", meanings: { en: "opposition", bn: "বিরোধিতা" } },
+                        { word: "対して", reading: "たいして", meanings: { en: "towards, against", bn: "প্রতি" } },
+                        { word: "絶対", reading: "ぜったい", meanings: { en: "absolute(ly)", bn: "একেবারে" } }
+                    ], exampleSentence: { jp: "私は計画に反対です。", reading: "わたしはけいかくにはんたいです。", meanings: { en: "I am against the plan.", bn: "আমি পরিকল্পনার বিরোধিতা করি।" } } },
+                    { char: "範", on: "ハン", kun: "", meanings: { en: "scope, model", bn: "পরিসর, আদর্শ" }, strokes: 15, examples: [
+                        { word: "範囲", reading: "はんい", meanings: { en: "scope, range", bn: "পরিসর" } },
+                        { word: "模範", reading: "もはん", meanings: { en: "model, example", bn: "আদর্শ" } },
+                        { word: "規範", reading: "きはん", meanings: { en: "norm, standard", bn: "রীতি" } }
+                    ], exampleSentence: { jp: "試験の範囲を教えてください。", reading: "しけんのはんいをおしえてください。", meanings: { en: "Please tell me the scope of the exam.", bn: "অনুগ্রহ করে পরীক্ষার পরিসর জানান।" } } },
+                    { char: "囲", on: "イ", kun: "かこ(む)", meanings: { en: "surround, enclose", bn: "ঘিরে রাখা" }, strokes: 7, examples: [
+                        { word: "範囲", reading: "はんい", meanings: { en: "scope, range", bn: "পরিসর" } },
+                        { word: "周囲", reading: "しゅうい", meanings: { en: "surroundings", bn: "চারপাশ" } },
+                        { word: "囲む", reading: "かこむ", meanings: { en: "to surround", bn: "ঘিরে রাখা" } }
+                    ], exampleSentence: { jp: "町は山に囲まれています。", reading: "まちはやまにかこまれています。", meanings: { en: "The town is surrounded by mountains.", bn: "শহরটি পাহাড় দ্বারা ঘেরা।" } } },
+                    { char: "割", on: "カツ", kun: "わ(る)、わり", meanings: { en: "divide, ratio, 10%", bn: "ভাগ করা, অনুপাত" }, strokes: 12, examples: [
+                        { word: "割合", reading: "わりあい", meanings: { en: "ratio, proportion", bn: "অনুপাত" } },
+                        { word: "割引", reading: "わりびき", meanings: { en: "discount", bn: "মূল্যছাড়" } },
+                        { word: "役割", reading: "やくわり", meanings: { en: "role", bn: "ভূমিকা" } }
+                    ], exampleSentence: { jp: "その割引は今週だけです。", reading: "そのわりびきはこんしゅうだけです。", meanings: { en: "That discount is only this week.", bn: "সেই ছাড়টি শুধু এই সপ্তাহে।" } } },
+                    { char: "傾", on: "ケイ", kun: "かたむ(く)", meanings: { en: "tend, incline", bn: "ঝুঁকে পড়া, প্রবণতা" }, strokes: 13, examples: [
+                        { word: "傾向", reading: "けいこう", meanings: { en: "tendency, trend", bn: "প্রবণতা" } },
+                        { word: "傾く", reading: "かたむく", meanings: { en: "to lean, tilt", bn: "কাত হওয়া" } },
+                        { word: "傾ける", reading: "かたむける", meanings: { en: "to tilt (something)", bn: "কাত করা" } }
+                    ], exampleSentence: { jp: "最近そういう傾向があります。", reading: "さいきんそういうけいこうがあります。", meanings: { en: "There has been such a trend recently.", bn: "সম্প্রতি এমন একটি প্রবণতা দেখা যাচ্ছে।" } } }
+                ]
+            },
+            {
+                id: "knowledge-effort",
+                title: "Knowledge & Effort",
+                items: [
+                    { char: "識", on: "シキ", kun: "", meanings: { en: "knowledge, discern", bn: "জ্ঞান" }, strokes: 19, examples: [
+                        { word: "知識", reading: "ちしき", meanings: { en: "knowledge", bn: "জ্ঞান" } },
+                        { word: "意識", reading: "いしき", meanings: { en: "consciousness, awareness", bn: "সচেতনতা" } },
+                        { word: "常識", reading: "じょうしき", meanings: { en: "common sense", bn: "সাধারণ জ্ঞান" } }
+                    ], exampleSentence: { jp: "彼は広い知識を持っています。", reading: "かれはひろいちしきをもっています。", meanings: { en: "He has broad knowledge.", bn: "তার ব্যাপক জ্ঞান রয়েছে।" } } },
+                    { char: "記", on: "キ", kun: "しる(す)", meanings: { en: "record, write down", bn: "লিপিবদ্ধ করা" }, strokes: 10, examples: [
+                        { word: "記憶", reading: "きおく", meanings: { en: "memory", bn: "স্মৃতি" } },
+                        { word: "日記", reading: "にっき", meanings: { en: "diary", bn: "দিনলিপি" } },
+                        { word: "記録", reading: "きろく", meanings: { en: "record", bn: "রেকর্ড" } }
+                    ], exampleSentence: { jp: "毎日、日記を書いています。", reading: "まいにち、にっきをかいています。", meanings: { en: "I write a diary every day.", bn: "আমি প্রতিদিন দিনলিপি লিখি।" } } },
+                    { char: "憶", on: "オク", kun: "", meanings: { en: "remember, recollect", bn: "স্মরণ করা" }, strokes: 16, examples: [
+                        { word: "記憶", reading: "きおく", meanings: { en: "memory", bn: "স্মৃতি" } },
+                        { word: "記憶力", reading: "きおくりょく", meanings: { en: "memory power", bn: "স্মৃতিশক্তি" } },
+                        { word: "追憶", reading: "ついおく", meanings: { en: "reminiscence", bn: "স্মৃতিচারণ" } }
+                    ], exampleSentence: { jp: "その日のことをよく記憶しています。", reading: "そのひのことをよくきおくしています。", meanings: { en: "I remember that day well.", bn: "আমি সেই দিনটির কথা ভালোভাবে মনে রেখেছি।" } } },
+                    { char: "能", on: "ノウ", kun: "", meanings: { en: "ability, capable", bn: "সামর্থ্য" }, strokes: 10, examples: [
+                        { word: "能力", reading: "のうりょく", meanings: { en: "ability", bn: "দক্ষতা" } },
+                        { word: "可能", reading: "かのう", meanings: { en: "possible", bn: "সম্ভব" } },
+                        { word: "才能", reading: "さいのう", meanings: { en: "talent", bn: "প্রতিভা" } }
+                    ], exampleSentence: { jp: "高い能力を持っています。", reading: "たかいのうりょくをもっています。", meanings: { en: "I have a high level of ability.", bn: "আমার উচ্চ দক্ষতা রয়েছে।" } } },
+                    { char: "努", on: "ド", kun: "つと(める)", meanings: { en: "endeavor, strive", bn: "চেষ্টা করা" }, strokes: 7, examples: [
+                        { word: "努力", reading: "どりょく", meanings: { en: "effort", bn: "প্রচেষ্টা" } },
+                        { word: "努める", reading: "つとめる", meanings: { en: "to endeavor, strive", bn: "প্রচেষ্টা করা" } },
+                        { word: "努力家", reading: "どりょくか", meanings: { en: "hard worker", bn: "পরিশ্রমী মানুষ" } }
+                    ], exampleSentence: { jp: "努力したからこそ、成功したのだ。", reading: "どりょくしたからこそ、せいこうしたのだ。", meanings: { en: "It's precisely because I made an effort that I succeeded.", bn: "ঠিক এই কারণেই যে আমি প্রচেষ্টা করেছি, আমি সফল হয়েছি।" } } },
+                    { char: "望", on: "ボウ、モウ", kun: "のぞ(む)", meanings: { en: "hope, wish, view", bn: "আশা করা" }, strokes: 11, examples: [
+                        { word: "希望", reading: "きぼう", meanings: { en: "hope, wish", bn: "আশা" } },
+                        { word: "望む", reading: "のぞむ", meanings: { en: "to hope, wish for", bn: "কামনা করা" } },
+                        { word: "絶望", reading: "ぜつぼう", meanings: { en: "despair", bn: "হতাশা" } }
+                    ], exampleSentence: { jp: "将来に希望を持っています。", reading: "しょうらいにきぼうをもっています。", meanings: { en: "I have hope for the future.", bn: "ভবিষ্যতের জন্য আমার আশা আছে।" } } },
+                    { char: "夢", on: "ム", kun: "ゆめ", meanings: { en: "dream", bn: "স্বপ্ন" }, strokes: 13, examples: [
+                        { word: "夢", reading: "ゆめ", meanings: { en: "dream", bn: "স্বপ্ন" } },
+                        { word: "夢中", reading: "むちゅう", meanings: { en: "absorbed, engrossed", bn: "মগ্ন" } },
+                        { word: "悪夢", reading: "あくむ", meanings: { en: "nightmare", bn: "দুঃস্বপ্ন" } }
+                    ], exampleSentence: { jp: "私の夢は医者になることです。", reading: "わたしのゆめはいしゃになることです。", meanings: { en: "My dream is to become a doctor.", bn: "আমার স্বপ্ন একজন ডাক্তার হওয়া।" } } }
+                ]
+            }
+        ]
+    },
+
     n2: { chapters: [] },
     n1: { chapters: [] }
 
