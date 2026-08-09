@@ -26,7 +26,7 @@
     const label = TYPE_LABELS[type] || type;
     if (badge) badge.textContent = `${level.toUpperCase()} · ${label}`;
     if (title) title.textContent = `${label} Chapters`;
-    document.title = `${label} Chapters | Easy Nihongo`;
+    document.title = `${label} Chapters | Easy Japanese`;
 
     const grid = document.getElementById("chaptersGrid");
     if (!grid) return;

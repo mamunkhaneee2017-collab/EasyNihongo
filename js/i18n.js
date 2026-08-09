@@ -1,5 +1,5 @@
 /* ==========================================
-   EASY NIHONGO — TRANSLATION ENGINE
+   EASY JAPANESE — TRANSLATION ENGINE
    Applies strings from locales/*.js to any
    element carrying data-i18n="key". Every
    locale file must be loaded as a <script> tag

@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 throw new Error("Submission failed");
             }
         } catch (err) {
-            formStatus.textContent = "Something went wrong. Please try again, or email us directly at info@easynihongo.com.";
+            formStatus.textContent = "Something went wrong. Please try again, or email us directly at info@easyjapanese.com.";
             formStatus.className = "form-status error";
         } finally {
             submitBtn.disabled = false;

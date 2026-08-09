@@ -1,5 +1,5 @@
 /* ==========================================
-   EASY NIHONGO — DESIGN TOKENS
+   EASY JAPANESE — DESIGN TOKENS
    Single source of truth for color, radius,
    shadow and font values. Load this file
    FIRST, before every other stylesheet.
@@ -18,6 +18,12 @@
     --brand-dark:#dc2626;
     --brand-light:#fee2e2;
     --brand-light-text:#dc2626;
+
+    /* Logo wordmark green ("Easy") — luminance-matched to --brand so it
+       reads with the same weight as the red "Japanese" half, on both the
+       white/dark navbar surface and the always-dark footer. Not tied to
+       body.dark since --brand isn't either (see logo-text usage). */
+    --logo-green:#16a34a;
 
     /* Accent (secondary) — torn-paper green, used only by the
        torn-diagonal decorative pattern (see css/torn-accent.css). */

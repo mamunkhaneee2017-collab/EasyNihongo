@@ -24,11 +24,11 @@
     if (!mount) return;
 
     mount.innerHTML = `
-<div class="chatbot-panel" role="region" aria-label="Easy Nihongo chat assistant">
+<div class="chatbot-panel" role="region" aria-label="Easy Japanese chat assistant">
     <div class="chatbot-header">
         <div class="chatbot-header-title">
             <i class="fa-solid fa-robot"></i>
-            <span>Easy Nihongo Assistant</span>
+            <span>Easy Japanese Assistant</span>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
     const form = document.getElementById("chatbotForm");
     const input = document.getElementById("chatbotInput");
 
-    const GREETING = "こんにちは! I'm the Easy Nihongo assistant. Ask me anything about our JLPT courses — vocabulary, grammar, kanji, quizzes — or about Japanese itself.";
+    const GREETING = "こんにちは! I'm the Easy Japanese assistant. Ask me anything about our JLPT courses — vocabulary, grammar, kanji, quizzes — or about Japanese itself.";
 
     // In-memory only — resets on page reload, matching how little state a
     // homepage widget needs. role names ("user" / "model") match Gemini's

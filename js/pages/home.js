@@ -62,7 +62,7 @@
             const adminSlides = photos.map((photo, index) => {
                 const img = document.createElement("img");
                 img.src = photo.imagePath;
-                img.alt = "Easy Nihongo student photo";
+                img.alt = "Easy Japanese student photo";
                 img.className = `hero-photo shape-${photo.shape}${index === 0 ? " active" : ""}`;
                 container.appendChild(img);
                 return img;

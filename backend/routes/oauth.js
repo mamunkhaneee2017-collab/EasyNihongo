@@ -133,7 +133,7 @@ router.get("/github/callback", async (req, res) => {
 
         const authHeaders = {
             Authorization: `Bearer ${tokenData.access_token}`,
-            "User-Agent": "EasyNihongo"
+            "User-Agent": "EasyJapanese"
         };
 
         const profileRes = await fetch("https://api.github.com/user", { headers: authHeaders });

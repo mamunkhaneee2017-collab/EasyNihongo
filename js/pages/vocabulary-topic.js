@@ -27,7 +27,7 @@
 
     if (badge) badge.textContent = "Topic";
     if (title) title.textContent = topic.title;
-    document.title = `${topic.title} Vocabulary | Easy Nihongo`;
+    document.title = `${topic.title} Vocabulary | Easy Japanese`;
 
     function escapeAttr(str) {
         return String(str || "").replace(/"/g, "&quot;");

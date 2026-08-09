@@ -1,4 +1,4 @@
-# EasyNihongo
+# EasyJapanese
 
 A web app for learning Japanese — hiragana, katakana, kanji, vocabulary, grammar, and quizzes — built with plain HTML, CSS, and JavaScript on the frontend, backed by a real Node.js + Express + SQLite server.
 
@@ -13,7 +13,7 @@ Then visit **http://localhost:3000**. The server serves the whole site and the `
 
 On first start, an admin account is seeded automatically:
 
-- Email: `admin@easynihongo.com`
+- Email: `admin@easyjapanese.com`
 - Password: `admin123`
 
 (Override with the `ADMIN_SEED_EMAIL` / `ADMIN_SEED_PASSWORD` env vars before the first run.) Admin panel: `/admin/login.html`.
@@ -55,7 +55,7 @@ An admin panel lives under [`admin/`](admin/).
 ## Project structure
 
 ```
-EasyNihongo/
+EasyJapanese/
 ├── package.json                 — npm start runs backend/server.js
 ├── index.html, 404.html         — must stay at the site root
 ├── pages/                       — every other page

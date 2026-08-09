@@ -65,8 +65,8 @@
         backLabel.textContent = type === "kanji" ? "Back to Kanji" : `Back to ${type === "hiragana" ? "Hiragana" : "Katakana"}`;
     }
     document.title = item
-        ? (type === "kanji" ? `${charOf(item)} | Easy Nihongo` : `${item.character} (${item.romaji}) | Easy Nihongo`)
-        : "Character | Easy Nihongo";
+        ? (type === "kanji" ? `${charOf(item)} | Easy Japanese` : `${item.character} (${item.romaji}) | Easy Japanese`)
+        : "Character | Easy Japanese";
 
     if (!item) {
         const mainContent = document.getElementById("main-content");

@@ -143,7 +143,7 @@ if (favoritesTopicRow && !favoritesTopicRow.sql.includes("'vocabulary-topic'")) 
 
 db.exec(`
     INSERT OR IGNORE INTO site_settings (id, site_name, contact_email, social_facebook, social_instagram, social_youtube, social_github)
-    VALUES (1, 'Easy Nihongo', 'info@easynihongo.com',
+    VALUES (1, 'Easy Japanese', 'info@easyjapanese.com',
         'https://facebook.com/mamun.999.690',
         'https://instagram.com/mamun.999.690',
         'https://www.youtube.com/channel/UCQnO_ceT5HFF9UtRC266Ykg',

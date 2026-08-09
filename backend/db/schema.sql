@@ -1,4 +1,4 @@
--- EasyNihongo database schema
+-- EasyJapanese database schema
 
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -143,8 +143,8 @@ CREATE TABLE IF NOT EXISTS hero_photos (
 
 CREATE TABLE IF NOT EXISTS site_settings (
     id INTEGER PRIMARY KEY CHECK (id = 1),
-    site_name TEXT NOT NULL DEFAULT 'Easy Nihongo',
-    contact_email TEXT NOT NULL DEFAULT 'info@easynihongo.com',
+    site_name TEXT NOT NULL DEFAULT 'Easy Japanese',
+    contact_email TEXT NOT NULL DEFAULT 'info@easyjapanese.com',
     support_phone TEXT,
     social_facebook TEXT,
     social_instagram TEXT,

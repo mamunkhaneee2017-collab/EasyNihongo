@@ -1,5 +1,5 @@
 /* ==========================================
-   EASY NIHONGO — SHARED UTILITIES
+   EASY JAPANESE — SHARED UTILITIES
    Single implementation of behavior that used
    to be copy-pasted (and sometimes missing)
    across page-specific files: dark mode,

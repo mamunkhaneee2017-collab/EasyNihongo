@@ -97,8 +97,8 @@
         <div class="container nav-container">
 
             <a href="${toRoot}index.html" class="logo">
-                <img src="${toRoot}assets/icons/logo.jpeg" alt="Easy Nihongo Logo">
-                <span class="logo-text" id="siteLogoText">Easy<span>Nihongo</span></span>
+                <img src="${toRoot}assets/icons/logo1.jpg" alt="Easy Japanese Logo">
+                <span class="logo-text" id="siteLogoText">Easy<span>Japanese</span></span>
             </a>
 
             <ul class="nav-menu" id="navMenu">

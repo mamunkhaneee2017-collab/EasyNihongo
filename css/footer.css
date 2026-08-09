@@ -54,11 +54,13 @@
 
     margin-bottom:20px;
 
+    color:var(--logo-green);   /* Easy */
+
 }
 
 .footer-logo span{
 
-    color:var(--brand);
+    color:var(--brand);   /* Japanese */
 
 }
 

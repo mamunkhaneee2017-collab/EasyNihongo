@@ -45,7 +45,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
         store: new FileStore({ path: SESSIONS_DIR, logFn: () => {} }),
-        secret: process.env.SESSION_SECRET || "easynihongo-dev-secret-change-me",
+        secret: process.env.SESSION_SECRET || "easyjapanese-dev-secret-change-me",
         resave: false,
         saveUninitialized: false,
         cookie: {
@@ -108,5 +108,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`EasyNihongo server running at http://localhost:${PORT}`);
+    console.log(`EasyJapanese server running at http://localhost:${PORT}`);
 });

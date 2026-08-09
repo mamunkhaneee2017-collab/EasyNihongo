@@ -1,5 +1,5 @@
 /* ==========================================
-   EASY NIHONGO — SERVICE WORKER
+   EASY JAPANESE — SERVICE WORKER
    Basic offline cache for the app shell so
    lesson pages already visited stay available
    with a flaky/no connection (relevant for
@@ -14,7 +14,7 @@
    registration call.
 ========================================== */
 
-const CACHE_NAME = "easynihongo-shell-v6";
+const CACHE_NAME = "easyjapanese-shell-v7";
 
 const APP_SHELL = [
     "index.html",
@@ -46,7 +46,7 @@ const APP_SHELL = [
     "locales/en.js",
     "locales/bn.js",
     "locales/ja.js",
-    "assets/icons/logo.jpeg",
+    "assets/icons/logo1.jpg",
     "manifest.json"
 ];
 

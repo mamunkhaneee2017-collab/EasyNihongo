@@ -1,5 +1,5 @@
 /* ==========================================
-   EASY NIHONGO — AUTH GUARD
+   EASY JAPANESE — AUTH GUARD
    Include on any page that requires a logged-in
    student (dashboard.html, profile.html,
    settings.html). Redirects to login.html if

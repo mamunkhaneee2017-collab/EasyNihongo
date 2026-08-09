@@ -1,7 +1,7 @@
 {
-  "name": "easynihongo",
+  "name": "easyjapanese",
   "version": "1.0.0",
-  "description": "EasyNihongo - Japanese learning site with a real Node/Express/SQLite backend",
+  "description": "EasyJapanese - Japanese learning site with a real Node/Express/SQLite backend",
   "private": true,
   "main": "backend/server.js",
   "scripts": {

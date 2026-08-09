@@ -101,6 +101,7 @@ button {
 
 .admin-login-brand .footer-logo {
     font-size: 30px;
+    color: var(--logo-green);
 }
 
 .admin-login-brand > p {
@@ -277,7 +278,7 @@ button {
 }
 
 .admin-sidebar-brand .footer-logo {
-    color: #fff;
+    color: var(--logo-green);
 }
 
 .admin-sidebar-tag {

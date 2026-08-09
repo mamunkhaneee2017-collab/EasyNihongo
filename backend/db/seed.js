@@ -5,7 +5,7 @@ function seedAdmin() {
     const existing = db.prepare("SELECT id FROM users WHERE role = 'admin' LIMIT 1").get();
     if (existing) return;
 
-    const email = process.env.ADMIN_SEED_EMAIL || "admin@easynihongo.com";
+    const email = process.env.ADMIN_SEED_EMAIL || "admin@easyjapanese.com";
     const password = process.env.ADMIN_SEED_PASSWORD || "admin123";
     const passwordHash = bcrypt.hashSync(password, 10);
 

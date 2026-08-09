@@ -29,7 +29,7 @@
     <div class="container footer-container">
 
         <div class="footer-column">
-            <h2 class="footer-logo" id="footerLogoText">Easy<span>Nihongo</span></h2>
+            <h2 class="footer-logo" id="footerLogoText">Easy<span>Japanese</span></h2>
             <p data-i18n="footer.tagline">
                 Structured Japanese learning from N5 to N1 —
                 lessons, vocabulary, grammar, Kanji and JLPT
@@ -65,7 +65,7 @@
             </a>
 
             <p>Email:</p>
-            <p id="footerEmail">info@easynihongo.com</p>
+            <p id="footerEmail">info@easyjapanese.com</p>
 
             <br>
             <h4 data-i18n="footer.followUs">Follow us for more updates</h4>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="footer-bottom">
-        &copy; 2026 Easy Nihongo. All Rights Reserved.
+        &copy; 2026 Easy Japanese. All Rights Reserved.
         <span class="footer-credit">Kana &amp; Kanji stroke-order data &copy; animCJK contributors.</span>
     </div>
 </footer>

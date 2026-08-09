@@ -46,7 +46,7 @@
     }
 
     if (title) title.textContent = chapter.title;
-    document.title = `${chapter.title} | Easy Nihongo`;
+    document.title = `${chapter.title} | Easy Japanese`;
 
     /* ---------------- RENDERERS ---------------- */
 

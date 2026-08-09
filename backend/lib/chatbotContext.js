@@ -37,7 +37,7 @@ function buildContext() {
     if (cached) return cached;
 
     cached = `
-SITE: Easy Nihongo (easynihongo.com) — a free Japanese-learning site covering
+SITE: Easy Japanese (easyjapanese.com) — a free Japanese-learning site covering
 JLPT N5 through N1: hiragana, katakana, kanji, vocabulary, grammar, and JLPT
 practice quizzes. Registration is free; a logged-in student gets a dashboard
 with XP, streak, favorites, and progress tracking.

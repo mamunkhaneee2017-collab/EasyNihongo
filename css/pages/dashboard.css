@@ -39,12 +39,12 @@ body{
     text-decoration:none;
     font-size:30px;
     font-weight:700;
-    color:#ffffff;
+    color:var(--logo-green);   /* Easy */
     letter-spacing:.5px;
 }
 
 .sidebar-logo span{
-    color:#ef4444;
+    color:#ef4444;   /* Japanese */
 }
 
 .sidebar ul{
