@@ -123,6 +123,7 @@
     z-index:999;
     background:var(--surface);
     box-shadow:0 2px 12px rgba(0,0,0,.08);
+    border-bottom:4px solid var(--logo-green);
 }
 
 .navbar{
@@ -476,13 +477,13 @@
 
     font-size:28px;
     font-weight:700;
-    color:var(--ink);   /* Easy */
+    color:var(--logo-green);   /* Easy */
 
 }
 
 .logo-text span{
 
-    color:var(--brand);   /* Nihongo */
+    color:var(--brand);   /* Japanese */
 
 }
 /* ==========================
