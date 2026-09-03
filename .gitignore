@@ -11,3 +11,8 @@ uploads/
 # Vendored stroke-order source data (build-time only — see scripts/README.md).
 # The generator scripts read from here once; their output is committed instead.
 vendor/
+
+# Raw camera-roll originals for hero photos (HEIC/video straight off a phone).
+# Optimized JPEGs actually used by the site are committed under assets/images/hero/.
+assets/images/hero/*.HEIC
+assets/images/hero/*.MOV
