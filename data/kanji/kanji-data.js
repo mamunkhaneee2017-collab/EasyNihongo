@@ -20,16 +20,21 @@
    already hiragana/katakana as expected and are
    untouched.
 
-   N4: 213 kanji across 30 thematic chapters —
+   N5: 128 kanji across 20 thematic chapters.
+
+   N4: 194 kanji across 30 thematic chapters —
    the full "Basic Kanji 320" list (Meguro
    Language Center / Bonjinsha reference,
    commonly used for old JLPT Level 3/4 ≈
-   today's N4/N5) minus the 107 characters
+   today's N4/N5) minus the 128 characters
    already taught in N5 above (plus 零/億,
    which aren't in that 320 list at all).
    Same schema as N5 throughout, including
    examples[] and exampleSentence.
-   N3-N1 stay empty/locked until content is
+   N3: 364 kanji across 22 thematic chapters,
+   following a real N3 kanji drill book.
+
+   N2-N1 stay empty/locked until content is
    written for those levels.
 ========================================== */
 
@@ -182,7 +187,12 @@ const kanjiData = {
                         { word: "名前", reading: "なまえ", meanings: { en: "name", bn: "নাম" } },
                         { word: "有名", reading: "ゆうめい", meanings: { en: "famous", bn: "বিখ্যাত" } },
                         { word: "名字", reading: "みょうじ", meanings: { en: "surname", bn: "পদবি" } }
-                    ], exampleSentence: { jp: "お名前は何ですか。", reading: "おなまえはなんですか。", meanings: { en: "What is your name?", bn: "আপনার নাম কী?" } } }
+                    ], exampleSentence: { jp: "お名前は何ですか。", reading: "おなまえはなんですか。", meanings: { en: "What is your name?", bn: "আপনার নাম কী?" } } },
+                    { char: "有", on: "ユウ", kun: "あ(る)", meanings: { en: "to exist, have", bn: "থাকা" }, strokes: 6, examples: [
+                        { word: "有名", reading: "ゆうめい", meanings: { en: "famous", bn: "বিখ্যাত" } },
+                        { word: "有る", reading: "ある", meanings: { en: "to exist, have", bn: "থাকা" } },
+                        { word: "有効", reading: "ゆうこう", meanings: { en: "valid", bn: "বৈধ" } }
+                    ], exampleSentence: { jp: "あの人は有名な歌手です。", reading: "あのひとはゆうめいなかしゅです。", meanings: { en: "That person is a famous singer.", bn: "ঐ ব্যক্তি একজন বিখ্যাত গায়ক।" } } }
                 ]
             },
             {
@@ -213,7 +223,27 @@ const kanjiData = {
                         { word: "今年", reading: "ことし", meanings: { en: "this year", bn: "এই বছর" } },
                         { word: "去年", reading: "きょねん", meanings: { en: "last year", bn: "গত বছর" } },
                         { word: "毎年", reading: "まいとし", meanings: { en: "every year", bn: "প্রতি বছর" } }
-                    ], exampleSentence: { jp: "今年、日本語を勉強します。", reading: "ことし、にほんごをべんきょうします。", meanings: { en: "This year, I will study Japanese.", bn: "এই বছর আমি জাপানি ভাষা শিখব।" } } }
+                    ], exampleSentence: { jp: "今年、日本語を勉強します。", reading: "ことし、にほんごをべんきょうします。", meanings: { en: "This year, I will study Japanese.", bn: "এই বছর আমি জাপানি ভাষা শিখব।" } } },
+                    { char: "朝", on: "チョウ", kun: "あさ", meanings: { en: "morning", bn: "সকাল" }, strokes: 12, examples: [
+                        { word: "朝", reading: "あさ", meanings: { en: "morning", bn: "সকাল" } },
+                        { word: "朝ご飯", reading: "あさごはん", meanings: { en: "breakfast", bn: "সকালের নাস্তা" } },
+                        { word: "毎朝", reading: "まいあさ", meanings: { en: "every morning", bn: "প্রতি সকালে" } }
+                    ], exampleSentence: { jp: "毎朝、六時に起きます。", reading: "まいあさ、ろくじにおきます。", meanings: { en: "I wake up at six every morning.", bn: "আমি প্রতিদিন সকালে ছয়টায় ঘুম থেকে উঠি।" } } },
+                    { char: "昼", on: "チュウ", kun: "ひる", meanings: { en: "noon, daytime", bn: "দুপুর, দিনের বেলা" }, strokes: 9, examples: [
+                        { word: "昼", reading: "ひる", meanings: { en: "noon", bn: "দুপুর" } },
+                        { word: "昼ご飯", reading: "ひるごはん", meanings: { en: "lunch", bn: "দুপুরের খাবার" } },
+                        { word: "昼休み", reading: "ひるやすみ", meanings: { en: "lunch break", bn: "দুপুরের বিরতি" } }
+                    ], exampleSentence: { jp: "昼ご飯を食べましょう。", reading: "ひるごはんをたべましょう。", meanings: { en: "Let's eat lunch.", bn: "চলুন দুপুরের খাবার খাই।" } } },
+                    { char: "夕", on: "セキ", kun: "ゆう", meanings: { en: "evening", bn: "সন্ধ্যা" }, strokes: 3, examples: [
+                        { word: "夕方", reading: "ゆうがた", meanings: { en: "evening", bn: "সন্ধ্যা" } },
+                        { word: "夕食", reading: "ゆうしょく", meanings: { en: "dinner", bn: "রাতের খাবার" } },
+                        { word: "夕日", reading: "ゆうひ", meanings: { en: "evening sun", bn: "অস্তগামী সূর্য" } }
+                    ], exampleSentence: { jp: "夕方、散歩します。", reading: "ゆうがた、さんぽします。", meanings: { en: "In the evening, I take a walk.", bn: "সন্ধ্যায় আমি হাঁটতে যাই।" } } },
+                    { char: "夜", on: "ヤ", kun: "よる", meanings: { en: "night", bn: "রাত" }, strokes: 8, examples: [
+                        { word: "夜", reading: "よる", meanings: { en: "night", bn: "রাত" } },
+                        { word: "今夜", reading: "こんや", meanings: { en: "tonight", bn: "আজ রাতে" } },
+                        { word: "夜中", reading: "よなか", meanings: { en: "midnight", bn: "মাঝরাত" } }
+                    ], exampleSentence: { jp: "夜、本を読みます。", reading: "よる、ほんをよみます。", meanings: { en: "At night, I read a book.", bn: "রাতে আমি বই পড়ি।" } } }
                 ]
             },
             {
@@ -244,7 +274,12 @@ const kanjiData = {
                         { word: "空", reading: "そら", meanings: { en: "sky", bn: "আকাশ" } },
                         { word: "空気", reading: "くうき", meanings: { en: "air", bn: "বাতাস" } },
                         { word: "空港", reading: "くうこう", meanings: { en: "airport", bn: "বিমানবন্দর" } }
-                    ], exampleSentence: { jp: "空はとても青いです。", reading: "そらはとてもあおいです。", meanings: { en: "The sky is very blue.", bn: "আকাশ খুব নীল।" } } }
+                    ], exampleSentence: { jp: "空はとても青いです。", reading: "そらはとてもあおいです。", meanings: { en: "The sky is very blue.", bn: "আকাশ খুব নীল।" } } },
+                    { char: "魚", on: "ギョ", kun: "さかな", meanings: { en: "fish", bn: "মাছ" }, strokes: 11, examples: [
+                        { word: "魚", reading: "さかな", meanings: { en: "fish", bn: "মাছ" } },
+                        { word: "魚屋", reading: "さかなや", meanings: { en: "fish shop", bn: "মাছের দোকান" } },
+                        { word: "金魚", reading: "きんぎょ", meanings: { en: "goldfish", bn: "সোনালি মাছ" } }
+                    ], exampleSentence: { jp: "魚を食べます。", reading: "さかなをたべます。", meanings: { en: "I eat fish.", bn: "আমি মাছ খাই।" } } }
                 ]
             },
             {
@@ -275,7 +310,17 @@ const kanjiData = {
                         { word: "見る", reading: "みる", meanings: { en: "to see / watch", bn: "দেখা" } },
                         { word: "見物", reading: "けんぶつ", meanings: { en: "sightseeing", bn: "দর্শন" } },
                         { word: "花見", reading: "はなみ", meanings: { en: "flower viewing", bn: "ফুল দেখা (হানামি)" } }
-                    ], exampleSentence: { jp: "映画を見ます。", reading: "えいがをみます。", meanings: { en: "I watch a movie.", bn: "আমি একটি সিনেমা দেখি।" } } }
+                    ], exampleSentence: { jp: "映画を見ます。", reading: "えいがをみます。", meanings: { en: "I watch a movie.", bn: "আমি একটি সিনেমা দেখি।" } } },
+                    { char: "歩", on: "ホ", kun: "ある(く)", meanings: { en: "to walk", bn: "হাঁটা" }, strokes: 8, examples: [
+                        { word: "歩く", reading: "あるく", meanings: { en: "to walk", bn: "হাঁটা" } },
+                        { word: "散歩", reading: "さんぽ", meanings: { en: "walk, stroll", bn: "বেড়ানো" } },
+                        { word: "歩道", reading: "ほどう", meanings: { en: "sidewalk", bn: "ফুটপাথ" } }
+                    ], exampleSentence: { jp: "公園を歩きます。", reading: "こうえんをあるきます。", meanings: { en: "I walk in the park.", bn: "আমি পার্কে হাঁটি।" } } },
+                    { char: "走", on: "ソウ", kun: "はし(る)", meanings: { en: "to run", bn: "দৌড়ানো" }, strokes: 7, examples: [
+                        { word: "走る", reading: "はしる", meanings: { en: "to run", bn: "দৌড়ানো" } },
+                        { word: "競走", reading: "きょうそう", meanings: { en: "race", bn: "দৌড় প্রতিযোগিতা" } },
+                        { word: "走者", reading: "そうしゃ", meanings: { en: "runner", bn: "দৌড়বিদ" } }
+                    ], exampleSentence: { jp: "毎朝走ります。", reading: "まいあさはしります。", meanings: { en: "I run every morning.", bn: "আমি প্রতিদিন সকালে দৌড়াই।" } } }
                 ]
             },
             {
@@ -306,7 +351,12 @@ const kanjiData = {
                         { word: "中学校", reading: "ちゅうがっこう", meanings: { en: "junior high school", bn: "মধ্য বিদ্যালয়" } },
                         { word: "家の中", reading: "いえのなか", meanings: { en: "inside the house", bn: "বাড়ির ভেতরে" } },
                         { word: "中国", reading: "ちゅうごく", meanings: { en: "China", bn: "চীন" } }
-                    ], exampleSentence: { jp: "猫は家の中にいます。", reading: "ねこはいえのなかにいます。", meanings: { en: "The cat is inside the house.", bn: "বিড়ালটি বাড়ির ভেতরে আছে।" } } }
+                    ], exampleSentence: { jp: "猫は家の中にいます。", reading: "ねこはいえのなかにいます。", meanings: { en: "The cat is inside the house.", bn: "বিড়ালটি বাড়ির ভেতরে আছে।" } } },
+                    { char: "近", on: "キン", kun: "ちか(い)", meanings: { en: "near", bn: "কাছে" }, strokes: 7, examples: [
+                        { word: "近い", reading: "ちかい", meanings: { en: "near", bn: "কাছে" } },
+                        { word: "近く", reading: "ちかく", meanings: { en: "nearby", bn: "কাছাকাছি" } },
+                        { word: "最近", reading: "さいきん", meanings: { en: "recently", bn: "সম্প্রতি" } }
+                    ], exampleSentence: { jp: "駅から近いです。", reading: "えきからちかいです。", meanings: { en: "It is near the station.", bn: "এটি স্টেশনের কাছে।" } } }
                 ]
             },
             {
@@ -378,7 +428,12 @@ const kanjiData = {
                         { word: "学校", reading: "がっこう", meanings: { en: "school", bn: "স্কুল" } },
                         { word: "学生", reading: "がくせい", meanings: { en: "student", bn: "ছাত্র/ছাত্রী" } },
                         { word: "大学", reading: "だいがく", meanings: { en: "university", bn: "বিশ্ববিদ্যালয়" } }
-                    ], exampleSentence: { jp: "大学で日本語を学びます。", reading: "だいがくでにほんごをまなびます。", meanings: { en: "I study Japanese at university.", bn: "আমি বিশ্ববিদ্যালয়ে জাপানি ভাষা শিখি।" } } }
+                    ], exampleSentence: { jp: "大学で日本語を学びます。", reading: "だいがくでにほんごをまなびます。", meanings: { en: "I study Japanese at university.", bn: "আমি বিশ্ববিদ্যালয়ে জাপানি ভাষা শিখি।" } } },
+                    { char: "家", on: "カ, ケ", kun: "いえ, や", meanings: { en: "house, family", bn: "বাড়ি, পরিবার" }, strokes: 10, examples: [
+                        { word: "家", reading: "いえ", meanings: { en: "house", bn: "বাড়ি" } },
+                        { word: "家族", reading: "かぞく", meanings: { en: "family", bn: "পরিবার" } },
+                        { word: "家庭", reading: "かてい", meanings: { en: "household, home", bn: "সংসার" } }
+                    ], exampleSentence: { jp: "私の家は大きいです。", reading: "わたしのいえはおおきいです。", meanings: { en: "My house is big.", bn: "আমার বাড়ি বড়।" } } }
                 ]
             },
             {
@@ -497,7 +552,27 @@ const kanjiData = {
                         { word: "日本語", reading: "にほんご", meanings: { en: "Japanese language", bn: "জাপানি ভাষা" } },
                         { word: "英語", reading: "えいご", meanings: { en: "English language", bn: "ইংরেজি ভাষা" } },
                         { word: "単語", reading: "たんご", meanings: { en: "word, vocabulary", bn: "শব্দ" } }
-                    ], exampleSentence: { jp: "日本語を勉強します。", reading: "にほんごをべんきょうします。", meanings: { en: "I study Japanese.", bn: "আমি জাপানি ভাষা পড়ি।" } } }
+                    ], exampleSentence: { jp: "日本語を勉強します。", reading: "にほんごをべんきょうします。", meanings: { en: "I study Japanese.", bn: "আমি জাপানি ভাষা পড়ি।" } } },
+                    { char: "本", on: "ホン", kun: "もと", meanings: { en: "book, origin", bn: "বই, মূল" }, strokes: 5, examples: [
+                        { word: "本", reading: "ほん", meanings: { en: "book", bn: "বই" } },
+                        { word: "日本", reading: "にほん", meanings: { en: "Japan", bn: "জাপান" } },
+                        { word: "本当", reading: "ほんとう", meanings: { en: "true, real", bn: "সত্যি" } }
+                    ], exampleSentence: { jp: "本当ですか。", reading: "ほんとうですか。", meanings: { en: "Is that true?", bn: "এটা কি সত্যি?" } } },
+                    { char: "紙", on: "シ", kun: "かみ", meanings: { en: "paper", bn: "কাগজ" }, strokes: 10, examples: [
+                        { word: "紙", reading: "かみ", meanings: { en: "paper", bn: "কাগজ" } },
+                        { word: "手紙", reading: "てがみ", meanings: { en: "letter", bn: "চিঠি" } },
+                        { word: "新聞紙", reading: "しんぶんし", meanings: { en: "newspaper (as material)", bn: "সংবাদপত্র (উপাদান)" } }
+                    ], exampleSentence: { jp: "手紙を書きます。", reading: "てがみをかきます。", meanings: { en: "I write a letter.", bn: "আমি একটি চিঠি লিখি।" } } },
+                    { char: "知", on: "チ", kun: "し(る)", meanings: { en: "to know", bn: "জানা" }, strokes: 8, examples: [
+                        { word: "知る", reading: "しる", meanings: { en: "to know", bn: "জানা" } },
+                        { word: "知らせる", reading: "しらせる", meanings: { en: "to inform", bn: "জানানো" } },
+                        { word: "知識", reading: "ちしき", meanings: { en: "knowledge", bn: "জ্ঞান" } }
+                    ], exampleSentence: { jp: "そのニュースを知っていますか。", reading: "そのニュースをしっていますか。", meanings: { en: "Do you know that news?", bn: "আপনি কি সেই খবরটি জানেন?" } } },
+                    { char: "思", on: "シ", kun: "おも(う)", meanings: { en: "to think", bn: "চিন্তা করা" }, strokes: 9, examples: [
+                        { word: "思う", reading: "おもう", meanings: { en: "to think", bn: "চিন্তা করা" } },
+                        { word: "思い出", reading: "おもいで", meanings: { en: "memory", bn: "স্মৃতি" } },
+                        { word: "意思", reading: "いし", meanings: { en: "intention", bn: "অভিপ্রায়" } }
+                    ], exampleSentence: { jp: "どう思いますか。", reading: "どうおもいますか。", meanings: { en: "What do you think?", bn: "আপনি কী মনে করেন?" } } }
                 ]
             },
             {
@@ -580,7 +655,22 @@ const kanjiData = {
                         { word: "新しい", reading: "あたらしい", meanings: { en: "new", bn: "নতুন" } },
                         { word: "新聞", reading: "しんぶん", meanings: { en: "newspaper", bn: "সংবাদপত্র" } },
                         { word: "新年", reading: "しんねん", meanings: { en: "New Year", bn: "নববর্ষ" } }
-                    ], exampleSentence: { jp: "新しい車を買いました。", reading: "あたらしいくるまをかいました。", meanings: { en: "I bought a new car.", bn: "আমি একটি নতুন গাড়ি কিনেছি।" } } }
+                    ], exampleSentence: { jp: "新しい車を買いました。", reading: "あたらしいくるまをかいました。", meanings: { en: "I bought a new car.", bn: "আমি একটি নতুন গাড়ি কিনেছি।" } } },
+                    { char: "多", on: "タ", kun: "おお(い)", meanings: { en: "many", bn: "অনেক" }, strokes: 6, examples: [
+                        { word: "多い", reading: "おおい", meanings: { en: "many", bn: "অনেক" } },
+                        { word: "多分", reading: "たぶん", meanings: { en: "probably", bn: "সম্ভবত" } },
+                        { word: "多数", reading: "たすう", meanings: { en: "a large number", bn: "অনেক সংখ্যক" } }
+                    ], exampleSentence: { jp: "学生が多いです。", reading: "がくせいがおおいです。", meanings: { en: "There are many students.", bn: "অনেক ছাত্র আছে।" } } },
+                    { char: "少", on: "ショウ", kun: "すく(ない), すこ(し)", meanings: { en: "few, little", bn: "কম, সামান্য" }, strokes: 4, examples: [
+                        { word: "少ない", reading: "すくない", meanings: { en: "few", bn: "কম" } },
+                        { word: "少し", reading: "すこし", meanings: { en: "a little", bn: "সামান্য" } },
+                        { word: "少年", reading: "しょうねん", meanings: { en: "boy", bn: "বালক" } }
+                    ], exampleSentence: { jp: "お金が少ないです。", reading: "おかねがすくないです。", meanings: { en: "I have little money.", bn: "আমার টাকা কম।" } } },
+                    { char: "広", on: "コウ", kun: "ひろ(い)", meanings: { en: "wide, spacious", bn: "প্রশস্ত" }, strokes: 5, examples: [
+                        { word: "広い", reading: "ひろい", meanings: { en: "wide, spacious", bn: "প্রশস্ত" } },
+                        { word: "広告", reading: "こうこく", meanings: { en: "advertisement", bn: "বিজ্ঞাপন" } },
+                        { word: "広場", reading: "ひろば", meanings: { en: "plaza, square", bn: "চত্বর" } }
+                    ], exampleSentence: { jp: "この部屋は広いです。", reading: "このへやはひろいです。", meanings: { en: "This room is spacious.", bn: "এই ঘরটি প্রশস্ত।" } } }
                 ]
             },
             {
@@ -673,7 +763,17 @@ const kanjiData = {
                         { word: "車", reading: "くるま", meanings: { en: "car", bn: "গাড়ি" } },
                         { word: "電車", reading: "でんしゃ", meanings: { en: "train", bn: "ট্রেন" } },
                         { word: "自転車", reading: "じてんしゃ", meanings: { en: "bicycle", bn: "সাইকেল" } }
-                    ], exampleSentence: { jp: "車で行きましょう。", reading: "くるまでいきましょう。", meanings: { en: "Let's go by car.", bn: "চলুন গাড়িতে করে যাই।" } } }
+                    ], exampleSentence: { jp: "車で行きましょう。", reading: "くるまでいきましょう。", meanings: { en: "Let's go by car.", bn: "চলুন গাড়িতে করে যাই।" } } },
+                    { char: "住", on: "ジュウ", kun: "す(む)", meanings: { en: "to live, reside", bn: "বাস করা" }, strokes: 7, examples: [
+                        { word: "住む", reading: "すむ", meanings: { en: "to live", bn: "বাস করা" } },
+                        { word: "住所", reading: "じゅうしょ", meanings: { en: "address", bn: "ঠিকানা" } },
+                        { word: "住民", reading: "じゅうみん", meanings: { en: "resident", bn: "বাসিন্দা" } }
+                    ], exampleSentence: { jp: "東京に住んでいます。", reading: "とうきょうにすんでいます。", meanings: { en: "I live in Tokyo.", bn: "আমি টোকিওতে বাস করি।" } } },
+                    { char: "銀", on: "ギン", kun: "-", meanings: { en: "silver, bank", bn: "রূপা, ব্যাংক" }, strokes: 14, examples: [
+                        { word: "銀行", reading: "ぎんこう", meanings: { en: "bank", bn: "ব্যাংক" } },
+                        { word: "銀色", reading: "ぎんいろ", meanings: { en: "silver color", bn: "রূপালি রং" } },
+                        { word: "銀行員", reading: "ぎんこういん", meanings: { en: "bank employee", bn: "ব্যাংক কর্মচারী" } }
+                    ], exampleSentence: { jp: "銀行でお金を下ろします。", reading: "ぎんこうでおかねをおろします。", meanings: { en: "I withdraw money at the bank.", bn: "আমি ব্যাংক থেকে টাকা তুলি।" } } }
                 ]
             },
             {
@@ -752,26 +852,6 @@ const kanjiData = {
                 id: "time-day-season",
                 title: "Time, Day & Season",
                 items: [
-                    { char: "朝", on: "チョウ", kun: "あさ", meanings: { en: "morning", bn: "সকাল" }, strokes: 12, examples: [
-                        { word: "朝", reading: "あさ", meanings: { en: "morning", bn: "সকাল" } },
-                        { word: "朝ご飯", reading: "あさごはん", meanings: { en: "breakfast", bn: "সকালের নাস্তা" } },
-                        { word: "毎朝", reading: "まいあさ", meanings: { en: "every morning", bn: "প্রতি সকালে" } }
-                    ], exampleSentence: { jp: "毎朝、六時に起きます。", reading: "まいあさ、ろくじにおきます。", meanings: { en: "I wake up at six every morning.", bn: "আমি প্রতিদিন সকালে ছয়টায় ঘুম থেকে উঠি।" } } },
-                    { char: "昼", on: "チュウ", kun: "ひる", meanings: { en: "noon, daytime", bn: "দুপুর, দিনের বেলা" }, strokes: 9, examples: [
-                        { word: "昼", reading: "ひる", meanings: { en: "noon", bn: "দুপুর" } },
-                        { word: "昼ご飯", reading: "ひるごはん", meanings: { en: "lunch", bn: "দুপুরের খাবার" } },
-                        { word: "昼休み", reading: "ひるやすみ", meanings: { en: "lunch break", bn: "দুপুরের বিরতি" } }
-                    ], exampleSentence: { jp: "昼ご飯を食べましょう。", reading: "ひるごはんをたべましょう。", meanings: { en: "Let's eat lunch.", bn: "চলুন দুপুরের খাবার খাই।" } } },
-                    { char: "夕", on: "セキ", kun: "ゆう", meanings: { en: "evening", bn: "সন্ধ্যা" }, strokes: 3, examples: [
-                        { word: "夕方", reading: "ゆうがた", meanings: { en: "evening", bn: "সন্ধ্যা" } },
-                        { word: "夕食", reading: "ゆうしょく", meanings: { en: "dinner", bn: "রাতের খাবার" } },
-                        { word: "夕日", reading: "ゆうひ", meanings: { en: "evening sun", bn: "অস্তগামী সূর্য" } }
-                    ], exampleSentence: { jp: "夕方、散歩します。", reading: "ゆうがた、さんぽします。", meanings: { en: "In the evening, I take a walk.", bn: "সন্ধ্যায় আমি হাঁটতে যাই।" } } },
-                    { char: "夜", on: "ヤ", kun: "よる", meanings: { en: "night", bn: "রাত" }, strokes: 8, examples: [
-                        { word: "夜", reading: "よる", meanings: { en: "night", bn: "রাত" } },
-                        { word: "今夜", reading: "こんや", meanings: { en: "tonight", bn: "আজ রাতে" } },
-                        { word: "夜中", reading: "よなか", meanings: { en: "midnight", bn: "মাঝরাত" } }
-                    ], exampleSentence: { jp: "夜、本を読みます。", reading: "よる、ほんをよみます。", meanings: { en: "At night, I read a book.", bn: "রাতে আমি বই পড়ি।" } } },
                     { char: "早", on: "ソウ", kun: "はや(い)", meanings: { en: "early", bn: "তাড়াতাড়ি" }, strokes: 6, examples: [
                         { word: "早い", reading: "はやい", meanings: { en: "early, fast", bn: "তাড়াতাড়ি, দ্রুত" } },
                         { word: "早く", reading: "はやく", meanings: { en: "quickly", bn: "তাড়াতাড়ি" } },
@@ -921,11 +1001,6 @@ const kanjiData = {
                         { word: "牛肉", reading: "ぎゅうにく", meanings: { en: "beef", bn: "গরুর মাংস" } },
                         { word: "焼肉", reading: "やきにく", meanings: { en: "grilled meat", bn: "ঝলসানো মাংস" } }
                     ], exampleSentence: { jp: "肉が好きです。", reading: "にくがすきです。", meanings: { en: "I like meat.", bn: "আমি মাংস পছন্দ করি।" } } },
-                    { char: "魚", on: "ギョ", kun: "さかな", meanings: { en: "fish", bn: "মাছ" }, strokes: 11, examples: [
-                        { word: "魚", reading: "さかな", meanings: { en: "fish", bn: "মাছ" } },
-                        { word: "魚屋", reading: "さかなや", meanings: { en: "fish shop", bn: "মাছের দোকান" } },
-                        { word: "金魚", reading: "きんぎょ", meanings: { en: "goldfish", bn: "সোনালি মাছ" } }
-                    ], exampleSentence: { jp: "魚を食べます。", reading: "さかなをたべます。", meanings: { en: "I eat fish.", bn: "আমি মাছ খাই।" } } },
                     { char: "牛", on: "ギュウ", kun: "うし", meanings: { en: "cow", bn: "গরু" }, strokes: 4, examples: [
                         { word: "牛", reading: "うし", meanings: { en: "cow", bn: "গরু" } },
                         { word: "牛肉", reading: "ぎゅうにく", meanings: { en: "beef", bn: "গরুর মাংস" } },
@@ -1223,21 +1298,11 @@ const kanjiData = {
                 id: "thinking-deciding",
                 title: "Thinking & Deciding",
                 items: [
-                    { char: "思", on: "シ", kun: "おも(う)", meanings: { en: "to think", bn: "চিন্তা করা" }, strokes: 9, examples: [
-                        { word: "思う", reading: "おもう", meanings: { en: "to think", bn: "চিন্তা করা" } },
-                        { word: "思い出", reading: "おもいで", meanings: { en: "memory", bn: "স্মৃতি" } },
-                        { word: "意思", reading: "いし", meanings: { en: "intention", bn: "অভিপ্রায়" } }
-                    ], exampleSentence: { jp: "どう思いますか。", reading: "どうおもいますか。", meanings: { en: "What do you think?", bn: "আপনি কী মনে করেন?" } } },
                     { char: "考", on: "コウ", kun: "かんが(える)", meanings: { en: "to consider", bn: "বিবেচনা করা" }, strokes: 6, examples: [
                         { word: "考える", reading: "かんがえる", meanings: { en: "to think, consider", bn: "চিন্তা করা" } },
                         { word: "考え", reading: "かんがえ", meanings: { en: "thought, idea", bn: "চিন্তা" } },
                         { word: "参考", reading: "さんこう", meanings: { en: "reference", bn: "রেফারেন্স" } }
                     ], exampleSentence: { jp: "よく考えてください。", reading: "よくかんがえてください。", meanings: { en: "Please think carefully.", bn: "দয়া করে ভালোভাবে চিন্তা করুন।" } } },
-                    { char: "知", on: "チ", kun: "し(る)", meanings: { en: "to know", bn: "জানা" }, strokes: 8, examples: [
-                        { word: "知る", reading: "しる", meanings: { en: "to know", bn: "জানা" } },
-                        { word: "知らせる", reading: "しらせる", meanings: { en: "to inform", bn: "জানানো" } },
-                        { word: "知識", reading: "ちしき", meanings: { en: "knowledge", bn: "জ্ঞান" } }
-                    ], exampleSentence: { jp: "そのニュースを知っていますか。", reading: "そのニュースをしっていますか。", meanings: { en: "Do you know that news?", bn: "আপনি কি সেই খবরটি জানেন?" } } },
                     { char: "決", on: "ケツ", kun: "き(める)", meanings: { en: "to decide", bn: "সিদ্ধান্ত নেওয়া" }, strokes: 7, examples: [
                         { word: "決める", reading: "きめる", meanings: { en: "to decide", bn: "সিদ্ধান্ত নেওয়া" } },
                         { word: "決定", reading: "けってい", meanings: { en: "decision", bn: "সিদ্ধান্ত" } },
@@ -1387,21 +1452,6 @@ const kanjiData = {
                 id: "movement-verbs",
                 title: "Movement Verbs",
                 items: [
-                    { char: "歩", on: "ホ", kun: "ある(く)", meanings: { en: "to walk", bn: "হাঁটা" }, strokes: 8, examples: [
-                        { word: "歩く", reading: "あるく", meanings: { en: "to walk", bn: "হাঁটা" } },
-                        { word: "散歩", reading: "さんぽ", meanings: { en: "walk, stroll", bn: "বেড়ানো" } },
-                        { word: "歩道", reading: "ほどう", meanings: { en: "sidewalk", bn: "ফুটপাথ" } }
-                    ], exampleSentence: { jp: "公園を歩きます。", reading: "こうえんをあるきます。", meanings: { en: "I walk in the park.", bn: "আমি পার্কে হাঁটি।" } } },
-                    { char: "走", on: "ソウ", kun: "はし(る)", meanings: { en: "to run", bn: "দৌড়ানো" }, strokes: 7, examples: [
-                        { word: "走る", reading: "はしる", meanings: { en: "to run", bn: "দৌড়ানো" } },
-                        { word: "競走", reading: "きょうそう", meanings: { en: "race", bn: "দৌড় প্রতিযোগিতা" } },
-                        { word: "走者", reading: "そうしゃ", meanings: { en: "runner", bn: "দৌড়বিদ" } }
-                    ], exampleSentence: { jp: "毎朝走ります。", reading: "まいあさはしります。", meanings: { en: "I run every morning.", bn: "আমি প্রতিদিন সকালে দৌড়াই।" } } },
-                    { char: "住", on: "ジュウ", kun: "す(む)", meanings: { en: "to live, reside", bn: "বাস করা" }, strokes: 7, examples: [
-                        { word: "住む", reading: "すむ", meanings: { en: "to live", bn: "বাস করা" } },
-                        { word: "住所", reading: "じゅうしょ", meanings: { en: "address", bn: "ঠিকানা" } },
-                        { word: "住民", reading: "じゅうみん", meanings: { en: "resident", bn: "বাসিন্দা" } }
-                    ], exampleSentence: { jp: "東京に住んでいます。", reading: "とうきょうにすんでいます。", meanings: { en: "I live in Tokyo.", bn: "আমি টোকিওতে বাস করি।" } } },
                     { char: "進", on: "シン", kun: "すす(む)", meanings: { en: "to advance, proceed", bn: "এগিয়ে যাওয়া" }, strokes: 11, examples: [
                         { word: "進む", reading: "すすむ", meanings: { en: "to advance", bn: "এগিয়ে যাওয়া" } },
                         { word: "進学", reading: "しんがく", meanings: { en: "advancing to higher education", bn: "উচ্চশিক্ষায় ভর্তি" } },
@@ -1556,16 +1606,6 @@ const kanjiData = {
                 id: "basics-existence-direction",
                 title: "Basics, Existence & Direction",
                 items: [
-                    { char: "本", on: "ホン", kun: "もと", meanings: { en: "book, origin", bn: "বই, মূল" }, strokes: 5, examples: [
-                        { word: "本", reading: "ほん", meanings: { en: "book", bn: "বই" } },
-                        { word: "日本", reading: "にほん", meanings: { en: "Japan", bn: "জাপান" } },
-                        { word: "本当", reading: "ほんとう", meanings: { en: "true, real", bn: "সত্যি" } }
-                    ], exampleSentence: { jp: "本当ですか。", reading: "ほんとうですか。", meanings: { en: "Is that true?", bn: "এটা কি সত্যি?" } } },
-                    { char: "有", on: "ユウ", kun: "あ(る)", meanings: { en: "to exist, have", bn: "থাকা" }, strokes: 6, examples: [
-                        { word: "有名", reading: "ゆうめい", meanings: { en: "famous", bn: "বিখ্যাত" } },
-                        { word: "有る", reading: "ある", meanings: { en: "to exist, have", bn: "থাকা" } },
-                        { word: "有効", reading: "ゆうこう", meanings: { en: "valid", bn: "বৈধ" } }
-                    ], exampleSentence: { jp: "あの人は有名な歌手です。", reading: "あのひとはゆうめいなかしゅです。", meanings: { en: "That person is a famous singer.", bn: "ঐ ব্যক্তি একজন বিখ্যাত গায়ক।" } } },
                     { char: "元", on: "ゲン, ガン", kun: "もと", meanings: { en: "origin, former", bn: "মূল, পূর্বতন" }, strokes: 4, examples: [
                         { word: "元気", reading: "げんき", meanings: { en: "healthy, energetic", bn: "সুস্থ, প্রাণবন্ত" } },
                         { word: "元", reading: "もと", meanings: { en: "origin", bn: "মূল" } },
@@ -1586,11 +1626,6 @@ const kanjiData = {
                         { word: "同時に", reading: "どうじに", meanings: { en: "at the same time", bn: "একই সময়ে" } },
                         { word: "同僚", reading: "どうりょう", meanings: { en: "colleague", bn: "সহকর্মী" } }
                     ], exampleSentence: { jp: "同じ本を持っています。", reading: "おなじほんをもっています。", meanings: { en: "I have the same book.", bn: "আমার কাছে একই বই আছে।" } } },
-                    { char: "近", on: "キン", kun: "ちか(い)", meanings: { en: "near", bn: "কাছে" }, strokes: 7, examples: [
-                        { word: "近い", reading: "ちかい", meanings: { en: "near", bn: "কাছে" } },
-                        { word: "近く", reading: "ちかく", meanings: { en: "nearby", bn: "কাছাকাছি" } },
-                        { word: "最近", reading: "さいきん", meanings: { en: "recently", bn: "সম্প্রতি" } }
-                    ], exampleSentence: { jp: "駅から近いです。", reading: "えきからちかいです。", meanings: { en: "It is near the station.", bn: "এটি স্টেশনের কাছে।" } } },
                     { char: "自", on: "ジ, シ", kun: "みずか(ら)", meanings: { en: "self", bn: "নিজে" }, strokes: 6, examples: [
                         { word: "自分", reading: "じぶん", meanings: { en: "oneself", bn: "নিজে" } },
                         { word: "自転車", reading: "じてんしゃ", meanings: { en: "bicycle", bn: "সাইকেল" } },
@@ -1636,23 +1671,13 @@ const kanjiData = {
                         { word: "音楽", reading: "おんがく", meanings: { en: "music", bn: "সঙ্গীত" } },
                         { word: "楽しい", reading: "たのしい", meanings: { en: "fun, enjoyable", bn: "আনন্দদায়ক" } },
                         { word: "気楽", reading: "きらく", meanings: { en: "carefree", bn: "নিশ্চিন্ত" } }
-                    ], exampleSentence: { jp: "日本語の勉強は楽しいです。", reading: "にほんごのべんきょうはたのしいです。", meanings: { en: "Studying Japanese is fun.", bn: "জাপানি ভাষা পড়াশোনা আনন্দদায়ক।" } } },
-                    { char: "紙", on: "シ", kun: "かみ", meanings: { en: "paper", bn: "কাগজ" }, strokes: 10, examples: [
-                        { word: "紙", reading: "かみ", meanings: { en: "paper", bn: "কাগজ" } },
-                        { word: "手紙", reading: "てがみ", meanings: { en: "letter", bn: "চিঠি" } },
-                        { word: "新聞紙", reading: "しんぶんし", meanings: { en: "newspaper (as material)", bn: "সংবাদপত্র (উপাদান)" } }
-                    ], exampleSentence: { jp: "手紙を書きます。", reading: "てがみをかきます。", meanings: { en: "I write a letter.", bn: "আমি একটি চিঠি লিখি।" } } }
+                    ], exampleSentence: { jp: "日本語の勉強は楽しいです。", reading: "にほんごのべんきょうはたのしいです。", meanings: { en: "Studying Japanese is fun.", bn: "জাপানি ভাষা পড়াশোনা আনন্দদায়ক।" } } }
                 ]
             },
             {
                 id: "places-society-openness",
                 title: "Places, Society & Openness",
                 items: [
-                    { char: "広", on: "コウ", kun: "ひろ(い)", meanings: { en: "wide, spacious", bn: "প্রশস্ত" }, strokes: 5, examples: [
-                        { word: "広い", reading: "ひろい", meanings: { en: "wide, spacious", bn: "প্রশস্ত" } },
-                        { word: "広告", reading: "こうこく", meanings: { en: "advertisement", bn: "বিজ্ঞাপন" } },
-                        { word: "広場", reading: "ひろば", meanings: { en: "plaza, square", bn: "চত্বর" } }
-                    ], exampleSentence: { jp: "この部屋は広いです。", reading: "このへやはひろいです。", meanings: { en: "This room is spacious.", bn: "এই ঘরটি প্রশস্ত।" } } },
                     { char: "世", on: "セイ, セ", kun: "-", meanings: { en: "world, generation", bn: "বিশ্ব, প্রজন্ম" }, strokes: 5, examples: [
                         { word: "世界", reading: "せかい", meanings: { en: "world", bn: "বিশ্ব" } },
                         { word: "世紀", reading: "せいき", meanings: { en: "century", bn: "শতাব্দী" } },
@@ -1843,16 +1868,6 @@ const kanjiData = {
                 id: "amount-distance-mind",
                 title: "Amount, Distance & Mind",
                 items: [
-                    { char: "少", on: "ショウ", kun: "すく(ない), すこ(し)", meanings: { en: "few, little", bn: "কম, সামান্য" }, strokes: 4, examples: [
-                        { word: "少ない", reading: "すくない", meanings: { en: "few", bn: "কম" } },
-                        { word: "少し", reading: "すこし", meanings: { en: "a little", bn: "সামান্য" } },
-                        { word: "少年", reading: "しょうねん", meanings: { en: "boy", bn: "বালক" } }
-                    ], exampleSentence: { jp: "お金が少ないです。", reading: "おかねがすくないです。", meanings: { en: "I have little money.", bn: "আমার টাকা কম।" } } },
-                    { char: "多", on: "タ", kun: "おお(い)", meanings: { en: "many", bn: "অনেক" }, strokes: 6, examples: [
-                        { word: "多い", reading: "おおい", meanings: { en: "many", bn: "অনেক" } },
-                        { word: "多分", reading: "たぶん", meanings: { en: "probably", bn: "সম্ভবত" } },
-                        { word: "多数", reading: "たすう", meanings: { en: "a large number", bn: "অনেক সংখ্যক" } }
-                    ], exampleSentence: { jp: "学生が多いです。", reading: "がくせいがおおいです。", meanings: { en: "There are many students.", bn: "অনেক ছাত্র আছে।" } } },
                     { char: "遠", on: "エン", kun: "とお(い)", meanings: { en: "far", bn: "দূরে" }, strokes: 13, examples: [
                         { word: "遠い", reading: "とおい", meanings: { en: "far", bn: "দূরে" } },
                         { word: "遠足", reading: "えんそく", meanings: { en: "excursion, field trip", bn: "ভ্রমণ" } },
@@ -1894,16 +1909,6 @@ const kanjiData = {
                         { word: "時計", reading: "とけい", meanings: { en: "clock, watch", bn: "ঘড়ি" } },
                         { word: "合計", reading: "ごうけい", meanings: { en: "total", bn: "সর্বমোট" } }
                     ], exampleSentence: { jp: "時計を見てください。", reading: "とけいをみてください。", meanings: { en: "Please look at the clock.", bn: "দয়া করে ঘড়িটি দেখুন।" } } },
-                    { char: "家", on: "カ, ケ", kun: "いえ, や", meanings: { en: "house, family", bn: "বাড়ি, পরিবার" }, strokes: 10, examples: [
-                        { word: "家", reading: "いえ", meanings: { en: "house", bn: "বাড়ি" } },
-                        { word: "家族", reading: "かぞく", meanings: { en: "family", bn: "পরিবার" } },
-                        { word: "家庭", reading: "かてい", meanings: { en: "household, home", bn: "সংসার" } }
-                    ], exampleSentence: { jp: "私の家は大きいです。", reading: "わたしのいえはおおきいです。", meanings: { en: "My house is big.", bn: "আমার বাড়ি বড়।" } } },
-                    { char: "銀", on: "ギン", kun: "-", meanings: { en: "silver, bank", bn: "রূপা, ব্যাংক" }, strokes: 14, examples: [
-                        { word: "銀行", reading: "ぎんこう", meanings: { en: "bank", bn: "ব্যাংক" } },
-                        { word: "銀色", reading: "ぎんいろ", meanings: { en: "silver color", bn: "রূপালি রং" } },
-                        { word: "銀行員", reading: "ぎんこういん", meanings: { en: "bank employee", bn: "ব্যাংক কর্মচারী" } }
-                    ], exampleSentence: { jp: "銀行でお金を下ろします。", reading: "ぎんこうでおかねをおろします。", meanings: { en: "I withdraw money at the bank.", bn: "আমি ব্যাংক থেকে টাকা তুলি।" } } },
                     { char: "地", on: "チ, ジ", kun: "-", meanings: { en: "ground, earth", bn: "মাটি, ভূমি" }, strokes: 6, examples: [
                         { word: "地図", reading: "ちず", meanings: { en: "map", bn: "মানচিত্র" } },
                         { word: "地下鉄", reading: "ちかてつ", meanings: { en: "subway", bn: "পাতাল রেল" } },
