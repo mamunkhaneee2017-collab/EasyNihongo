@@ -57,8 +57,19 @@
    quotation, keigo basics, etc.) — not paired
    1:1 with vocabulary-data.js's N3 chapters.
 
-   N2-N1 stay empty/locked until content is
-   written for those levels.
+   N1: 25 chapters, 90 patterns (matching N3's
+   scale), covering the standard N1 grammar
+   canon (advanced reason/concession, extreme
+   degree, immediate succession, forced
+   circumstance, classical/literary forms like
+   〜べし／〜まじき／〜んがため, hedging and
+   rhetorical judgment, etc.) — not paired 1:1
+   with vocabulary-data.js's N1 chapters. Every
+   pattern was checked against the full N5-N3
+   pattern list to avoid duplicates.
+
+   N2 stays empty/locked until content is
+   written for that level.
 ========================================== */
 
 const grammarData = {
@@ -3426,7 +3437,1082 @@ const grammarData = {
     },
 
     n2: { chapters: [] },
-    n1: { chapters: [] }
+    n1: {
+        chapters: [
+            {
+                id: "causal-reason-advanced",
+                title: "Advanced Reason & Cause",
+                items: [
+                    {
+                        pattern: "〜ゆえに",
+                        meanings: { en: "Because of / due to — a formal, literary way to state a reason, often for a weighty or unfortunate situation.", bn: "কারণে / জন্য — একটি আনুষ্ঠানিক, সাহিত্যিক কারণ প্রকাশের রূপ, প্রায়ই গুরুত্বপূর্ণ বা দুর্ভাগ্যজনক পরিস্থিতির জন্য ব্যবহৃত হয়।" },
+                        connection: ["名詞（の）＋ゆえに", "普通形＋（が）ゆえに", "な形容詞＋（である）ゆえに"],
+                        examples: [
+                            { jp: "彼は貧しい家に生まれたゆえに、若い頃から働かざるを得なかった。", reading: "かれはまずしいいえにうまれたゆえに、わかいころからはたらかざるをえなかった。", en: "Because he was born into a poor family, he had no choice but to work from a young age." },
+                            { jp: "若さゆえに、彼は大きな過ちを犯してしまった。", reading: "わかさゆえに、かれはおおきなあやまちをおかしてしまった。", en: "Because of his youth, he made a big mistake." },
+                            { jp: "病気ゆえに、彼女は大会への出場を諦めた。", reading: "びょうきゆえに、かのじょはたいかいへのしゅつじょうをあきらめた。", en: "Due to illness, she gave up participating in the competition." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とあって",
+                        meanings: { en: "Given the special circumstance that / since it is — explains a reason tied to an unusual or notable event.", bn: "এই বিশেষ পরিস্থিতির কারণে — একটি অস্বাভাবিক বা বিশেষ ঘটনার সাথে যুক্ত কারণ ব্যাখ্যা করে।" },
+                        connection: ["名詞＋とあって", "普通形＋とあって"],
+                        examples: [
+                            { jp: "連休とあって、高速道路はどこも混雑している。", reading: "れんきゅうとあって、こうそくどうろはどこもこんざつしている。", en: "Since it's a long holiday, the highways are crowded everywhere." },
+                            { jp: "人気歌手のコンサートとあって、会場は若者であふれていた。", reading: "にんきかしゅのコンサートとあって、かいじょうはわかものであふれていた。", en: "Since it was a popular singer's concert, the venue was overflowing with young people." },
+                            { jp: "初めての海外旅行とあって、彼女はとても興奮していた。", reading: "はじめてのかいがいりょこうとあって、かのじょはとてもこうふんしていた。", en: "Since it was her first overseas trip, she was very excited." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ばこそ",
+                        meanings: { en: "Precisely because — strongly emphasizes that the stated reason is the one true, positive reason.", bn: "ঠিক এই কারণেই — বিবৃত কারণটিই একমাত্র সত্য, ইতিবাচক কারণ তা জোরালোভাবে প্রকাশ করে।" },
+                        connection: ["動詞・い形容詞（ば形）＋こそ", "な形容詞・名詞＋であればこそ"],
+                        examples: [
+                            { jp: "あなたのことを思えばこそ、厳しいことを言うのです。", reading: "あなたのことをおもえばこそ、きびしいことをいうのです。", en: "It's precisely because I care about you that I say such harsh things." },
+                            { jp: "健康な体があればこそ、仕事にも全力を尽くせる。", reading: "けんこうなからだがあればこそ、しごとにもぜんりょくをつくせる。", en: "It's precisely because I have a healthy body that I can give my full effort at work." },
+                            { jp: "困難な時代であればこそ、人々は助け合う。", reading: "こんなんなじだいであればこそ、ひとびとはたすけあう。", en: "It is precisely because these are difficult times that people help each other." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "extreme-degree",
+                title: "Extreme Degree & Intensity",
+                items: [
+                    {
+                        pattern: "〜の極み",
+                        reading: "〜のきわみ",
+                        meanings: { en: "The height / extreme of — expresses that something has reached the utmost degree of a feeling or state.", bn: "চূড়ান্ত পর্যায় — কোনো অনুভূতি বা অবস্থা যে চরম মাত্রায় পৌঁছেছে তা প্রকাশ করে।" },
+                        connection: ["名詞＋の極み"],
+                        examples: [
+                            { jp: "こんな豪華な料理をいただけるとは、贅沢の極みです。", reading: "こんなごうかなりょうりをいただけるとは、ぜいたくのきわみです。", en: "Being treated to such a luxurious meal is the height of extravagance." },
+                            { jp: "一人で三日も山に取り残されるとは、恐怖の極みだった。", reading: "ひとりでみっかもやまにとりのこされるとは、きょうふのきわみだった。", en: "Being left alone on the mountain for three days was the height of terror." },
+                            { jp: "彼の無責任な発言は、非常識の極みだ。", reading: "かれのむせきにんなはつげんは、ひじょうしきのきわみだ。", en: "His irresponsible remark is the height of absurdity." }
+                        ]
+                    },
+                    {
+                        pattern: "〜極まる／〜極まりない",
+                        reading: "〜きわまる／〜きわまりない",
+                        meanings: { en: "Extremely / in the extreme — intensifies a na-adjective to an extreme degree, often with a negative or dramatic nuance.", bn: "চরম মাত্রায় — না-বিশেষণকে চরম পর্যায়ে তীব্র করে, প্রায়ই নেতিবাচক বা নাটকীয় অর্থে।" },
+                        connection: ["な形容詞（語幹）＋極まる／極まりない"],
+                        examples: [
+                            { jp: "彼のマナーのなさは失礼極まりない。", reading: "かれのマナーのなさはしつれいきわまりない。", en: "His lack of manners is extremely rude." },
+                            { jp: "危険極まる行動はやめてほしい。", reading: "きけんきわまるこうどうはやめてほしい。", en: "I wish he would stop such extremely dangerous behavior." },
+                            { jp: "彼女の態度は傲慢極まりないものだった。", reading: "かのじょのたいどはごうまんきわまりないものだった。", en: "Her attitude was extremely arrogant." }
+                        ]
+                    },
+                    {
+                        pattern: "〜といったら",
+                        meanings: { en: "To such an extent that... (exclamatory) — expresses strong emotion about the degree of something.", bn: "এমন মাত্রায় যে... (বিস্ময়সূচক) — কোনো কিছুর মাত্রা সম্পর্কে তীব্র অনুভূতি প্রকাশ করে।" },
+                        connection: ["名詞＋といったら", "普通形＋といったら"],
+                        examples: [
+                            { jp: "初めて富士山を見た時の感動といったら、言葉にできないほどだった。", reading: "はじめてふじさんをみたときのかんどうといったら、ことばにできないほどだった。", en: "The emotion I felt when I first saw Mt. Fuji was beyond words." },
+                            { jp: "あの日の暑さといったら、本当にひどかった。", reading: "あのひのあつさといったら、ほんとうにひどかった。", en: "The heat that day was just terrible, I can't tell you." },
+                            { jp: "彼の喜びようといったら、子供のようだった。", reading: "かれのよろこびようといったら、こどものようだった。", en: "The way he was so delighted — he was just like a child." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "concession-advanced",
+                title: "Advanced Concession",
+                items: [
+                    {
+                        pattern: "〜とはいえ",
+                        meanings: { en: "That said / even though — acknowledges a fact but points out that the expected conclusion doesn't fully follow.", bn: "তা সত্ত্বেও / যদিও তা বলা হলেও — একটি সত্য স্বীকার করে কিন্তু প্রত্যাশিত সিদ্ধান্ত সম্পূর্ণভাবে অনুসরণ করে না তা উল্লেখ করে।" },
+                        connection: ["普通形＋とはいえ", "名詞＋とはいえ"],
+                        examples: [
+                            { jp: "不景気とはいえ、売り上げが伸びている会社もある。", reading: "ふけいきとはいえ、うりあげがのびているかいしゃもある。", en: "Even though it's a recession, there are companies whose sales are growing." },
+                            { jp: "子供とはいえ、言ったことには責任を持つべきだ。", reading: "こどもとはいえ、いったことにはせきにんをもつべきだ。", en: "Even though he's a child, he should take responsibility for what he says." },
+                            { jp: "春とはいえ、まだ朝晩は寒い。", reading: "はるとはいえ、まだあさばんはさむい。", en: "Even though it's spring, it's still cold in the mornings and evenings." }
+                        ]
+                    },
+                    {
+                        pattern: "〜であれ〜であれ",
+                        meanings: { en: "Whether A or B — lists contrasting possibilities, all of which lead to the same conclusion.", bn: "A হোক বা B হোক — বিপরীত সম্ভাবনাগুলো তালিকাভুক্ত করে, যেগুলো সবই একই সিদ্ধান্তে পৌঁছায়।" },
+                        connection: ["名詞＋であれ＋名詞＋であれ"],
+                        examples: [
+                            { jp: "晴れであれ雨であれ、試合は予定通り行われる。", reading: "はれであれあめであれ、しあいはよていどおりおこなわれる。", en: "Whether it's sunny or rainy, the match will be held as scheduled." },
+                            { jp: "子供であれ大人であれ、ルールは守らなければならない。", reading: "こどもであれおとなであれ、ルールはまもらなければならない。", en: "Whether child or adult, everyone must follow the rules." },
+                            { jp: "賛成であれ反対であれ、自分の意見を言うべきだ。", reading: "さんせいであれはんたいであれ、じぶんのいけんをいうべきだ。", en: "Whether you agree or disagree, you should voice your own opinion." }
+                        ]
+                    },
+                    {
+                        pattern: "〜もさることながら",
+                        meanings: { en: "Not to mention... but also — notes one noteworthy point, while indicating another point is even more significant.", bn: "উল্লেখ না করলেও... কিন্তু আরও বেশি — একটি গুরুত্বপূর্ণ বিষয় উল্লেখ করে, পাশাপাশি আরেকটি বিষয় তার চেয়েও বেশি গুরুত্বপূর্ণ তা নির্দেশ করে।" },
+                        connection: ["名詞＋もさることながら"],
+                        examples: [
+                            { jp: "この店は味もさることながら、店員の対応も素晴らしい。", reading: "このみせはあじもさることながら、てんいんのたいおうもすばらしい。", en: "This restaurant's taste is great, but not to mention, the staff's service is also wonderful." },
+                            { jp: "デザインもさることながら、機能性も優れている。", reading: "デザインもさることながら、きのうせいもすぐれている。", en: "Not only is the design great, but the functionality is also excellent." },
+                            { jp: "彼女は美しさもさることながら、知性にも優れている。", reading: "かのじょはうつくしさもさることながら、ちせいにもすぐれている。", en: "Not to mention her beauty, she is also highly intelligent." }
+                        ]
+                    },
+                    {
+                        pattern: "〜といえども",
+                        meanings: { en: "Even though / even if — a formal, written-style concession, often implying \"no matter how great or small\".", bn: "যদিও / এমনকি হলেও — একটি আনুষ্ঠানিক, লিখিত রূপের ছাড়, প্রায়ই 'যতই বড়/ছোট হোক না কেন' এই অর্থ বহন করে।" },
+                        connection: ["名詞＋といえども", "普通形＋といえども"],
+                        examples: [
+                            { jp: "プロの選手といえども、失敗することはある。", reading: "プロのせんしゅといえども、しっぱいすることはある。", en: "Even professional athletes sometimes fail." },
+                            { jp: "小さな会社といえども、優れた技術を持っている。", reading: "ちいさなかいしゃといえども、すぐれたぎじゅつをもっている。", en: "Even though it's a small company, it has excellent technology." },
+                            { jp: "一国の王といえども、自然の力には勝てない。", reading: "いっこくのおうといえども、しぜんのちからにはかてない。", en: "Even a king of a nation cannot overcome the power of nature." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "hypothetical-advanced",
+                title: "Advanced Hypothetical & Conditional",
+                items: [
+                    {
+                        pattern: "〜(よ)うが〜まいが",
+                        meanings: { en: "Whether or not — states that something will happen or be true regardless of two opposite possibilities.", bn: "হোক বা না হোক — দুটি বিপরীত সম্ভাবনা নির্বিশেষে কিছু ঘটবে বা সত্য হবে তা প্রকাশ করে।" },
+                        connection: ["動詞（意向形）＋が＋動詞（まい形）＋が"],
+                        examples: [
+                            { jp: "君が信じようが信じまいが、これは事実だ。", reading: "きみがしんじようがしんじまいが、これはじじつだ。", en: "Whether you believe it or not, this is a fact." },
+                            { jp: "雨が降ろうが降るまいが、イベントは行われる。", reading: "あめがふろうがふるまいが、イベントはおこなわれる。", en: "Whether it rains or not, the event will be held." },
+                            { jp: "彼が来ようが来まいが、私には関係ない。", reading: "かれがこようがこまいが、わたしにはかんけいない。", en: "Whether he comes or not, it has nothing to do with me." }
+                        ]
+                    },
+                    {
+                        pattern: "〜うものなら",
+                        meanings: { en: "If one were to dare (do something) — a hypothetical minor action that would trigger a serious, often negative, consequence.", bn: "যদি কেউ এমনটা করার সাহস করে — একটি কাল্পনিক ক্ষুদ্র কাজ যা একটি গুরুত্বপূর্ণ, প্রায়ই নেতিবাচক, পরিণতি ডেকে আনবে।" },
+                        connection: ["動詞（意向形）＋ものなら"],
+                        examples: [
+                            { jp: "彼の前でその名前を出そうものなら、大変なことになる。", reading: "かれのまえでそのなまえをだそうものなら、たいへんなことになる。", en: "If you were to even mention that name in front of him, it would cause big trouble." },
+                            { jp: "少しでも遅刻しようものなら、厳しく注意される。", reading: "すこしでもちこくしようものなら、きびしくちゅういされる。", en: "If I were even a little late, I'd be strictly scolded." },
+                            { jp: "一度でも約束を破ろうものなら、二度と信用してもらえない。", reading: "いちどでもやくそくをやぶろうものなら、にどとしんようしてもらえない。", en: "If you were to break your promise even once, you'd never be trusted again." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なくして(は)",
+                        meanings: { en: "Without — states that without the preceding thing, the following outcome would be impossible.", bn: "ছাড়া — পূর্ববর্তী বিষয়টি ছাড়া পরবর্তী ফলাফল অসম্ভব হবে তা প্রকাশ করে।" },
+                        connection: ["名詞＋なくして（は）"],
+                        examples: [
+                            { jp: "努力なくして、成功はあり得ない。", reading: "どりょくなくして、せいこうはありえない。", en: "Without effort, success is impossible." },
+                            { jp: "愛情なくしては、子供は健全に育たない。", reading: "あいじょうなくしては、こどもはけんぜんにそだたない。", en: "Without love, children cannot grow up healthy." },
+                            { jp: "信頼関係なくして、良いチームワークは生まれない。", reading: "しんらいかんけいなくして、よいチームワークはうまれない。", en: "Without a relationship of trust, good teamwork cannot be born." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "timing-succession",
+                title: "Immediate Succession & Timing",
+                items: [
+                    {
+                        pattern: "〜や／〜や否や",
+                        reading: "〜や／〜やいなや",
+                        meanings: { en: "The moment / as soon as — describes an immediate second action that follows right after the first, with no time gap.", bn: "যে মুহূর্তে / যত দ্রুত — প্রথম কাজের ঠিক পরেই, কোনো সময়ের ব্যবধান ছাড়াই দ্বিতীয় কাজ ঘটে তা বর্ণনা করে।" },
+                        connection: ["動詞（辞書形）＋や／や否や"],
+                        examples: [
+                            { jp: "ベルが鳴るや否や、子供たちは教室を飛び出した。", reading: "ベルがなるやいなや、こどもたちはきょうしつをとびだした。", en: "The moment the bell rang, the children ran out of the classroom." },
+                            { jp: "彼は家に着くや、すぐにベッドに倒れ込んだ。", reading: "かれはいえにつくや、すぐにベッドにたおれこんだ。", en: "As soon as he got home, he collapsed onto the bed." },
+                            { jp: "そのニュースを聞くや否や、彼女は泣き出した。", reading: "そのニュースをきくやいなや、かのじょはなきだした。", en: "The moment she heard the news, she burst into tears." }
+                        ]
+                    },
+                    {
+                        pattern: "〜そばから",
+                        meanings: { en: "No sooner... than / right after, repeatedly — an action that undoes or follows another almost immediately, often with frustration.", bn: "করার সাথে সাথেই, বারবার — একটি কাজ আরেকটি কাজের সাথে সাথেই পুনরাবৃত্তি হয় তা বর্ণনা করে, প্রায়ই বিরক্তির সুরে।" },
+                        connection: ["動詞（辞書形・た形）＋そばから"],
+                        examples: [
+                            { jp: "覚えたそばから忘れてしまう。", reading: "おぼえたそばからわすれてしまう。", en: "I forget things as soon as I learn them." },
+                            { jp: "片付けるそばから、子供がまた部屋を散らかす。", reading: "かたづけるそばから、こどもがまたへやをちらかす。", en: "No sooner do I tidy up than the child messes up the room again." },
+                            { jp: "注意するそばから、同じ間違いを繰り返す。", reading: "ちゅういするそばから、おなじまちがいをくりかえす。", en: "No sooner do I warn him than he repeats the same mistake." }
+                        ]
+                    },
+                    {
+                        pattern: "〜が早いか",
+                        reading: "〜がはやいか",
+                        meanings: { en: "No sooner... than — emphasizes that the second action happened at almost the exact same instant as the first.", bn: "করার সাথে সাথেই — দ্বিতীয় কাজটি প্রথম কাজের প্রায় একই মুহূর্তে ঘটেছে তা জোর দিয়ে বলে।" },
+                        connection: ["動詞（辞書形・た形）＋が早いか"],
+                        examples: [
+                            { jp: "席に着くが早いか、彼は資料を読み始めた。", reading: "せきにつくがはやいか、かれはしりょうをよみはじめた。", en: "No sooner had he sat down than he began reading the documents." },
+                            { jp: "合図を聞くが早いか、選手たちは一斉に走り出した。", reading: "あいずをきくがはやいか、せんしゅたちはいっせいにはしりだした。", en: "No sooner did they hear the signal than the athletes all started running at once." },
+                            { jp: "ドアが開くが早いか、客が一気に入ってきた。", reading: "ドアがひらくがはやいか、きゃくがいっきにはいってきた。", en: "No sooner had the door opened than the customers all came rushing in." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なり",
+                        meanings: { en: "As soon as / right after — an action immediately followed by another, often an unexpected or notable one.", bn: "যত দ্রুত / ঠিক পরেই — একটি কাজের ঠিক পরেই আরেকটি কাজ ঘটে তা বর্ণনা করে, প্রায়ই অপ্রত্যাশিত বা উল্লেখযোগ্য।" },
+                        connection: ["動詞（辞書形）＋なり"],
+                        examples: [
+                            { jp: "彼は帰宅するなり、自分の部屋に閉じこもった。", reading: "かれはきたくするなり、じぶんのへやにとじこもった。", en: "As soon as he got home, he shut himself in his room." },
+                            { jp: "その話を聞くなり、彼女は顔色を変えた。", reading: "そのはなしをきくなり、かのじょはかおいろをかえた。", en: "As soon as she heard that story, her expression changed." },
+                            { jp: "息子は学校から帰るなり、ゲームを始めた。", reading: "むすこはがっこうからかえるなり、ゲームをはじめた。", en: "As soon as my son got home from school, he started playing video games." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "situational-context",
+                title: "Situational Context",
+                items: [
+                    {
+                        pattern: "〜を皮切りに(して)",
+                        reading: "〜をかわきりに(して)",
+                        meanings: { en: "Starting with / triggered by — marks the starting point of a series of similar events that follow.", bn: "শুরু হয়ে / দ্বারা সূচিত হয়ে — একটি ধারাবাহিক ঘটনার সূচনা বিন্দু চিহ্নিত করে।" },
+                        connection: ["名詞＋を皮切りに（して）"],
+                        examples: [
+                            { jp: "東京公演を皮切りに、全国ツアーが始まる。", reading: "とうきょうこうえんをかわきりに、ぜんこくツアーがはじまる。", en: "Starting with the Tokyo performance, the nationwide tour will begin." },
+                            { jp: "この新製品の発売を皮切りにして、会社は海外進出を目指す。", reading: "このしんせいひんのはつばいをかわきりにして、かいしゃはかいがいしんしゅつをめざす。", en: "Starting with the launch of this new product, the company aims to expand overseas." },
+                            { jp: "一人の抗議を皮切りに、多くの市民が声を上げ始めた。", reading: "ひとりのこうぎをかわきりに、おおくのしみんがこえをあげはじめた。", en: "Starting with one person's protest, many citizens began to raise their voices." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にあって",
+                        meanings: { en: "In the situation / position of — points to a particular, often special or difficult, circumstance as the setting for what follows.", bn: "এই পরিস্থিতি / অবস্থানে — যা অনুসরণ করে তার প্রেক্ষাপট হিসেবে একটি বিশেষ বা কঠিন পরিস্থিতি নির্দেশ করে।" },
+                        connection: ["名詞＋にあって"],
+                        examples: [
+                            { jp: "この困難な時代にあって、私たちは何を大切にすべきか。", reading: "このこんなんなじだいにあって、わたしたちはなにをたいせつにすべきか。", en: "In these difficult times, what should we value?" },
+                            { jp: "非常時にあっても、彼は冷静さを失わなかった。", reading: "ひじょうじにあっても、かれはれいせいさをうしなわなかった。", en: "Even in an emergency situation, he did not lose his composure." },
+                            { jp: "情報化社会にあって、正しい知識を見極める力が求められる。", reading: "じょうほうかしゃかいにあって、ただしいちしきをみきわめるちからがもとめられる。", en: "In an information society, the ability to discern correct knowledge is required." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とあれば",
+                        meanings: { en: "If it's the case that / given that — given a particular condition, one is prepared to act decisively.", bn: "যদি এমনটা হয় / এই পরিস্থিতিতে — একটি নির্দিষ্ট শর্ত থাকলে কেউ দৃঢ়ভাবে কাজ করতে প্রস্তুত তা প্রকাশ করে।" },
+                        connection: ["名詞＋とあれば", "普通形＋とあれば"],
+                        examples: [
+                            { jp: "子供のためとあれば、どんな苦労も惜しまない。", reading: "こどものためとあれば、どんなくろうもおしまない。", en: "If it's for my child's sake, I won't spare any effort." },
+                            { jp: "社長の命令とあれば、従うしかない。", reading: "しゃちょうのめいれいとあれば、したがうしかない。", en: "If it's an order from the president, there's no choice but to follow it." },
+                            { jp: "必要とあれば、いつでもお手伝いします。", reading: "ひつようとあれば、いつでもおてつだいします。", en: "If it's necessary, I'll help anytime." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "prohibition-no-need",
+                title: "Prohibition & No Need",
+                items: [
+                    {
+                        pattern: "〜べからず",
+                        meanings: { en: "Must not — a classical, formal prohibition often seen on written signs and notices.", bn: "করা নিষেধ — একটি শাস্ত্রীয়, আনুষ্ঠানিক নিষেধাজ্ঞা যা প্রায়ই লিখিত সাইনবোর্ড ও নোটিশে দেখা যায়।" },
+                        connection: ["動詞（辞書形）＋べからず"],
+                        examples: [
+                            { jp: "この花を折るべからず。", reading: "このはなをおるべからず。", en: "Do not pick these flowers." },
+                            { jp: "初心忘るべからず。", reading: "しょしんわするべからず。", en: "One must not forget one's original resolve." },
+                            { jp: "芝生に入るべからず。", reading: "しばふにはいるべからず。", en: "Do not step on the lawn." }
+                        ]
+                    },
+                    {
+                        pattern: "〜までもない",
+                        meanings: { en: "There's no need to go so far as to — an action, while possible, is unnecessary because the matter is obvious or minor.", bn: "এতটা করার প্রয়োজন নেই — একটি কাজ সম্ভব হলেও তা অপ্রয়োজনীয় কারণ বিষয়টি স্পষ্ট বা ছোট।" },
+                        connection: ["動詞（辞書形）＋までもない"],
+                        examples: [
+                            { jp: "わざわざ説明するまでもなく、誰でも分かることだ。", reading: "わざわざせつめいするまでもなく、だれでもわかることだ。", en: "There's no need to even explain it; anyone can understand." },
+                            { jp: "言うまでもなく、健康が一番大切だ。", reading: "いうまでもなく、けんこうがいちばんたいせつだ。", en: "Needless to say, health is the most important thing." },
+                            { jp: "確認するまでもなく、彼は正しいとわかっていた。", reading: "かくにんするまでもなく、かれはただしいとわかっていた。", en: "Without even needing to check, I knew he was right." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に(は)あたらない",
+                        meanings: { en: "It's not warranted to / there's no need to — rejects a reaction such as surprise, praise, or blame as excessive for the situation.", bn: "প্রয়োজন নেই / যুক্তিসঙ্গত নয় — বিস্ময়, প্রশংসা বা দোষের মতো প্রতিক্রিয়াকে পরিস্থিতির জন্য অতিরিক্ত বলে প্রত্যাখ্যান করে।" },
+                        connection: ["動詞（辞書形）＋に（は）あたらない", "名詞＋に（は）あたらない"],
+                        examples: [
+                            { jp: "彼が合格したのは当然で、驚くにはあたらない。", reading: "かれがごうかくしたのはとうぜんで、おどろくにはあたらない。", en: "It's natural that he passed; there's no need to be surprised." },
+                            { jp: "彼女の行動は非難するにはあたらない。", reading: "かのじょのこうどうはひなんするにはあたらない。", en: "Her actions don't warrant criticism." },
+                            { jp: "これくらいの失敗は、問題にするにはあたらない。", reading: "これくらいのしっぱいは、もんだいにするにはあたらない。", en: "A mistake this small doesn't warrant being made into a problem." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "sufficiency-worth",
+                title: "Sufficiency & Worth",
+                items: [
+                    {
+                        pattern: "〜に足る／〜に足りない",
+                        reading: "〜にたる／〜にたりない",
+                        meanings: { en: "Worthy of / sufficient to... (or not) — judges whether something meets a standard high enough to deserve a certain treatment.", bn: "যোগ্য / পর্যাপ্ত (বা নয়) — কোনো কিছু একটি নির্দিষ্ট মানদণ্ড পূরণ করে কিনা তা বিচার করে।" },
+                        connection: ["動詞（辞書形）＋に足る／に足りない", "名詞＋に足る／に足りない"],
+                        examples: [
+                            { jp: "彼は信頼に足る人物だ。", reading: "かれはしんらいにたるじんぶつだ。", en: "He is a person worthy of trust." },
+                            { jp: "この計画は実行するに足る根拠がない。", reading: "このけいかくはじっこうするにたるこんきょがない。", en: "This plan lacks sufficient grounds to be carried out." },
+                            { jp: "彼の説明は納得するに足りないものだった。", reading: "かれのせつめいはなっとくするにたりないものだった。", en: "His explanation was not convincing enough." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にかたくない",
+                        meanings: { en: "Easy to (imagine/understand) — something, such as imagining a feeling, requires little effort to do given the situation.", bn: "সহজেই (অনুমান/বোঝা) যায় — পরিস্থিতি বিবেচনায় কোনো কিছু করতে সামান্যই প্রচেষ্টা প্রয়োজন তা বলে।" },
+                        connection: ["動詞（辞書形）＋にかたくない"],
+                        examples: [
+                            { jp: "彼女の悲しみは想像にかたくない。", reading: "かのじょのかなしみはそうぞうにかたくない。", en: "It's easy to imagine her sadness." },
+                            { jp: "両親の心配は察するにかたくない。", reading: "りょうしんのしんぱいはさっするにかたくない。", en: "It's not hard to guess how worried the parents are." },
+                            { jp: "彼がどれほど努力したか、理解にかたくない。", reading: "かれがどれほどどりょくしたか、りかいにかたくない。", en: "It's easy to understand how much effort he put in." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に値する",
+                        reading: "〜にあたいする",
+                        meanings: { en: "Worth / deserving of — something has enough value or merit to deserve a particular evaluation or action.", bn: "মূল্যবান / যোগ্য — কোনো কিছুর একটি নির্দিষ্ট মূল্যায়ন বা কাজের যোগ্য হওয়ার মতো যথেষ্ট মূল্য বা যোগ্যতা আছে তা বলে।" },
+                        connection: ["動詞（辞書形）＋に値する", "名詞＋に値する"],
+                        examples: [
+                            { jp: "彼の功績は称賛に値する。", reading: "かれのこうせきはしょうさんにあたいする。", en: "His achievements deserve praise." },
+                            { jp: "この映画は一度見るに値する。", reading: "このえいがはいちどみるにあたいする。", en: "This movie is worth watching at least once." },
+                            { jp: "その提案は検討に値するものだ。", reading: "そのていあんはけんとうにあたいするものだ。", en: "That proposal is worth considering." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "limitation-exception-advanced",
+                title: "Advanced Limitation & Exception",
+                items: [
+                    {
+                        pattern: "〜をおいて他に〜ない",
+                        reading: "〜をおいてほかに〜ない",
+                        meanings: { en: "Except for / other than — emphasizes that nothing else could possibly be as suitable as the thing mentioned.", bn: "ছাড়া অন্য কিছু নয় — উল্লেখিত বিষয়টির মতো উপযুক্ত আর কিছু হতে পারে না তা জোর দিয়ে বলে।" },
+                        connection: ["名詞＋をおいて他に〜ない"],
+                        examples: [
+                            { jp: "このチームを率いられるのは、彼をおいて他にいない。", reading: "このチームをひきいられるのは、かれをおいてほかにいない。", en: "There is no one other than him who can lead this team." },
+                            { jp: "この仕事を任せられる人は、彼女をおいて他にいないだろう。", reading: "このしごとをまかせられるひとは、かのじょをおいてほかにいないだろう。", en: "There is probably no one other than her to whom this job can be entrusted." },
+                            { jp: "日本の美を代表する山は、富士山をおいて他にないだろう。", reading: "にほんのびをだいひょうするやまは、ふじさんをおいてほかにないだろう。", en: "There is probably no mountain other than Mt. Fuji that represents Japan's beauty." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ならでは",
+                        meanings: { en: "Uniquely possible because of / only possible due to — highlights that something could only happen because of a particular person, place, or thing.", bn: "একমাত্র এর কারণেই সম্ভব — কোনো কিছু বিশেষ এবং একটি নির্দিষ্ট ব্যক্তি, স্থান বা বিষয়ের কারণেই ঘটতে পারে তা তুলে ধরে।" },
+                        connection: ["名詞＋ならでは（の＋名詞）"],
+                        examples: [
+                            { jp: "これは京都ならではの風景だ。", reading: "これはきょうとならではのふうけいだ。", en: "This is a scenery that is only possible in Kyoto." },
+                            { jp: "このサービスは、この店ならではのものだ。", reading: "このサービスは、このみせならではのものだ。", en: "This service is something unique to this shop." },
+                            { jp: "子供ならではの発想に、大人たちは驚いた。", reading: "こどもならではのはっそうに、おとなたちはおどろいた。", en: "The adults were surprised by an idea that only a child could come up with." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にとどまらず",
+                        meanings: { en: "Not limited to / extending beyond — the scope or effect of something is wider than just the initial point mentioned.", bn: "সীমাবদ্ধ নয় / বিস্তৃত — কোনো কিছুর পরিসর বা প্রভাব শুধু উল্লেখিত প্রাথমিক বিষয়ের চেয়ে বিস্তৃত তা নির্দেশ করে।" },
+                        connection: ["名詞＋にとどまらず"],
+                        examples: [
+                            { jp: "その影響は日本国内にとどまらず、世界中に広がった。", reading: "そのえいきょうはにほんこくないにとどまらず、せかいじゅうにひろがった。", en: "The effect was not limited to within Japan but spread all over the world." },
+                            { jp: "彼の活動は音楽にとどまらず、映画制作にも及んでいる。", reading: "かれのかつどうはおんがくにとどまらず、えいがせいさくにもおよんでいる。", en: "His activities are not limited to music but extend to filmmaking as well." },
+                            { jp: "問題は経済面にとどまらず、社会全体に広がっている。", reading: "もんだいはけいざいめんにとどまらず、しゃかいぜんたいにひろがっている。", en: "The problem is not limited to the economic aspect but has spread throughout society." }
+                        ]
+                    },
+                    {
+                        pattern: "〜はおろか",
+                        meanings: { en: "Let alone / not to mention — presents an extreme example to emphasize that even a lesser case is also not met.", bn: "তো দূরের কথা / উল্লেখই করা যায় না — একটি চরম উদাহরণ উপস্থাপন করে জোর দেয় যে এর চেয়ে কম কিছুও পূরণ হয় না।" },
+                        connection: ["名詞＋はおろか"],
+                        examples: [
+                            { jp: "漢字はおろか、ひらがなも読めない。", reading: "かんじはおろか、ひらがなもよめない。", en: "Let alone kanji, I can't even read hiragana." },
+                            { jp: "彼は海外旅行はおろか、国内旅行さえしたことがない。", reading: "かれはかいがいりょこうはおろか、こくないりょこうさえしたことがない。", en: "Let alone traveling abroad, he hasn't even traveled domestically." },
+                            { jp: "給料が上がることはおろか、下がる一方だ。", reading: "きゅうりょうがあがることはおろか、さがるいっぽうだ。", en: "Far from rising, my salary just keeps falling." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "addition-concurrent-action",
+                title: "Addition & Concurrent Action",
+                items: [
+                    {
+                        pattern: "〜はさておき",
+                        meanings: { en: "Setting aside / leaving aside — moves on from one topic to focus attention on another, more pressing one.", bn: "একপাশে রেখে / বাদ দিয়ে — একটি বিষয় থেকে সরে এসে আরেকটি, বেশি গুরুত্বপূর্ণ বিষয়ের দিকে মনোযোগ দেয়।" },
+                        connection: ["名詞＋はさておき"],
+                        examples: [
+                            { jp: "冗談はさておき、本題に入りましょう。", reading: "じょうだんはさておき、ほんだいにはいりましょう。", en: "Jokes aside, let's get to the main topic." },
+                            { jp: "細かいことはさておき、まずは全体の計画を決めよう。", reading: "こまかいことはさておき、まずはぜんたいのけいかくをきめよう。", en: "Setting aside the details, let's first decide on the overall plan." },
+                            { jp: "その話はさておき、今日の会議の目的を確認したい。", reading: "そのはなしはさておき、きょうのかいぎのもくてきをかくにんしたい。", en: "Setting that story aside, I'd like to confirm today's meeting objective." }
+                        ]
+                    },
+                    {
+                        pattern: "〜かたがた",
+                        meanings: { en: "While also / on the occasion of — a formal expression that one action is done together with another, usually as a greeting or courtesy.", bn: "একই সাথে / উপলক্ষে — একটি আনুষ্ঠানিক প্রকাশভঙ্গি যা একটি কাজ অন্য একটির সাথে একসাথে করা হয়, সাধারণত শুভেচ্ছা বা সৌজন্য হিসেবে।" },
+                        connection: ["名詞＋かたがた"],
+                        examples: [
+                            { jp: "お礼のご挨拶かたがた、お伺いいたしました。", reading: "おれいのごあいさつかたがた、おうかがいいたしました。", en: "I came to visit both to pay my respects and to say thank you." },
+                            { jp: "ご報告かたがた、お詫びに参りました。", reading: "ごほうこくかたがた、おわびにまいりました。", en: "I have come both to report and to apologize." },
+                            { jp: "お見舞いかたがた、近況を伺いました。", reading: "おみまいかたがた、きんきょうをうかがいました。", en: "I visited to inquire after his health and also to hear how he's been." }
+                        ]
+                    },
+                    {
+                        pattern: "〜かたわら",
+                        meanings: { en: "While also doing / besides one's main activity — a secondary activity carried out alongside one's main occupation.", bn: "পাশাপাশি করা / মূল কাজের পাশাপাশি — মূল পেশার পাশাপাশি পরিচালিত একটি দ্বিতীয় কার্যক্রম বর্ণনা করে।" },
+                        connection: ["動詞（辞書形）＋かたわら", "名詞の＋かたわら"],
+                        examples: [
+                            { jp: "彼は会社員として働くかたわら、小説を書いている。", reading: "かれはかいしゃいんとしてはたらくかたわら、しょうせつをかいている。", en: "While working as a company employee, he also writes novels." },
+                            { jp: "彼女は大学で教えるかたわら、研究も続けている。", reading: "かのじょはだいがくでおしえるかたわら、けんきゅうもつづけている。", en: "While teaching at university, she also continues her research." },
+                            { jp: "家業のかたわら、地域活動にも積極的に参加している。", reading: "かぎょうのかたわら、ちいきかつどうにもせっきょくてきにさんかしている。", en: "Alongside the family business, he also actively participates in community activities." }
+                        ]
+                    },
+                    {
+                        pattern: "〜がてら",
+                        meanings: { en: "While / on the way doing something else — combines a main errand with another convenient activity done at the same time.", bn: "এর ফাঁকে / যাওয়ার পথে — একটি মূল কাজের সাথে একই সময়ে করা আরেকটি সুবিধাজনক কাজকে একত্রিত করে।" },
+                        connection: ["動詞（ます形語幹）＋がてら", "名詞＋がてら"],
+                        examples: [
+                            { jp: "散歩がてら、コンビニに寄った。", reading: "さんぽがてら、コンビニによった。", en: "While out for a walk, I stopped by the convenience store." },
+                            { jp: "買い物に行きがてら、友達の家に顔を出した。", reading: "かいものにいきがてら、ともだちのいえにかおをだした。", en: "On the way to go shopping, I dropped by my friend's house." },
+                            { jp: "観光がてら、地元のおいしい店を探してみた。", reading: "かんこうがてら、じもとのおいしいみせをさがしてみた。", en: "While sightseeing, I looked for good local restaurants." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "manner-state-advanced",
+                title: "Advanced Manner & State",
+                items: [
+                    {
+                        pattern: "〜なりに",
+                        meanings: { en: "In one's own way / to the extent of — acknowledges one's limitations while showing an appropriate effort within them.", bn: "নিজের মতো করে / যতটুকু সম্ভব — নিজের সীমাবদ্ধতা স্বীকার করে দেখায় যে তার মধ্যেই যথাসাধ্য চেষ্টা করা হয়েছে।" },
+                        connection: ["名詞＋なりに"],
+                        examples: [
+                            { jp: "子供なりに、一生懸命考えて答えを出した。", reading: "こどもなりに、いっしょうけんめいかんがえてこたえをだした。", en: "In his own childlike way, he thought hard and came up with an answer." },
+                            { jp: "私なりに最善を尽くしたつもりです。", reading: "わたしなりにさいぜんをつくしたつもりです。", en: "I believe I did my best in my own way." },
+                            { jp: "それぞれが自分なりに努力している。", reading: "それぞれがじぶんなりにどりょくしている。", en: "Each person is making an effort in their own way." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ながらに(して)",
+                        meanings: { en: "In the state of / as being — a certain quality or state has existed continuously since a particular point, such as birth.", bn: "অবস্থায় / থাকা অবস্থায় — জন্মের মতো একটি নির্দিষ্ট সময় থেকে একটি গুণ বা অবস্থা অব্যাহতভাবে বিদ্যমান তা নির্দেশ করে।" },
+                        connection: ["名詞＋ながらに（して）"],
+                        examples: [
+                            { jp: "彼は生まれながらにして、音楽の才能を持っていた。", reading: "かれはうまれながらにして、おんがくのさいのうをもっていた。", en: "He was born with musical talent." },
+                            { jp: "彼女は涙ながらに、当時の苦しみを語った。", reading: "かのじょはなみだながらに、とうじのくるしみをかたった。", en: "With tears in her eyes, she spoke of the suffering she experienced at that time." },
+                            { jp: "生まれながらの才能だけでは、成功できない。", reading: "うまれながらのさいのうだけでは、せいこうできない。", en: "With innate talent alone, one cannot succeed." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とばかりに",
+                        meanings: { en: "As if to say / as though — an action performed with such force or clarity that it seems to make an unspoken statement.", bn: "যেন বলার জন্য / যেন — এমন শক্তি বা স্পষ্টতার সাথে একটি কাজ করা হয় যে মনে হয় এটি একটি অকথিত বিবৃতি দিচ্ছে।" },
+                        connection: ["引用句＋とばかりに"],
+                        examples: [
+                            { jp: "彼はこれでいいだろうとばかりに、仕事を終わらせた。", reading: "かれはこれでいいだろうとばかりに、しごとをおわらせた。", en: "As if to say \"this should be fine,\" he finished the job." },
+                            { jp: "待っていましたとばかりに、彼女は飛び出してきた。", reading: "まっていましたとばかりに、かのじょはとびだしてきた。", en: "As if she had been waiting for this moment, she came rushing out." },
+                            { jp: "チャンスだとばかりに、彼は一気に攻め込んだ。", reading: "チャンスだとばかりに、かれはいっきにせめこんだ。", en: "As if to say \"this is my chance,\" he attacked all at once." }
+                        ]
+                    },
+                    {
+                        pattern: "〜まみれ",
+                        meanings: { en: "Covered in / smeared with — entirely covered by something dirty, sticky, or unpleasant.", bn: "আবৃত / মাখা — কোনো নোংরা, আঠালো বা অপ্রীতিকর বস্তু দ্বারা সম্পূর্ণভাবে আবৃত থাকা বর্ণনা করে।" },
+                        connection: ["名詞＋まみれ"],
+                        examples: [
+                            { jp: "工事現場で働く彼は、いつも汗まみれだ。", reading: "こうじげんばではたらくかれは、いつもあせまみれだ。", en: "He, who works at the construction site, is always covered in sweat." },
+                            { jp: "子供は泥まみれになって遊んでいた。", reading: "こどもはどろまみれになってあそんでいた。", en: "The children were playing, completely covered in mud." },
+                            { jp: "あの会社は借金まみれで、倒産寸前だ。", reading: "あのかいしゃはしゃっきんまみれで、とうさんすんぜんだ。", en: "That company is buried in debt and on the verge of bankruptcy." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "compulsion-state",
+                title: "Compulsion & Saturated State",
+                items: [
+                    {
+                        pattern: "〜ずくめ",
+                        meanings: { en: "Full of / nothing but — a situation is filled entirely with one particular kind of thing, often something positive.", bn: "পূর্ণ / শুধু তাই — একটি পরিস্থিতি সম্পূর্ণভাবে একটি নির্দিষ্ট জিনিসে পূর্ণ, প্রায়ই ইতিবাচক কিছু তা প্রকাশ করে।" },
+                        connection: ["名詞＋ずくめ"],
+                        examples: [
+                            { jp: "今年はいいことずくめだった。", reading: "こんねんはいいことずくめだった。", en: "This year was full of good things." },
+                            { jp: "彼女はいつも黒ずくめの服を着ている。", reading: "かのじょはいつもくろずくめのふくをきている。", en: "She always wears clothes that are entirely black." },
+                            { jp: "結婚、出産、昇進と、今年はめでたいことずくめだ。", reading: "けっこん、しゅっさん、しょうしんと、こんねんはめでたいことずくめだ。", en: "Marriage, childbirth, promotion — this year has been nothing but happy events." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ずにはすまない",
+                        meanings: { en: "Cannot get away without doing — a certain action is socially or morally unavoidable given the circumstances.", bn: "না করে ছাড় পাওয়া যায় না — পরিস্থিতি বিবেচনায় একটি নির্দিষ্ট কাজ সামাজিক বা নৈতিকভাবে অনিবার্য তা বলে।" },
+                        connection: ["動詞（ない形）＋ずにはすまない"],
+                        examples: [
+                            { jp: "こんな失敗をしたら、上司に報告せずにはすまない。", reading: "こんなしっぱいをしたら、じょうしにほうこくせずにはすまない。", en: "If I make a mistake like this, I can't avoid reporting it to my boss." },
+                            { jp: "彼を傷つけてしまった以上、謝らずにはすまない。", reading: "かれをきずつけてしまったいじょう、あやまらずにはすまない。", en: "Since I've hurt him, I can't get away without apologizing." },
+                            { jp: "約束を破ったのだから、何か償いをせずにはすまないだろう。", reading: "やくそくをやぶったのだから、なにかつぐないをせずにはすまないだろう。", en: "Since I broke my promise, I probably can't avoid making some kind of amends." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を禁じ得ない",
+                        reading: "〜をきんじえない",
+                        meanings: { en: "Cannot help but feel — describes an emotional reaction, usually negative, that one cannot suppress.", bn: "অনুভূতি দমন করতে পারে না — একটি মানসিক প্রতিক্রিয়া, সাধারণত নেতিবাচক, যা দমন করা যায় না তা বর্ণনা করে।" },
+                        connection: ["名詞＋を禁じ得ない"],
+                        examples: [
+                            { jp: "その悲惨な光景に、涙を禁じ得なかった。", reading: "そのひさんなこうけいに、なみだをきんじえなかった。", en: "I couldn't help but shed tears at that tragic sight." },
+                            { jp: "彼の無責任な態度には、怒りを禁じ得ない。", reading: "かれのむせきにんなたいどには、いかりをきんじえない。", en: "I cannot help but feel angry at his irresponsible attitude." },
+                            { jp: "被害者たちの話を聞いて、同情を禁じ得なかった。", reading: "ひがいしゃたちのはなしをきいて、どうじょうをきんじえなかった。", en: "Hearing the victims' stories, I couldn't help but feel sympathy." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "forced-circumstance",
+                title: "Forced Circumstance",
+                items: [
+                    {
+                        pattern: "〜を余儀なくされる",
+                        reading: "〜をよぎなくされる",
+                        meanings: { en: "Be forced to / have no choice but to — being compelled, by circumstances beyond one's control, to take an unwanted action.", bn: "বাধ্য হওয়া — নিয়ন্ত্রণের বাইরের পরিস্থিতির কারণে একটি অনাকাঙ্ক্ষিত কাজ করতে বাধ্য হওয়া বর্ণনা করে।" },
+                        connection: ["名詞＋を余儀なくされる"],
+                        examples: [
+                            { jp: "大雪のため、イベントは中止を余儀なくされた。", reading: "おおゆきのため、イベントはちゅうしをよぎなくされた。", en: "Due to the heavy snow, the event was forced to be cancelled." },
+                            { jp: "会社の経営悪化により、多くの社員が退職を余儀なくされた。", reading: "かいしゃのけいえいあっかにより、おおくのしゃいんがたいしょくをよぎなくされた。", en: "Due to the company's worsening management, many employees were forced to resign." },
+                            { jp: "台風の影響で、工事の延期を余儀なくされた。", reading: "たいふうのえいきょうで、こうじのえんきをよぎなくされた。", en: "Due to the typhoon's impact, the construction was forced to be postponed." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を強いられる",
+                        reading: "〜をしいられる",
+                        meanings: { en: "Be compelled / forced to — being forced by another's power or by circumstances to do something against one's will.", bn: "বাধ্য করা হয় — অন্যের ক্ষমতা বা পরিস্থিতির কারণে ইচ্ছার বিরুদ্ধে কিছু করতে বাধ্য করা হয় তা প্রকাশ করে।" },
+                        connection: ["名詞＋を強いられる"],
+                        examples: [
+                            { jp: "戦争によって、多くの人々が避難生活を強いられた。", reading: "せんそうによって、おおくのひとびとがひなんせいかつをしいられた。", en: "Due to the war, many people were forced into life as refugees." },
+                            { jp: "厳しい競争の中で、企業は価格の見直しを強いられている。", reading: "きびしいきょうそうのなかで、きぎょうはかかくのみなおしをしいられている。", en: "Amid fierce competition, companies are being forced to review their prices." },
+                            { jp: "彼は不利な条件での契約を強いられた。", reading: "かれはふりなじょうけんでのけいやくをしいられた。", en: "He was forced into a contract under unfavorable conditions." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ずにはおかない",
+                        meanings: { en: "Will definitely (happen/make happen) — something naturally and inevitably brings about a certain effect, often an emotional reaction.", bn: "অবশ্যই ঘটাবে — কোনো কিছু স্বাভাবিকভাবে এবং অনিবার্যভাবে একটি নির্দিষ্ট প্রভাব, প্রায়ই একটি মানসিক প্রতিক্রিয়া, নিয়ে আসে তা বলে।" },
+                        connection: ["動詞（ない形）＋ずにはおかない"],
+                        examples: [
+                            { jp: "彼の演技は観客を感動させずにはおかなかった。", reading: "かれのえんぎはかんきゃくをかんどうさせずにはおかなかった。", en: "His performance was bound to move the audience." },
+                            { jp: "この事件は社会に大きな影響を与えずにはおかないだろう。", reading: "このじけんはしゃかいにおおきなえいきょうをあたえずにはおかないだろう。", en: "This incident is bound to have a major impact on society." },
+                            { jp: "その美しい景色は人々を驚かせずにはおかない。", reading: "そのうつくしいけしきはひとびとをおどろかせずにはおかない。", en: "That beautiful scenery never fails to amaze people." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "quotation-appearance-advanced",
+                title: "Advanced Quotation & Appearance",
+                items: [
+                    {
+                        pattern: "〜と言わんばかりに",
+                        reading: "〜といわんばかりに",
+                        meanings: { en: "As if to say / as though saying — a clear, almost explicit, non-verbal expression of an unspoken thought.", bn: "যেন বলার মতো — একটি স্পষ্ট, প্রায় সুনির্দিষ্ট, অকথিত চিন্তার অ-মৌখিক প্রকাশ বর্ণনা করে।" },
+                        connection: ["引用句＋と言わんばかりに"],
+                        examples: [
+                            { jp: "もう帰れと言わんばかりに、彼は時計を何度も見た。", reading: "もうかえれといわんばかりに、かれはとけいをなんどもみた。", en: "As if to say \"go home already,\" he kept glancing at the clock." },
+                            { jp: "それは私の責任ではないと言わんばかりの態度だった。", reading: "それはわたしのせきにんではないといわんばかりのたいどだった。", en: "It was an attitude as if to say \"that's not my responsibility.\"" },
+                            { jp: "彼女は信じられないと言わんばかりに目を見開いた。", reading: "かのじょはしんじられないといわんばかりにめをみひらいた。", en: "As if to say \"I can't believe it,\" she opened her eyes wide." }
+                        ]
+                    },
+                    {
+                        pattern: "〜と思いきや",
+                        reading: "〜とおもいきや",
+                        meanings: { en: "Thought that..., but contrary to expectation — an expected outcome turned out to be different from reality.", bn: "ভেবেছিলাম যে..., কিন্তু প্রত্যাশার বিপরীতে — একটি প্রত্যাশিত ফলাফল বাস্তবতা থেকে ভিন্ন হয়েছে তা প্রকাশ করে।" },
+                        connection: ["普通形＋と思いきや"],
+                        examples: [
+                            { jp: "今日は晴れると思いきや、急に雨が降り出した。", reading: "きょうははれるとおもいきや、きゅうにあめがふりだした。", en: "I thought it would be sunny today, but it suddenly started raining." },
+                            { jp: "試合は楽勝だと思いきや、思わぬ苦戦を強いられた。", reading: "しあいはらくしょうだとおもいきや、おもわぬくせんをしいられた。", en: "I thought the match would be an easy win, but we were forced into an unexpected hard fight." },
+                            { jp: "彼は反対すると思いきや、意外にも賛成してくれた。", reading: "かれははんたいするとおもいきや、いがいにもさんせいしてくれた。", en: "I thought he would oppose it, but surprisingly, he agreed." }
+                        ]
+                    },
+                    {
+                        pattern: "〜んばかりに",
+                        meanings: { en: "As if about to / almost to the point of — a state or action on the very verge of happening, emphasized through exaggeration.", bn: "যেন ঘটতেই যাচ্ছে / প্রায় সেই পর্যায়ে — একটি অবস্থা বা কাজ যা ঘটার ঠিক প্রান্তে আছে, অতিশয়োক্তির মাধ্যমে জোর দেওয়া হয়।" },
+                        connection: ["動詞（ない形）＋んばかりに"],
+                        examples: [
+                            { jp: "彼女は泣き出さんばかりの顔をしていた。", reading: "かのじょはなきださんばかりのかおをしていた。", en: "She had a face as if she was about to burst into tears." },
+                            { jp: "彼は飛び上がらんばかりに驚いた。", reading: "かれはとびあがらんばかりにおどろいた。", en: "He was so surprised he looked as if he was about to jump up." },
+                            { jp: "会場は割れんばかりの拍手に包まれた。", reading: "かいじょうはわれんばかりのはくしゅにつつまれた。", en: "The venue was enveloped in applause so loud it seemed as if it would split the place apart." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "judgment-evaluation-advanced",
+                title: "Advanced Judgment & Evaluation",
+                items: [
+                    {
+                        pattern: "〜に越したことはない",
+                        reading: "〜にこしたことはない",
+                        meanings: { en: "It's best if / nothing is better than — recommends an ideal course of action while acknowledging it isn't strictly necessary.", bn: "সবচেয়ে ভালো হয় যদি — একটি আদর্শ পথ সুপারিশ করে, যদিও তা কঠোরভাবে প্রয়োজনীয় নয় তা স্বীকার করে।" },
+                        connection: ["普通形＋に越したことはない"],
+                        examples: [
+                            { jp: "お金はたくさんあるに越したことはない。", reading: "おかねはたくさんあるにこしたことはない。", en: "It's best to have as much money as possible." },
+                            { jp: "準備は早いに越したことはない。", reading: "じゅんびははやいにこしたことはない。", en: "It's best to prepare as early as possible." },
+                            { jp: "健康のためには、無理をしないに越したことはない。", reading: "けんこうのためには、むりをしないにこしたことはない。", en: "For your health, it's best not to overdo it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜きらいがある",
+                        meanings: { en: "Tend to / have a tendency toward — a recurring negative tendency in someone's behavior or in a general situation.", bn: "প্রবণতা থাকে — কারো আচরণে বা সাধারণ পরিস্থিতিতে একটি পুনরাবৃত্ত নেতিবাচক প্রবণতা নির্দেশ করে।" },
+                        connection: ["動詞（辞書形）＋きらいがある", "名詞の＋きらいがある"],
+                        examples: [
+                            { jp: "彼は物事を大げさに言うきらいがある。", reading: "かれはものごとをおおげさにいうきらいがある。", en: "He has a tendency to exaggerate things." },
+                            { jp: "この資料は、データが古いきらいがある。", reading: "このしりょうは、データがふるいきらいがある。", en: "This material has a tendency to use outdated data." },
+                            { jp: "若い世代は、すぐに結果を求めるきらいがある。", reading: "わかいせだいは、すぐにけっかをもとめるきらいがある。", en: "The younger generation tends to seek results too quickly." }
+                        ]
+                    },
+                    {
+                        pattern: "〜でなくてなんだろう",
+                        meanings: { en: "If this isn't X, what is — a rhetorical way of strongly asserting that something is precisely a given thing.", bn: "এটা যদি X না হয়, তাহলে কী — কোনো কিছু ঠিক একটি নির্দিষ্ট বিষয় তা দৃঢ়ভাবে প্রকাশের একটি অলংকারিক উপায়।" },
+                        connection: ["名詞＋でなくてなんだろう"],
+                        examples: [
+                            { jp: "これが愛でなくてなんだろう。", reading: "これがあいでなくてなんだろう。", en: "If this isn't love, what is?" },
+                            { jp: "命をかけて人を救う。これが勇気でなくてなんだろう。", reading: "いのちをかけてひとをすくう。これがゆうきでなくてなんだろう。", en: "Risking one's life to save someone — if this isn't courage, what is?" },
+                            { jp: "彼の行動は裏切りでなくてなんだろう。", reading: "かれのこうどうはうらぎりでなくてなんだろう。", en: "If his actions aren't betrayal, what are they?" }
+                        ]
+                    },
+                    {
+                        pattern: "〜までだ",
+                        meanings: { en: "That's all there is to it / simply — a simple, resigned course of action as the natural conclusion, with nothing more to add.", bn: "তাতেই শেষ / কেবল — একটি সহজ, মেনে নেওয়া পথকে স্বাভাবিক সিদ্ধান্ত হিসেবে বলে, যার বেশি কিছু বলার নেই।" },
+                        connection: ["動詞（辞書形）＋までだ"],
+                        examples: [
+                            { jp: "誰も手伝ってくれないなら、一人でやるまでだ。", reading: "だれもてつだってくれないなら、ひとりでやるまでだ。", en: "If no one will help me, then I'll simply do it alone." },
+                            { jp: "失敗したら、もう一度挑戦するまでだ。", reading: "しっぱいしたら、もういちどちょうせんするまでだ。", en: "If I fail, I'll simply try again." },
+                            { jp: "これでだめなら、諦めるまでのことだ。", reading: "これでだめなら、あきらめるまでのことだ。", en: "If this doesn't work, then I'll simply give up." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "will-determination-advanced",
+                title: "Advanced Will & Determination",
+                items: [
+                    {
+                        pattern: "〜てやまない",
+                        meanings: { en: "Never ceasing to / continually — a formal expression for a strong, ongoing feeling, especially hope or respect, that doesn't fade.", bn: "অবিরাম / ক্রমাগত — একটি দৃঢ়, অব্যাহত অনুভূতি, বিশেষত আশা বা সম্মান, যা কমে না তা প্রকাশের একটি আনুষ্ঠানিক উপায়।" },
+                        connection: ["動詞（て形）＋やまない"],
+                        examples: [
+                            { jp: "皆様のご健康とご活躍を願ってやみません。", reading: "みなさまのごけんこうとごかつやくをねがってやみません。", en: "I sincerely wish, without ceasing, for everyone's health and success." },
+                            { jp: "彼女は祖国の平和を愛してやまなかった。", reading: "かのじょはそこくのへいわをあいしてやまなかった。", en: "She never ceased to love the peace of her homeland." },
+                            { jp: "先生のご指導に感謝してやみません。", reading: "せんせいのごしどうにかんしゃしてやみません。", en: "I am forever grateful for my teacher's guidance." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てはばからない",
+                        meanings: { en: "Unhesitatingly / without reservation — saying or doing something boldly, without fear of criticism.", bn: "দ্বিধাহীনভাবে / কোনো সংরক্ষণ ছাড়া — সমালোচনার ভয় ছাড়া সাহসের সাথে কিছু বলা বা করা বর্ণনা করে।" },
+                        connection: ["動詞（て形）＋はばからない"],
+                        examples: [
+                            { jp: "彼は自分が一番優秀だと言ってはばからない。", reading: "かれはじぶんがいちばんゆうしゅうだといってはばからない。", en: "He unhesitatingly says that he himself is the most excellent." },
+                            { jp: "社長はこの計画は必ず成功すると言ってはばからなかった。", reading: "しゃちょうはこのけいかくはかならずせいこうするといってはばからなかった。", en: "The president boldly declared that this plan would definitely succeed." },
+                            { jp: "彼女は批判を恐れず、自分の意見を主張してはばからない。", reading: "かのじょはひはんをおそれず、じぶんのいけんをしゅちょうしてはばからない。", en: "Without fear of criticism, she boldly asserts her own opinion." }
+                        ]
+                    },
+                    {
+                        pattern: "〜まじき",
+                        meanings: { en: "Should not / unbefitting of — a formal expression condemning an action as absolutely inappropriate for someone's position.", bn: "করা উচিত নয় / অনুপযুক্ত — একটি আনুষ্ঠানিক প্রকাশভঙ্গি যা একটি কাজকে কারো পদের জন্য সম্পূর্ণভাবে অনুপযুক্ত বলে নিন্দা করে।" },
+                        connection: ["動詞（辞書形）＋まじき＋名詞"],
+                        examples: [
+                            { jp: "それは教師として許すまじき行為だ。", reading: "それはきょうしとしてゆるすまじきこういだ。", en: "That is an act that cannot be forgiven as a teacher." },
+                            { jp: "公務員にあるまじき発言に、批判が集まった。", reading: "こうむいんにあるまじきはつげんに、ひはんがあつまった。", en: "Criticism gathered over remarks unbefitting a public servant." },
+                            { jp: "これは医者として犯すまじき過ちだ。", reading: "これはいしゃとしておかすまじきあやまちだ。", en: "This is a mistake that a doctor should never make." }
+                        ]
+                    },
+                    {
+                        pattern: "〜べくもない",
+                        meanings: { en: "There's no way to / impossible to — denies the very possibility of an action, often implying the matter is hopeless.", bn: "কোনো উপায়ই নেই / অসম্ভব — একটি কাজের সম্ভাবনাই অস্বীকার করে, প্রায়ই বিষয়টি নিরাশ তা বোঝায়।" },
+                        connection: ["動詞（辞書形）＋べくもない"],
+                        examples: [
+                            { jp: "当時の記録が残っていないため、真相は知るべくもない。", reading: "とうじのきろくがのこっていないため、しんそうはしるべくもない。", en: "Since no records from that time remain, there's no way to know the truth." },
+                            { jp: "一人の力では、この問題を解決するべくもない。", reading: "ひとりのちからでは、このもんだいをかいけつするべくもない。", en: "With just one person's strength, there's no way to solve this problem." },
+                            { jp: "彼の実力は、私などが及ぶべくもない。", reading: "かれのじつりょくは、わたしなどがおよぶべくもない。", en: "His ability is something I could never hope to match." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "purpose-necessity-advanced",
+                title: "Purpose & Necessity",
+                items: [
+                    {
+                        pattern: "〜んがため(に)",
+                        meanings: { en: "In order to / for the purpose of — a classical, literary expression of strong purpose or determination.", bn: "উদ্দেশ্যে / জন্য — দৃঢ় উদ্দেশ্য বা সংকল্পের একটি শাস্ত্রীয়, সাহিত্যিক প্রকাশভঙ্গি।" },
+                        connection: ["動詞（ない形）＋んがため（に）"],
+                        examples: [
+                            { jp: "家族を守らんがために、彼は危険を顧みず戦った。", reading: "かぞくをまもらんがために、かれはきけんをかえりみずたたかった。", en: "In order to protect his family, he fought without regard for danger." },
+                            { jp: "生きんがために、彼らは厳しい環境の中で働いた。", reading: "いきんがために、かれらはきびしいかんきょうのなかではたらいた。", en: "In order to survive, they worked in harsh conditions." },
+                            { jp: "夢を実現せんがために、彼女は全てを捧げた。", reading: "ゆめをじつげんせんがために、かのじょはすべてをささげた。", en: "In order to realize her dream, she dedicated everything." }
+                        ]
+                    },
+                    {
+                        pattern: "〜(よ)うにも〜ない",
+                        meanings: { en: "Even if one tries to / no matter how one tries, cannot — an action is impossible to carry out even if attempted, due to some obstacle.", bn: "চেষ্টা করলেও পারা যায় না — কোনো বাধার কারণে একটি কাজ চেষ্টা করলেও করা অসম্ভব তা বলে।" },
+                        connection: ["動詞（意向形）＋にも＋動詞（可能形のない形）"],
+                        examples: [
+                            { jp: "電話をかけようにも、電波が届かない。", reading: "でんわをかけようにも、でんぱがとどかない。", en: "Even if I try to make a phone call, there's no signal." },
+                            { jp: "逃げようにも、道がふさがっていて逃げられない。", reading: "にげようにも、みちがふさがっていてにげられない。", en: "Even if I try to run away, the road is blocked and I can't." },
+                            { jp: "謝ろうにも、彼はもう電話に出てくれない。", reading: "あやまろうにも、かれはもうでんわにでてくれない。", en: "Even if I try to apologize, he won't answer the phone anymore." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に(は)及ばない",
+                        reading: "〜に(は)およばない",
+                        meanings: { en: "Not as good as / no need to — either one thing does not reach the level of another, or an action is unnecessary.", bn: "সমান নয় / প্রয়োজন নেই — একটি বিষয় অন্যটির স্তরে পৌঁছায় না, অথবা একটি কাজ অপ্রয়োজনীয় তা বলে।" },
+                        connection: ["名詞＋に（は）及ばない", "動詞（辞書形）＋に（は）及ばない"],
+                        examples: [
+                            { jp: "彼の実力は、兄に及ばない。", reading: "かれのじつりょくは、あににおよばない。", en: "His ability does not match up to his older brother's." },
+                            { jp: "ご心配には及びません。もう大丈夫です。", reading: "ごしんぱいにはおよびません。もうだいじょうぶです。", en: "There's no need to worry. I'm already fine." },
+                            { jp: "わざわざお越しいただくには及びません。", reading: "わざわざおこしいただくにはおよびません。", en: "There's no need for you to go out of your way to come." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なしに(は)",
+                        meanings: { en: "Without — without the stated thing, a certain action cannot be taken or the following outcome won't occur.", bn: "ছাড়া — উল্লেখিত বিষয়টি ছাড়া একটি নির্দিষ্ট কাজ করা যায় না বা পরবর্তী ফলাফল ঘটবে না তা বলে।" },
+                        connection: ["名詞＋なしに（は）"],
+                        examples: [
+                            { jp: "許可なしに、この部屋に入ってはいけない。", reading: "きょかなしに、このへやにはいってはいけない。", en: "You must not enter this room without permission." },
+                            { jp: "彼は何の説明もなしに、突然会社を辞めた。", reading: "かれはなんのせつめいもなしに、とつぜんかいしゃをやめた。", en: "Without any explanation at all, he suddenly quit the company." },
+                            { jp: "練習なしには、本番でうまく演奏することはできない。", reading: "れんしゅうなしには、ほんばんでうまくえんそうすることはできない。", en: "Without practice, you cannot perform well on the actual day." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "similarity-dependency",
+                title: "Similarity & Dependency",
+                items: [
+                    {
+                        pattern: "〜ごとし／〜ごとく",
+                        meanings: { en: "Like / as if — a classical, literary way to express similarity or resemblance.", bn: "যেন / মতো — সাদৃশ্য প্রকাশের একটি শাস্ত্রীয়, সাহিত্যিক উপায়।" },
+                        connection: ["名詞の＋ごとし／ごとく", "動詞（辞書形・た形）＋がごとし／ごとく"],
+                        examples: [
+                            { jp: "光陰矢のごとし。", reading: "こういんやのごとし。", en: "Time flies like an arrow." },
+                            { jp: "彼は何事もなかったかのごとく、平然としていた。", reading: "かれはなにごともなかったかのごとく、へいぜんとしていた。", en: "He remained calm, as if nothing had happened." },
+                            { jp: "彼女は水を得た魚のごとく、生き生きと働いていた。", reading: "かのじょはみずをえたうおのごとく、いきいきとはたらいていた。", en: "She worked vibrantly, like a fish that had found water." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に(も)ひとしい",
+                        meanings: { en: "Equivalent to / tantamount to — something, while not technically identical, is practically the same as the thing mentioned.", bn: "সমতুল্য / তুল্য — কোনো কিছু, প্রযুক্তিগতভাবে অভিন্ন না হলেও, উল্লেখিত বিষয়ের সাথে বাস্তবিকভাবে একই তা বলে।" },
+                        connection: ["名詞＋に（も）ひとしい"],
+                        examples: [
+                            { jp: "彼にとって、この失敗は人生の終わりに等しかった。", reading: "かれにとって、このしっぱいはじんせいのおわりにひとしかった。", en: "For him, this failure was tantamount to the end of his life." },
+                            { jp: "その知らせは、彼女にとって死刑宣告にも等しいものだった。", reading: "そのしらせは、かのじょにとってしけいせんこくにもひとしいものだった。", en: "That news was equivalent to a death sentence for her." },
+                            { jp: "彼の無関心は、無視に等しい。", reading: "かれのむかんしんは、むしにひとしい。", en: "His indifference is tantamount to ignoring us." }
+                        ]
+                    },
+                    {
+                        pattern: "〜いかんで(は)",
+                        meanings: { en: "Depending on — the outcome of something will change according to how a particular factor turns out.", bn: "নির্ভর করে — একটি নির্দিষ্ট ফ্যাক্টর কীভাবে হয় তার উপর কোনো কিছুর ফলাফল পরিবর্তিত হবে তা নির্দেশ করে।" },
+                        connection: ["名詞（の）＋いかんで（は）"],
+                        examples: [
+                            { jp: "試験の結果いかんで、進学先が決まる。", reading: "しけんのけっかいかんで、しんがくさきがきまる。", en: "Depending on the exam results, the school you go on to will be decided." },
+                            { jp: "天候のいかんでは、イベントが中止になることもある。", reading: "てんこうのいかんでは、イベントがちゅうしになることもある。", en: "Depending on the weather, the event might be cancelled." },
+                            { jp: "今後の交渉いかんで、両国の関係は大きく変わるだろう。", reading: "こんごのこうしょういかんで、りょうこくのかんけいはおおきくかわるだろう。", en: "Depending on future negotiations, the relationship between the two countries will likely change greatly." }
+                        ]
+                    },
+                    {
+                        pattern: "〜いかんにかかわらず",
+                        meanings: { en: "Regardless of — something applies no matter how a particular factor turns out.", bn: "নির্বিশেষে — একটি নির্দিষ্ট ফ্যাক্টর যেভাবেই হোক, কোনো কিছু প্রযোজ্য হয় তা বলে।" },
+                        connection: ["名詞（の）＋いかんにかかわらず"],
+                        examples: [
+                            { jp: "結果のいかんにかかわらず、全力を尽くしたことに意味がある。", reading: "けっかのいかんにかかわらず、ぜんりょくをつくしたことにいみがある。", en: "Regardless of the result, there is meaning in having given one's all." },
+                            { jp: "理由のいかんにかかわらず、遅刻は遅刻だ。", reading: "りゆうのいかんにかかわらず、ちこくはちこくだ。", en: "Regardless of the reason, being late is being late." },
+                            { jp: "成績のいかんにかかわらず、全員が卒業できる。", reading: "せいせきのいかんにかかわらず、ぜんいんがそつぎょうできる。", en: "Regardless of grades, everyone can graduate." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "comparison-contrast-advanced",
+                title: "Advanced Comparison & Contrast",
+                items: [
+                    {
+                        pattern: "〜にひきかえ",
+                        meanings: { en: "In contrast to / whereas — strongly contrasts two things, usually highlighting a surprising or notable difference.", bn: "তুলনায় / বিপরীতে — দুটি বিষয়ের মধ্যে জোরালো বৈসাদৃশ্য দেখায়, সাধারণত একটি আশ্চর্যজনক পার্থক্য তুলে ধরে।" },
+                        connection: ["名詞＋にひきかえ", "普通形＋のにひきかえ"],
+                        examples: [
+                            { jp: "兄が優秀なのにひきかえ、弟は勉強が苦手だ。", reading: "あにがゆうしゅうなのにひきかえ、おとうとはべんきょうがにがてだ。", en: "In contrast to his excellent older brother, the younger brother is bad at studying." },
+                            { jp: "去年の豊作にひきかえ、今年は不作だった。", reading: "きょねんのほうさくにひきかえ、こんねんはふさくだった。", en: "In contrast to last year's bountiful harvest, this year's harvest was poor." },
+                            { jp: "彼女の華やかな外見にひきかえ、生活は質素だった。", reading: "かのじょのはなやかながいけんにひきかえ、せいかつはしっそだった。", en: "In contrast to her glamorous appearance, her lifestyle was simple." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にもまして",
+                        meanings: { en: "Even more than — something exceeds even a standard that was already considered high.", bn: "তার চেয়েও বেশি — কোনো কিছু ইতিমধ্যে উচ্চ বলে বিবেচিত একটি মানকেও ছাড়িয়ে যায় তা নির্দেশ করে।" },
+                        connection: ["名詞＋にもまして"],
+                        examples: [
+                            { jp: "今年は例年にもまして暑い。", reading: "こんねんはれいねんにもましてあつい。", en: "This year is even hotter than usual." },
+                            { jp: "彼は何にもまして家族を大切にしている。", reading: "かれはなににもましてかぞくをたいせつにしている。", en: "He values his family more than anything else." },
+                            { jp: "以前にもまして、彼女は仕事に熱心になった。", reading: "いぜんにもまして、かのじょはしごとにねっしんになった。", en: "She became even more enthusiastic about her work than before." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ときたら",
+                        meanings: { en: "When it comes to... (critical tone) — introduces a topic in order to complain about it.", bn: "যখন কথা আসে... (সমালোচনামূলক সুরে) — একটি বিষয় নিয়ে অভিযোগ করার জন্য উপস্থাপন করে।" },
+                        connection: ["名詞＋ときたら"],
+                        examples: [
+                            { jp: "うちの子ときたら、全然勉強しない。", reading: "うちのこときたら、ぜんぜんべんきょうしない。", en: "When it comes to my kid, he doesn't study at all." },
+                            { jp: "最近の天気ときたら、本当におかしい。", reading: "さいきんのてんきときたら、ほんとうにおかしい。", en: "When it comes to the weather lately, it's really strange." },
+                            { jp: "あの店の店員ときたら、いつも態度が悪い。", reading: "あのみせのてんいんときたら、いつもたいどがわるい。", en: "When it comes to that shop's staff, their attitude is always bad." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "circumstance-background",
+                title: "Circumstance & Background",
+                items: [
+                    {
+                        pattern: "〜とあいまって",
+                        meanings: { en: "Combined with / coupled with — two factors work together to produce a combined effect.", bn: "এর সাথে মিলিত হয়ে — দুটি ফ্যাক্টর একসাথে কাজ করে একটি সম্মিলিত প্রভাব তৈরি করে তা বলে।" },
+                        connection: ["名詞＋とあいまって"],
+                        examples: [
+                            { jp: "美しい景色と涼しい風とあいまって、最高の旅行になった。", reading: "うつくしいけしきとすずしいかぜとあいまって、さいこうのりょこうになった。", en: "Combined with the beautiful scenery and cool breeze, it turned into the best trip." },
+                            { jp: "円安は、好景気とあいまって、輸出企業の業績を伸ばした。", reading: "えんやすは、こうけいきとあいまって、ゆしゅつきぎょうのぎょうせきをのばした。", en: "The weak yen, combined with the economic boom, boosted the performance of exporting companies." },
+                            { jp: "努力と運とあいまって、彼は見事に成功した。", reading: "どりょくとうんとあいまって、かれはみごとにせいこうした。", en: "Combined with effort and luck, he achieved splendid success." }
+                        ]
+                    },
+                    {
+                        pattern: "〜をものともせず(に)",
+                        meanings: { en: "Undaunted by / without being deterred by — continuing an action despite a difficult or dangerous obstacle.", bn: "ভয় না পেয়ে / বাধা না মেনে — একটি কঠিন বা বিপজ্জনক বাধা থাকলেও কাজ চালিয়ে যাওয়া বর্ণনা করে।" },
+                        connection: ["名詞＋をものともせず（に）"],
+                        examples: [
+                            { jp: "彼は周囲の反対をものともせず、自分の道を進んだ。", reading: "かれはしゅういのはんたいをものともせず、じぶんのみちをすすんだ。", en: "Undaunted by the opposition around him, he went his own way." },
+                            { jp: "彼女は厳しい批判をものともせずに、挑戦を続けた。", reading: "かのじょはきびしいひはんをものともせずに、ちょうせんをつづけた。", en: "Without being deterred by harsh criticism, she continued to take on challenges." },
+                            { jp: "選手たちは悪天候をものともせず、試合を続けた。", reading: "せんしゅたちはあくてんこうをものともせず、しあいをつづけた。", en: "The players continued the match, undeterred by the bad weather." }
+                        ]
+                    },
+                    {
+                        pattern: "〜をよそに",
+                        meanings: { en: "Ignoring / paying no heed to — acting while disregarding others' concerns, warnings, or expectations.", bn: "উপেক্ষা করে / গুরুত্ব না দিয়ে — অন্যদের উদ্বেগ, সতর্কতা বা প্রত্যাশাকে উপেক্ষা করে কাজ করা বর্ণনা করে।" },
+                        connection: ["名詞＋をよそに"],
+                        examples: [
+                            { jp: "親の心配をよそに、彼は一人で海外へ行ってしまった。", reading: "おやのしんぱいをよそに、かれはひとりでかいがいへいってしまった。", en: "Ignoring his parents' worries, he went abroad alone." },
+                            { jp: "周囲の反対をよそに、彼女は結婚を決めた。", reading: "しゅういのはんたいをよそに、かのじょはけっこんをきめた。", en: "Paying no heed to the opposition around her, she decided to get married." },
+                            { jp: "社会の批判をよそに、その企業は方針を変えなかった。", reading: "しゃかいのひはんをよそに、そのきぎょうはほうしんをかえなかった。", en: "Ignoring society's criticism, the company did not change its policy." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にして",
+                        meanings: { en: "Only at / precisely at — emphasizes that something was achieved only at a particular, often late or notable, point.", bn: "ঠিক তখনই / মাত্র তখনই — কোনো কিছু একটি নির্দিষ্ট, প্রায়ই দেরিতে বা উল্লেখযোগ্য, সময়ে অর্জিত হয়েছে তা জোর দেয়।" },
+                        connection: ["名詞＋にして"],
+                        examples: [
+                            { jp: "彼は50歳にして、初めて自分の店を持った。", reading: "かれはごじゅっさいにして、はじめてじぶんのみせをもった。", en: "Only at the age of 50 did he finally have his own shop." },
+                            { jp: "三度目の挑戦にして、ようやく合格した。", reading: "さんどめのちょうせんにして、ようやくごうかくした。", en: "Only on his third attempt did he finally pass." },
+                            { jp: "これは一瞬にして崩れ去った幸せだった。", reading: "これはいっしゅんにしてくずれさったしあわせだった。", en: "This was a happiness that crumbled away in an instant." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "result-conclusion-advanced",
+                title: "Advanced Result & Conclusion",
+                items: [
+                    {
+                        pattern: "〜に至る",
+                        reading: "〜にいたる",
+                        meanings: { en: "To reach the point of / to result in — a long process finally reaching a significant, often serious, final stage.", bn: "পর্যায়ে পৌঁছানো / পরিণতি হওয়া — একটি দীর্ঘ প্রক্রিয়া শেষে একটি গুরুত্বপূর্ণ, প্রায়ই গুরুতর, শেষ পর্যায়ে পৌঁছানো বর্ণনা করে।" },
+                        connection: ["動詞（辞書形）＋に至る", "名詞＋に至る"],
+                        examples: [
+                            { jp: "長い交渉の末、両国はようやく合意に至った。", reading: "ながいこうしょうのすえ、りょうこくはようやくごういにいたった。", en: "After long negotiations, the two countries finally reached an agreement." },
+                            { jp: "彼女は何度も失敗を重ね、ついに成功に至った。", reading: "かのじょはなんどもしっぱいをかさね、ついにせいこうにいたった。", en: "She repeated failure many times before finally reaching success." },
+                            { jp: "小さな誤解が、深刻な対立に至ることもある。", reading: "ちいさなごかいが、しんこくなたいりつにいたることもある。", en: "A small misunderstanding can sometimes result in a serious conflict." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に至って(は)",
+                        reading: "〜にいたって(は)",
+                        meanings: { en: "Even when it reached the point of / as for the matter once it got to — an extreme final stage, often with a sense of exasperation.", bn: "যখন পর্যায়ে পৌঁছাল তখনও / যখন তা হলো — একটি চরম শেষ পর্যায় জোর দিয়ে বলে, প্রায়ই বিরক্তির অনুভূতি সহ।" },
+                        connection: ["動詞（辞書形）＋に至って（は）", "名詞＋に至って（は）"],
+                        examples: [
+                            { jp: "病気が悪化するに至って、彼はやっと病院に行った。", reading: "びょうきがあっかするにいたって、かれはやっとびょういんにいった。", en: "Only when his illness got worse did he finally go to the hospital." },
+                            { jp: "この問題に至っては、もう手の打ちようがない。", reading: "このもんだいにいたっては、もうてのうちようがない。", en: "As for this problem, having reached this point, there's nothing more that can be done." },
+                            { jp: "会社が倒産するに至っては、誰もが驚いた。", reading: "かいしゃがとうさんするにいたっては、だれもがおどろいた。", en: "When it got to the point of the company going bankrupt, everyone was shocked." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たところで",
+                        meanings: { en: "Even if / no matter how much — even performing an action would not lead to a meaningful result, often with a resigned tone.", bn: "করলেও / যতই করা হোক — একটি কাজ করলেও তা অর্থপূর্ণ ফলাফলে পরিণত হবে না তা বলে, প্রায়ই মেনে নেওয়ার সুরে।" },
+                        connection: ["動詞（た形）＋ところで"],
+                        examples: [
+                            { jp: "今から急いだところで、終電には間に合わないだろう。", reading: "いまからいそいだところで、しゅうでんにはまにあわないだろう。", en: "Even if I hurry now, I probably won't make the last train." },
+                            { jp: "いくら話し合ったところで、彼の考えは変わらない。", reading: "いくらはなしあったところで、かれのかんがえはかわらない。", en: "No matter how much we discuss it, his mind won't change." },
+                            { jp: "今さら後悔したところで、何も変わらない。", reading: "いまさらこうかいしたところで、なにもかわらない。", en: "Even if I regret it now, nothing will change." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を踏まえて",
+                        reading: "〜をふまえて",
+                        meanings: { en: "Based on / taking into account — a decision or statement is made in consideration of the previously mentioned facts or situation.", bn: "ভিত্তিতে / বিবেচনায় নিয়ে — পূর্বে উল্লেখিত তথ্য বা পরিস্থিতি বিবেচনা করে একটি সিদ্ধান্ত বা বিবৃতি দেওয়া হয় তা বলে।" },
+                        connection: ["名詞＋を踏まえて"],
+                        examples: [
+                            { jp: "これまでの調査結果を踏まえて、新しい方針を決定した。", reading: "これまでのちょうさけっかをふまえて、あたらしいほうしんをけっていした。", en: "Based on the survey results so far, we decided on a new policy." },
+                            { jp: "現状を踏まえた上で、今後の対策を考える必要がある。", reading: "げんじょうをふまえたうえで、こんごのたいさくをかんがえるひつようがある。", en: "We need to consider future measures while taking the current situation into account." },
+                            { jp: "お客様の意見を踏まえて、サービスを改善した。", reading: "おきゃくさまのいけんをふまえて、サービスをかいぜんした。", en: "We improved our service based on customers' feedback." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "idiomatic-expressions-advanced",
+                title: "Advanced Idiomatic Expressions",
+                items: [
+                    {
+                        pattern: "〜にかこつけて",
+                        meanings: { en: "Using as an excuse / pretext — doing something, often self-serving, under the guise of another reason.", bn: "অজুহাত ব্যবহার করে — অন্য একটি কারণের ছদ্মবেশে কিছু করা (প্রায়ই স্বার্থপরভাবে) বর্ণনা করে।" },
+                        connection: ["名詞＋にかこつけて"],
+                        examples: [
+                            { jp: "出張にかこつけて、観光も楽しんできた。", reading: "しゅっちょうにかこつけて、かんこうもたのしんできた。", en: "Using the business trip as an excuse, I also enjoyed some sightseeing." },
+                            { jp: "彼は仕事にかこつけて、家族との時間を避けている。", reading: "かれはしごとにかこつけて、かぞくとのじかんをさけている。", en: "Using work as an excuse, he avoids spending time with his family." },
+                            { jp: "彼女は病気にかこつけて、会議を欠席した。", reading: "かのじょはびょうきにかこつけて、かいぎをけっせきした。", en: "Using illness as a pretext, she skipped the meeting." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を物語る",
+                        reading: "〜をものがたる",
+                        meanings: { en: "To tell / to be evidence of — a fact or piece of evidence that clearly conveys or proves something.", bn: "বলে দেয় / প্রমাণ হয় — একটি সত্য বা প্রমাণ যা স্পষ্টভাবে কিছু প্রকাশ করে বা প্রমাণ করে তা বর্ণনা করে।" },
+                        connection: ["名詞＋を物語る"],
+                        examples: [
+                            { jp: "この古い写真は、当時の生活を物語っている。", reading: "このふるいしゃしんは、とうじのせいかつをものがたっている。", en: "This old photograph tells the story of life at that time." },
+                            { jp: "彼の手の傷が、長年の苦労を物語っていた。", reading: "かれのてのきずが、ながねんのくろうをものがたっていた。", en: "The scars on his hands told of years of hardship." },
+                            { jp: "売り上げの急増は、商品の人気を物語っている。", reading: "うりあげのきゅうぞうは、しょうひんのにんきをものがたっている。", en: "The sharp increase in sales is evidence of the product's popularity." }
+                        ]
+                    },
+                    {
+                        pattern: "〜始末だ",
+                        reading: "〜しまつだ",
+                        meanings: { en: "Ended up in the unfortunate situation of — a bad outcome that resulted from a series of poor decisions or actions.", bn: "অবশেষে এই দুর্ভাগ্যজনক পরিস্থিতিতে পরিণত হয়েছে — একাধিক ভুল সিদ্ধান্ত বা কাজের ফলে একটি খারাপ পরিণতি বর্ণনা করে।" },
+                        connection: ["動詞（辞書形）＋始末だ"],
+                        examples: [
+                            { jp: "彼は何度も注意されたのに、結局会社を辞める始末だ。", reading: "かれはなんどもちゅういされたのに、けっきょくかいしゃをやめるしまつだ。", en: "Despite being warned many times, he ended up quitting the company in the end." },
+                            { jp: "計画はずさんで、最後には中止になる始末だった。", reading: "けいかくはずさんで、さいごにはちゅうしになるしまつだった。", en: "The plan was sloppy, and in the end, it ended up being cancelled." },
+                            { jp: "彼女は約束を破り続け、ついには誰も信じてくれない始末だ。", reading: "かのじょはやくそくをやぶりつづけ、ついにはだれもしんじてくれないしまつだ。", en: "She kept breaking her promises, and in the end, no one believes her anymore." }
+                        ]
+                    },
+                    {
+                        pattern: "〜手前",
+                        reading: "〜てまえ",
+                        meanings: { en: "Given that / in light of one's position — one must act a certain way because of appearances or obligations toward others.", bn: "অবস্থান বিবেচনায় / এই কারণে — অন্যদের প্রতি উপস্থিতি বা দায়বদ্ধতার কারণে একটি নির্দিষ্ট উপায়ে কাজ করতে হয় তা ব্যাখ্যা করে।" },
+                        connection: ["動詞（た形）＋手前", "名詞の＋手前"],
+                        examples: [
+                            { jp: "子供に約束した手前、今さらやめるわけにはいかない。", reading: "こどもにやくそくしたてまえ、いまさらやめるわけにはいかない。", en: "Having promised my child, I can't back out now." },
+                            { jp: "自分で言い出した手前、最後まで責任を持たなければならない。", reading: "じぶんでいいだしたてまえ、さいごまでせきにんをもたなければならない。", en: "Since I was the one who brought it up, I have to take responsibility to the end." },
+                            { jp: "皆の前で宣言した手前、途中で投げ出すことはできない。", reading: "みなのまえでせんげんしたてまえ、とちゅうでなげだすことはできない。", en: "Having declared it in front of everyone, I can't give up halfway." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "attitude-feeling-set-phrases",
+                title: "Attitude & Feeling Set Phrases",
+                items: [
+                    {
+                        pattern: "〜あっての",
+                        meanings: { en: "That exists thanks to / contingent on — something's existence or worth is entirely dependent on another thing.", bn: "যার কারণে টিকে থাকে / এর উপর নির্ভরশীল — কোনো কিছুর অস্তিত্ব বা মূল্য সম্পূর্ণভাবে অন্য একটি বিষয়ের উপর নির্ভরশীল তা বলে।" },
+                        connection: ["名詞＋あっての＋名詞"],
+                        examples: [
+                            { jp: "健康あっての人生だ。", reading: "けんこうあってのじんせいだ。", en: "It's thanks to health that life is possible." },
+                            { jp: "お客様あっての商売だということを忘れてはいけない。", reading: "おきゃくさまあってのしょうばいだということをわすれてはいけない。", en: "We must not forget that business exists thanks to customers." },
+                            { jp: "チームの協力あっての優勝だった。", reading: "チームのきょうりょくあってのゆうしょうだった。", en: "The victory was only possible thanks to the team's cooperation." }
+                        ]
+                    },
+                    {
+                        pattern: "言わずもがな",
+                        reading: "いわずもがな",
+                        meanings: { en: "Needless to say / not to mention — something so obvious that it goes without saying, often while adding something further.", bn: "বলার অপেক্ষা রাখে না — এমন কিছু উপস্থাপন করে যা বলার প্রয়োজন নেই, প্রায়ই আরও কিছু যুক্ত করার সময়।" },
+                        connection: ["名詞＋は言わずもがな、〜も"],
+                        examples: [
+                            { jp: "英語は言わずもがな、彼はフランス語も話せる。", reading: "えいごはいわずもがな、かれはフランスごもはなせる。", en: "Needless to say about English, he can also speak French." },
+                            { jp: "本人は言わずもがな、家族まで批判された。", reading: "ほんにんはいわずもがな、かぞくまでひはんされた。", en: "Not to mention the person himself, even his family was criticized." },
+                            { jp: "このことは言わずもがな、皆わかっているはずだ。", reading: "このことはいわずもがな、みなわかっているはずだ。", en: "Needless to say, everyone should understand this." }
+                        ]
+                    },
+                    {
+                        pattern: "〜もなんでもない",
+                        meanings: { en: "Not X at all / far from X — strongly denies that something is the case, often correcting a mistaken assumption.", bn: "একদমই X নয় / X থেকে অনেক দূরে — কোনো কিছু সত্য তা দৃঢ়ভাবে অস্বীকার করে, প্রায়ই একটি ভুল ধারণা সংশোধন করে।" },
+                        connection: ["名詞＋もなんでもない", "な形容詞＋でもなんでもない"],
+                        examples: [
+                            { jp: "これは贈り物でもなんでもない、ただの借りたものだ。", reading: "これはおくりものでもなんでもない、ただのかりたものだ。", en: "This isn't a gift or anything of the sort, it's just something borrowed." },
+                            { jp: "彼は専門家でもなんでもないのに、知ったように話す。", reading: "かれはせんもんかでもなんでもないのに、しったようにはなす。", en: "Even though he's not an expert at all, he talks as if he knows everything." },
+                            { jp: "その話は秘密でもなんでもない、みんな知っている。", reading: "そのはなしはひみつでもなんでもない、みんなしっている。", en: "That story isn't a secret at all; everyone knows about it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ところを",
+                        meanings: { en: "Even though it was a moment/situation when... (thank you for, apologize for) — politely acknowledges an inconvenient situation someone was in.", bn: "যে মুহূর্তে/পরিস্থিতিতে ছিলেন তা সত্ত্বেও (ধন্যবাদ/ক্ষমা) — কেউ একটি অসুবিধাজনক পরিস্থিতিতে ছিলেন তা ভদ্রভাবে স্বীকার করতে ব্যবহৃত হয়।" },
+                        connection: ["普通形＋ところを"],
+                        examples: [
+                            { jp: "お忙しいところを、お時間をいただきありがとうございます。", reading: "おいそがしいところを、おじかんをいただきありがとうございます。", en: "Thank you for taking the time even though you must be busy." },
+                            { jp: "お休みのところを、お邪魔して申し訳ございません。", reading: "おやすみのところを、おじゃましてもうしわけございません。", en: "I'm sorry for disturbing you during your time off." },
+                            { jp: "休んでいるところを起こしてしまい、すみません。", reading: "やすんでいるところをおこしてしまい、すみません。", en: "I'm sorry for waking you up while you were resting." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "final-concession-exception",
+                title: "Final Concession & Exception",
+                items: [
+                    {
+                        pattern: "〜ないまでも",
+                        meanings: { en: "Even if not to the extent of — a lesser, more achievable action is presented as acceptable, since a greater one isn't possible.", bn: "এতটা না হলেও — একটি বড় কাজ সম্ভব না হওয়ায় একটি ছোট, অর্জনযোগ্য কাজকে গ্রহণযোগ্য হিসেবে উপস্থাপন করে।" },
+                        connection: ["動詞（ない形）＋までも"],
+                        examples: [
+                            { jp: "毎日とは言わないまでも、週に一度は運動したほうがいい。", reading: "まいにちとはいわないまでも、しゅうにいちどはうんどうしたほうがいい。", en: "Even if not every day, it's better to exercise at least once a week." },
+                            { jp: "完璧とは言えないまでも、かなり良い出来だと思う。", reading: "かんぺきとはいえないまでも、かなりよいできだとおもう。", en: "While I wouldn't call it perfect, I think it turned out quite well." },
+                            { jp: "全部は無理だとしても、終わらせないまでも少しは進めておきたい。", reading: "ぜんぶはむりだとしても、おわらせないまでもすこしはすすめておきたい。", en: "Even if finishing it all is impossible, I'd like to at least make some progress, even if not finishing it." }
+                        ]
+                    },
+                    {
+                        pattern: "いかんせん",
+                        meanings: { en: "Unfortunately / regrettably — introduces a reason that unfortunately prevents a desired outcome, despite one's wishes.", bn: "দুর্ভাগ্যবশত / আক্ষেপের বিষয় হলো — একটি কারণ উপস্থাপন করে যা দুর্ভাগ্যবশত একটি কাঙ্ক্ষিত ফলাফল প্রতিরোধ করে।" },
+                        connection: ["いかんせん＋普通形"],
+                        examples: [
+                            { jp: "行きたかったが、いかんせん時間がなかった。", reading: "いきたかったが、いかんせんじかんがなかった。", en: "I wanted to go, but unfortunately I had no time." },
+                            { jp: "このデザインは素晴らしいが、いかんせん値段が高すぎる。", reading: "このデザインはすばらしいが、いかんせんねだんがたかすぎる。", en: "This design is wonderful, but unfortunately the price is too high." },
+                            { jp: "やる気はあるのだが、いかんせん経験が不足している。", reading: "やるきはあるのだが、いかんせんけいけんがふそくしている。", en: "I have the motivation, but unfortunately I lack experience." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とて",
+                        meanings: { en: "Even / even if — a classical expression used to say that even a given person or case is no exception to a general rule.", bn: "এমনকি / হলেও — একটি নির্দিষ্ট ব্যক্তি বা ঘটনাও একটি সাধারণ নিয়মের ব্যতিক্রম নয় তা বলার জন্য একটি শাস্ত্রীয় প্রকাশভঙ্গি।" },
+                        connection: ["名詞＋とて", "普通形＋とて"],
+                        examples: [
+                            { jp: "子供とて、言っていいことと悪いことがある。", reading: "こどもとて、いっていいこととわるいことがある。", en: "Even children have things that are okay and not okay to say." },
+                            { jp: "専門家とて、すべてを知っているわけではない。", reading: "せんもんかとて、すべてをしっているわけではない。", en: "Even experts don't know everything." },
+                            { jp: "いくら頑張ったとて、結果が変わるわけではない。", reading: "いくらがんばったとて、けっかがかわるわけではない。", en: "No matter how hard you try, it doesn't mean the result will change." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ならいざしらず",
+                        meanings: { en: "If it were... that would be one thing, but — contrasts an acceptable hypothetical case with the actual, less acceptable, situation.", bn: "যদি তা হতো তাহলে এক কথা, কিন্তু — একটি গ্রহণযোগ্য কাল্পনিক পরিস্থিতির সাথে বাস্তব, কম গ্রহণযোগ্য পরিস্থিতির বৈসাদৃশ্য দেখায়।" },
+                        connection: ["名詞＋ならいざしらず"],
+                        examples: [
+                            { jp: "子供ならいざしらず、大人がこんな失敗をするとは思わなかった。", reading: "こどもならいざしらず、おとながこんなしっぱいをするとはおもわなかった。", en: "If it were a child, that'd be one thing, but I didn't expect an adult to make such a mistake." },
+                            { jp: "初心者ならいざしらず、プロの選手がこんなミスをするなんて。", reading: "しょしんしゃならいざしらず、プロのせんしゅがこんなミスをするなんて。", en: "If it were a beginner, that'd be understandable, but for a professional athlete to make such a mistake..." },
+                            { jp: "昔ならいざしらず、今はそんな方法は通用しない。", reading: "むかしならいざしらず、いまはそんなほうほうはつうようしない。", en: "If it were the old days, that'd be one thing, but such a method doesn't work now." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "emphasis-scope-advanced",
+                title: "Advanced Emphasis & Scope",
+                items: [
+                    {
+                        pattern: "〜ことなしに",
+                        meanings: { en: "Without doing — a formal way of saying that one thing is accomplished without the presence of another.", bn: "না করে — একটি বিষয় অন্য একটির উপস্থিতি ছাড়াই সম্পন্ন হয় তা বলার একটি আনুষ্ঠানিক উপায়।" },
+                        connection: ["動詞（辞書形）＋ことなしに"],
+                        examples: [
+                            { jp: "努力することなしに、夢を叶えることはできない。", reading: "どりょくすることなしに、ゆめをかなえることはできない。", en: "Without making an effort, you cannot make your dreams come true." },
+                            { jp: "彼は休むことなしに、一日中働き続けた。", reading: "かれはやすむことなしに、いちにちじゅうはたらきつづけた。", en: "He kept working all day long without resting." },
+                            { jp: "人は誰かと関わることなしに、生きていくことはできない。", reading: "ひとはだれかとかかわることなしに、いきていくことはできない。", en: "People cannot live without connecting with someone." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ともなると",
+                        meanings: { en: "Once it's reached the stage of / when it comes to — when a situation reaches a certain notable level, a natural consequence follows.", bn: "যখন সেই পর্যায়ে পৌঁছায় / যখন কথা আসে — একটি পরিস্থিতি একটি নির্দিষ্ট উল্লেখযোগ্য স্তরে পৌঁছালে একটি স্বাভাবিক পরিণতি ঘটে তা নির্দেশ করে।" },
+                        connection: ["名詞＋ともなると"],
+                        examples: [
+                            { jp: "週末ともなると、この公園は家族連れでいっぱいになる。", reading: "しゅうまつともなると、このこうえんはかぞくづれでいっぱいになる。", en: "Once the weekend comes around, this park becomes full of families." },
+                            { jp: "社長ともなると、責任も重くなる。", reading: "しゃちょうともなると、せきにんもおもくなる。", en: "Once you become a company president, the responsibilities become heavier too." },
+                            { jp: "高校生ともなると、自分で将来を考えるようになる。", reading: "こうこうせいともなると、じぶんでしょうらいをかんがえるようになる。", en: "Once you're a high school student, you start thinking about your own future." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なくもない",
+                        meanings: { en: "It's not that... / not unlikely — softly admits a possibility while sounding hesitant or reluctant.", bn: "এমন নয় যে... / অসম্ভব না — একটি সম্ভাবনা মৃদুভাবে স্বীকার করে, কিন্তু দ্বিধা বা অনিচ্ছুক সুরে।" },
+                        connection: ["動詞（ない形）＋くもない", "い形容詞（く）＋なくもない"],
+                        examples: [
+                            { jp: "彼の言い分も分からなくもない。", reading: "かれのいいぶんもわからなくもない。", en: "I don't entirely fail to understand his reasoning either." },
+                            { jp: "時間があれば、手伝えなくもない。", reading: "じかんがあれば、てつだえなくもない。", en: "If I had time, it's not that I couldn't help." },
+                            { jp: "その案も悪くはなくもない。", reading: "そのあんもわるくはなくもない。", en: "That proposal isn't necessarily bad either." }
+                        ]
+                    },
+                    {
+                        pattern: "〜なりとも",
+                        meanings: { en: "Even just / at least — a classical expression emphasizing that even a small amount of something would be acceptable or helpful.", bn: "অন্তত / ন্যূনতম — একটি শাস্ত্রীয় প্রকাশভঙ্গি যা একটি ক্ষুদ্র পরিমাণও গ্রহণযোগ্য বা সহায়ক হবে তা জোর দেয়।" },
+                        connection: ["名詞＋なりとも"],
+                        examples: [
+                            { jp: "少しなりとも、お役に立てれば幸いです。", reading: "すこしなりとも、おやくにたてればさいわいです。", en: "I would be glad if I could be of even a little help." },
+                            { jp: "一言なりとも、お礼を言わせてください。", reading: "ひとことなりとも、おれいをいわせてください。", en: "Please let me say at least a word of thanks." },
+                            { jp: "何なりとも、お申し付けください。", reading: "なんなりとも、おもうしつけください。", en: "Please let me know whatever it is you need." }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 
 };
 
