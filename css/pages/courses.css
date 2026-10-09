@@ -637,6 +637,12 @@ body.dark #darkModeBtn{
 
 }
 
+.badge.upper-intermediate{
+
+    background:#0d9488;
+
+}
+
 .badge.advanced{
 
     background:#e11d48;
@@ -703,6 +709,12 @@ body.dark #darkModeBtn{
 .progress-n3{
 
     background:linear-gradient(90deg,#a78bfa,#8b5cf6);
+
+}
+
+.progress-n2{
+
+    background:linear-gradient(90deg,#2dd4bf,#0d9488);
 
 }
 

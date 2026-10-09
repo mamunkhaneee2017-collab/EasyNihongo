@@ -68,8 +68,17 @@
    pattern was checked against the full N5-N3
    pattern list to avoid duplicates.
 
-   N2 stays empty/locked until content is
-   written for that level.
+   N2: 25 chapters, 90 patterns, filling the
+   standard intermediate-advanced JLPT N2
+   syllabus (basis/premise, timing/occasion,
+   accompanying change, inference, contrast,
+   reason, inability/endurance, formal duty,
+   inclusion/exclusion, manner, degree, sudden
+   timing, condition/dependence, etc.) — not
+   paired 1:1 with vocabulary-data.js's N2
+   chapters. Every pattern was checked against
+   the full N5-N3 + N1 pattern list (372
+   patterns) to avoid duplicates.
 ========================================== */
 
 const grammarData = {
@@ -3436,7 +3445,1095 @@ const grammarData = {
         ]
     },
 
-    n2: { chapters: [] },
+    n2: {
+        chapters: [
+            {
+                id: "basis-premise",
+                title: "Basis & Premise",
+                items: [
+                    {
+                        pattern: "〜上で",
+                        reading: "〜うえで",
+                        meanings: { en: "On the basis of / after doing — a necessary step before the main action.", bn: "ভিত্তিতে / করার পরে — মূল কাজের আগে একটি প্রয়োজনীয় ধাপ।" },
+                        connection: ["動詞（た形）＋上で", "名詞の＋上で"],
+                        examples: [
+                            { jp: "資料を確認した上で、お返事します。", reading: "しりょうをかくにんしたうえで、おへんじします。", en: "After checking the documents, I will reply." },
+                            { jp: "よく考えた上で、決めたいと思います。", reading: "よくかんがえたうえで、きめたいとおもいます。", en: "I want to decide after thinking it over carefully." },
+                            { jp: "契約の上で、いくつか確認したい点がある。", reading: "けいやくのうえで、いくつかかくにんしたいてんがある。", en: "There are a few points I'd like to confirm regarding the contract." }
+                        ]
+                    },
+                    {
+                        pattern: "〜上に",
+                        reading: "〜うえに",
+                        meanings: { en: "In addition to / on top of — adds a second fact that reinforces the first.", bn: "তার উপর / এর সাথে যোগ হয়ে — প্রথম বিষয়কে আরও জোরদার করে এমন দ্বিতীয় তথ্য যোগ করে।" },
+                        connection: ["普通形＋上に", "な形容詞／名詞＋である＋上に"],
+                        examples: [
+                            { jp: "この店は安い上に、味もいい。", reading: "このみせはやすいうえに、あじもいい。", en: "This restaurant is cheap, and on top of that, the food is good." },
+                            { jp: "彼は頭がいい上に、努力家だ。", reading: "かれはあたまがいいうえに、どりょくかだ。", en: "He is smart, and on top of that, he's a hard worker." },
+                            { jp: "雨が降っている上に、風も強い。", reading: "あめがふっているうえに、かぜもつよい。", en: "It's raining, and on top of that, the wind is strong." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を契機に(して)",
+                        reading: "〜をけいきに(して)",
+                        meanings: { en: "Triggered by / taking the opportunity of — marks an event that caused a change to begin.", bn: "যার দ্বারা উদ্দীপিত হয়ে — একটি পরিবর্তনের সূচনা ঘটায় এমন ঘটনা নির্দেশ করে।" },
+                        connection: ["名詞＋を契機に（して）"],
+                        examples: [
+                            { jp: "病気を契機に、生活習慣を見直した。", reading: "びょうきをけいきに、せいかつしゅうかんをみなおした。", en: "Taking the illness as an opportunity, I reconsidered my lifestyle habits." },
+                            { jp: "引っ越しを契機にして、家具を一新した。", reading: "ひっこしをけいきにして、かぐをいっしんした。", en: "Taking the move as an opportunity, I replaced all the furniture." },
+                            { jp: "この事件を契機に、法律が改正された。", reading: "このじけんをけいきに、ほうりつがかいせいされた。", en: "Triggered by this incident, the law was amended." }
+                        ]
+                    },
+                    {
+                        pattern: "〜をきっかけに(して)",
+                        meanings: { en: "Triggered by / sparked by — similar to を契機に but more casual and common in everyday speech.", bn: "যার দ্বারা সূচিত হয়ে — を契機に-এর কাছাকাছি, তবে বেশি সাধারণ ও মুখের ভাষায় ব্যবহৃত।" },
+                        connection: ["名詞＋をきっかけに（して）"],
+                        examples: [
+                            { jp: "友達の紹介をきっかけに、日本語を習い始めた。", reading: "ともだちのしょうかいをきっかけに、にほんごをならいはじめた。", en: "Sparked by a friend's introduction, I started learning Japanese." },
+                            { jp: "この失敗をきっかけにして、彼は大きく成長した。", reading: "このしっぱいをきっかけにして、かれはおおきくせいちょうした。", en: "Triggered by this failure, he grew a lot." },
+                            { jp: "何をきっかけに、この仕事を選んだのですか。", reading: "なにをきっかけに、このしごとをえらんだのですか。", en: "What was it that led you to choose this job?" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "timing-occasion",
+                title: "Timing & Occasion",
+                items: [
+                    {
+                        pattern: "〜に際して",
+                        reading: "〜にさいして",
+                        meanings: { en: "On the occasion of — a formal expression marking a special, important moment.", bn: "উপলক্ষে — একটি বিশেষ, গুরুত্বপূর্ণ মুহূর্ত নির্দেশ করার আনুষ্ঠানিক প্রকাশভঙ্গি।" },
+                        connection: ["名詞＋に際して", "動詞（辞書形）＋に際して"],
+                        examples: [
+                            { jp: "入学に際して、一言ご挨拶申し上げます。", reading: "にゅうがくにさいして、ひとことごあいさつもうしあげます。", en: "On the occasion of entering school, I'd like to say a few words." },
+                            { jp: "契約に際して、注意すべき点がある。", reading: "けいやくにさいして、ちゅういすべきてんがある。", en: "There are points to be careful of when making a contract." },
+                            { jp: "開業に際し、多くの方にお世話になった。", reading: "かいぎょうにさいし、おおくのかたにおせわになった。", en: "On opening the business, I was helped by many people." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に当たって",
+                        reading: "〜にあたって",
+                        meanings: { en: "In doing / on the occasion of — marks the moment of undertaking something important.", bn: "করার সময় / উপলক্ষে — একটি গুরুত্বপূর্ণ কাজ শুরু করার মুহূর্ত নির্দেশ করে।" },
+                        connection: ["名詞＋に当たって", "動詞（辞書形）＋に当たって"],
+                        examples: [
+                            { jp: "新年度を迎えるに当たって、目標を立てた。", reading: "しんねんどをむかえるにあたって、もくひょうをたてた。", en: "In welcoming the new fiscal year, I set a goal." },
+                            { jp: "試験を受けるに当たって、十分に準備した。", reading: "しけんをうけるにあたって、じゅうぶんにじゅんびした。", en: "In taking the exam, I prepared sufficiently." },
+                            { jp: "開発に当たっては、安全性を最優先に考えた。", reading: "かいはつにあたっては、あんぜんせいをさいゆうせんにかんがえた。", en: "In the development, safety was considered the top priority." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に先立って",
+                        reading: "〜にさきだって",
+                        meanings: { en: "Prior to / ahead of — marks an action taken before a bigger, upcoming event.", bn: "আগে / পূর্বে — একটি বড়, আসন্ন ঘটনার আগে করা কাজ নির্দেশ করে।" },
+                        connection: ["名詞＋に先立って", "動詞（辞書形）＋に先立って"],
+                        examples: [
+                            { jp: "公演に先立って、リハーサルが行われた。", reading: "こうえんにさきだって、リハーサルがおこなわれた。", en: "Prior to the performance, a rehearsal was held." },
+                            { jp: "開店に先立ち、関係者向けの内覧会があった。", reading: "かいてんにさきだち、かんけいしゃむけのないらんかいがあった。", en: "Prior to the opening, there was a preview event for those involved." },
+                            { jp: "旅行に先立って、必要な書類をそろえた。", reading: "りょこうにさきだって、ひつようなしょるいをそろえた。", en: "Prior to the trip, I gathered the necessary documents." }
+                        ]
+                    },
+                    {
+                        pattern: "〜につき",
+                        meanings: { en: "Per / due to — either marks a rate per unit, or (formally) states a reason.", bn: "প্রতি / কারণে — হয় প্রতি ইউনিট হার নির্দেশ করে, অথবা (আনুষ্ঠানিকভাবে) কারণ বর্ণনা করে।" },
+                        connection: ["名詞＋につき"],
+                        examples: [
+                            { jp: "一人につき、千円いただきます。", reading: "ひとりにつき、せんえんいただきます。", en: "We charge 1,000 yen per person." },
+                            { jp: "台風接近につき、本日は休業いたします。", reading: "たいふうせっきんにつき、ほんじつはきゅうぎょういたします。", en: "Due to the approaching typhoon, we are closed today." },
+                            { jp: "工事中につき、ご迷惑をおかけします。", reading: "こうじちゅうにつき、ごめいわくをおかけします。", en: "Due to construction work, we apologize for the inconvenience." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "accompanying-change",
+                title: "Accompanying Change",
+                items: [
+                    {
+                        pattern: "〜に伴って",
+                        reading: "〜にともなって",
+                        meanings: { en: "Accompanying / as a result of — one change occurring together with another.", bn: "সাথে সাথে / এর ফলে — একটি পরিবর্তন অন্যটির সাথে সাথে ঘটা।" },
+                        connection: ["名詞＋に伴って", "動詞（辞書形）＋に伴って"],
+                        examples: [
+                            { jp: "人口の増加に伴って、交通渋滞も悪化した。", reading: "じんこうのぞうかにともなって、こうつうじゅうたいもあっかした。", en: "Along with the population increase, traffic congestion also worsened." },
+                            { jp: "技術の進歩に伴い、生活は便利になった。", reading: "ぎじゅつのしんぽにともない、せいかつはべんりになった。", en: "Along with technological progress, life has become more convenient." },
+                            { jp: "気温が上がるに伴って、海水浴客も増える。", reading: "きおんがあがるにともなって、かいすいよくきゃくもふえる。", en: "As the temperature rises, the number of beachgoers also increases." }
+                        ]
+                    },
+                    {
+                        pattern: "〜につれて",
+                        meanings: { en: "As / in proportion to — a gradual change that happens alongside another gradual change.", bn: "সাথে সাথে / অনুপাতে — একটি ধীর পরিবর্তনের সাথে সাথে অন্য একটি ধীর পরিবর্তন ঘটা।" },
+                        connection: ["動詞（辞書形）＋につれて", "名詞＋につれて"],
+                        examples: [
+                            { jp: "時間が経つにつれて、悲しみは薄れていった。", reading: "じかんがたつにつれて、かなしみはうすれていった。", en: "As time passed, the sadness gradually faded." },
+                            { jp: "都市化が進むにつれて、自然が失われていく。", reading: "としかがすすむにつれて、しぜんがうしなわれていく。", en: "As urbanization progresses, nature is being lost." },
+                            { jp: "年を取るにつれて、体力が落ちてくる。", reading: "としをとるにつれて、たいりょくがおちてくる。", en: "As one gets older, physical strength declines." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に関して",
+                        reading: "〜にかんして",
+                        meanings: { en: "Regarding / concerning — introduces the topic being discussed or researched.", bn: "সম্পর্কে — আলোচিত বা গবেষণাকৃত বিষয় উপস্থাপন করে।" },
+                        connection: ["名詞＋に関して"],
+                        examples: [
+                            { jp: "この件に関して、詳しく説明します。", reading: "このけんにかんして、くわしくせつめいします。", en: "Regarding this matter, I will explain in detail." },
+                            { jp: "環境問題に関する研究を行っている。", reading: "かんきょうもんだいにかんするけんきゅうをおこなっている。", en: "I am conducting research concerning environmental issues." },
+                            { jp: "予算に関しては、来週話し合いましょう。", reading: "よさんにかんしては、らいしゅうはなしあいましょう。", en: "Regarding the budget, let's discuss it next week." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にこたえて",
+                        meanings: { en: "In response to — an action taken in answer to a request, expectation, or demand.", bn: "এর প্রতিক্রিয়ায় — একটি অনুরোধ, প্রত্যাশা বা দাবির জবাবে নেওয়া পদক্ষেপ।" },
+                        connection: ["名詞＋にこたえて"],
+                        examples: [
+                            { jp: "お客様の要望にこたえて、新商品を開発した。", reading: "おきゃくさまのようぼうにこたえて、しんしょうひんをかいはつした。", en: "In response to customer requests, we developed a new product." },
+                            { jp: "声援にこたえて、選手は全力で走った。", reading: "せいえんにこたえて、せんしゅはぜんりょくではしった。", en: "In response to the cheers, the athlete ran with all their might." },
+                            { jp: "市民の期待にこたえる政治が求められている。", reading: "しみんのきたいにこたえるせいじがもとめられている。", en: "Politics that respond to citizens' expectations is being called for." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "certainty-inference",
+                title: "Certainty & Inference",
+                items: [
+                    {
+                        pattern: "〜に相違ない",
+                        reading: "〜にそういない",
+                        meanings: { en: "No doubt / must be — a formal, confident assertion that something is certainly true.", bn: "নিশ্চিতভাবে / অবশ্যই হবে — কোনো কিছু নিশ্চিতভাবে সত্য তার একটি আনুষ্ঠানিক, আত্মবিশ্বাসী দাবি।" },
+                        connection: ["普通形＋に相違ない", "名詞／な形容詞＋に相違ない"],
+                        examples: [
+                            { jp: "この筆跡は彼のものに相違ない。", reading: "このひっせきはかれのものにそういない。", en: "This handwriting must be his, no doubt." },
+                            { jp: "犯人はこの中にいるに相違ない。", reading: "はんにんはこのなかにいるにそういない。", en: "The culprit must be among these people." },
+                            { jp: "彼女の話は本当に相違ない。", reading: "かのじょのはなしはほんとうにそういない。", en: "Her story must be true." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ものがある",
+                        meanings: { en: "There's a certain quality of — notes that something genuinely has a particular striking characteristic.", bn: "একটি নির্দিষ্ট গুণ আছে — কোনো কিছুর সত্যিকারের একটি লক্ষণীয় বৈশিষ্ট্য আছে তা উল্লেখ করে।" },
+                        connection: ["普通形（動詞・い形容詞）＋ものがある", "な形容詞＋な＋ものがある"],
+                        examples: [
+                            { jp: "彼の演技には感動させるものがある。", reading: "かれのえんぎにはかんどうさせるものがある。", en: "There's something about his acting that's genuinely moving." },
+                            { jp: "この作品には独特なものがある。", reading: "このさくひんにはどくとくなものがある。", en: "This work has a certain uniqueness to it." },
+                            { jp: "彼女の決断力には見るべきものがある。", reading: "かのじょのけつだんりょくにはみるべきものがある。", en: "Her decisiveness has something genuinely worth noting." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ものと思われる",
+                        reading: "〜ものとおもわれる",
+                        meanings: { en: "Is thought to be — a formal, objective way of stating a conclusion or estimate.", bn: "মনে করা হয় যে — একটি সিদ্ধান্ত বা অনুমান প্রকাশের আনুষ্ঠানিক, নিরপেক্ষ উপায়।" },
+                        connection: ["普通形＋ものと思われる"],
+                        examples: [
+                            { jp: "事故の原因は整備不良によるものと思われる。", reading: "じこのげんいんはせいびふりょうによるものとおもわれる。", en: "The cause of the accident is thought to be due to poor maintenance." },
+                            { jp: "来年は景気が回復するものと思われる。", reading: "らいねんはけいきがかいふくするものとおもわれる。", en: "Next year, the economy is thought to recover." },
+                            { jp: "この地域は古代の集落跡であるものと思われる。", reading: "このちいきはこだいのしゅうらくあとであるものとおもわれる。", en: "This area is thought to be the remains of an ancient settlement." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に照らして",
+                        reading: "〜にてらして",
+                        meanings: { en: "In light of / in accordance with — judging something against a standard, rule, or past experience.", bn: "বিবেচনায় নিয়ে / অনুযায়ী — একটি মানদণ্ড, নিয়ম বা অতীত অভিজ্ঞতার আলোকে বিচার করা।" },
+                        connection: ["名詞＋に照らして"],
+                        examples: [
+                            { jp: "法律に照らして、この行為は違反だ。", reading: "ほうりつにてらして、このこういはいはんだ。", en: "In light of the law, this act is a violation." },
+                            { jp: "過去の経験に照らして判断する。", reading: "かこのけいけんにてらしてはんだんする。", en: "I judge in light of past experience." },
+                            { jp: "社内規定に照らし合わせて確認した。", reading: "しゃないきていにてらしあわせてかくにんした。", en: "I checked it against the internal company regulations." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "direction-reference",
+                title: "Direction & Reference Point",
+                items: [
+                    {
+                        pattern: "〜に沿って",
+                        reading: "〜にそって",
+                        meanings: { en: "Along / in accordance with — following a physical line, or a plan/policy/guideline.", bn: "বরাবর / অনুযায়ী — একটি ভৌত রেখা, বা একটি পরিকল্পনা/নীতি অনুসরণ করা।" },
+                        connection: ["名詞＋に沿って"],
+                        examples: [
+                            { jp: "川に沿って歩くと、公園に着く。", reading: "かわにそってあるくと、こうえんにつく。", en: "If you walk along the river, you'll reach the park." },
+                            { jp: "計画に沿って、工事を進めている。", reading: "けいかくにそって、こうじをすすめている。", en: "We are proceeding with construction in accordance with the plan." },
+                            { jp: "ご要望に沿えるよう努力します。", reading: "ごようぼうにそえるようどりょくします。", en: "We will try our best to meet your request." }
+                        ]
+                    },
+                    {
+                        pattern: "〜のもとで",
+                        meanings: { en: "Under (guidance/conditions) — marks the context or authority under which something happens.", bn: "অধীনে — যার অধীনে বা যে পরিস্থিতিতে কিছু ঘটে তা নির্দেশ করে।" },
+                        connection: ["名詞の＋もとで"],
+                        examples: [
+                            { jp: "有名な先生のもとで、料理を学んだ。", reading: "ゆうめいなせんせいのもとで、りょうりをまなんだ。", en: "I learned cooking under a famous teacher." },
+                            { jp: "同じ条件のもとで実験を行った。", reading: "おなじじょうけんのもとでじっけんをおこなった。", en: "We conducted the experiment under the same conditions." },
+                            { jp: "法のもとでは、誰もが平等だ。", reading: "ほうのもとでは、だれもがびょうどうだ。", en: "Under the law, everyone is equal." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を中心に(して)",
+                        reading: "〜をちゅうしんに(して)",
+                        meanings: { en: "Centering on / mainly — identifies the main focus around which other things are organized.", bn: "কেন্দ্র করে / প্রধানত — যার চারপাশে অন্যান্য বিষয় সংগঠিত হয় তা চিহ্নিত করে।" },
+                        connection: ["名詞＋を中心に（して）"],
+                        examples: [
+                            { jp: "東京を中心に、台風の影響が広がった。", reading: "とうきょうをちゅうしんに、たいふうのえいきょうがひろがった。", en: "Centering on Tokyo, the typhoon's impact spread." },
+                            { jp: "若者を中心にして、人気が広がっている。", reading: "わかものをちゅうしんにして、にんきがひろがっている。", en: "Centering on young people, its popularity is spreading." },
+                            { jp: "野菜を中心とした食生活を心がけている。", reading: "やさいをちゅうしんとしたしょくせいかつをこころがけている。", en: "I try to maintain a diet centered on vegetables." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にとどまる",
+                        meanings: { en: "To stay limited to / to remain at — the scope or extent of something does not go beyond a certain point.", bn: "সীমাবদ্ধ থাকা — কোনো কিছুর পরিসর একটি নির্দিষ্ট সীমার বাইরে যায় না।" },
+                        connection: ["名詞＋にとどまる", "動詞（辞書形）＋にとどまる"],
+                        examples: [
+                            { jp: "被害は軽傷者数名にとどまった。", reading: "ひがいはけいしょうしゃすうめいにとどまった。", en: "The damage was limited to a few minor injuries." },
+                            { jp: "売り上げは昨年並みにとどまった。", reading: "うりあげはきょねんなみにとどまった。", en: "Sales remained at about the same level as last year." },
+                            { jp: "彼の協力は口約束にとどまった。", reading: "かれのきょうりょくはくちやくそくにとどまった。", en: "His cooperation remained limited to a verbal promise." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "contrast-concession",
+                title: "Contrast & Concession",
+                items: [
+                    {
+                        pattern: "〜反面",
+                        reading: "〜はんめん",
+                        meanings: { en: "On the other hand — contrasts two different aspects of the same subject.", bn: "অন্যদিকে — একই বিষয়ের দুটি ভিন্ন দিকের বৈসাদৃশ্য দেখায়।" },
+                        connection: ["普通形＋反面", "な形容詞／名詞＋な／である＋反面"],
+                        examples: [
+                            { jp: "この仕事は給料がいい反面、忙しい。", reading: "このしごとはきゅうりょうがいいはんめん、いそがしい。", en: "This job pays well, but on the other hand, it's busy." },
+                            { jp: "都会は便利な反面、物価が高い。", reading: "とかいはべんりなはんめん、ぶっかがたかい。", en: "The city is convenient, but on the other hand, prices are high." },
+                            { jp: "新しい制度は効率的である反面、不公平だという声もある。", reading: "あたらしいせいどはこうりつてきであるはんめん、ふこうへいだというこえもある。", en: "The new system is efficient, but on the other hand, there are voices saying it's unfair." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ものの",
+                        meanings: { en: "Although / even though — acknowledges a fact while pointing out an unexpected contrast.", bn: "যদিও — একটি সত্য স্বীকার করে একটি অপ্রত্যাশিত বৈসাদৃশ্য তুলে ধরে।" },
+                        connection: ["普通形＋ものの"],
+                        examples: [
+                            { jp: "給料は上がったものの、生活は楽にならない。", reading: "きゅうりょうはあがったものの、せいかつはらくにならない。", en: "Although my salary went up, life hasn't gotten easier." },
+                            { jp: "やってみるとは言ったものの、自信はない。", reading: "やってみるとはいったものの、じしんはない。", en: "Although I said I'd try, I don't have confidence." },
+                            { jp: "天気はいいものの、風が冷たい。", reading: "てんきはいいものの、かぜがつめたい。", en: "Although the weather is nice, the wind is cold." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にかかわらず",
+                        meanings: { en: "Regardless of — states that a result is unaffected by a stated factor or variation.", bn: "নির্বিশেষে — একটি নির্দিষ্ট ফ্যাক্টর বা তারতম্যের দ্বারা একটি ফলাফল প্রভাবিত হয় না তা বলে।" },
+                        connection: ["名詞＋にかかわらず", "普通形（肯定・否定）＋にかかわらず"],
+                        examples: [
+                            { jp: "天候にかかわらず、イベントは開催されます。", reading: "てんこうにかかわらず、イベントはかいさいされます。", en: "Regardless of the weather, the event will be held." },
+                            { jp: "年齢にかかわらず、誰でも参加できます。", reading: "ねんれいにかかわらず、だれでもさんかできます。", en: "Regardless of age, anyone can participate." },
+                            { jp: "合格するしないにかかわらず、挑戦したことに意味がある。", reading: "ごうかくするしないにかかわらず、ちょうせんしたことにいみがある。", en: "Regardless of whether you pass or not, there's meaning in having tried." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "scope-exception",
+                title: "Scope & Exception",
+                items: [
+                    {
+                        pattern: "〜ばかりか",
+                        meanings: { en: "Not only... but also — introduces an additional, often more surprising, fact on top of the first.", bn: "শুধু তাই নয়... আরও — প্রথমটির উপর একটি অতিরিক্ত, প্রায়ই বেশি অবাক করা তথ্য উপস্থাপন করে।" },
+                        connection: ["普通形＋ばかりか", "名詞＋ばかりか"],
+                        examples: [
+                            { jp: "彼は英語ばかりか、フランス語も話せる。", reading: "かれはえいごばかりか、フランスごもはなせる。", en: "Not only English, he can even speak French." },
+                            { jp: "この薬は効果がないばかりか、副作用もある。", reading: "このくすりはこうかがないばかりか、ふくさようもある。", en: "This medicine not only has no effect, it even has side effects." },
+                            { jp: "彼女は料理が上手なばかりか、掃除も得意だ。", reading: "かのじょはりょうりがじょうずなばかりか、そうじもとくいだ。", en: "Not only is she good at cooking, she's also skilled at cleaning." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を問わず",
+                        reading: "〜をとわず",
+                        meanings: { en: "Regardless of — a fact applies no matter what category a certain variable falls into.", bn: "নির্বিশেষে — একটি নির্দিষ্ট চলক যেকোনো শ্রেণীতে পড়ুক না কেন একটি বিষয় প্রযোজ্য হয়।" },
+                        connection: ["名詞＋を問わず"],
+                        examples: [
+                            { jp: "経験の有無を問わず、応募できます。", reading: "けいけんのうむをとわず、おうぼできます。", en: "You can apply regardless of whether you have experience or not." },
+                            { jp: "昼夜を問わず、工事が続いている。", reading: "ちゅうやをとわず、こうじがつづいている。", en: "Construction continues regardless of day or night." },
+                            { jp: "国籍を問わず、誰でも利用できる施設だ。", reading: "こくせきをとわず、だれでもりようできるしせつだ。", en: "It's a facility that anyone can use, regardless of nationality." }
+                        ]
+                    },
+                    {
+                        pattern: "〜もかまわず",
+                        meanings: { en: "Without caring about / heedless of — doing something while disregarding a normally relevant concern.", bn: "গ্রাহ্য না করে — স্বাভাবিকভাবে প্রাসঙ্গিক একটি উদ্বেগকে উপেক্ষা করে কিছু করা।" },
+                        connection: ["名詞＋もかまわず"],
+                        examples: [
+                            { jp: "彼は人目もかまわず、大声で泣いた。", reading: "かれはひとめもかまわず、おおごえでないた。", en: "Without caring about people's eyes, he cried loudly." },
+                            { jp: "服が汚れるのもかまわず、子供は泥の中で遊んだ。", reading: "ふくがよごれるのもかまわず、こどもはどろのなかであそんだ。", en: "Not caring if their clothes got dirty, the children played in the mud." },
+                            { jp: "周囲の反対もかまわず、彼は計画を進めた。", reading: "しゅういのはんたいもかまわず、かれはけいかくをすすめた。", en: "Heedless of the opposition around him, he proceeded with the plan." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "reason-excuse",
+                title: "Reason & Excuse",
+                items: [
+                    {
+                        pattern: "〜ものだから",
+                        meanings: { en: "Because — gives a reason in a somewhat defensive, excuse-like tone.", bn: "কারণ — কিছুটা প্রতিরক্ষামূলক, অজুহাতধর্মী সুরে একটি কারণ দেয়।" },
+                        connection: ["普通形＋ものだから", "な形容詞／名詞＋な＋ものだから"],
+                        examples: [
+                            { jp: "急いでいたものだから、挨拶もせず帰ってしまった。", reading: "いそいでいたものだから、あいさつもせずかえってしまった。", en: "Because I was in a hurry, I left without even saying goodbye." },
+                            { jp: "初めての経験なものだから、緊張してしまった。", reading: "はじめてのけいけんなものだから、きんちょうしてしまった。", en: "Because it was my first experience, I ended up getting nervous." },
+                            { jp: "子供が熱を出したものだから、会社を休んだ。", reading: "こどもがねつをだしたものだから、かいしゃをやすんだ。", en: "Because my child came down with a fever, I took the day off work." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ことだし",
+                        meanings: { en: "Since, given that — a casual way of giving one of several reasons behind a decision.", bn: "যেহেতু — একটি সিদ্ধান্তের পেছনের একাধিক কারণের মধ্যে একটি নৈমিত্তিকভাবে উপস্থাপন করার উপায়।" },
+                        connection: ["普通形＋ことだし"],
+                        examples: [
+                            { jp: "天気もいいことだし、散歩に行こう。", reading: "てんきもいいことだし、さんぽにいこう。", en: "Since the weather's nice, let's go for a walk." },
+                            { jp: "もう遅いことだし、そろそろ帰りましょう。", reading: "もうおそいことだし、そろそろかえりましょう。", en: "Since it's already late, let's head home soon." },
+                            { jp: "彼も賛成したことだし、計画を進めよう。", reading: "かれもさんせいしたことだし、けいかくをすすめよう。", en: "Since he agreed too, let's proceed with the plan." }
+                        ]
+                    },
+                    {
+                        pattern: "〜て当然だ",
+                        reading: "〜とうぜんだ",
+                        meanings: { en: "It's only natural that — asserts that a result is the obvious, expected outcome.", bn: "স্বাভাবিক যে — একটি ফলাফল স্পষ্ট, প্রত্যাশিত পরিণতি তা দৃঢ় করে বলে।" },
+                        connection: ["動詞（て形）＋当然だ", "普通形＋のは当然だ"],
+                        examples: [
+                            { jp: "あんな無理をしたら、病気になって当然だ。", reading: "あんなむりをしたら、びょうきになってとうぜんだ。", en: "If you push yourself that hard, it's only natural you'd get sick." },
+                            { jp: "毎日練習したのだから、上手になって当然だ。", reading: "まいにちれんしゅうしたのだから、じょうずになってとうぜんだ。", en: "Since you practiced every day, it's only natural you'd improve." },
+                            { jp: "こんな失礼な態度では、怒られて当然だ。", reading: "こんなしつれいなたいどでは、おこられてとうぜんだ。", en: "With such a rude attitude, it's only natural to get scolded." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ことは〜が",
+                        meanings: { en: "It's true that... but — concedes a fact is true while adding a qualifying remark.", bn: "এটা সত্যি যে... কিন্তু — একটি সত্য স্বীকার করে একটি শর্তসাপেক্ষ মন্তব্য যোগ করা।" },
+                        connection: ["動詞・い形容詞（辞書形）＋ことは＋同形＋が"],
+                        examples: [
+                            { jp: "行くことは行きますが、少し遅れるかもしれません。", reading: "いくことはいきますが、すこしおくれるかもしれません。", en: "It's true I'll go, but I might be a little late." },
+                            { jp: "おいしいことはおいしいが、量が少ない。", reading: "おいしいことはおいしいが、りょうがすくない。", en: "It's true it's delicious, but the portion is small." },
+                            { jp: "分かることは分かりますが、納得はできません。", reading: "わかることはわかりますが、なっとくはできません。", en: "It's true I understand, but I can't accept it." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "inability-endurance",
+                title: "Inability & Endurance",
+                items: [
+                    {
+                        pattern: "〜ようがない",
+                        meanings: { en: "There's no way to — states that an action is physically or practically impossible to carry out.", bn: "করার কোনো উপায় নেই — একটি কাজ শারীরিকভাবে বা বাস্তবে করা অসম্ভব তা বলে।" },
+                        connection: ["動詞（ます形語幹）＋ようがない"],
+                        examples: [
+                            { jp: "連絡先が分からないので、謝りようがない。", reading: "れんらくさきがわからないので、あやまりようがない。", en: "Since I don't know their contact info, there's no way to apologize." },
+                            { jp: "この壊れ方では、直しようがない。", reading: "このこわれかたでは、なおしようがない。", en: "With this kind of damage, there's no way to fix it." },
+                            { jp: "証拠がなければ、証明のしようがない。", reading: "しょうこがなければ、しょうめいのしようがない。", en: "Without evidence, there's no way to prove it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ないではいられない",
+                        meanings: { en: "Can't help but / can't resist — an emotional or physical urge is too strong to suppress.", bn: "না করে থাকা যায় না — একটি মানসিক বা শারীরিক তাড়না এতটাই তীব্র যে দমন করা যায় না।" },
+                        connection: ["動詞（ない形）＋ではいられない"],
+                        examples: [
+                            { jp: "あの映画を見ると、泣かないではいられない。", reading: "あのえいがをみると、なかないではいられない。", en: "When I watch that movie, I can't help but cry." },
+                            { jp: "こんなにおいしそうだと、食べないではいられない。", reading: "こんなにおいしそうだと、たべないではいられない。", en: "When it looks this delicious, I can't resist eating it." },
+                            { jp: "不正を見ると、黙っていないではいられない。", reading: "ふせいをみると、だまっていないではいられない。", en: "When I see wrongdoing, I can't help but speak up." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てばかりはいられない",
+                        meanings: { en: "Can't keep just doing — a certain behavior cannot continue because circumstances demand action.", bn: "শুধু তাই করতে থাকা যায় না — পরিস্থিতি কাজের দাবি করায় একটি আচরণ চালিয়ে যাওয়া যায় না।" },
+                        connection: ["動詞（て形）＋ばかりはいられない"],
+                        examples: [
+                            { jp: "いつまでも悲しんでばかりはいられない。", reading: "いつまでもかなしんでばかりはいられない。", en: "I can't keep just being sad forever." },
+                            { jp: "休んでばかりはいられない、仕事が山ほどある。", reading: "やすんでばかりはいられない、しごとがやまほどある。", en: "I can't keep just resting, there's a mountain of work." },
+                            { jp: "失敗を気にしてばかりはいられない、前に進もう。", reading: "しっぱいをきにしてばかりはいられない、まえにすすもう。", en: "I can't keep worrying about the failure, let's move forward." }
+                        ]
+                    },
+                    {
+                        pattern: "〜にたえない",
+                        meanings: { en: "Cannot bear to / cannot help but feel — either an emotion is too strong to contain, or something is too poor-quality to endure watching.", bn: "সহ্য করা যায় না / দমন করা যায় না — হয় একটি অনুভূতি এত তীব্র যে ধরে রাখা যায় না, অথবা মান এত খারাপ যে দেখা কষ্টকর।" },
+                        connection: ["名詞＋にたえない", "動詞（辞書形）＋にたえない"],
+                        examples: [
+                            { jp: "彼の死は、哀惜の念にたえない。", reading: "かれのしは、あいせきのねんにたえない。", en: "His death is unbearably sorrowful." },
+                            { jp: "そのニュースには、感謝の念にたえない。", reading: "そのニュースには、かんしゃのねんにたえない。", en: "That news fills me with unbearable gratitude." },
+                            { jp: "この作文は、お世辞にも読むにたえない出来だ。", reading: "このさくぶんは、おせじにもよむにたえないできだ。", en: "This essay is, to put it kindly, unbearable to read." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "situation-regardless",
+                title: "Situational Indifference",
+                items: [
+                    {
+                        pattern: "〜にしろ〜にしろ",
+                        meanings: { en: "Whether... or — presents two contrasting possibilities, both leading to the same conclusion.", bn: "হোক বা হোক — দুটি বিপরীত সম্ভাবনা উপস্থাপন করে, উভয়ই একই সিদ্ধান্তে পৌঁছায়।" },
+                        connection: ["名詞／普通形＋にしろ＋名詞／普通形＋にしろ"],
+                        examples: [
+                            { jp: "行くにしろ行かないにしろ、早く決めてほしい。", reading: "いくにしろいかないにしろ、はやくきめてほしい。", en: "Whether you go or not, I want you to decide quickly." },
+                            { jp: "賛成にしろ反対にしろ、理由を説明すべきだ。", reading: "さんせいにしろはんたいにしろ、りゆうをせつめいすべきだ。", en: "Whether you agree or disagree, you should explain your reasons." },
+                            { jp: "冗談にしろ本気にしろ、言っていいことと悪いことがある。", reading: "じょうだんにしろほんきにしろ、いっていいこととわるいことがある。", en: "Whether as a joke or seriously, there are things okay and not okay to say." }
+                        ]
+                    },
+                    {
+                        pattern: "〜も〜なら〜も",
+                        meanings: { en: "Both... and... (critical) — criticizes two related parties for sharing the same fault.", bn: "উভয়ই... এবং... (সমালোচনামূলক) — একই দোষের জন্য দুটি সম্পর্কিত পক্ষকে সমালোচনা করে।" },
+                        connection: ["名詞＋も＋名詞＋なら＋名詞＋も"],
+                        examples: [
+                            { jp: "この会社は上司も上司なら、部下も部下だ。", reading: "このかいしゃはじょうしもじょうしなら、ぶかもぶかだ。", en: "In this company, the bosses are bad, and so are the subordinates." },
+                            { jp: "親も親なら、子も子だ。", reading: "おやもおやなら、こもこだ。", en: "The parents are no good, and neither is the child." },
+                            { jp: "政治家も政治家なら、国民も国民だ。", reading: "せいじかもせいじかなら、こくみんもこくみんだ。", en: "The politicians are bad, and so are the citizens." }
+                        ]
+                    },
+                    {
+                        pattern: "〜やら〜やら",
+                        meanings: { en: "What with... and... — lists multiple things (often troublesome) as examples, implying even more.", bn: "কী যে... আর কী যে... — একাধিক জিনিস (প্রায়ই ঝামেলাপূর্ণ) উদাহরণ হিসেবে তালিকাভুক্ত করে, আরও বেশি কিছু থাকার ইঙ্গিত দেয়।" },
+                        connection: ["名詞／動詞（辞書形）＋やら＋名詞／動詞（辞書形）＋やら"],
+                        examples: [
+                            { jp: "引っ越しで、荷造りやら掃除やらで大忙しだ。", reading: "ひっこしで、にづくりやらそうじやらでおおいそがしだ。", en: "With the move, I'm super busy with packing and cleaning and such." },
+                            { jp: "嬉しいやら恥ずかしいやらで、顔が赤くなった。", reading: "うれしいやらはずかしいやらで、かおがあかくなった。", en: "What with being happy and embarrassed, my face turned red." },
+                            { jp: "子供が泣くやら騒ぐやらで、大変だった。", reading: "こどもがなくやらさわぐやらで、たいへんだった。", en: "What with the kids crying and making noise, it was a handful." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "standpoint-opposition",
+                title: "Standpoint & Opposition",
+                items: [
+                    {
+                        pattern: "〜にしたら／にすれば",
+                        meanings: { en: "From the standpoint of — evaluates something from a particular person's perspective.", bn: "দৃষ্টিকোণ থেকে — একটি নির্দিষ্ট ব্যক্তির দৃষ্টিভঙ্গি থেকে কোনো কিছুর মূল্যায়ন করে।" },
+                        connection: ["名詞＋にしたら／にすれば"],
+                        examples: [
+                            { jp: "親にしたら、子供はいつまでも心配なものだ。", reading: "おやにしたら、こどもはいつまでもしんぱいなものだ。", en: "From a parent's standpoint, their children are always a worry." },
+                            { jp: "私にすれば、それほど大きな問題ではない。", reading: "わたしにすれば、それほどおおきなもんだいではない。", en: "From my standpoint, it's not that big a problem." },
+                            { jp: "子供にしたら、大人の事情は分からない。", reading: "こどもにしたら、おとなのじじょうはわからない。", en: "From a child's standpoint, they don't understand adult circumstances." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に反して",
+                        reading: "〜にはんして",
+                        meanings: { en: "Contrary to — the actual result is opposite to what was expected or intended.", bn: "বিপরীতে — প্রকৃত ফলাফল প্রত্যাশিত বা উদ্দিষ্টের বিপরীত।" },
+                        connection: ["名詞＋に反して"],
+                        examples: [
+                            { jp: "予想に反して、試合は楽に勝てた。", reading: "よそうにはんして、しあいはらくにかてた。", en: "Contrary to expectations, we won the match easily." },
+                            { jp: "親の期待に反して、彼は大学に行かなかった。", reading: "おやのきたいにはんして、かれはだいがくにいかなかった。", en: "Contrary to his parents' expectations, he didn't go to university." },
+                            { jp: "規則に反する行為は許されない。", reading: "きそくにはんするこういはゆるされない。", en: "Acts that go against the rules are not permitted." }
+                        ]
+                    },
+                    {
+                        pattern: "〜はともかく(として)",
+                        meanings: { en: "Setting aside / regardless of — moves past one topic to focus on something more important.", bn: "একপাশে রেখে / নির্বিশেষে — একটি বিষয়কে পাশ কাটিয়ে বেশি গুরুত্বপূর্ণ কিছুতে মনোযোগ দেয়।" },
+                        connection: ["名詞＋はともかく（として）"],
+                        examples: [
+                            { jp: "味はともかく、見た目はとてもきれいだ。", reading: "あじはともかく、みためはとてもきれいだ。", en: "Setting aside the taste, it looks very pretty." },
+                            { jp: "お金のことはともかくとして、まず健康が大事だ。", reading: "おかねのことはともかくとして、まずけんこうがだいじだ。", en: "Setting aside money matters, health is important first." },
+                            { jp: "冗談はともかく、本題に戻りましょう。", reading: "じょうだんはともかく、ほんだいにもどりましょう。", en: "Jokes aside, let's get back to the main topic." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "formal-duty",
+                title: "Formal Duty & Prohibition",
+                items: [
+                    {
+                        pattern: "〜べからざる",
+                        meanings: { en: "Must-not (attributive) — a classical, formal form of べからず used directly before a noun.", bn: "করা নিষেধ (বিশেষণরূপে) — べからず-এর একটি শাস্ত্রীয়, আনুষ্ঠানিক রূপ যা সরাসরি বিশেষ্যের আগে ব্যবহৃত হয়।" },
+                        connection: ["動詞（辞書形）＋べからざる＋名詞"],
+                        examples: [
+                            { jp: "これは許すべからざる行為だ。", reading: "これはゆるすべからざることういだ。", en: "This is an unforgivable act." },
+                            { jp: "教師にとって生徒への暴力は欠くべからざる禁止事項だ。", reading: "きょうしにとってせいとへのぼうりょくはかくべからざるきんしじこうだ。", en: "For a teacher, violence against students is an indispensable prohibition." },
+                            { jp: "彼のしたことは、看過すべからざる問題だ。", reading: "かれのしたことは、かんかすべからざるもんだいだ。", en: "What he did is a problem that cannot be overlooked." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たる(者)",
+                        reading: "〜たる(もの)",
+                        meanings: { en: "As one who is — a formal expression stating what is expected of someone in a given role.", bn: "যে ব্যক্তি... হিসেবে — একটি নির্দিষ্ট ভূমিকায় থাকা ব্যক্তির কাছ থেকে কী প্রত্যাশিত তা বলার আনুষ্ঠানিক প্রকাশভঙ্গি।" },
+                        connection: ["名詞＋たる（者）"],
+                        examples: [
+                            { jp: "リーダーたる者、責任を持つべきだ。", reading: "リーダーたるもの、せきにんをもつべきだ。", en: "As one who is a leader, one should take responsibility." },
+                            { jp: "教師たる者、生徒の手本であるべきだ。", reading: "きょうしたるもの、せいとのてほんであるべきだ。", en: "As one who is a teacher, one should be a role model for students." },
+                            { jp: "社会人たる者、時間を守るべきだ。", reading: "しゃかいじんたるもの、じかんをまもるべきだ。", en: "As one who is a working adult, one should be punctual." }
+                        ]
+                    },
+                    {
+                        pattern: "〜べく",
+                        meanings: { en: "In order to — a formal, written expression of purpose.", bn: "উদ্দেশ্যে — উদ্দেশ্য প্রকাশের একটি আনুষ্ঠানিক, লিখিত রূপ।" },
+                        connection: ["動詞（辞書形）＋べく"],
+                        examples: [
+                            { jp: "問題を解決すべく、会議が開かれた。", reading: "もんだいをかいけつすべく、かいぎがひらかれた。", en: "A meeting was held in order to solve the problem." },
+                            { jp: "目標を達成すべく、日々努力している。", reading: "もくひょうをたっせいすべく、ひびどりょくしている。", en: "I make daily efforts in order to achieve my goal." },
+                            { jp: "真相を明らかにすべく、調査が進められている。", reading: "しんそうをあきらかにすべく、ちょうさがすすめられている。", en: "An investigation is proceeding in order to clarify the truth." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てはならない",
+                        meanings: { en: "Must not (formal) — a formal, written-style prohibition, stronger than てはいけません.", bn: "করা নিষেধ (আনুষ্ঠানিক) — てはいけません-এর চেয়ে শক্তিশালী, একটি আনুষ্ঠানিক, লিখিত নিষেধাজ্ঞা।" },
+                        connection: ["動詞（て形）＋はならない"],
+                        examples: [
+                            { jp: "この事実を忘れてはならない。", reading: "このじじつをわすれてはならない。", en: "This fact must not be forgotten." },
+                            { jp: "個人情報を漏らしてはならない。", reading: "こじんじょうほうをもらしてはならない。", en: "Personal information must not be leaked." },
+                            { jp: "同じ過ちを繰り返してはならない。", reading: "おなじあやまちをくりかえしてはならない。", en: "The same mistake must not be repeated." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "inclusion-exclusion",
+                title: "Inclusion & Exclusion",
+                items: [
+                    {
+                        pattern: "〜をはじめ(として)",
+                        meanings: { en: "Starting with / such as — gives a representative example, implying there are more of the same kind.", bn: "দিয়ে শুরু করে / যেমন — একটি প্রতিনিধিত্বমূলক উদাহরণ দেয়, একই ধরনের আরও কিছু থাকার ইঙ্গিত দেয়।" },
+                        connection: ["名詞＋をはじめ（として）"],
+                        examples: [
+                            { jp: "校長先生をはじめ、多くの先生方が出席した。", reading: "こうちょうせんせいをはじめ、おおくのせんせいがたがしゅっせきした。", en: "Starting with the principal, many teachers attended." },
+                            { jp: "日本をはじめとして、各国で人気がある。", reading: "にほんをはじめとして、かっこくでにんきがある。", en: "Starting with Japan, it's popular in various countries." },
+                            { jp: "このブランドは、バッグをはじめ様々な商品を扱う。", reading: "このブランドは、バッグをはじめさまざまなしょうひんをあつかう。", en: "This brand handles various products, starting with bags." }
+                        ]
+                    },
+                    {
+                        pattern: "〜につけ(て)",
+                        meanings: { en: "Whenever / in connection with — an emotion or thought that arises every time a certain situation occurs.", bn: "যখনই / সংযোগে — একটি নির্দিষ্ট পরিস্থিতি ঘটলে প্রতিবারই জাগ্রত হওয়া অনুভূতি বা চিন্তা।" },
+                        connection: ["動詞（辞書形）＋につけ（て）"],
+                        examples: [
+                            { jp: "この歌を聞くにつけ、学生時代を思い出す。", reading: "このうたをきくにつけ、がくせいじだいをおもいだす。", en: "Whenever I hear this song, I remember my student days." },
+                            { jp: "何かにつけて、彼女は文句を言う。", reading: "なにかにつけて、かのじょはもんくをいう。", en: "In connection with everything, she complains." },
+                            { jp: "この写真を見るにつけ、懐かしい気持ちになる。", reading: "このしゃしんをみるにつけ、なつかしいきもちになる。", en: "Whenever I look at this photo, I feel nostalgic." }
+                        ]
+                    },
+                    {
+                        pattern: "〜抜きで",
+                        reading: "〜ぬきで",
+                        meanings: { en: "Without — omitting something that would normally be included.", bn: "ছাড়া — সাধারণত অন্তর্ভুক্ত থাকা কোনো কিছু বাদ দিয়ে।" },
+                        connection: ["名詞＋抜きで"],
+                        examples: [
+                            { jp: "今日は冗談抜きで話したい。", reading: "きょうはじょうだんぬきではなしたい。", en: "Today I want to talk without joking around." },
+                            { jp: "朝食抜きで学校に行くのは体に悪い。", reading: "ちょうしょくぬきでがっこうにいくのはからだにわるい。", en: "Going to school without breakfast is bad for your health." },
+                            { jp: "前置き抜きで、本題に入りましょう。", reading: "まえおきぬきで、ほんだいにはいりましょう。", en: "Without a preamble, let's get into the main topic." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を抜きにして",
+                        reading: "〜をぬきにして",
+                        meanings: { en: "Leaving aside / excluding from consideration — a more deliberate, formal way of setting something aside.", bn: "বাদ দিয়ে / বিবেচনা থেকে বাদ রেখে — কোনো কিছু একপাশে রাখার একটি বেশি সুচিন্তিত, আনুষ্ঠানিক উপায়।" },
+                        connection: ["名詞＋を抜きにして"],
+                        examples: [
+                            { jp: "彼の協力を抜きにしては、成功できなかった。", reading: "かれのきょうりょくをぬきにしては、せいこうできなかった。", en: "Excluding his cooperation, we could not have succeeded." },
+                            { jp: "感情を抜きにして、冷静に考えよう。", reading: "かんじょうをぬきにして、れいせいにかんがえよう。", en: "Leaving emotion aside, let's think calmly." },
+                            { jp: "このドラマを抜きにして、今年のヒット作は語れない。", reading: "このドラマをぬきにして、ことしのヒットさくはかたれない。", en: "This year's hits cannot be discussed while excluding this drama." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "manner-appearance",
+                title: "Manner & Appearance",
+                items: [
+                    {
+                        pattern: "〜かわりに",
+                        meanings: { en: "Instead of / in exchange for — one thing substitutes for or balances out another.", bn: "পরিবর্তে / বিনিময়ে — একটি জিনিস অন্যটির বিকল্প হয় বা ভারসাম্য রক্ষা করে।" },
+                        connection: ["動詞（辞書形）＋かわりに", "名詞の＋かわりに"],
+                        examples: [
+                            { jp: "会議に出るかわりに、資料を送ってもらった。", reading: "かいぎにでるかわりに、しりょうをおくってもらった。", en: "Instead of attending the meeting, I had the materials sent to me." },
+                            { jp: "父のかわりに、母が会議に出席した。", reading: "ちちのかわりに、ははがかいぎにしゅっせきした。", en: "Instead of my father, my mother attended the meeting." },
+                            { jp: "このアプリは無料であるかわりに、広告が多い。", reading: "このアプリはむりょうであるかわりに、こうこくがおおい。", en: "This app is free, but in exchange, it has a lot of ads." }
+                        ]
+                    },
+                    {
+                        pattern: "〜げ",
+                        meanings: { en: "Seeming / -looking — attaches to adjective stems to describe an outward appearance of a feeling.", bn: "মনে হচ্ছে / দেখতে লাগছে — বিশেষণের মূলে যুক্ত হয়ে একটি অনুভূতির বাহ্যিক প্রকাশ বর্ণনা করে।" },
+                        connection: ["い形容詞（語幹）／な形容詞（語幹）＋げ"],
+                        examples: [
+                            { jp: "彼女は寂しげな顔をしていた。", reading: "かのじょはさびしげなかおをしていた。", en: "She had a lonely-looking face." },
+                            { jp: "子供は眠たげに目をこすっていた。", reading: "こどもはねむたげにめをこすっていた。", en: "The child was rubbing their eyes sleepily." },
+                            { jp: "彼は自信ありげに答えた。", reading: "かれはじしんありげにこたえた。", en: "He answered with an air of confidence." }
+                        ]
+                    },
+                    {
+                        pattern: "〜だらけ",
+                        meanings: { en: "Full of (undesirable things) — a surface or situation is covered with something messy or negative.", bn: "পূর্ণ (অনাকাঙ্ক্ষিত জিনিসে) — একটি পৃষ্ঠ বা পরিস্থিতি অগোছালো বা নেতিবাচক কিছুতে আবৃত।" },
+                        connection: ["名詞＋だらけ"],
+                        examples: [
+                            { jp: "子供の服が泥だらけになった。", reading: "こどものふくがどろだらけになった。", en: "The child's clothes became covered in mud." },
+                            { jp: "このレポートは間違いだらけだ。", reading: "このレポートはまちがいだらけだ。", en: "This report is full of mistakes." },
+                            { jp: "部屋がほこりだらけで、掃除が必要だ。", reading: "へやがほこりだらけで、そうじがひつようだ。", en: "The room is full of dust and needs cleaning." }
+                        ]
+                    },
+                    {
+                        pattern: "〜気味",
+                        reading: "〜ぎみ",
+                        meanings: { en: "A touch of / a tendency toward — notes a slight, ongoing leaning toward a certain condition.", bn: "কিছুটা / একটা প্রবণতা — একটি নির্দিষ্ট অবস্থার দিকে সামান্য, চলমান ঝোঁক নির্দেশ করে।" },
+                        connection: ["名詞／動詞（ます形語幹）＋気味"],
+                        examples: [
+                            { jp: "最近、疲れ気味だ。", reading: "さいきん、つかれぎみだ。", en: "Lately, I've been a bit tired." },
+                            { jp: "少し風邪気味なので、早めに休みます。", reading: "すこしかぜぎみなので、はやめにやすみます。", en: "Since I'm feeling a bit under the weather, I'll rest early." },
+                            { jp: "ここ数日、太り気味で心配だ。", reading: "ここすうじつ、ふとりぎみでしんぱいだ。", en: "These past few days, I've been putting on a bit of weight, which worries me." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "manner-state",
+                title: "Manner & State",
+                items: [
+                    {
+                        pattern: "〜たて",
+                        meanings: { en: "Freshly done — emphasizes that something was just completed a moment ago.", bn: "সদ্য করা — কোনো কিছু মাত্র সম্পন্ন হয়েছে তা জোর দিয়ে বলে।" },
+                        connection: ["動詞（ます形語幹）＋たて"],
+                        examples: [
+                            { jp: "焼きたてのパンはとてもおいしい。", reading: "やきたてのパンはとてもおいしい。", en: "Freshly baked bread is very delicious." },
+                            { jp: "採れたての野菜をいただいた。", reading: "とれたてのやさいをいただいた。", en: "I received freshly picked vegetables." },
+                            { jp: "彼はこの春、入社したての新人だ。", reading: "かれはこのはる、にゅうしゃしたてのしんじんだ。", en: "He is a newcomer who freshly joined the company this spring." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ふうに",
+                        meanings: { en: "In the manner of / like this — describes how something is done, in a certain style.", bn: "যেভাবে / এইভাবে — কোনো কিছু একটি নির্দিষ্ট ধরনে কীভাবে করা হয় তা বর্ণনা করে।" },
+                        connection: ["こ／そ／あ／ど＋ういうふうに", "名詞の＋ふうに"],
+                        examples: [
+                            { jp: "こういうふうに考えたことはなかった。", reading: "こういうふうにかんがえたことはなかった。", en: "I had never thought of it this way before." },
+                            { jp: "昔ふうの料理が恋しくなった。", reading: "むかしふうのりょうりがこいしくなった。", en: "I started missing old-fashioned-style cooking." },
+                            { jp: "どんなふうに説明すればいいか分からない。", reading: "どんなふうにせつめいすればいいかわからない。", en: "I don't know in what way I should explain it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜っけ",
+                        meanings: { en: "Wasn't it...? — a casual way of trying to confirm or recall a half-forgotten fact.", bn: "তাই না...? — একটি অর্ধ-ভোলা তথ্য নিশ্চিত বা মনে করার চেষ্টার একটি নৈমিত্তিক উপায়।" },
+                        connection: ["普通形（過去）＋っけ"],
+                        examples: [
+                            { jp: "明日、何か予定あったっけ？", reading: "あした、なにかよていあったっけ？", en: "Did we have some plan for tomorrow?" },
+                            { jp: "あの映画、もう見たんだっけ？", reading: "あのえいが、もうみたんだっけ？", en: "Had I already seen that movie?" },
+                            { jp: "彼の名前、何だったっけ。", reading: "かれのなまえ、なんだったっけ。", en: "What was his name again?" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "completion-missed-chance",
+                title: "Completion & Missed Chance",
+                items: [
+                    {
+                        pattern: "〜ずじまい",
+                        meanings: { en: "Ending up not having done — a planned or hoped-for action ultimately never happened.", bn: "অবশেষে না করেই থেকে যাওয়া — পরিকল্পিত বা কাঙ্ক্ষিত একটি কাজ শেষ পর্যন্ত ঘটেনি।" },
+                        connection: ["動詞（ない形）＋ずじまい"],
+                        examples: [
+                            { jp: "結局、彼には会えずじまいだった。", reading: "けっきょく、かれにはあえずじまいだった。", en: "In the end, I ended up not being able to meet him." },
+                            { jp: "買ったものの、一度も使わずじまいだ。", reading: "かったものの、いちどもつかわずじまいだ。", en: "Although I bought it, I ended up never using it even once." },
+                            { jp: "聞きたかったが、聞けずじまいで終わった。", reading: "ききたかったが、きけずじまいでおわった。", en: "I wanted to ask, but it ended with me never getting to ask." }
+                        ]
+                    },
+                    {
+                        pattern: "〜そびれる",
+                        meanings: { en: "To miss the chance to do — fail to do something because the right moment slipped away.", bn: "সুযোগ হাতছাড়া করা — সঠিক মুহূর্তটি চলে যাওয়ায় কিছু করতে ব্যর্থ হওয়া।" },
+                        connection: ["動詞（ます形語幹）＋そびれる"],
+                        examples: [
+                            { jp: "忙しくて、連絡しそびれてしまった。", reading: "いそがしくて、れんらくしそびれてしまった。", en: "I was busy and ended up missing the chance to contact them." },
+                            { jp: "タイミングを逃して、言いそびれた。", reading: "タイミングをのがして、いいそびれた。", en: "I missed the timing and ended up not saying it." },
+                            { jp: "寝坊して、朝食を食べそびれた。", reading: "ねぼうして、ちょうしょくをたべそびれた。", en: "I overslept and missed the chance to eat breakfast." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てからというもの",
+                        meanings: { en: "Ever since / from the time that — emphasizes a lasting change that began from a specific point.", bn: "তখন থেকে — একটি নির্দিষ্ট সময় থেকে শুরু হওয়া একটি স্থায়ী পরিবর্তনকে জোর দেয়।" },
+                        connection: ["動詞（て形）＋からというもの"],
+                        examples: [
+                            { jp: "子供が生まれてからというもの、生活が一変した。", reading: "こどもがうまれてからというもの、せいかつがいっぺんした。", en: "Ever since the child was born, life has completely changed." },
+                            { jp: "引っ越してからというもの、忙しい日々が続いている。", reading: "ひっこしてからというもの、いそがしいひびがつづいている。", en: "Ever since moving, busy days have continued." },
+                            { jp: "彼に出会ってからというもの、人生が変わった。", reading: "かれにであってからというもの、じんせいがかわった。", en: "Ever since meeting him, my life has changed." }
+                        ]
+                    },
+                    {
+                        pattern: "〜て以来",
+                        reading: "〜ていらい",
+                        meanings: { en: "Ever since — states that a situation has continued uninterrupted since a past event.", bn: "তখন থেকে — একটি পরিস্থিতি একটি অতীত ঘটনা থেকে অবিচ্ছিন্নভাবে চলছে তা বলে।" },
+                        connection: ["動詞（て形）＋以来"],
+                        examples: [
+                            { jp: "卒業して以来、彼には会っていない。", reading: "そつぎょうしていらい、かれにはあっていない。", en: "I haven't met him since we graduated." },
+                            { jp: "引っ越して以来、ずっと忙しい。", reading: "ひっこしていらい、ずっといそがしい。", en: "I've been busy ever since I moved." },
+                            { jp: "結婚して以来、料理をするようになった。", reading: "けっこんしていらい、りょうりをするようになった。", en: "I've started cooking ever since I got married." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "degree-extent",
+                title: "Degree & Extent",
+                items: [
+                    {
+                        pattern: "〜わりに(は)",
+                        meanings: { en: "Considering / relatively — a result is unexpectedly different given a certain standard.", bn: "বিবেচনায় / তুলনামূলকভাবে — একটি নির্দিষ্ট মান বিবেচনায় একটি ফলাফল অপ্রত্যাশিতভাবে ভিন্ন।" },
+                        connection: ["普通形＋わりに（は）", "な形容詞／名詞の＋わりに（は）"],
+                        examples: [
+                            { jp: "この店は安いわりに、料理がおいしい。", reading: "このみせはやすいわりに、りょうりがおいしい。", en: "Considering how cheap it is, this restaurant's food is delicious." },
+                            { jp: "練習したわりには、あまり上達しなかった。", reading: "れんしゅうしたわりには、あまりじょうたつしなかった。", en: "Considering how much I practiced, I didn't improve much." },
+                            { jp: "彼は年齢のわりに、若く見える。", reading: "かれはねんれいのわりに、わかくみえる。", en: "Considering his age, he looks young." }
+                        ]
+                    },
+                    {
+                        pattern: "〜だけましだ",
+                        meanings: { en: "At least it's better that — finds a small positive in an otherwise unfortunate situation.", bn: "অন্তত এটা ভালো যে — অন্যথায় দুর্ভাগ্যজনক পরিস্থিতিতে একটি ছোট ইতিবাচক দিক খুঁজে পাওয়া।" },
+                        connection: ["普通形＋だけましだ"],
+                        examples: [
+                            { jp: "雨は降っているが、風がないだけましだ。", reading: "あめはふっているが、かぜがないだけましだ。", en: "It's raining, but at least it's better that there's no wind." },
+                            { jp: "給料は安いが、仕事があるだけましだ。", reading: "きゅうりょうはやすいが、しごとがあるだけましだ。", en: "The pay is low, but at least it's better that I have a job." },
+                            { jp: "軽いけがで済んで、無事だっただけましだった。", reading: "かるいけがですんで、ぶじだっただけましだった。", en: "It ended with just a minor injury, so at least it's better that everyone was safe." }
+                        ]
+                    },
+                    {
+                        pattern: "〜限りでは",
+                        reading: "〜かぎりでは",
+                        meanings: { en: "As far as — limits a statement to the speaker's own scope of knowledge or experience.", bn: "যতটুকু জানা/দেখা যায় — বক্তার নিজের জ্ঞান বা অভিজ্ঞতার সীমার মধ্যে একটি বক্তব্য সীমাবদ্ধ করে।" },
+                        connection: ["動詞（辞書形・た形）＋限りでは"],
+                        examples: [
+                            { jp: "私が知っている限りでは、彼はそんなことをする人ではない。", reading: "わたしがしっているかぎりでは、かれはそんなことをするひとではない。", en: "As far as I know, he's not the kind of person who would do that." },
+                            { jp: "調べた限りでは、問題はなさそうだ。", reading: "しらべたかぎりでは、もんだいはなさそうだ。", en: "As far as I've investigated, there doesn't seem to be a problem." },
+                            { jp: "見た限りでは、特に異常は見つからなかった。", reading: "みたかぎりでは、とくにいじょうはみつからなかった。", en: "As far as I could see, no particular abnormality was found." }
+                        ]
+                    },
+                    {
+                        pattern: "〜限り(は)",
+                        reading: "〜かぎり(は)",
+                        meanings: { en: "As long as — a condition that stays true for the entire duration a certain state continues.", bn: "যতক্ষণ পর্যন্ত — একটি নির্দিষ্ট অবস্থা চলতে থাকা পুরো সময়কাল ধরে সত্য থাকা একটি শর্ত।" },
+                        connection: ["普通形（現在形）＋限り（は）"],
+                        examples: [
+                            { jp: "私が生きている限り、あなたを守る。", reading: "わたしがいきているかぎり、あなたをまもる。", en: "As long as I live, I will protect you." },
+                            { jp: "ルールを守る限りは、自由に活動していい。", reading: "ルールをまもるかぎりは、じゆうにかつどうしていい。", en: "As long as you follow the rules, you may act freely." },
+                            { jp: "彼が謝らない限り、私は許さない。", reading: "かれがあやまらないかぎり、わたしはゆるさない。", en: "As long as he doesn't apologize, I won't forgive him." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "possibility-choice",
+                title: "Possibility & Choice",
+                items: [
+                    {
+                        pattern: "〜得る",
+                        reading: "〜える／うる",
+                        meanings: { en: "Can / is possible — attaches to a verb stem to indicate theoretical possibility.", bn: "পারা / সম্ভব — একটি তাত্ত্বিক সম্ভাবনা নির্দেশ করতে ক্রিয়ার মূলে যুক্ত হয়।" },
+                        connection: ["動詞（ます形語幹）＋得る"],
+                        examples: [
+                            { jp: "そのような事態は十分に起こり得る。", reading: "そのようなじたいはじゅうぶんにおこりうる。", en: "Such a situation could very well occur." },
+                            { jp: "この結果は予想し得なかった。", reading: "このけっかはよそうしえなかった。", en: "This result could not have been predicted." },
+                            { jp: "人は誰でも間違え得る。", reading: "ひとはだれでもまちがえうる。", en: "Anyone can make a mistake." }
+                        ]
+                    },
+                    {
+                        pattern: "〜しかない",
+                        meanings: { en: "There's no choice but to — states that one specific action is the only option remaining.", bn: "ছাড়া আর কোনো উপায় নেই — একটি নির্দিষ্ট কাজই একমাত্র অবশিষ্ট বিকল্প তা বলে।" },
+                        connection: ["動詞（辞書形）＋しかない"],
+                        examples: [
+                            { jp: "電車がないので、歩いて帰るしかない。", reading: "でんしゃがないので、あるいてかえるしかない。", en: "Since there are no trains, there's no choice but to walk home." },
+                            { jp: "壊れてしまったので、新しいのを買うしかない。", reading: "こわれてしまったので、あたらしいのをかうしかない。", en: "Since it broke, there's no choice but to buy a new one." },
+                            { jp: "彼を信じるしかない。", reading: "かれをしんじるしかない。", en: "There's no choice but to trust him." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ずにすむ",
+                        meanings: { en: "To get by without doing — manage to avoid an action that would normally have been necessary.", bn: "না করেই উৎরে যাওয়া — সাধারণত প্রয়োজনীয় একটি কাজ এড়াতে সক্ষম হওয়া।" },
+                        connection: ["動詞（ない形）＋ずにすむ"],
+                        examples: [
+                            { jp: "保険のおかげで、お金を払わずにすんだ。", reading: "ほけんのおかげで、おかねをはらわずにすんだ。", en: "Thanks to insurance, I got by without paying money." },
+                            { jp: "早めに準備したので、慌てずにすんだ。", reading: "はやめにじゅんびしたので、あわてずにすんだ。", en: "Since I prepared early, I got by without panicking." },
+                            { jp: "彼の助けで、失敗せずにすんだ。", reading: "かれのたすけで、しっぱいせずにすんだ。", en: "Thanks to his help, I got by without failing." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "sudden-timing",
+                title: "Sudden Timing",
+                items: [
+                    {
+                        pattern: "〜矢先に",
+                        reading: "〜やさきに",
+                        meanings: { en: "Just as / right when — something happens at the very moment another action was about to start.", bn: "ঠিক যখন — অন্য একটি কাজ শুরু হওয়ার ঠিক মুহূর্তে কিছু ঘটে।" },
+                        connection: ["動詞（辞書形・た形）＋矢先に"],
+                        examples: [
+                            { jp: "出かけようとした矢先に、雨が降り出した。", reading: "でかけようとしたやさきに、あめがふりだした。", en: "Just as I was about to go out, it started raining." },
+                            { jp: "新しい仕事を始めた矢先に、会社が倒産した。", reading: "あたらしいしごとをはじめたやさきに、かいしゃがとうさんした。", en: "Just as I started a new job, the company went bankrupt." },
+                            { jp: "安心した矢先に、トラブルが起きた。", reading: "あんしんしたやさきに、トラブルがおきた。", en: "Just as I felt relieved, trouble occurred." }
+                        ]
+                    },
+                    {
+                        pattern: "〜たところが",
+                        meanings: { en: "But then / and then unexpectedly — an action led to an outcome contrary to what was expected.", bn: "কিন্তু তারপর / অপ্রত্যাশিতভাবে — একটি কাজ প্রত্যাশার বিপরীত একটি পরিণতির দিকে নিয়ে গেল।" },
+                        connection: ["動詞（た形）＋ところが"],
+                        examples: [
+                            { jp: "電話をかけたところが、誰も出なかった。", reading: "でんわをかけたところが、だれもでなかった。", en: "I made a phone call, but then nobody answered." },
+                            { jp: "急いで駆けつけたところが、もう終わっていた。", reading: "いそいでかけつけたところが、もうおわっていた。", en: "I rushed over, but then it had already ended." },
+                            { jp: "試してみたところが、うまくいかなかった。", reading: "ためしてみたところが、うまくいかなかった。", en: "I tried it, but then it didn't go well." }
+                        ]
+                    },
+                    {
+                        pattern: "〜交じりに",
+                        reading: "〜まじりに",
+                        meanings: { en: "Mixed with — an action or expression is accompanied by another, often emotional, element.", bn: "মিশ্রিত — একটি কাজ বা প্রকাশভঙ্গি আরেকটি, প্রায়ই আবেগপূর্ণ, উপাদানের সাথে মিশ্রিত।" },
+                        connection: ["名詞＋交じりに"],
+                        examples: [
+                            { jp: "彼女は涙交じりに、当時のことを語った。", reading: "かのじょはなみだまじりに、とうじのことをかたった。", en: "She spoke of those times with tears mixed in." },
+                            { jp: "冗談交じりに、彼は本音を漏らした。", reading: "じょうだんまじりに、かれはほんねをもらした。", en: "Mixed in with jokes, he let slip his true feelings." },
+                            { jp: "ため息交じりに、彼は現状を説明した。", reading: "ためいきまじりに、かれはげんじょうをせつめいした。", en: "With sighs mixed in, he explained the current situation." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ぶり(に)",
+                        meanings: { en: "After an interval of / in the manner of — marks either how long since something last happened, or a visible style of doing.", bn: "দীর্ঘ বিরতির পর / যেভাবে — কোনো কিছু শেষবার ঘটার পর কত সময় পার হয়েছে, বা একটি দৃশ্যমান কাজের ধরন নির্দেশ করে।" },
+                        connection: ["期間＋ぶりに", "動詞（ます形語幹）＋ぶり"],
+                        examples: [
+                            { jp: "三年ぶりに、故郷に帰った。", reading: "さんねんぶりに、こきょうにかえった。", en: "I returned to my hometown after three years." },
+                            { jp: "久しぶりに会えて嬉しい。", reading: "ひさしぶりにあえてうれしい。", en: "I'm happy to see you after such a long time." },
+                            { jp: "彼の話しぶりから、自信がうかがえた。", reading: "かれのはなしぶりから、じしんがうかがえた。", en: "From his manner of speaking, confidence could be discerned." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "emphasis-feeling",
+                title: "Emphasis & Feeling",
+                items: [
+                    {
+                        pattern: "〜限りだ",
+                        reading: "〜かぎりだ",
+                        meanings: { en: "Extremely — expresses that the speaker's own feeling has reached its peak.", bn: "অত্যন্ত — বক্তার নিজের অনুভূতি চূড়ান্ত পর্যায়ে পৌঁছেছে তা প্রকাশ করে।" },
+                        connection: ["い形容詞（辞書形）／な形容詞＋な＋限りだ"],
+                        examples: [
+                            { jp: "息子が合格して、嬉しい限りだ。", reading: "むすこがごうかくして、うれしいかぎりだ。", en: "My son passed, and I couldn't be happier." },
+                            { jp: "一人暮らしは心細い限りだ。", reading: "ひとりぐらしはこころぼそいかぎりだ。", en: "Living alone makes me feel extremely anxious." },
+                            { jp: "あんなに若くして成功するとは、羨ましい限りだ。", reading: "あんなにわかくしてせいこうするとは、うらやましいかぎりだ。", en: "To succeed so young is extremely enviable." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てこそ",
+                        meanings: { en: "Only after doing / precisely by doing — the true value of something only becomes clear through a specific action.", bn: "করার পরেই / ঠিক করার মাধ্যমেই — একটি নির্দিষ্ট কাজের মাধ্যমেই কোনো কিছুর প্রকৃত মূল্য স্পষ্ট হয়।" },
+                        connection: ["動詞（て形）＋こそ"],
+                        examples: [
+                            { jp: "苦労してこそ、成功の喜びが分かる。", reading: "くろうしてこそ、せいこうのよろこびがわかる。", en: "Only through hardship can one understand the joy of success." },
+                            { jp: "失敗してこそ、学べることがある。", reading: "しっぱいしてこそ、まなべることがある。", en: "It's precisely through failure that there are things one can learn." },
+                            { jp: "健康であってこそ、何事も楽しめる。", reading: "けんこうであってこそ、なにごともたのしめる。", en: "It's only through being healthy that one can enjoy anything." }
+                        ]
+                    },
+                    {
+                        pattern: "〜とばかりは言えない",
+                        reading: "〜とばかりはいえない",
+                        meanings: { en: "Can't necessarily say that — rejects a one-sided conclusion, allowing for exceptions.", bn: "অবশ্যম্ভাবীভাবে বলা যায় না যে — একতরফা সিদ্ধান্ত প্রত্যাখ্যান করে, ব্যতিক্রমের অবকাশ রাখে।" },
+                        connection: ["普通形＋とばかりは言えない"],
+                        examples: [
+                            { jp: "安いからといって、いいとばかりは言えない。", reading: "やすいからといって、いいとばかりはいえない。", en: "Just because it's cheap doesn't necessarily mean it's good." },
+                            { jp: "若いからだめだとばかりは言えない。", reading: "わかいからだめだとばかりはいえない。", en: "You can't necessarily say it's no good just because they're young." },
+                            { jp: "経験が少ないから不利だとばかりは言えない。", reading: "けいけんがすくないからふりだとばかりはいえない。", en: "You can't necessarily say it's a disadvantage just because of less experience." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てもともとだ",
+                        meanings: { en: "Have nothing to lose by trying — failure would just return things to how they already were.", bn: "চেষ্টা করে হারানোর কিছু নেই — ব্যর্থ হলেও পরিস্থিতি আগের মতোই থাকবে।" },
+                        connection: ["動詞（て形）＋もともとだ"],
+                        examples: [
+                            { jp: "ダメでもともとだと思って、応募してみた。", reading: "ダメでもともとだとおもって、おうぼしてみた。", en: "Thinking I had nothing to lose, I tried applying." },
+                            { jp: "断られてもともとだから、聞いてみよう。", reading: "ことわられてもともとだから、きいてみよう。", en: "Since I'd have nothing to lose even if refused, let's ask." },
+                            { jp: "失敗してもともとだと考えて、挑戦した。", reading: "しっぱいしてもともとだとかんがえて、ちょうせんした。", en: "Thinking I had nothing to lose even if I failed, I took on the challenge." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "condition-dependence",
+                title: "Condition & Dependence",
+                items: [
+                    {
+                        pattern: "〜次第で(は)",
+                        reading: "〜しだいで(は)",
+                        meanings: { en: "Depending on — the outcome changes according to a particular factor.", bn: "নির্ভর করে — একটি নির্দিষ্ট ফ্যাক্টর অনুযায়ী ফলাফল পরিবর্তিত হয়।" },
+                        connection: ["名詞＋次第で（は）"],
+                        examples: [
+                            { jp: "結果は本人の努力次第で変わる。", reading: "けっかはほんにんのどりょくしだいでかわる。", en: "The result changes depending on one's own effort." },
+                            { jp: "天気次第では、試合が中止になるかもしれない。", reading: "てんきしだいでは、しあいがちゅうしになるかもしれない。", en: "Depending on the weather, the match might be cancelled." },
+                            { jp: "やり方次第で、効率は大きく変わる。", reading: "やりかたしだいで、こうりつはおおきくかわる。", en: "Depending on the method, efficiency changes greatly." }
+                        ]
+                    },
+                    {
+                        pattern: "〜以上(は)",
+                        reading: "〜いじょう(は)",
+                        meanings: { en: "Given that / since — because a certain situation holds, a corresponding obligation or conclusion follows.", bn: "যেহেতু — একটি নির্দিষ্ট পরিস্থিতি বিদ্যমান থাকায়, একটি সংশ্লিষ্ট দায়িত্ব বা সিদ্ধান্ত অনুসরণ করে।" },
+                        connection: ["普通形＋以上（は）"],
+                        examples: [
+                            { jp: "引き受けた以上、最後までやり遂げる。", reading: "ひきうけたいじょう、さいごまでやりとげる。", en: "Since I've taken it on, I'll see it through to the end." },
+                            { jp: "学生である以上、勉強が本分だ。", reading: "がくせいであるいじょう、べんきょうがほんぶんだ。", en: "Given that one is a student, studying is one's main duty." },
+                            { jp: "約束した以上は、守らなければならない。", reading: "やくそくしたいじょうは、まもらなければならない。", en: "Since I promised, I must keep it." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ぶん(には)",
+                        meanings: { en: "As far as / so long as it's just — a limited action is fine, even if a broader version wouldn't be.", bn: "যতক্ষণ কেবল — একটি সীমিত কাজ ঠিক আছে, যদিও এর বিস্তৃত রূপ নাও হতে পারে।" },
+                        connection: ["動詞（辞書形）＋ぶんには"],
+                        examples: [
+                            { jp: "見るぶんには無料です。", reading: "みるぶんにはむりょうです。", en: "Just looking is free." },
+                            { jp: "自分で使うぶんには問題ない。", reading: "じぶんでつかうぶんにはもんだいない。", en: "As long as it's just for my own use, there's no problem." },
+                            { jp: "少し休むぶんには構わない。", reading: "すこしやすむぶんにはかまわない。", en: "Resting a little is fine." }
+                        ]
+                    },
+                    {
+                        pattern: "〜を控えて",
+                        reading: "〜をひかえて",
+                        meanings: { en: "Ahead of / in anticipation of — marks an upcoming event that one is preparing for.", bn: "আগে / প্রত্যাশায় — একটি আসন্ন ঘটনার জন্য প্রস্তুতি নেওয়া হচ্ছে তা নির্দেশ করে।" },
+                        connection: ["名詞＋を控えて"],
+                        examples: [
+                            { jp: "試験を控えて、毎日勉強している。", reading: "しけんをひかえて、まいにちべんきょうしている。", en: "Ahead of the exam, I study every day." },
+                            { jp: "結婚式を控えて、準備に追われている。", reading: "けっこんしきをひかえて、じゅんびにおわれている。", en: "Ahead of the wedding, I'm busy with preparations." },
+                            { jp: "本番を控えて、緊張が高まってきた。", reading: "ほんばんをひかえて、きんちょうがたかまってきた。", en: "Ahead of the main event, tension has been rising." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "alternative-example",
+                title: "Alternative & Example",
+                items: [
+                    {
+                        pattern: "〜なり〜なり",
+                        meanings: { en: "Either... or — suggests two or more options, implying any of them would be acceptable.", bn: "হয়... নয়তো... — দুই বা ততোধিক বিকল্প প্রস্তাব করে, যেকোনোটিই গ্রহণযোগ্য হবে তা ইঙ্গিত দেয়।" },
+                        connection: ["動詞（辞書形）／名詞＋なり＋動詞（辞書形）／名詞＋なり"],
+                        examples: [
+                            { jp: "分からないことは、調べるなり聞くなりしなさい。", reading: "わからないことは、しらべるなりきくなりしなさい。", en: "For things you don't understand, either look them up or ask someone." },
+                            { jp: "電話するなりメールするなり、連絡してください。", reading: "でんわするなりメールするなり、れんらくしてください。", en: "Please contact me, either by phone or by email." },
+                            { jp: "お茶なりコーヒーなり、お好きなものをどうぞ。", reading: "おちゃなりコーヒーなり、おすきなものをどうぞ。", en: "Please have whatever you like, either tea or coffee." }
+                        ]
+                    },
+                    {
+                        pattern: "〜というものではない",
+                        meanings: { en: "It's not that simply — rejects an overly simple generalization about how things work.", bn: "তা এতটা সহজ নয় যে — জিনিস কীভাবে কাজ করে তার একটি অতিরিক্ত সরলীকৃত সাধারণীকরণ প্রত্যাখ্যান করে।" },
+                        connection: ["普通形＋というものではない"],
+                        examples: [
+                            { jp: "お金さえあれば幸せというものではない。", reading: "おかねさえあればしあわせというものではない。", en: "It's not that simply having money makes you happy." },
+                            { jp: "早ければいいというものではない。", reading: "はやければいいというものではない。", en: "It's not that simply being fast is good." },
+                            { jp: "勉強すれば必ず合格するというものではない。", reading: "べんきょうすればかならずごうかくするというものではない。", en: "It's not that simply studying guarantees passing." }
+                        ]
+                    },
+                    {
+                        pattern: "〜といった",
+                        meanings: { en: "Such as / like — gives one or two specific examples to illustrate a broader category.", bn: "যেমন — একটি বিস্তৃত শ্রেণী ব্যাখ্যা করার জন্য একটি বা দুটি নির্দিষ্ট উদাহরণ দেয়।" },
+                        connection: ["名詞＋といった＋名詞"],
+                        examples: [
+                            { jp: "寿司や天ぷらといった日本料理が人気だ。", reading: "すしやてんぷらといったにほんりょうりがにんきだ。", en: "Japanese dishes such as sushi and tempura are popular." },
+                            { jp: "東京や大阪といった大都市に人口が集中している。", reading: "とうきょうやおおさかといっただいとしにじんこうがしゅうちゅうしている。", en: "Population is concentrated in major cities such as Tokyo and Osaka." },
+                            { jp: "環境問題といった地球規模の課題に取り組む。", reading: "かんきょうもんだいといったちきゅうきぼのかだいにとりくむ。", en: "We tackle global-scale issues such as environmental problems." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "extent-scope",
+                title: "Extent & Scope",
+                items: [
+                    {
+                        pattern: "〜と言っても",
+                        reading: "〜といっても",
+                        meanings: { en: "Although I say... / even though — qualifies a previous statement so it's not misunderstood as more extreme than it is.", bn: "যদিও বলছি... — একটি পূর্ববর্তী বক্তব্যকে সংশোধন করে যাতে তা অতিরঞ্জিত না মনে হয়।" },
+                        connection: ["普通形＋と言っても"],
+                        examples: [
+                            { jp: "旅行と言っても、隣町に行くだけだ。", reading: "りょこうといっても、となりまちにいくだけだ。", en: "Although I call it a trip, it's just going to the next town." },
+                            { jp: "料理ができると言っても、簡単なものだけだ。", reading: "りょうりができるといっても、かんたんなものだけだ。", en: "Although I say I can cook, it's only simple things." },
+                            { jp: "忙しいと言っても、休む時間はある。", reading: "いそがしいといっても、やすむじかんはある。", en: "Even though I say I'm busy, I do have time to rest." }
+                        ]
+                    },
+                    {
+                        pattern: "〜どころではない",
+                        meanings: { en: "Not the time/place for — a situation is far too serious for a lesser activity to be relevant.", bn: "এই সময় নয় — একটি পরিস্থিতি এতটাই গুরুতর যে একটি ছোট কাজ প্রাসঙ্গিক নয়।" },
+                        connection: ["動詞（辞書形）／名詞＋どころではない"],
+                        examples: [
+                            { jp: "締め切り前で、旅行どころではない。", reading: "しめきりまえで、りょこうどころではない。", en: "Before the deadline, it's not the time for a trip." },
+                            { jp: "頭が痛くて、勉強するどころではなかった。", reading: "あたまがいたくて、べんきょうするどころではなかった。", en: "My head hurt so much, it wasn't the time to study." },
+                            { jp: "今は忙しくて、遊んでいるどころではない。", reading: "いまはいそがしくて、あそんでいるどころではない。", en: "I'm busy right now, this isn't the time to be playing around." }
+                        ]
+                    },
+                    {
+                        pattern: "〜に至るまで",
+                        reading: "〜にいたるまで",
+                        meanings: { en: "All the way up to / even down to — emphasizes an extreme or exhaustive scope, down to the smallest detail.", bn: "এমনকি পর্যন্ত — ক্ষুদ্রতম বিবরণ পর্যন্ত একটি চরম বা পুঙ্খানুপুঙ্খ পরিসর জোর দিয়ে বলে।" },
+                        connection: ["名詞＋に至るまで"],
+                        examples: [
+                            { jp: "彼は細部に至るまで、丁寧に説明した。", reading: "かれはさいぶにいたるまで、ていねいにせつめいした。", en: "He explained carefully, down to the smallest detail." },
+                            { jp: "大人から子供に至るまで、誰でも楽しめる。", reading: "おとなからこどもにいたるまで、だれでもたのしめる。", en: "Everyone can enjoy it, from adults all the way to children." },
+                            { jp: "服装から言葉遣いに至るまで、すべてが変わった。", reading: "ふくそうからことばづかいにいたるまで、すべてがかわった。", en: "Everything changed, from clothing all the way to speech patterns." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "manner-indifference",
+                title: "Manner & Indifference",
+                items: [
+                    {
+                        pattern: "〜ことなく",
+                        meanings: { en: "Without doing — an action is carried out without a certain thing ever happening.", bn: "না করেই — একটি নির্দিষ্ট জিনিস কখনো না ঘটিয়ে একটি কাজ সম্পন্ন করা।" },
+                        connection: ["動詞（辞書形）＋ことなく"],
+                        examples: [
+                            { jp: "彼は諦めることなく、努力を続けた。", reading: "かれはあきらめることなく、どりょくをつづけた。", en: "He continued his efforts without ever giving up." },
+                            { jp: "雨は一日中、止むことなく降り続いた。", reading: "あめはいちにちじゅう、やむことなくふりつづいた。", en: "The rain kept falling all day without ever stopping." },
+                            { jp: "彼女は休むことなく働き続けている。", reading: "かのじょはやすむことなくはたらきつづけている。", en: "She keeps working without ever resting." }
+                        ]
+                    },
+                    {
+                        pattern: "〜ともなく／〜ともなしに",
+                        meanings: { en: "Without a particular intention — doing something vaguely or unintentionally, without a clear focus.", bn: "কোনো নির্দিষ্ট উদ্দেশ্য ছাড়াই — স্পষ্ট মনোযোগ ছাড়া অস্পষ্টভাবে বা অনিচ্ছাকৃতভাবে কিছু করা।" },
+                        connection: ["動詞（辞書形）＋ともなく／ともなしに"],
+                        examples: [
+                            { jp: "テレビを見るともなく見ていた。", reading: "テレビをみるともなくみていた。", en: "I was watching TV without really meaning to." },
+                            { jp: "誰に言うともなしに、つぶやいた。", reading: "だれにいうともなしに、つぶやいた。", en: "I muttered without really saying it to anyone in particular." },
+                            { jp: "どこへ行くともなく、歩き続けた。", reading: "どこへいくともなく、あるきつづけた。", en: "I kept walking without any particular destination in mind." }
+                        ]
+                    },
+                    {
+                        pattern: "〜てしょうがない／〜てしかたがない",
+                        meanings: { en: "Unbearably / can't help feeling — an emotion or sensation is so strong it cannot be controlled.", bn: "সহ্যাতীতভাবে — একটি অনুভূতি এতটাই তীব্র যে নিয়ন্ত্রণ করা যায় না।" },
+                        connection: ["動詞（て形）／い形容詞〜くて／な形容詞〜で＋しょうがない／しかたがない"],
+                        examples: [
+                            { jp: "今日は眠くてしょうがない。", reading: "きょうはねむくてしょうがない。", en: "Today I'm unbearably sleepy." },
+                            { jp: "結果が気になってしかたがない。", reading: "けっかがきになってしかたがない。", en: "I can't help but be worried about the result." },
+                            { jp: "彼のことが心配でしょうがない。", reading: "かれのことがしんぱいでしょうがない。", en: "I can't help worrying about him." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: "closing-expressions",
+                title: "Closing Expressions",
+                items: [
+                    {
+                        pattern: "〜気がする",
+                        reading: "〜きがする",
+                        meanings: { en: "To feel like / have a sense that — expresses a vague, intuitive impression rather than a firm conclusion.", bn: "মনে হওয়া — একটি দৃঢ় সিদ্ধান্তের পরিবর্তে একটি অস্পষ্ট, স্বজ্ঞাত ধারণা প্রকাশ করে।" },
+                        connection: ["普通形＋気がする"],
+                        examples: [
+                            { jp: "何か忘れている気がする。", reading: "なにかわすれているきがする。", en: "I have a feeling I'm forgetting something." },
+                            { jp: "この道は前にも来た気がする。", reading: "このみちはまえにもきたきがする。", en: "I have a feeling I've come down this road before." },
+                            { jp: "彼なら成功する気がする。", reading: "かれならせいこうするきがする。", en: "I have a feeling he will succeed." }
+                        ]
+                    },
+                    {
+                        pattern: "〜(よ)うと(も)",
+                        meanings: { en: "No matter how / even if — states that a result remains the same regardless of the stated condition.", bn: "যতই হোক না কেন — উল্লিখিত শর্ত নির্বিশেষে একটি ফলাফল একই থাকে তা বলে।" },
+                        connection: ["動詞（意向形）＋と（も）", "い形容詞（く）／な形容詞（であろう）＋と（も）"],
+                        examples: [
+                            { jp: "何を言われようと、私の考えは変わらない。", reading: "なにをいわれようと、わたしのかんがえはかわらない。", en: "No matter what is said to me, my thinking won't change." },
+                            { jp: "どんなに辛かろうと、最後までやり遂げる。", reading: "どんなにつらかろうと、さいごまでやりとげる。", en: "No matter how hard it is, I'll see it through to the end." },
+                            { jp: "たとえ失敗しようとも、挑戦する価値がある。", reading: "たとえしっぱいしようとも、ちょうせんするかちがある。", en: "Even if I were to fail, it's worth taking on the challenge." }
+                        ]
+                    },
+                    {
+                        pattern: "〜わけではない",
+                        meanings: { en: "It's not that — softens a statement by denying a possible overgeneralization of what was just said.", bn: "এমন নয় যে — এইমাত্র যা বলা হলো তার সম্ভাব্য অতিসরলীকরণ অস্বীকার করে বক্তব্যকে নরম করে।" },
+                        connection: ["普通形＋わけではない"],
+                        examples: [
+                            { jp: "全部が嫌いなわけではない、一部が苦手なだけだ。", reading: "ぜんぶがきらいなわけではない、いちぶがにがてなだけだ。", en: "It's not that I dislike all of it, I'm just not good with part of it." },
+                            { jp: "お金がないわけではないが、無駄遣いはしたくない。", reading: "おかねがないわけではないが、むだづかいはしたくない。", en: "It's not that I don't have money, but I don't want to waste it." },
+                            { jp: "彼に反対しているわけではなく、ただ心配しているだけだ。", reading: "かれにはんたいしているわけではなく、ただしんぱいしているだけだ。", en: "It's not that I'm opposed to him, I'm just worried." }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     n1: {
         chapters: [
             {

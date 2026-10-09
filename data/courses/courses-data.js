@@ -2,8 +2,6 @@
    COURSE LEVEL DATA
    Loaded via <script> tag (not fetch()) so
    courses.html still works over file://.
-   N2 stays intentionally locked until content
-   is added for that level.
 
    `progress` here is just the pre-login/pre-fetch
    default (0 — nobody has "60% done" before we know
@@ -21,7 +19,7 @@ const coursesData = [
     { level: "n5", badge: "beginner", badgeLabel: "Beginner", description: "Start learning basic Japanese.", lessons: 120, hours: 40, progress: 0, action: "Start", locked: false },
     { level: "n4", badge: "elementary", badgeLabel: "Elementary", description: "Build your grammar and vocabulary.", lessons: 150, hours: 55, progress: 0, action: "Start", locked: false },
     { level: "n3", badge: "intermediate", badgeLabel: "Intermediate", description: "Expand into intermediate vocabulary, grammar, and kanji.", lessons: 54, hours: 20, progress: 0, action: "Start", locked: false },
-    { level: "n2", locked: true, unlockAfter: "N3" },
+    { level: "n2", badge: "upper-intermediate", badgeLabel: "Upper-Intermediate", description: "Build toward advanced fluency with vocabulary, grammar, and kanji.", lessons: 83, hours: 30, progress: 0, action: "Start", locked: false },
     { level: "n1", badge: "advanced", badgeLabel: "Advanced", description: "Master native-level vocabulary, grammar, and kanji.", lessons: 120, hours: 44, progress: 0, action: "Start", locked: false }
 ];
 
