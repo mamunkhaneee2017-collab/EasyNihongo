@@ -14,7 +14,7 @@
    registration call.
 ========================================== */
 
-const CACHE_NAME = "easyjapanese-shell-v7";
+const CACHE_NAME = "easyjapanese-shell-v8";
 
 const APP_SHELL = [
     "index.html",
@@ -46,6 +46,7 @@ const APP_SHELL = [
     "locales/en.js",
     "locales/bn.js",
     "locales/ja.js",
+    "locales/ne.js",
     "assets/icons/logo1.jpg",
     "manifest.json"
 ];

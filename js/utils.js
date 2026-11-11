@@ -174,7 +174,7 @@
     const langMenu = document.getElementById("langMenu");
     const langLabel = document.getElementById("langLabel");
 
-    const LANG_LABELS = { en: "EN", bn: "বাং", ja: "日本語" };
+    const LANG_LABELS = { en: "EN", bn: "বাং", ja: "日本語", ne: "नेपा" };
 
     function applyStoredLanguage() {
         const saved = localStorage.getItem("lang") || "en";

@@ -15,7 +15,7 @@
 
 window.EasyNihongoI18n = (function () {
 
-    const LANGUAGES = ["en", "bn", "ja"];
+    const LANGUAGES = ["en", "bn", "ja", "ne"];
 
     const STRINGS = {};
     LANGUAGES.forEach((code) => {

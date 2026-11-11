@@ -61,11 +61,11 @@ ${content.vocabularyTopicsData.map((t) => t.title).join(", ")}
 JLPT PRACTICE QUIZZES (multiple-choice, instant scoring):
 ${summarizeQuiz()}
 
-IMPORTANT: N5 is the only fully built level right now. N4 has only a
-small amount of grammar and kanji content and no vocabulary chapters yet.
-N3, N2, and N1 have no content yet. Never claim N3-N1 content exists, and
-be upfront that N4 is still thin — direct students to N5 as the complete,
-recommended starting point.
+IMPORTANT: All five levels (N5, N4, N3, N2, N1) have vocabulary, grammar,
+and kanji chapters, as listed above. JLPT practice quizzes currently exist
+only for N5 and N4. Recommend beginners start with hiragana/katakana and then
+N5; point other learners to the level that matches their goal. Only describe
+content that appears in the lists above.
 `.trim();
 
     return cached;

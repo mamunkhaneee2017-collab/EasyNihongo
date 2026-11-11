@@ -115,6 +115,7 @@
                         <button type="button" data-lang="en">English</button>
                         <button type="button" data-lang="bn">বাংলা</button>
                         <button type="button" data-lang="ja">日本語</button>
+                        <button type="button" data-lang="ne">नेपाली</button>
                     </div>
                 </li>
             </ul>
@@ -127,6 +128,7 @@
                     <button type="button" data-lang="en" role="option">English</button>
                     <button type="button" data-lang="bn" role="option">বাংলা</button>
                     <button type="button" data-lang="ja" role="option">日本語</button>
+                    <button type="button" data-lang="ne" role="option">नेपाली</button>
                 </div>
 
                 <button id="darkModeBtn" title="Toggle dark mode">

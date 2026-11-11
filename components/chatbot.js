@@ -23,6 +23,35 @@
     const mount = document.getElementById("chatbot-widget");
     if (!mount) return;
 
+    // Widget's own fixed texts, per site language (navbar switcher).
+    const UI_TEXT = {
+        en: {
+            greeting: "こんにちは! I'm the Easy Japanese assistant. Ask me anything about our JLPT courses — vocabulary, grammar, kanji, quizzes — or about Japanese itself.",
+            placeholder: "Ask about our courses...",
+            error: "Sorry, I'm having trouble replying right now — please try again in a moment."
+        },
+        bn: {
+            greeting: "こんにちは! আমি Easy Japanese সহকারী। আমাদের JLPT কোর্স — শব্দভান্ডার, ব্যাকরণ, কানজি, কুইজ — বা জাপানি ভাষা নিয়ে যেকোনো প্রশ্ন করুন।",
+            placeholder: "আমাদের কোর্স সম্পর্কে জিজ্ঞাসা করুন...",
+            error: "দুঃখিত, এই মুহূর্তে উত্তর দিতে সমস্যা হচ্ছে — একটু পরে আবার চেষ্টা করুন।"
+        },
+        ja: {
+            greeting: "こんにちは！Easy Japanese アシスタントです。JLPTコース（単語・文法・漢字・クイズ）や日本語について、何でも聞いてください。",
+            placeholder: "コースについて質問する...",
+            error: "申し訳ありません、ただいま応答できません。少し時間をおいて再度お試しください。"
+        },
+        ne: {
+            greeting: "こんにちは! म Easy Japanese सहायक हुँ। हाम्रा JLPT कोर्स — शब्दावली, व्याकरण, कान्जी, क्विज — वा जापानी भाषाबारे जे पनि सोध्नुहोस्।",
+            placeholder: "हाम्रा कोर्सबारे सोध्नुहोस्...",
+            error: "माफ गर्नुहोस्, अहिले जवाफ दिन समस्या भइरहेको छ — केही बेरपछि फेरि प्रयास गर्नुहोस्।"
+        }
+    };
+    const t = () => UI_TEXT[localStorage.getItem("lang")] || UI_TEXT.en;
+
+    // The server already switches models after 12s of silence; this is the
+    // last-resort cap so a dead connection never leaves the dots spinning.
+    const REPLY_START_TIMEOUT_MS = 35000;
+
     mount.innerHTML = `
 <div class="chatbot-panel" role="region" aria-label="Easy Japanese chat assistant">
     <div class="chatbot-header">
@@ -35,7 +64,7 @@
     <div class="chatbot-messages" id="chatbotMessages"></div>
 
     <form class="chatbot-input-row" id="chatbotForm">
-        <input type="text" id="chatbotInput" placeholder="Ask about our courses..." autocomplete="off" maxlength="1000">
+        <input type="text" id="chatbotInput" placeholder="${t().placeholder}" autocomplete="off" maxlength="1000">
         <button type="submit" aria-label="Send message">
             <i class="fa-solid fa-paper-plane"></i>
         </button>
@@ -46,7 +75,6 @@
     const form = document.getElementById("chatbotForm");
     const input = document.getElementById("chatbotInput");
 
-    const GREETING = "こんにちは! I'm the Easy Japanese assistant. Ask me anything about our JLPT courses — vocabulary, grammar, kanji, quizzes — or about Japanese itself.";
 
     // In-memory only — resets on page reload, matching how little state a
     // homepage widget needs. role names ("user" / "model") match Gemini's
@@ -87,7 +115,7 @@
         return el;
     }
 
-    addBubble("model", GREETING);
+    addBubble("model", t().greeting);
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -105,11 +133,19 @@
         try {
             const lang = localStorage.getItem("lang") || "en";
 
-            const res = await fetch(`${toRoot}api/chatbot/message`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: text, history, lang })
-            });
+            const abort = new AbortController();
+            const startTimer = setTimeout(() => abort.abort(), REPLY_START_TIMEOUT_MS);
+            let res;
+            try {
+                res = await fetch(`${toRoot}api/chatbot/message`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: text, history, lang }),
+                    signal: abort.signal
+                });
+            } finally {
+                clearTimeout(startTimer);
+            }
 
             if (!res.ok || !res.body) {
                 const data = await res.json().catch(() => null);
@@ -138,7 +174,7 @@
 
         } catch (err) {
             typingEl.remove();
-            addBubble("model", "Sorry, I'm having trouble replying right now — please try again in a moment.");
+            addBubble("model", t().error);
         } finally {
             awaitingReply = false;
         }
