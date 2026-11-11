@@ -569,6 +569,78 @@
 }
 
 /* ==========================
+    NO-WRAP NAV LABELS (all languages)
+   Japanese/Bangla labels have no spaces, so CJK line-breaking lets the
+   browser split them between ANY two characters once the flex row gets
+   tight — "ホーム" became "ホー / ム", "お問い合わせ" split over two lines,
+   the 日本語 lang pill stacked vertically, etc. Keep every label on one
+   line and stop the logo/button groups from being squeezed; the menu
+   gap shrinks instead.
+========================== */
+@media(min-width:993px){
+
+.nav-menu{
+    align-items:center;
+    gap:clamp(14px, 2vw, 35px);
+    flex-shrink:1;
+    min-width:0;
+}
+
+.nav-menu > li,
+.nav-menu a,
+.nav-dropdown-btn,
+.lang-btn,
+.login-btn,
+.nav-logout-btn,
+.logo-text{
+    white-space:nowrap;
+}
+
+.logo,
+.nav-buttons{
+    flex-shrink:0;
+}
+
+.nav-container{
+    gap:16px;
+}
+
+}
+
+/* With a logged-in user (Dashboard + Logout) the full-size logo plus the
+   menu overflows the 1200px container in every language (Japanese/Bangla
+   labels most of all), so trim the logo/buttons a little on wide screens. */
+@media(min-width:1201px){
+
+.logo img{
+    width:80px;
+    height:60px;
+}
+
+.logo-text{
+    font-size:22px;
+}
+
+.nav-menu{
+    font-size:15px;
+}
+
+.nav-buttons{
+    gap:10px;
+}
+
+.login-btn,
+.nav-logout-btn{
+    padding:10px 18px;
+}
+
+.lang-btn{
+    padding:0 12px;
+}
+
+}
+
+/* ==========================
         MOBILE MENU
 ========================== */
 
@@ -770,3 +842,41 @@ cursor:pointer;
 
 }
 
+
+/* Same idea for the 993-1200px band, layered on top of the generic
+   tightening above (logo is already 60px there). */
+@media(min-width:993px) and (max-width:1200px){
+
+html:lang(ja) .nav-menu,
+html:lang(bn) .nav-menu{
+    font-size:14px;
+    gap:12px;
+}
+
+html:lang(ja) .logo-text,
+html:lang(bn) .logo-text{
+    font-size:18px;
+}
+
+html:lang(ja) .lang-btn,
+html:lang(bn) .lang-btn{
+    padding:0 10px;
+}
+
+}
+
+/* 993-1200px with a logged-in user (Dashboard + Logout) still overflows
+   in every language, so drop the wordmark next to the logo there — the
+   logo image itself already reads "Easy Japanese". */
+@media(min-width:993px) and (max-width:1200px){
+
+.logo-text{
+    display:none;
+}
+
+.logo img{
+    width:72px;
+    height:54px;
+}
+
+}
