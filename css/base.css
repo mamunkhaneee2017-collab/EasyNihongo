@@ -215,3 +215,17 @@ html.font-large{ font-size:112.5%; }
         opacity:0;
     }
 }
+
+
+/* iPhone/iPad Safari zooms the whole page in when you tap a text field whose
+   font is smaller than 16px (e.g. the 14px AI chat box), and it does not zoom
+   back out. Keep form fields at 16px on touch screens so that never happens;
+   pinch-zoom itself stays enabled. !important because many components set
+   their own smaller size on the input with a more specific selector. */
+@media (hover:none) and (pointer:coarse){
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    select,
+    textarea{
+        font-size:16px !important;
+    }
+}
