@@ -45,9 +45,9 @@
     // The Courses dropdown lists how a student actually thinks about
     // progression — by level, not by content type — instead of the old
     // Vocabulary/Grammar/Kanji type-first grouping. N5 is fully open;
-    // N4 and N3 require a session (hrefs are filled in below once the
+    // N4, N3 and N2 require a session (hrefs are filled in below once the
     // /api/auth/me check this file already makes for the Login/Dashboard
-    // swap resolves, so no second request); N2-N1 stay locked until
+    // swap resolves, so no second request); N1 stays locked until
     // that level's content is authored. This is a fixed list (not a
     // data lookup) deliberately: header.js loads on every page site-wide
     // and must not be forced to load the (large) content data files.
@@ -60,10 +60,10 @@
     // href is set once auth state is known (see the /api/auth/me handler
     // below) — "#" until then so a click before that resolves is a no-op
     // rather than a broken/unlocked link.
-    const gatedLevelsHtml = ["n4", "n3"]
+    const gatedLevelsHtml = ["n4", "n3", "n2"]
         .map((level) => `<a href="#" class="nav-level-gated" data-level="${level}" role="menuitem">${level.toUpperCase()}</a>`)
         .join("");
-    const lockedLevelsHtml = ["n2", "n1"]
+    const lockedLevelsHtml = ["n1"]
         .map((level) => `<span class="locked" aria-disabled="true" title="Coming soon">${level.toUpperCase()}</span>`)
         .join("");
 
@@ -196,7 +196,7 @@
     // exists — otherwise a logged-in student sees "Login" on every public
     // page (everywhere except the dashboard/profile/settings/favorites
     // pages, which use a separate authenticated layout entirely).
-    // Points every .nav-level-gated link (currently just N4) at the
+    // Points every .nav-level-gated link (N4, N3, N2) at the
     // level hub if a session exists, or at login.html?redirect=... (so
     // login/register hands the student straight back into that level)
     // if it doesn't. Resolved from the same auth check right below

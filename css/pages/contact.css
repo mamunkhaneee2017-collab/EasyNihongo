@@ -1,17 +1,32 @@
 /* ==========================================
    CONTACT PAGE STYLES
-   Scoped so it layers safely on top of
-   style.css / navbar.css / home.css
+   Reads colors from css/variables.css tokens,
+   so body.dark gets dark mode automatically.
+   .inq-* = the inquiry system (steps, review,
+   receipt) driven by js/pages/contact.js.
 ========================================== */
 
-:root {
-    --contact-primary: #e63950;
-    --contact-primary-dark: #c72e42;
-    --contact-bg-soft: #fff5f2;
-    --contact-text: #1f2937;
-    --contact-muted: #6b7280;
-    --contact-border: #e5e7eb;
+/* Declared on body, not :root — body.dark redefines --text/--surface/...
+   on body, and a var() alias declared on :root would freeze the light
+   values before that happens. */
+body {
+    --contact-primary: var(--brand);
+    --contact-primary-dark: var(--brand-dark);
+    --contact-bg-soft: var(--brand-light);
+    --contact-text: var(--text);
+    --contact-muted: var(--text-muted);
+    --contact-border: var(--border);
     --contact-radius: 14px;
+    --contact-error: #dc2626;
+    --contact-error-bg: #fef2f2;
+    --contact-ok: #15803d;
+}
+
+body.dark {
+    --contact-bg-soft: var(--surface-2);
+    --contact-error: #f87171;
+    --contact-error-bg: rgba(248, 113, 113, 0.08);
+    --contact-ok: #4ade80;
 }
 
 /* ---------- Contact Hero ---------- */
@@ -19,7 +34,7 @@
 .contact-hero {
     padding: 110px 0 60px;
     text-align: center;
-    background: linear-gradient(180deg, var(--contact-bg-soft) 0%, #ffffff 100%);
+    background: linear-gradient(180deg, var(--contact-bg-soft) 0%, var(--bg) 100%);
 }
 
 .contact-hero-container {
@@ -34,7 +49,7 @@
 .contact-hero .hero-tag {
     display: inline-block;
     padding: 8px 18px;
-    background: rgba(230, 57, 80, 0.1);
+    background: rgba(239, 68, 68, 0.1);
     color: var(--contact-primary);
     border-radius: 999px;
     font-size: 14px;
@@ -42,7 +57,7 @@
 }
 
 .contact-hero h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 42px;
     font-weight: 700;
     color: var(--contact-text);
@@ -58,7 +73,7 @@
 
 .contact-section {
     padding: 70px 0 100px;
-    background: #ffffff;
+    background: var(--bg);
 }
 
 .contact-container {
@@ -71,15 +86,17 @@
 /* ---------- Form Card ---------- */
 
 .contact-form-wrapper {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--contact-border);
     border-radius: var(--contact-radius);
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+    box-shadow: var(--shadow-sm);
+    min-width: 0;
+    scroll-margin-top: 90px;
 }
 
 .contact-form-wrapper h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 26px;
     font-weight: 700;
     color: var(--contact-text);
@@ -89,7 +106,7 @@
 .contact-form-subtitle {
     color: var(--contact-muted);
     font-size: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .contact-form {
@@ -104,49 +121,59 @@
     gap: 8px;
 }
 
+.form-group[hidden] {
+    display: none;
+}
+
 .form-group label {
     font-size: 14px;
     font-weight: 600;
     color: var(--contact-text);
 }
 
-.form-group input,
+.form-group input:not([type=radio]):not([type=checkbox]),
 .form-group select,
 .form-group textarea {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    padding: 13px 16px;
+    font-family: var(--font-body);
+    font-size: 16px; /* 16px stops iOS Safari zooming in on focus */
+    padding: 12px 16px;
     border: 1px solid var(--contact-border);
     border-radius: 10px;
     color: var(--contact-text);
-    background: #fafafa;
+    background: var(--surface-2);
     outline: none;
+    width: 100%;
+    max-width: 100%;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 130px;
+    min-height: 150px;
+    line-height: 1.7;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--contact-primary);
-    background: #ffffff;
+    background: var(--surface);
 }
 
 .form-group input.invalid,
 .form-group select.invalid,
 .form-group textarea.invalid {
-    border-color: #dc2626;
-    background: #fef2f2;
+    border-color: var(--contact-error);
+    background: var(--contact-error-bg);
 }
 
 .error-message {
-    font-size: 12px;
-    color: #dc2626;
-    min-height: 14px;
+    font-size: 12.5px;
+    color: var(--contact-error);
+}
+
+.error-message:empty {
+    display: none;
 }
 
 .contact-submit-btn {
@@ -158,11 +185,11 @@
     cursor: pointer;
     background: var(--contact-primary);
     color: #ffffff;
-    padding: 15px 20px;
+    padding: 15px 24px;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     transition: background 0.2s ease, transform 0.15s ease;
 }
 
@@ -181,15 +208,496 @@
     font-size: 14px;
     font-weight: 500;
     text-align: center;
-    min-height: 20px;
+}
+
+.form-status:empty {
+    display: none;
 }
 
 .form-status.success {
-    color: #15803d;
+    color: var(--contact-ok);
 }
 
 .form-status.error {
-    color: #dc2626;
+    color: var(--contact-error);
+}
+
+/* ==========================================
+   INQUIRY SYSTEM
+========================================== */
+
+/* ---------- Steps ---------- */
+
+.inq-steps {
+    display: flex;
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    counter-reset: none;
+}
+
+.inq-steps li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--contact-muted);
+}
+
+/* Connector line between step circles */
+.inq-steps li + li::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--contact-border);
+    z-index: 0;
+}
+
+.inq-step-num {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 2px solid var(--contact-border);
+    color: var(--contact-muted);
+    font-size: 14px;
+}
+
+.inq-steps li.is-current {
+    color: var(--contact-primary);
+}
+
+.inq-steps li.is-current .inq-step-num {
+    background: var(--contact-primary);
+    border-color: var(--contact-primary);
+    color: #fff;
+}
+
+.inq-steps li.is-done {
+    color: var(--contact-text);
+}
+
+.inq-steps li.is-done .inq-step-num {
+    border-color: var(--contact-primary);
+    color: var(--contact-primary);
+}
+
+.inq-steps li.is-done + li::before,
+.inq-steps li.is-current + li::before {
+    background: var(--contact-border);
+}
+
+.inq-steps li.is-done + li.is-done::before,
+.inq-steps li.is-done + li.is-current::before {
+    background: var(--contact-primary);
+}
+
+/* ---------- Sections / labels ---------- */
+
+.inq-section {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.inq-section legend {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--contact-text);
+    padding: 0 0 10px 12px;
+    margin-bottom: 4px;
+    width: 100%;
+    border-bottom: 1px solid var(--contact-border);
+    position: relative;
+}
+
+.inq-section legend::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 4px;
+    height: 18px;
+    border-radius: 2px;
+    background: var(--contact-primary);
+}
+
+.inq-section + .inq-section {
+    margin-top: 12px;
+}
+
+.inq-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--contact-text);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.inq-req,
+.inq-opt {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.inq-req {
+    background: var(--contact-primary);
+    color: #fff;
+}
+
+.inq-opt {
+    background: var(--surface-2);
+    color: var(--contact-muted);
+    border: 1px solid var(--contact-border);
+}
+
+.form-group .inq-sub {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--contact-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.inq-hint {
+    font-size: 12.5px;
+    color: var(--contact-muted);
+}
+
+.inq-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.inq-row-center {
+    align-items: center;
+}
+
+.inq-grow {
+    flex: 1 1 160px;
+    min-width: 0;
+}
+
+/* Same specificity as the generic width:100% input rule, declared later */
+.form-group .inq-row-center input.inq-w-zip {
+    width: 130px;
+    flex: 0 0 130px;
+}
+
+.form-group .inq-w-md {
+    max-width: 320px;
+}
+
+.form-group #address2 {
+    margin-top: 4px;
+}
+
+/* ---------- Radio choices ---------- */
+
+.inq-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-group .inq-choice {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border: 1px solid var(--contact-border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.inq-choice:has(input:checked) {
+    border-color: var(--contact-primary);
+    background: rgba(239, 68, 68, 0.06);
+}
+
+.inq-choice input,
+.inq-agree input {
+    accent-color: var(--contact-primary);
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+/* ---------- Postcode lookup ---------- */
+
+.inq-zip-status {
+    font-size: 12.5px;
+    color: var(--contact-muted);
+}
+
+.inq-zip-status.is-ok {
+    color: var(--contact-ok);
+}
+
+.inq-zip-status.is-ng {
+    color: var(--contact-error);
+}
+
+/* ---------- Counter ---------- */
+
+.inq-counter {
+    align-self: flex-end;
+    font-size: 12px;
+    color: var(--contact-muted);
+}
+
+.inq-counter.is-over {
+    color: var(--contact-error);
+    font-weight: 600;
+}
+
+/* ---------- Consent ---------- */
+
+.inq-agree {
+    background: var(--surface-2);
+    border: 1px solid var(--contact-border);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inq-agree p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--contact-muted);
+    line-height: 1.7;
+}
+
+.inq-agree label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--contact-text);
+    cursor: pointer;
+}
+
+/* ---------- Honeypot (hidden from people, not bots) ---------- */
+
+.inq-hp {
+    position: absolute !important;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ---------- Alerts ---------- */
+
+.inq-alert {
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.inq-alert[hidden] {
+    display: none;
+}
+
+.inq-alert-error {
+    background: var(--contact-error-bg);
+    border: 1px solid var(--contact-error);
+    color: var(--contact-error);
+}
+
+.inq-alert-error ul {
+    margin: 6px 0 0;
+    padding-left: 1.2em;
+    list-style: disc;
+}
+
+.inq-alert-error a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.inq-alert-info {
+    background: var(--surface-2);
+    border: 1px solid var(--contact-border);
+    color: var(--contact-muted);
+    font-size: 13px;
+    margin: 24px 0 0;
+}
+
+/* ---------- Secondary button ---------- */
+
+.inq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 22px;
+    border-radius: 10px;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.inq-btn-secondary {
+    background: var(--surface);
+    border: 1px solid var(--contact-border);
+    color: var(--contact-text);
+}
+
+.inq-btn-secondary:hover {
+    border-color: var(--contact-primary);
+    color: var(--contact-primary);
+}
+
+.inq-btn-sm {
+    font-size: 13px;
+    padding: 9px 14px;
+}
+
+.inq-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+/* ---------- Review / done summary ---------- */
+
+.inq-view-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--contact-text);
+    margin-bottom: 6px;
+    outline: none;
+}
+
+.inq-summary {
+    margin: 0;
+    border-top: 1px solid var(--contact-border);
+}
+
+.inq-summary > div {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 16px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--contact-border);
+}
+
+.inq-summary dt {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--contact-muted);
+}
+
+.inq-summary dd {
+    margin: 0;
+    font-size: 14px;
+    color: var(--contact-text);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.inq-empty {
+    color: var(--contact-muted);
+    opacity: 0.7;
+}
+
+.inq-summary-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--contact-text);
+    margin: 32px 0 10px;
+}
+
+/* ---------- Done ---------- */
+
+.inq-done {
+    text-align: center;
+}
+
+.inq-done > p {
+    color: var(--contact-muted);
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto 20px;
+}
+
+.inq-done-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    background: var(--logo-green);
+}
+
+.inq-receipt {
+    display: inline-block;
+    padding: 16px 28px;
+    border: 1px dashed var(--contact-primary);
+    border-radius: 12px;
+    background: var(--contact-bg-soft);
+}
+
+.inq-receipt-label {
+    font-size: 12.5px;
+    color: var(--contact-muted);
+}
+
+.inq-receipt-no {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--contact-text);
+    margin: 2px 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.inq-receipt p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--contact-muted);
 }
 
 /* ---------- Info Sidebar ---------- */
@@ -214,7 +722,7 @@
 }
 
 .contact-info-card h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     font-weight: 600;
     color: var(--contact-text);
@@ -238,10 +746,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: var(--surface);
     color: var(--contact-primary);
     border-radius: 50%;
     transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-social-card .social-icons a i {
+    margin: 0;
+    font-size: 15px;
 }
 
 .contact-social-card .social-icons a:hover {
@@ -261,62 +774,56 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .contact-form-wrapper {
-        padding: 26px;
+        padding: 24px 18px;
     }
 
     .contact-hero {
         padding: 90px 0 50px;
     }
+
+    .inq-summary > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .inq-actions > * {
+        flex: 1 1 100%;
+    }
+
+    .form-group .inq-w-md {
+        max-width: 100%;
+    }
+
+    .inq-steps li {
+        font-size: 12px;
+    }
 }
 
-/* ==========================================
-            DARK MODE
-   Toggled via body.dark (js/utils.js).
-   Only overrides page backgrounds/text —
-   navbar.css colors stay as authored.
-========================================== */
+/* ---------- Print (done screen) ---------- */
 
-body.dark{
+@media print {
+    #site-header,
+    #site-footer,
+    .contact-hero,
+    .contact-info-wrapper,
+    .inq-no-print,
+    .skip-link {
+        display: none !important;
+    }
 
-    background:#0f1115;
-    color:#f3f4f6;
+    .contact-section {
+        padding: 0;
+    }
 
-    --surface:#1a1d24;
-    --surface-2:#20242c;
-    --text:#f3f4f6;
-    --text-muted:#9ca3af;
-    --border:#2d3138;
-    --primary-light:#3f1d1d;
+    .contact-container {
+        display: block;
+    }
 
-}
-
-body.dark header{
-    background:#1a1d24;
-    box-shadow:0 2px 12px rgba(0,0,0,.4);
-}
-
-body.dark .logo{
-    color:#f3f4f6;
-}
-
-body.dark .nav-menu a{
-    color:#f3f4f6;
-}
-
-body.dark #darkModeBtn{
-    background:#20242c;
-    color:#f3f4f6;
-}
-
-body.dark .footer,
-body.dark .footer-bottom{
-    background:#141620;
-    border-color:#2d3138;
-}
-
-body.dark .footer-column p,
-body.dark .footer-column ul li a{
-    color:#9ca3af;
+    .contact-form-wrapper {
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+    }
 }

@@ -15,3 +15,9 @@ services:
         sync: false
       - key: GEMINI_API_KEY
         sync: false
+      # Email backup of every contact-form inquiry (see backend/lib/notify.js).
+      # The free plan has no persistent disk, so this is the permanent copy.
+      - key: RESEND_API_KEY
+        sync: false
+      - key: NOTIFY_EMAIL
+        sync: false

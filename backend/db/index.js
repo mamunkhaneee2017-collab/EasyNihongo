@@ -141,13 +141,86 @@ if (favoritesTopicRow && !favoritesTopicRow.sql.includes("'vocabulary-topic'")) 
     }
 }
 
+// Footer/contact social icons: Facebook, Instagram, YouTube, LinkedIn.
+// Social links start empty — the icons show as "coming soon" placeholders
+// until the site's own accounts exist and are entered in the admin panel.
 db.exec(`
-    INSERT OR IGNORE INTO site_settings (id, site_name, contact_email, social_facebook, social_instagram, social_youtube, social_github)
-    VALUES (1, 'Easy Japanese', 'info@easyjapanese.com',
-        'https://facebook.com/mamun.999.690',
-        'https://instagram.com/mamun.999.690',
-        'https://www.youtube.com/channel/UCQnO_ceT5HFF9UtRC266Ykg',
-        'https://github.com/mamunkhaneee2017-collab');
+    INSERT OR IGNORE INTO site_settings (id, site_name, contact_email)
+    VALUES (1, 'Easy Japanese', 'info@easyjapanese.com');
 `);
+
+// Databases created before LinkedIn replaced GitHub need the new column.
+// Those older databases were also seeded with a personal profile, so clear
+// the old links once, at the same moment (runs a single time per database).
+const settingsColumns = db.prepare("PRAGMA table_info(site_settings)").all().map((c) => c.name);
+if (!settingsColumns.includes("social_linkedin")) {
+    db.exec(`
+        ALTER TABLE site_settings ADD COLUMN social_linkedin TEXT;
+        UPDATE site_settings
+        SET social_facebook = NULL, social_instagram = NULL, social_youtube = NULL, social_github = NULL;
+    `);
+}
+
+// The contact form was rebuilt as a full inquiry system (individual/
+// corporate, furigana, address, receipt number, in-progress status, admin
+// memo). SQLite can't ALTER a CHECK constraint, so an older messages table
+// is rebuilt once: the old `subject` (which held the dropdown topic) moves
+// to `category`, and every existing row keeps its data and gets a receipt
+// number backfilled.
+const { generateInquiryNo } = require("../lib/inquiryNo");
+
+const messagesRow = db
+    .prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'messages'")
+    .get();
+
+if (messagesRow && !messagesRow.sql.includes("'in_progress'")) {
+    db.exec("BEGIN;");
+    try {
+        db.exec(`
+            CREATE TABLE messages_new (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                inquiry_no TEXT UNIQUE,
+                contact_type TEXT NOT NULL CHECK(contact_type IN ('individual','corporate')) DEFAULT 'individual',
+                company TEXT,
+                department TEXT,
+                name TEXT NOT NULL,
+                name_kana TEXT,
+                email TEXT NOT NULL,
+                phone TEXT,
+                postal_code TEXT,
+                prefecture TEXT,
+                address TEXT,
+                category TEXT NOT NULL DEFAULT 'Other',
+                subject TEXT NOT NULL,
+                message TEXT NOT NULL,
+                status TEXT NOT NULL CHECK(status IN ('new','in_progress','replied')) DEFAULT 'new',
+                memo TEXT,
+                reply_text TEXT,
+                replied_at TEXT,
+                updated_at TEXT,
+                created_at TEXT NOT NULL DEFAULT (datetime('now'))
+            );
+            INSERT INTO messages_new (id, name, email, phone, category, subject, message, status, reply_text, replied_at, created_at)
+                SELECT id, name, email, phone, subject, subject, message, status, reply_text, replied_at, created_at FROM messages;
+            DROP TABLE messages;
+            ALTER TABLE messages_new RENAME TO messages;
+        `);
+        const setNo = db.prepare("UPDATE messages SET inquiry_no = ? WHERE id = ?");
+        db.prepare("SELECT id, created_at FROM messages").all().forEach((row) => {
+            setNo.run(generateInquiryNo(new Date(row.created_at.replace(" ", "T") + "Z")), row.id);
+        });
+        db.exec("COMMIT;");
+    } catch (err) {
+        db.exec("ROLLBACK;");
+        throw err;
+    }
+}
+
+// Contact form gained a required Country field. Plain ADD COLUMN (no
+// CHECK involved), so no rebuild needed; older rows simply have NULL.
+const messageColumns = db.prepare("PRAGMA table_info(messages)").all().map((c) => c.name);
+if (!messageColumns.includes("country")) {
+    db.exec("ALTER TABLE messages ADD COLUMN country TEXT;");
+}
 
 module.exports = db;

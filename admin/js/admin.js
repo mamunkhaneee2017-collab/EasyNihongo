@@ -128,6 +128,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // allMessages) against this term. No new fetch, no new endpoint.
     let adminSearchTerm = "";
 
+    // Anything typed by the public (contact form) must go through this
+    // before being placed in innerHTML.
+    function escapeHtml(str) {
+        return String(str ?? "").replace(/[&<>"']/g, (m) => ({
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        })[m]);
+    }
+
+    function initials(name) {
+        return escapeHtml(String(name || "?").split(/\s+/).filter(Boolean).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
+    }
+
     function matchesAdminSearch(...fields) {
         if (!adminSearchTerm) return true;
         const term = adminSearchTerm.toLowerCase();
@@ -188,6 +200,31 @@ document.addEventListener("DOMContentLoaded", function () {
        DASHBOARD OVERVIEW
     ========================================== */
 
+    // Free hosting (Render free) has no persistent disk: the database is
+    // wiped whenever the server sleeps/restarts/redeploys. Say so plainly
+    // above the inbox, with the moment the current data starts from, and
+    // whether every inquiry is also being emailed as a permanent backup.
+    function renderStorageNotice(server) {
+        const box = document.getElementById("storageNotice");
+        if (!box || !server) return;
+        if (server.persistentStorage) { box.hidden = true; return; }
+
+        const since = new Date(server.startedAt).toLocaleString("en-US", {
+            month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit"
+        });
+        box.className = "storage-notice " + (server.emailBackup ? "is-ok" : "is-warn");
+        box.innerHTML = `
+            <i class="fa-solid ${server.emailBackup ? "fa-circle-check" : "fa-triangle-exclamation"}"></i>
+            <div>
+                <strong>Temporary storage — data since ${escapeHtml(since)}</strong>
+                <p>This free server erases its database (messages, accounts, visits) when it sleeps after ~15 minutes without visitors, restarts, or redeploys.
+                ${server.emailBackup
+                    ? "Email backup is <b>ON</b> — every new inquiry is also sent to your inbox, so nothing is lost."
+                    : "Email backup is <b>OFF</b> — inquiries received before a reset are lost. Set <code>RESEND_API_KEY</code> and <code>NOTIFY_EMAIL</code> on the host to get a copy of each one by email."}</p>
+            </div>`;
+        box.hidden = false;
+    }
+
     function loadOverview() {
         fetch("/api/admin/overview", { credentials: "same-origin" })
             .then((res) => res.json())
@@ -196,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("statMaterials").textContent = data.materialCount.toLocaleString();
                 document.getElementById("statUnread").textContent = data.unreadMessages.toLocaleString();
                 document.getElementById("statVisitorsToday").textContent = data.visitorsToday.toLocaleString();
+                renderStorageNotice(data.server);
                 document.getElementById("messagesBadge").textContent = data.unreadMessages;
                 document.getElementById("notifDot").textContent = data.unreadMessages > 0 ? data.unreadMessages : "";
 
@@ -217,10 +255,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 list.innerHTML = recent.length
                     ? recent.map((m) => `
                         <li>
-                            <div class="recent-avatar">${m.name.split(" ").map(w => w[0]).join("").slice(0, 2)}</div>
+                            <div class="recent-avatar">${initials(m.name)}</div>
                             <div class="recent-info">
-                                <strong>${m.name}</strong>
-                                <p>${m.subject}: ${m.message.slice(0, 60)}${m.message.length > 60 ? "…" : ""}</p>
+                                <strong>${escapeHtml(m.name)}</strong>
+                                <p>${escapeHtml(m.subject)}: ${escapeHtml(m.message.slice(0, 60))}${m.message.length > 60 ? "…" : ""}</p>
                             </div>
                             <span class="recent-time">${timeAgo(m.created_at)}</span>
                         </li>
@@ -236,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="notif-item">
                             <i class="fa-solid fa-envelope"></i>
                             <div>
-                                <p><strong>${m.name}</strong> ${m.subject}</p>
+                                <p><strong>${escapeHtml(m.name)}</strong> ${escapeHtml(m.subject)}</p>
                                 <span>${timeAgo(m.created_at)}</span>
                             </div>
                         </div>
@@ -886,113 +924,298 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ==========================================
-       MESSAGES INBOX
+       MESSAGES INBOX (contact-page inquiries)
+       Stats, filters, status + internal memo,
+       reply, delete, CSV export.
     ========================================== */
 
     const messagesList = document.getElementById("messagesList");
     const messageDetail = document.getElementById("messageDetail");
+    const inqSearch = document.getElementById("inqSearch");
+    const inqStatusFilter = document.getElementById("inqStatusFilter");
+    const inqTypeFilter = document.getElementById("inqTypeFilter");
+    const inqSort = document.getElementById("inqSort");
     let allMessages = [];
+    let openMessageId = null;
+
+    const STATUS_META = {
+        new: { label: "New", cls: "badge-new", icon: "🔴" },
+        in_progress: { label: "In progress", cls: "badge-progress", icon: "🟡" },
+        replied: { label: "Done", cls: "badge-replied", icon: "✅" }
+    };
+
+    const CATEGORY_LABELS = {
+        Question: "General Question", Course: "Course / Lesson Help", Account: "Account / Login Issue",
+        Bug: "Bug / Site Problem", Feedback: "Feedback / Suggestion",
+        Business: "Schools / Business / Partnership", Other: "Other"
+    };
+
+    function formatDateTime(sqliteDateTime) {
+        if (!sqliteDateTime) return "";
+        const iso = sqliteDateTime.includes("T") ? sqliteDateTime : sqliteDateTime.replace(" ", "T") + "Z";
+        const d = new Date(iso);
+        if (isNaN(d)) return "";
+        return d.toLocaleString("en-US", { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+    }
+
+    function messageAddress(m) {
+        return [m.postal_code ? `〒${m.postal_code}` : "", m.prefecture, m.address].filter(Boolean).join(" ");
+    }
+
+    function getFilteredMessages() {
+        const keyword = (inqSearch?.value || "").trim().toLowerCase();
+        const list = allMessages.filter((m) => {
+            if (inqStatusFilter?.value && m.status !== inqStatusFilter.value) return false;
+            if (inqTypeFilter?.value && (m.contact_type || "individual") !== inqTypeFilter.value) return false;
+            const hay = [m.inquiry_no, m.name, m.name_kana, m.company, m.email, m.phone, m.country, m.category, m.subject, m.message, m.memo]
+                .join(" ").toLowerCase();
+            if (keyword && !hay.includes(keyword)) return false;
+            if (adminSearchTerm && !hay.includes(adminSearchTerm.toLowerCase())) return false;
+            return true;
+        });
+        list.sort((a, b) => {
+            const d = a.created_at < b.created_at ? -1 : a.created_at > b.created_at ? 1 : a.id - b.id;
+            return inqSort?.value === "asc" ? d : -d;
+        });
+        return list;
+    }
+
+    function renderMessageStats() {
+        const counts = { all: allMessages.length, new: 0, in_progress: 0, replied: 0 };
+        allMessages.forEach((m) => { if (counts[m.status] !== undefined) counts[m.status]++; });
+        Object.entries(counts).forEach(([k, n]) => {
+            const el = document.querySelector(`#inqStats [data-count="${k}"]`);
+            if (el) el.textContent = n.toLocaleString();
+        });
+        document.querySelectorAll("#inqStats .inq-stat").forEach((el) => {
+            el.classList.toggle("active", el.dataset.status === (inqStatusFilter?.value || ""));
+        });
+    }
 
     function renderMessagesList() {
         if (!messagesList) return;
+        renderMessageStats();
 
-        const filtered = allMessages.filter((m) => matchesAdminSearch(m.name, m.subject, m.message));
+        const filtered = getFilteredMessages();
+        const countEl = document.getElementById("inqResultCount");
+        if (countEl) {
+            countEl.textContent = filtered.length === allMessages.length
+                ? `${allMessages.length}`
+                : `${filtered.length} / ${allMessages.length}`;
+        }
 
-        messagesList.innerHTML = filtered.map((m) => `
-            <li class="message-item" data-id="${m.id}">
-                <div class="recent-avatar">${m.name.split(" ").map(w => w[0]).join("").slice(0, 2)}</div>
+        messagesList.innerHTML = filtered.map((m) => {
+            const meta = STATUS_META[m.status] || STATUS_META.new;
+            return `
+            <li class="message-item${m.id === openMessageId ? " active" : ""}${m.status === "new" ? " is-unread" : ""}" data-id="${m.id}" tabindex="0">
+                <div class="recent-avatar">${initials(m.name)}</div>
                 <div class="message-item-info">
                     <div class="message-item-top">
-                        <strong>${m.name}</strong>
-                        <span>${m.status === "new" ? "🔴" : "✅"}</span>
+                        <strong>${escapeHtml(m.name)}${m.company ? ` <small>· ${escapeHtml(m.company)}</small>` : ""}</strong>
+                        <span title="${meta.label}">${meta.icon}</span>
                     </div>
-                    <p>${m.subject}: ${m.message}</p>
+                    <p>${escapeHtml(m.subject)}: ${escapeHtml(m.message)}</p>
+                    <p class="message-item-sub">${escapeHtml(m.inquiry_no || "")} · ${escapeHtml(timeAgo(m.created_at))}</p>
                 </div>
-            </li>
-        `).join("") || `<li class="empty-state">No messages yet.</li>`;
+            </li>`;
+        }).join("") || `<li class="empty-state">${allMessages.length ? "No inquiries match these filters." : "No messages yet."}</li>`;
 
         messagesList.querySelectorAll(".message-item").forEach((item) => {
-            item.addEventListener("click", () => openMessage(parseInt(item.dataset.id, 10)));
+            const open = () => openMessage(parseInt(item.dataset.id, 10));
+            item.addEventListener("click", open);
+            item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+            });
         });
+    }
+
+    function patchMessage(id, body) {
+        return fetch(`/api/admin/messages/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            credentials: "same-origin",
+            body: JSON.stringify(body)
+        })
+            .then((res) => res.json().then((data) => {
+                if (!res.ok) throw new Error(data.error || "Update failed.");
+                return data;
+            }))
+            .then((data) => {
+                const m = allMessages.find((x) => x.id === id);
+                if (m) Object.assign(m, data.message);
+                loadOverview();
+                renderMessagesList();
+                openMessage(id);
+                return data.message;
+            });
     }
 
     function openMessage(id) {
         const m = allMessages.find((msg) => msg.id === id);
         if (!m) return;
+        openMessageId = id;
 
         messagesList.querySelectorAll(".message-item").forEach((el) => {
             el.classList.toggle("active", parseInt(el.dataset.id, 10) === id);
         });
 
-        const statusBadge = m.status === "new"
-            ? '<span class="badge badge-new">New</span>'
-            : '<span class="badge badge-replied">Replied</span>';
+        const meta = STATUS_META[m.status] || STATUS_META.new;
+        const isCorp = m.contact_type === "corporate";
+
+        const rows = [
+            ["Receipt no.", m.inquiry_no],
+            ["Received", formatDateTime(m.created_at)],
+            ["Type", isCorp ? "Organization" : "Individual"],
+            ["Company / Dept.", [m.company, m.department].filter(Boolean).join(" / ")],
+            ["Name", m.name_kana ? `${m.name}（${m.name_kana}）` : m.name],
+            ["Email", m.email],
+            ["Phone", m.phone],
+            ["Country", m.country],
+            ["Address", messageAddress(m)],
+            ["Topic", CATEGORY_LABELS[m.category] || m.category],
+            ["Subject", m.subject],
+            ["Last updated", formatDateTime(m.updated_at)]
+        ].filter(([, v]) => v);
+
+        const mailSubject = encodeURIComponent(`Re: ${m.subject} [${m.inquiry_no || ""}]`);
+        const mailBody = encodeURIComponent(
+            `${m.company ? m.company + "\n" : ""}Dear ${m.name},\n\nThank you for contacting Easy Japanese.\n\n\n----------\n${m.message}`
+        );
 
         messageDetail.innerHTML = `
             <div class="message-detail-header">
                 <div>
-                    <h3>${m.name} ${statusBadge}</h3>
+                    <h3>${escapeHtml(m.name)} <span class="badge ${meta.cls}">${meta.label}</span></h3>
                     <div class="message-detail-meta">
-                        <span><i class="fa-solid fa-envelope"></i> ${m.email}</span>
-                        <span><i class="fa-solid fa-phone"></i> ${m.phone || "—"}</span>
-                        <span><i class="fa-solid fa-tag"></i> ${m.subject}</span>
-                        <span><i class="fa-regular fa-clock"></i> ${formatDate(m.created_at)}</span>
+                        <span><i class="fa-solid fa-hashtag"></i> ${escapeHtml(m.inquiry_no || "—")}</span>
+                        <span><i class="fa-solid fa-envelope"></i> ${escapeHtml(m.email)}</span>
+                        <span><i class="fa-regular fa-clock"></i> ${escapeHtml(formatDateTime(m.created_at))}</span>
                     </div>
                 </div>
-                <a class="btn btn-outline" href="mailto:${m.email}?subject=Re: ${encodeURIComponent(m.subject)}">
-                    <i class="fa-solid fa-envelope-open-text"></i> Open in Gmail
+                <a class="btn btn-outline" href="mailto:${encodeURIComponent(m.email)}?subject=${mailSubject}&body=${mailBody}">
+                    <i class="fa-solid fa-envelope-open-text"></i> Reply by email
                 </a>
             </div>
-            <div class="message-detail-body">${m.message}</div>
-            <div class="reply-box">
-                <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px;">Reply to ${m.name}</label>
-                <textarea id="replyText" placeholder="Type your reply here...">${m.reply_text || ""}</textarea>
+
+            <dl class="inq-detail-list">
+                ${rows.map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join("")}
+            </dl>
+
+            <div class="message-detail-body">${escapeHtml(m.message)}</div>
+
+            <div class="inq-manage">
+                <div class="inq-manage-row">
+                    <label for="inqStatusSelect">Status</label>
+                    <select id="inqStatusSelect">
+                        ${Object.entries(STATUS_META).map(([k, s]) => `<option value="${k}"${k === m.status ? " selected" : ""}>${s.label}</option>`).join("")}
+                    </select>
+                </div>
+                <label for="inqMemo">Internal memo <small>(never shown to the sender)</small></label>
+                <textarea id="inqMemo" placeholder="Notes for the team…">${escapeHtml(m.memo || "")}</textarea>
                 <div class="reply-actions">
-                    <button class="btn btn-primary" id="sendReplyBtn"><i class="fa-solid fa-paper-plane"></i> Send Reply</button>
-                    <button class="btn btn-outline" id="markRepliedBtn">Mark as Replied</button>
+                    <button class="btn btn-primary" id="inqSaveBtn"><i class="fa-solid fa-floppy-disk"></i> Save status &amp; memo</button>
+                    <span class="inq-save-status" id="inqSaveStatus" role="status"></span>
+                </div>
+            </div>
+
+            <div class="reply-box">
+                <label style="font-size:13px;font-weight:600;display:block;margin-bottom:8px;">Reply to ${escapeHtml(m.name)}</label>
+                <textarea id="replyText" placeholder="Type your reply here...">${escapeHtml(m.reply_text || "")}</textarea>
+                <div class="reply-actions">
+                    <button class="btn btn-primary" id="sendReplyBtn"><i class="fa-solid fa-paper-plane"></i> Save Reply</button>
+                    <button class="btn btn-outline" id="markRepliedBtn">Mark as Done</button>
+                    <button class="btn btn-outline inq-delete-btn" id="inqDeleteBtn"><i class="fa-solid fa-trash"></i> Delete</button>
                 </div>
             </div>
         `;
 
+        document.getElementById("inqSaveBtn").addEventListener("click", () => {
+            const status = document.getElementById("inqStatusSelect").value;
+            const memo = document.getElementById("inqMemo").value;
+            patchMessage(id, { status, memo })
+                .then(() => {
+                    const s = document.getElementById("inqSaveStatus");
+                    if (s) s.textContent = "Saved.";
+                })
+                .catch((err) => alert(err.message));
+        });
+
         document.getElementById("markRepliedBtn").addEventListener("click", () => {
-            fetch(`/api/admin/messages/${id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                credentials: "same-origin",
-                body: JSON.stringify({ markReplied: true })
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    Object.assign(m, data.message);
-                    loadOverview();
-                    renderMessagesList();
-                    openMessage(id);
-                });
+            patchMessage(id, { markReplied: true }).catch((err) => alert(err.message));
         });
 
         document.getElementById("sendReplyBtn").addEventListener("click", () => {
             const replyText = document.getElementById("replyText").value.trim();
             if (!replyText) return;
+            patchMessage(id, { replyText })
+                .then(() => alert(
+                    "Reply saved. Note: no SMTP email service is configured yet, so " +
+                    m.name + " will not automatically receive this by email — use \"Reply by email\" to send it yourself for now."
+                ))
+                .catch((err) => alert(err.message));
+        });
 
-            fetch(`/api/admin/messages/${id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                credentials: "same-origin",
-                body: JSON.stringify({ replyText })
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    Object.assign(m, data.message);
+        document.getElementById("inqDeleteBtn").addEventListener("click", () => {
+            if (!confirm(`Delete the inquiry from ${m.name} (${m.inquiry_no || "#" + m.id})?\nThis cannot be undone.`)) return;
+            fetch(`/api/admin/messages/${id}`, { method: "DELETE", credentials: "same-origin" })
+                .then((res) => {
+                    if (!res.ok) throw new Error("Delete failed.");
+                    allMessages = allMessages.filter((x) => x.id !== id);
+                    openMessageId = null;
+                    messageDetail.innerHTML = `<p class="empty-state">Select a message from the inbox to read and reply.</p>`;
                     loadOverview();
                     renderMessagesList();
-                    openMessage(id);
-                    alert(
-                        "Reply saved. Note: no SMTP email service is configured yet, so " +
-                        m.name + " will not automatically receive this by email — use \"Open in Gmail\" to send it yourself for now."
-                    );
-                });
+                })
+                .catch((err) => alert(err.message));
         });
     }
+
+    // Exports exactly what the current filters show.
+    function exportMessagesCsv() {
+        const list = getFilteredMessages();
+        if (!list.length) { alert("Nothing to export."); return; }
+
+        const headers = ["Receipt no.", "Received", "Status", "Type", "Company", "Department", "Name", "Furigana",
+            "Email", "Phone", "Country", "Postal code", "Prefecture", "Address", "Topic", "Subject", "Message", "Internal memo", "Reply"];
+        const rows = list.map((m) => [
+            m.inquiry_no, formatDateTime(m.created_at), (STATUS_META[m.status] || {}).label || m.status,
+            m.contact_type === "corporate" ? "Organization" : "Individual", m.company, m.department, m.name, m.name_kana,
+            m.email, m.phone, m.country, m.postal_code, m.prefecture, m.address, CATEGORY_LABELS[m.category] || m.category,
+            m.subject, m.message, m.memo, m.reply_text
+        ]);
+
+        // Neutralise spreadsheet formula injection (= + - @ at the start of a cell).
+        const cell = (v) => {
+            let s = String(v ?? "");
+            if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+            return `"${s.replace(/"/g, '""')}"`;
+        };
+        const csv = [headers, ...rows].map((r) => r.map(cell).join(",")).join("\r\n");
+
+        const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const d = new Date();
+        a.href = url;
+        a.download = `inquiries_${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    }
+
+    [inqSearch, inqStatusFilter, inqTypeFilter, inqSort].forEach((el) => {
+        if (el) el.addEventListener("input", renderMessagesList);
+    });
+
+    document.getElementById("inqStats")?.addEventListener("click", (e) => {
+        const card = e.target.closest(".inq-stat");
+        if (!card || !inqStatusFilter) return;
+        inqStatusFilter.value = card.dataset.status;
+        renderMessagesList();
+    });
+
+    document.getElementById("inqCsvBtn")?.addEventListener("click", exportMessagesCsv);
 
     function loadMessages() {
         fetch("/api/admin/messages", { credentials: "same-origin" })
@@ -1130,7 +1353,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("socialFacebookInput").value = s.social_facebook || "";
                 document.getElementById("socialInstagramInput").value = s.social_instagram || "";
                 document.getElementById("socialYoutubeInput").value = s.social_youtube || "";
-                document.getElementById("socialGithubInput").value = s.social_github || "";
+                document.getElementById("socialLinkedinInput").value = s.social_linkedin || "";
             });
 
         authCheckPromise.then((user) => {
@@ -1155,7 +1378,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     socialFacebook: document.getElementById("socialFacebookInput").value.trim(),
                     socialInstagram: document.getElementById("socialInstagramInput").value.trim(),
                     socialYoutube: document.getElementById("socialYoutubeInput").value.trim(),
-                    socialGithub: document.getElementById("socialGithubInput").value.trim()
+                    socialLinkedin: document.getElementById("socialLinkedinInput").value.trim()
                 })
             })
                 .then(async (res) => {

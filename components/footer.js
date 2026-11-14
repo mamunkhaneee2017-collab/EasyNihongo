@@ -11,6 +11,16 @@
      <script src="../components/footer.js"></script>     (from pages/*.html)
 ========================================== */
 
+function activateSocialLink(id, url) {
+    const link = document.getElementById(id);
+    if (!link || !url) return;
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.classList.remove("is-placeholder");
+    link.removeAttribute("title");
+}
+
 (function () {
 
     // See components/header.js for why this reads the actual browser URL
@@ -71,10 +81,10 @@
             <h4 data-i18n="footer.followUs">Follow us for more updates</h4>
 
             <div class="social-icons">
-                <a id="socialFacebook" href="https://facebook.com/mamun.999.690" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                <a id="socialInstagram" href="https://instagram.com/mamun.999.690" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                <a id="socialYoutube" href="https://www.youtube.com/channel/UCQnO_ceT5HFF9UtRC266Ykg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                <a id="socialGithub" href="https://github.com/mamunkhaneee2017-collab" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a id="socialFacebook" href="#" class="is-placeholder" aria-label="Facebook" title="Coming soon"><i class="fab fa-facebook-f"></i></a>
+                <a id="socialInstagram" href="#" class="is-placeholder" aria-label="Instagram" title="Coming soon"><i class="fab fa-instagram"></i></a>
+                <a id="socialYoutube" href="#" class="is-placeholder" aria-label="YouTube" title="Coming soon"><i class="fab fa-youtube"></i></a>
+                <a id="socialLinkedin" href="#" class="is-placeholder" aria-label="LinkedIn" title="Coming soon"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 
@@ -113,11 +123,17 @@
             }
 
             const social = settings.social || {};
-            if (social.facebook) document.getElementById("socialFacebook")?.setAttribute("href", social.facebook);
-            if (social.instagram) document.getElementById("socialInstagram")?.setAttribute("href", social.instagram);
-            if (social.youtube) document.getElementById("socialYoutube")?.setAttribute("href", social.youtube);
-            if (social.github) document.getElementById("socialGithub")?.setAttribute("href", social.github);
+            activateSocialLink("socialFacebook", social.facebook);
+            activateSocialLink("socialInstagram", social.instagram);
+            activateSocialLink("socialYoutube", social.youtube);
+            activateSocialLink("socialLinkedin", social.linkedin);
         })
         .catch(() => {});
+
+    // Social icons are placeholders ("Coming soon", click does nothing)
+    // until a real URL is saved in the admin panel's Site Info settings.
+    document.addEventListener("click", (e) => {
+        if (e.target.closest(".social-icons a.is-placeholder")) e.preventDefault();
+    });
 
 })();

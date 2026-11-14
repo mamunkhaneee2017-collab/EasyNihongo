@@ -490,7 +490,36 @@
 
                     <div class="view-header">
                         <h1>Messages</h1>
-                        <p>Questions and comments submitted through the Contact page.</p>
+                        <p>Inquiries submitted through the Contact page — track status, keep internal notes, export to CSV.</p>
+                    </div>
+
+                    <div class="storage-notice" id="storageNotice" role="status" hidden></div>
+
+                    <div class="inq-stats" id="inqStats">
+                        <button type="button" class="inq-stat" data-status=""><span>All</span><strong data-count="all">0</strong></button>
+                        <button type="button" class="inq-stat" data-status="new"><span>New</span><strong data-count="new" class="c-new">0</strong></button>
+                        <button type="button" class="inq-stat" data-status="in_progress"><span>In progress</span><strong data-count="in_progress" class="c-progress">0</strong></button>
+                        <button type="button" class="inq-stat" data-status="replied"><span>Done</span><strong data-count="replied" class="c-done">0</strong></button>
+                    </div>
+
+                    <div class="inq-toolbar">
+                        <input type="search" id="inqSearch" placeholder="Search name, email, subject, message, receipt no…" aria-label="Search inquiries">
+                        <select id="inqStatusFilter" aria-label="Status">
+                            <option value="">All statuses</option>
+                            <option value="new">New</option>
+                            <option value="in_progress">In progress</option>
+                            <option value="replied">Done</option>
+                        </select>
+                        <select id="inqTypeFilter" aria-label="Inquiry type">
+                            <option value="">Individual &amp; organization</option>
+                            <option value="individual">Individual</option>
+                            <option value="corporate">Organization</option>
+                        </select>
+                        <select id="inqSort" aria-label="Sort">
+                            <option value="desc">Newest first</option>
+                            <option value="asc">Oldest first</option>
+                        </select>
+                        <button type="button" class="btn btn-outline" id="inqCsvBtn"><i class="fa-solid fa-file-csv"></i> CSV</button>
                     </div>
 
                     <div class="messages-layout">
@@ -498,6 +527,7 @@
                         <div class="admin-card messages-list-card">
                             <div class="admin-card-header">
                                 <h3>Inbox</h3>
+                                <span class="inq-result-count" id="inqResultCount"></span>
                             </div>
                             <ul class="messages-list" id="messagesList">
                                 <!-- Rows injected by admin.js -->
@@ -646,8 +676,8 @@
                                     <input type="url" id="socialYoutubeInput" placeholder="https://youtube.com/...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="socialGithubInput">GitHub URL</label>
-                                    <input type="url" id="socialGithubInput" placeholder="https://github.com/...">
+                                    <label for="socialLinkedinInput">LinkedIn URL</label>
+                                    <input type="url" id="socialLinkedinInput" placeholder="https://linkedin.com/...">
                                 </div>
                                 <button class="btn btn-primary" id="saveSiteInfoBtn">Save Changes</button>
                                 <p id="siteSettingsStatus" class="settings-save-status"></p>

@@ -69,19 +69,19 @@
 
         <div class="course-stats">
             <div class="stat-card reveal" data-anim="scale" data-delay="0">
-                <h2><span class="counter" data-target="5">0</span></h2>
+                <h2 data-stat="levels">—</h2>
                 <span data-i18n="courses.stat.levels">JLPT Levels</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="80">
-                <h2><span class="counter" data-target="620">0</span><span class="plus">+</span></h2>
+                <h2 data-stat="lessons">—</h2>
                 <span data-i18n="courses.stat.lessons">Lessons</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="160">
-                <h2><span class="counter" data-target="220">0</span><span class="plus">+</span></h2>
+                <h2 data-stat="studyHours">—</h2>
                 <span data-i18n="courses.stat.hours">Study Hours</span>
             </div>
             <div class="stat-card reveal" data-anim="scale" data-delay="240">
-                <h2><span class="counter" data-target="10">0</span><span class="plus">K+</span></h2>
+                <h2 data-stat="students">—</h2>
                 <span data-i18n="courses.stat.students">Students</span>
             </div>
         </div>
@@ -280,14 +280,14 @@
                 <span data-i18n="courses.path.n4">Everyday Conversation</span>
             </div>
 
-            <div class="path-step reveal locked-step" data-anim="fade-up" data-delay="160">
-                <div class="path-dot"><i class="fa-solid fa-lock"></i></div>
+            <div class="path-step reveal" data-anim="fade-up" data-delay="160">
+                <div class="path-dot">3</div>
                 <h3>N3</h3>
                 <span data-i18n="courses.path.n3">Intermediate Fluency</span>
             </div>
 
-            <div class="path-step reveal locked-step" data-anim="fade-up" data-delay="240">
-                <div class="path-dot"><i class="fa-solid fa-lock"></i></div>
+            <div class="path-step reveal" data-anim="fade-up" data-delay="240">
+                <div class="path-dot">4</div>
                 <h3>N2</h3>
                 <span data-i18n="courses.path.n2">Business &amp; News</span>
             </div>
@@ -320,6 +320,8 @@
 <script src="../locales/ne.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/utils.js"></script>
+<script src="../data/site-stats.js"></script>
+<script src="../js/site-stats.js"></script>
 
 </body>
 

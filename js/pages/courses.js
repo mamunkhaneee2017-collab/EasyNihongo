@@ -53,7 +53,7 @@
         <p>${c.description}</p>
 
         <div class="info">
-            <span><i class="fa-solid fa-book"></i> ${c.lessons} Lessons</span>
+            <span><i class="fa-solid fa-book"></i> <span data-stat="perLevel.${c.level}.lessons">—</span> Lessons</span>
             <span><i class="fa-regular fa-clock"></i> ${c.hours} Hours</span>
         </div>
 

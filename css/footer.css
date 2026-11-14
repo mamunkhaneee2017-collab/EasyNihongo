@@ -232,3 +232,8 @@
     box-shadow:0 8px 20px rgba(239,68,68,.3);
 
 }
+
+/* Social icon with no real account linked yet (see components/footer.js). */
+.social-icons a.is-placeholder{
+    cursor:default;
+}

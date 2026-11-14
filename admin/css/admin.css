@@ -1149,6 +1149,275 @@ button {
     color: var(--admin-primary);
 }
 
+/* ---------- Free-hosting storage notice (Messages view) ---------- */
+
+.storage-notice {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.storage-notice[hidden] {
+    display: none;
+}
+
+.storage-notice i {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.storage-notice p {
+    margin: 2px 0 0;
+    color: var(--admin-text);
+}
+
+.storage-notice code {
+    font-size: 12px;
+    background: var(--admin-bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+.storage-notice.is-warn {
+    background: rgba(217, 119, 6, 0.08);
+    border-color: rgba(217, 119, 6, 0.4);
+}
+
+.storage-notice.is-warn i,
+.storage-notice.is-warn strong {
+    color: var(--admin-yellow);
+}
+
+.storage-notice.is-ok {
+    background: rgba(22, 163, 74, 0.08);
+    border-color: rgba(22, 163, 74, 0.4);
+}
+
+.storage-notice.is-ok i,
+.storage-notice.is-ok strong {
+    color: var(--admin-green);
+}
+
+/* ---------- Inquiry inbox: stats / toolbar / detail ---------- */
+
+.badge-progress { background: #fef6e7; color: var(--admin-yellow); }
+
+.inq-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.inq-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 14px 16px;
+    background: var(--admin-card-bg);
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: var(--admin-text);
+    text-align: left;
+    transition: border-color 0.15s ease;
+}
+
+.inq-stat span {
+    font-size: 12px;
+    color: var(--admin-muted);
+}
+
+.inq-stat strong {
+    font-size: 22px;
+}
+
+.inq-stat .c-new { color: var(--admin-primary); }
+.inq-stat .c-progress { color: var(--admin-yellow); }
+.inq-stat .c-done { color: var(--admin-green); }
+
+.inq-stat:hover,
+.inq-stat.active {
+    border-color: var(--admin-primary);
+}
+
+.inq-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.inq-toolbar input,
+.inq-toolbar select {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--admin-border);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    background: var(--admin-card-bg);
+    color: var(--admin-text);
+}
+
+.inq-toolbar input {
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.inq-result-count {
+    font-size: 12px;
+    color: var(--admin-muted);
+}
+
+.message-item.is-unread .message-item-top strong {
+    color: var(--admin-primary);
+}
+
+.message-item-top small {
+    font-weight: 400;
+    color: var(--admin-muted);
+}
+
+.message-item-info p.message-item-sub {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.inq-detail-list {
+    margin: 0 0 18px;
+    font-size: 13px;
+}
+
+.inq-detail-list > div {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--admin-border);
+}
+
+.inq-detail-list dt {
+    color: var(--admin-muted);
+    font-weight: 600;
+}
+
+.inq-detail-list dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.message-detail-body {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: var(--admin-bg);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.inq-manage {
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.inq-manage label {
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.inq-manage label small {
+    font-weight: 400;
+    color: var(--admin-muted);
+}
+
+.inq-manage-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.inq-manage-row label {
+    margin: 0;
+}
+
+.inq-manage select,
+.inq-manage textarea {
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    background: var(--admin-card-bg);
+    color: var(--admin-text);
+    outline: none;
+}
+
+.inq-manage select {
+    padding: 8px 12px;
+}
+
+.inq-manage textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px;
+    resize: vertical;
+}
+
+.inq-manage select:focus,
+.inq-manage textarea:focus {
+    border-color: var(--admin-primary);
+}
+
+.inq-save-status {
+    font-size: 13px;
+    color: var(--admin-green);
+    align-self: center;
+}
+
+.reply-actions {
+    flex-wrap: wrap;
+}
+
+.inq-delete-btn {
+    margin-left: auto;
+}
+
+.inq-delete-btn:hover {
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
+@media (max-width: 700px) {
+    .inq-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .message-detail-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .inq-detail-list > div {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .inq-delete-btn {
+        margin-left: 0;
+    }
+}
+
 /* ================= SETTINGS ================= */
 
 .settings-form {

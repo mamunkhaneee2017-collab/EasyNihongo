@@ -8,12 +8,11 @@ router.get("/", (req, res) => {
     res.json({
         siteName: settings.site_name,
         contactEmail: settings.contact_email,
-        supportPhone: settings.support_phone,
         social: {
             facebook: settings.social_facebook,
             instagram: settings.social_instagram,
             youtube: settings.social_youtube,
-            github: settings.social_github
+            linkedin: settings.social_linkedin
         }
     });
 });

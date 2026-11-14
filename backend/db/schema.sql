@@ -93,16 +93,31 @@ CREATE TABLE IF NOT EXISTS materials (
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Contact-page inquiries. `category` is the topic picked from the
+-- dropdown (Question/Course/...), `subject` is the free-text title.
+-- status: new (未対応) → in_progress (対応中) → replied (完了).
 CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    inquiry_no TEXT UNIQUE,
+    contact_type TEXT NOT NULL CHECK(contact_type IN ('individual','corporate')) DEFAULT 'individual',
+    company TEXT,
+    department TEXT,
     name TEXT NOT NULL,
+    name_kana TEXT,
     email TEXT NOT NULL,
     phone TEXT,
+    country TEXT,
+    postal_code TEXT,
+    prefecture TEXT,
+    address TEXT,
+    category TEXT NOT NULL DEFAULT 'Other',
     subject TEXT NOT NULL,
     message TEXT NOT NULL,
-    status TEXT NOT NULL CHECK(status IN ('new','replied')) DEFAULT 'new',
+    status TEXT NOT NULL CHECK(status IN ('new','in_progress','replied')) DEFAULT 'new',
+    memo TEXT,
     reply_text TEXT,
     replied_at TEXT,
+    updated_at TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -149,7 +164,7 @@ CREATE TABLE IF NOT EXISTS site_settings (
     social_facebook TEXT,
     social_instagram TEXT,
     social_youtube TEXT,
-    social_github TEXT,
+    social_linkedin TEXT,
     maintenance_mode INTEGER NOT NULL DEFAULT 0,
     notify_admin_on_message INTEGER NOT NULL DEFAULT 1
 );

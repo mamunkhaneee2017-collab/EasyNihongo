@@ -44,6 +44,10 @@ window.EasyNihongoI18n = (function () {
 
         document.documentElement.lang = STRINGS[lang] ? lang : "en";
 
+        // Lets page scripts re-render text they build in JS (validation
+        // messages, summaries) — see js/pages/contact.js.
+        document.dispatchEvent(new CustomEvent("i18n:change", { detail: { lang } }));
+
     }
 
     function setLanguage(lang) {

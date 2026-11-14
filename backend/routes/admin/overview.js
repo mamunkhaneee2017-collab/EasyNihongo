@@ -1,6 +1,13 @@
 const express = require("express");
 const db = require("../../db");
 const requireAdmin = require("../../middleware/requireAdmin");
+const { isEmailBackupConfigured } = require("../../lib/notify");
+
+// When this server process started. On a host without a persistent disk
+// (Render free) the database is fresh from this moment, so the admin panel
+// shows it next to the inbox. Set PERSISTENT_STORAGE=true once the
+// database lives on a real disk/volume to hide that warning.
+const SERVER_STARTED_AT = new Date().toISOString();
 
 const router = express.Router();
 
@@ -42,7 +49,12 @@ router.get("/", (req, res) => {
         materialCount,
         unreadMessages,
         visitorsToday,
-        weeklyVisits
+        weeklyVisits,
+        server: {
+            startedAt: SERVER_STARTED_AT,
+            persistentStorage: process.env.PERSISTENT_STORAGE === "true",
+            emailBackup: isEmailBackupConfigured()
+        }
     });
 });
 
